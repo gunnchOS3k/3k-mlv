@@ -1,0 +1,26 @@
+{
+  "name": "@gunnch/input",
+  "version": "1.0.0",
+  "description": "Gamepad input abstraction for web games with DualSense and Switch Pro support",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "clean": "rm -rf dist"
+  },
+  "keywords": ["gamepad", "input", "dualsense", "switch", "web", "gaming"],
+  "author": "gunnchOS3k",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^5.3.0",
+    "@types/node": "^20.10.0"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  }
+}
