@@ -1,3 +1,4 @@
+import path from 'node:path';
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import { VitePWA } from 'vite-plugin-pwa';
@@ -47,6 +48,11 @@ export default defineConfig({
       }
     })
   ],
+  resolve: {
+    alias: {
+      '@3k-mlv/shared': path.resolve(__dirname, '../../packages/shared/src/index.ts'),
+    },
+  },
   base: '/3k-mlv/',
   build: {
     sourcemap: false,

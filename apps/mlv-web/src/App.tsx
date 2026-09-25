@@ -1,242 +1,241 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useMemo, useState } from 'react';
+import {
+  isSupabaseConfigured,
+  parseMlvDeepLink,
+  supabase,
+  useAuth,
+  useMlvWorkspace,
+  type MlvNode,
+  type MlvWorldPlacement,
+  type Project,
+} from '@3k-mlv/shared';
 import World from './three/World';
 import Phone from './ui/Phone';
-// import { useAuth, useProjects, supabase } from '@3k-mlv/shared';
-// import type { Project } from '@3k-mlv/shared';
+import ListWorkspace from './ui/ListWorkspace';
+import FileViewer from './ui/FileViewer';
+import { createBrowserWorkspace } from './workspace/browserStore';
+import { describeOffline } from './workspace/offline';
 
-// Temporary types and functions
-interface Project {
-  id: string;
-  title: string;
-  blurb?: string;
-  tags: string[];
-  demo_url?: string;
-  repo_url?: string;
-  video_url?: string;
-}
+type SessionUser = { id: string; email?: string; user_metadata?: { full_name?: string } };
 
-const useAuth = () => ({
-  signInWithGitHub: async () => ({ data: null, error: null }),
-  signOut: async () => ({ error: null })
-});
-
-const useProjects = () => ({
-  getProjects: async (_userId: string) => []
-});
-
-const supabase = {
-  auth: {
-    getSession: async () => ({ data: { session: null as any } }),
-    onAuthStateChange: (_callback: any) => ({ data: { subscription: { unsubscribe: () => {} } } })
-  }
-};
-
-function App() {
-  const [isSignedIn, setIsSignedIn] = useState(false);
-  const [isPhoneOpen, setIsPhoneOpen] = useState(false);
+export default function App() {
+  const [user, setUser] = useState<SessionUser | null>(null);
+  const [phoneOpen, setPhoneOpen] = useState(false);
+  const [listOpen, setListOpen] = useState(true);
   const [projects, setProjects] = useState<Project[]>([]);
-  const [currentProject] = useState<Project | null>(null);
-  const [user, setUser] = useState<any>(null);
+  const [nodes, setNodes] = useState<MlvNode[]>([]);
+  const [placements, setPlacements] = useState<MlvWorldPlacement[]>([]);
+  const [homeTheme, setHomeTheme] = useState('cozy');
+  const [viewer, setViewer] = useState<{ node: MlvNode; blob: Blob | null } | null>(null);
+  const [status, setStatus] = useState('');
+  const [route, setRoute] = useState(() => parseMlvDeepLink(window.location.hash || window.location.href));
 
   const { signInWithGitHub, signOut } = useAuth();
-  const { getProjects } = useProjects();
+  const remote = useMlvWorkspace();
+  const local = useMemo(() => createBrowserWorkspace(), []);
 
   useEffect(() => {
-    // Check if user is signed in
-    const checkAuth = async () => {
+    const onHash = () => setRoute(parseMlvDeepLink(window.location.hash || window.location.href));
+    window.addEventListener('hashchange', onHash);
+    return () => window.removeEventListener('hashchange', onHash);
+  }, []);
+
+  useEffect(() => {
+    let unsubscribe = () => {};
+    const boot = async () => {
       const { data: { session } } = await supabase.auth.getSession();
-      if (session && session.user) {
-        setIsSignedIn(true);
-        setUser(session.user);
-        loadUserData(session.user.id);
+      if (session?.user) {
+        setUser(session.user as SessionUser);
+        await loadWorkspace(session.user as SessionUser);
       }
     };
-
-    checkAuth();
-
-    // Listen for auth changes
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event: any, session: any) => {
-      if (session) {
-        setIsSignedIn(true);
-        setUser(session.user);
-        loadUserData(session.user.id);
+    boot();
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+      if (session?.user) {
+        setUser(session.user as SessionUser);
+        loadWorkspace(session.user as SessionUser);
       } else {
-        setIsSignedIn(false);
         setUser(null);
+        setNodes([]);
+        setPlacements([]);
         setProjects([]);
       }
     });
-
-    return () => subscription.unsubscribe();
+    unsubscribe = () => subscription.unsubscribe();
+    return () => unsubscribe();
   }, []);
 
-  const loadUserData = async (userId: string) => {
-    try {
-      const userProjects = await getProjects(userId);
-      setProjects(userProjects);
-    } catch (error) {
-      console.error('Error loading user data:', error);
+  const loadWorkspace = async (sessionUser: SessionUser) => {
+    const instance = local.ensurePlayerInstance(sessionUser.id);
+    setHomeTheme(instance.home_theme);
+    refreshLocal(sessionUser);
+    if (!isSupabaseConfigured) {
+      setStatus('Local prototype store. Supabase is not configured — owner-only isolation still applies in-memory.');
+      return;
     }
-  };
-
-  const handleHouseClick = (_houseId: string) => {
-    setIsPhoneOpen(true);
-  };
-
-  const handleSignIn = async () => {
-    try {
-      await signInWithGitHub();
-    } catch (error) {
-      console.error('Sign in error:', error);
+    const { error } = await remote.ensurePlayerInstance();
+    if (error) {
+      setStatus(`Signed in. Player instance RPC unavailable yet (${error.message}). Using local private store.`);
+      return;
     }
-  };
-
-  const handleSignOut = async () => {
-    try {
-      await signOut();
-    } catch (error) {
-      console.error('Sign out error:', error);
+    const listed = await remote.listOwnNodes();
+    if (!listed.error && listed.data.length) {
+      setNodes(listed.data as MlvNode[]);
     }
+    setStatus('Signed in. New uploads default PRIVATE.');
   };
 
-  if (!isSignedIn) {
+  const refreshLocal = (sessionUser: SessionUser) => {
+    setNodes(local.listVisible(sessionUser, sessionUser.id));
+    setPlacements(local.listPlacements(sessionUser, sessionUser.id));
+  };
+
+  const actor = user ? { id: user.id } : null;
+
+  const handleUpload = async (file: File) => {
+    if (!actor) return;
+    const result = await local.uploadPrivate(actor, file);
+    if (!result.ok) {
+      setStatus(`Upload blocked: ${result.reason}`);
+      return;
+    }
+    refreshLocal({ id: actor.id });
+    setStatus(`${file.name} saved PRIVATE on your desk.`);
+  };
+
+  const handleShare = async (node: MlvNode) => {
+    if (!actor) return;
+    const result = await local.share(actor, node.id);
+    if (!result.ok) return;
+    refreshLocal({ id: actor.id });
+    const link = `gunnchos://mlv/share/${result.token}`;
+    await navigator.clipboard?.writeText(link).catch(() => undefined);
+    setStatus('Unlisted share link copied. It is not in public discovery.');
+  };
+
+  const handlePublish = (node: MlvNode) => {
+    if (!actor) return;
+    const confirmed = window.confirm(`Publish "${node.name}"? It will become publicly discoverable.`);
+    const result = local.publish(actor, node.id, confirmed);
+    if (!result.ok) {
+      setStatus('Publish cancelled. Node stays private.');
+      return;
+    }
+    refreshLocal({ id: actor.id });
+    setStatus(`${node.name} is PUBLIC.`);
+  };
+
+  const handleMakePrivate = (node: MlvNode) => {
+    if (!actor) return;
+    local.unpublish(actor, node.id);
+    refreshLocal({ id: actor.id });
+    setStatus(`${node.name} is PRIVATE again. Public access and share links were revoked.`);
+  };
+
+  const handleRename = (node: MlvNode) => {
+    if (!actor) return;
+    const name = window.prompt('Rename file', node.name);
+    if (!name) return;
+    local.mutate(actor, node.id, { name });
+    refreshLocal({ id: actor.id });
+  };
+
+  const handleDelete = (node: MlvNode) => {
+    if (!actor) return;
+    local.mutate(actor, node.id, { deleted_at: new Date().toISOString() });
+    refreshLocal({ id: actor.id });
+  };
+
+  const handleOpen = (node: MlvNode) => {
+    const blob = actor ? local.blobFor(actor, node.id) : null;
+    setViewer({ node, blob });
+  };
+
+  if (!user) {
     return (
-      <div style={{
-        position: 'fixed',
-        top: 0,
-        left: 0,
-        width: '100%',
-        height: '100%',
-        background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        color: 'white'
-      }}>
-        <div style={{ textAlign: 'center', maxWidth: '500px', padding: '2rem' }}>
-          <h1 style={{ fontSize: '3rem', marginBottom: '1rem' }}>🏠 3k MLV</h1>
-          <h2 style={{ fontSize: '1.5rem', marginBottom: '2rem', opacity: 0.9 }}>
-            My Little Vicinity
-          </h2>
-          <p style={{ fontSize: '1.1rem', marginBottom: '2rem', lineHeight: 1.6 }}>
-            A cozy multiplayer portfolio hub where you can build your home, 
-            visit friends' project galleries, and discover amazing work.
+      <main className="mlv-sign-in">
+        <h1>3k MLV</h1>
+        <h2>My Little Vicinity</h2>
+        <p>A private-by-default gunnchOS world workspace. New files start PRIVATE.</p>
+        {!isSupabaseConfigured && (
+          <p className="mlv-warning">
+            Supabase env is not configured. GitHub OAuth will not complete until
+            <code> VITE_SUPABASE_URL </code> and <code> VITE_SUPABASE_ANON_KEY </code> are set.
           </p>
+        )}
+        <button type="button" onClick={() => signInWithGitHub()}>Sign in with GitHub</button>
+        {!isSupabaseConfigured && (
           <button
-            onClick={handleSignIn}
-            style={{
-              background: '#4ecdc4',
-              color: 'white',
-              border: 'none',
-              padding: '1rem 2rem',
-              fontSize: '1.2rem',
-              borderRadius: '50px',
-              cursor: 'pointer',
-              boxShadow: '0 4px 15px rgba(0,0,0,0.2)',
-              transition: 'transform 0.3s ease'
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.transform = 'translateY(-3px)';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.transform = 'translateY(0)';
+            type="button"
+            onClick={() => {
+              const localUser = {
+                id: '11111111-1111-4111-8111-111111111111',
+                email: 'alice-local-test@mlv.local',
+                user_metadata: { full_name: 'Alice (local test identity)' },
+              };
+              setUser(localUser);
+              void loadWorkspace(localUser);
+              setStatus('Local test identity only. Not production GitHub OAuth.');
             }}
           >
-            Sign in with GitHub
+            Enter local test identity
           </button>
-          <div style={{ marginTop: '2rem', fontSize: '0.9rem', opacity: 0.7 }}>
-            <p>🎮 Shared identity with Anime Aggressors</p>
-            <p>🎨 Customize your avatar and home</p>
-            <p>👥 Visit friends' project galleries</p>
-            <p>🎯 Launch demos without leaving the world</p>
-          </div>
-        </div>
-      </div>
+        )}
+        {route.valid && route.kind && (
+          <p>Pending route: {route.kind}{route.node_id ? ` ${route.node_id}` : ''}</p>
+        )}
+      </main>
     );
   }
 
   return (
-    <div style={{ width: '100%', height: '100vh', position: 'relative' }}>
-      {/* Header */}
-      <div style={{
-        position: 'absolute',
-        top: 0,
-        left: 0,
-        right: 0,
-        background: 'rgba(0, 0, 0, 0.7)',
-        padding: '1rem',
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        zIndex: 100
-      }}>
-        <div style={{ color: 'white' }}>
-          <h1 style={{ margin: 0, fontSize: '1.5rem' }}>🏠 3k MLV</h1>
-          <p style={{ margin: 0, fontSize: '0.9rem', opacity: 0.8 }}>
-            Welcome back, {user?.user_metadata?.full_name || user?.email}!
-          </p>
+    <div className="mlv-shell">
+      <header className="mlv-topbar">
+        <div>
+          <h1>3k MLV</h1>
+          <p>Welcome back, {user.user_metadata?.full_name || user.email}</p>
         </div>
-        <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
-          <button
-            onClick={() => setIsPhoneOpen(true)}
-            style={{
-              background: '#4ecdc4',
-              color: 'white',
-              border: 'none',
-              padding: '0.5rem 1rem',
-              borderRadius: '5px',
-              cursor: 'pointer'
-            }}
-          >
-            📱 Phone
+        <div className="mlv-topbar__actions">
+          <button type="button" onClick={() => setListOpen((v) => !v)}>
+            {listOpen ? 'Hide files' : 'Files (list view)'}
           </button>
-          <button
-            onClick={handleSignOut}
-            style={{
-              background: '#ff6b6b',
-              color: 'white',
-              border: 'none',
-              padding: '0.5rem 1rem',
-              borderRadius: '5px',
-              cursor: 'pointer'
-            }}
-          >
-            Sign Out
-          </button>
+          <button type="button" onClick={() => setPhoneOpen(true)}>Phone</button>
+          <button type="button" onClick={() => signOut()}>Sign out</button>
         </div>
+      </header>
+      <p className="mlv-status" role="status">{status}</p>
+      <p className="mlv-offline">
+        {describeOffline({
+          shellReady: true,
+          recentMetadataCached: true,
+          pinnedBytesAvailable: false,
+          queuedChanges: 0,
+          socialDegraded: !isSupabaseConfigured,
+        })}
+      </p>
+      <div className="mlv-stage">
+        <World homeTheme={homeTheme} placements={placements} nodes={nodes} onOpenNode={handleOpen} />
+        {listOpen && (
+          <ListWorkspace
+            nodes={nodes.filter((n) => !n.deleted_at)}
+            onOpen={handleOpen}
+            onShare={handleShare}
+            onPublish={handlePublish}
+            onMakePrivate={handleMakePrivate}
+            onRename={handleRename}
+            onDelete={handleDelete}
+            onUpload={handleUpload}
+          />
+        )}
       </div>
-
-      {/* 3D World */}
-      <World onHouseClick={handleHouseClick} />
-
-      {/* Phone UI */}
       <Phone
-        isOpen={isPhoneOpen}
-        onClose={() => setIsPhoneOpen(false)}
+        isOpen={phoneOpen}
+        onClose={() => setPhoneOpen(false)}
         projects={projects}
-        currentProject={currentProject || undefined}
       />
-
-      {/* Instructions */}
-      <div style={{
-        position: 'absolute',
-        bottom: '1rem',
-        left: '1rem',
-        background: 'rgba(0, 0, 0, 0.7)',
-        color: 'white',
-        padding: '1rem',
-        borderRadius: '10px',
-        fontSize: '0.9rem',
-        maxWidth: '300px'
-      }}>
-        <h4 style={{ margin: '0 0 0.5rem 0' }}>🎮 Controls</h4>
-        <p style={{ margin: '0 0 0.5rem 0' }}>• Click houses to visit friends</p>
-        <p style={{ margin: '0 0 0.5rem 0' }}>• Use mouse to look around</p>
-        <p style={{ margin: '0 0 0.5rem 0' }}>• Scroll to zoom in/out</p>
-        <p style={{ margin: '0' }}>• Press 📱 to open phone</p>
-      </div>
+      {viewer && (
+        <FileViewer node={viewer.node} blob={viewer.blob} onClose={() => setViewer(null)} />
+      )}
     </div>
   );
 }
-
-export default App;
