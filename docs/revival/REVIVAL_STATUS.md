@@ -8,7 +8,7 @@ Date: 2026-09-25
 |---|---|---|
 | A | 3k MLV current-state audit | green — `docs/revival/CURRENT_STATE_AUDIT.md` |
 | B | gunnchOS audit | green — `product/MLV_GUNNCHOS_AUDIT.md` in device-os worktree |
-| C | branches / draft PRs | yellow until draft PRs exist |
+| C | branches / draft PRs | green — draft PR #1 open; not merged |
 | D | repo hygiene | green — `.gitignore`, untrack `node_modules`, `pnpm-lock.yaml` |
 | E | auth restoration | yellow — real `@3k-mlv/shared` import restored; hosted GitHub OAuth still owner-gated |
 | F | migration model | green — `0001` + `0002` + `0003_force_row_level_security.sql` |
@@ -27,11 +27,11 @@ Date: 2026-09-25
 | S | artifact intent | green — schema + tests; `default_visibility` const private |
 | T | offline behavior | yellow — honest status string only |
 | U | accessibility fallback | yellow — list/grid is the primary file UI and was smoked |
-| V | Alice/Bob/anonymous evidence | green in-memory 16/16 **and** local Postgres RLS 14/14 |
-| W | builds / tests | green — pnpm install, typecheck, privacy 16/16, Vite/PWA build |
-| X | CI | yellow — workflow added, not yet run on GitHub |
-| Y | remaining blockers | hosted Supabase project, GitHub OAuth dashboard, Pixel/mobile, owner draft-PR review |
-| Z | next action | `NEXT_3K_MLV_ACTION=OWNER_REVIEW_DRAFT_PRS_AND_AUTHORIZE_HOSTED_SUPABASE_VALIDATION` |
+| V | Alice/Bob/anonymous evidence | green in-memory 16/16 **and** local Postgres RLS 14/14; hosted false |
+| W | builds / tests | green — pnpm frozen lockfile, typecheck, privacy 16/16, Vite/PWA build |
+| X | CI | yellow/green — exact-head must include PGlite + frozen lockfile; prior head failed on self-hitting secret scan |
+| Y | remaining blockers | hosted Supabase, GitHub OAuth dashboard, Pixel/mobile, owner PR review |
+| Z | next action | `NEXT_3K_MLV_ACTION=OWNER_REVIEW_EXACT_HEAD_CI_THEN_AUTHORIZE_HOSTED_SUPABASE_ACCEPTANCE` |
 
 **Honest claim:** prototype World Workspace + private-by-default model + local PGlite PostgreSQL RLS. Not a production secure OS. Not hosted/production security. Not E2EE.
 
