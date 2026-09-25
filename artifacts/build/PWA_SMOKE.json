@@ -1,0 +1,34 @@
+{
+  "ok": true,
+  "engine": "chrome-headless-cdp",
+  "url": "http://127.0.0.1:4174/3k-mlv/",
+  "checks": {
+    "sign_in_shell": true,
+    "oauth_gate_visible": true,
+    "local_identity_button": true,
+    "entered_local_identity": true,
+    "private_home": true,
+    "list_grid": true,
+    "world_route": true,
+    "upload_ui": true,
+    "privacy_badge": true,
+    "share_dialog_control": true,
+    "publish_dialog_control": true,
+    "viewer_control": true,
+    "mobile_viewport": true
+  },
+  "click": "clicked",
+  "js_errors": "",
+  "html_len": 1622,
+  "upload": "uploaded",
+  "sign_text_excerpt": "3k MLV\nMy Little Vicinity\n\nA private-by-default gunnchOS world workspace. New files start PRIVATE.\n\nSupabase env is not configured. GitHub OAuth will not complete until VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY are set.\n\nSign in with GitHub\nEnter local test identity",
+  "home_text_excerpt": "3k MLV\n\nWelcome back, Alice (local test identity)\n\nHide files\nPhone\nSign out\n\nLocal test identity only. Not production GitHub OAuth.\n\nWorld layout can load offline. Own recent metadata is cached. Public/social features are deferred until online. Not claimed: production conflict resolution or encrypted sync.\n\nFiles\nUpload (defaults private)\n\nNo files in this player instance yet.",
+  "after_upload_excerpt": "3k MLV\n\nWelcome back, Alice (local test identity)\n\nHide files\nPhone\nSign out\n\nprivate-notes.md saved PRIVATE on your desk.\n\nWorld layout can load offline. Own recent metadata is cached. Public/social features are deferred until online. Not claimed: production conflict resolution or encrypted sync.\n\nFiles\nUpload (defaults private)\nprivate-notes.md\nPrivate\n\ntext/markdown \u00b7 19 B\n\nOpen\nRename\nShare Link\nPublish\nMake Private\nDelete",
+  "screenshots": [
+    "artifacts/build/smoke_sign_in.png",
+    "artifacts/build/smoke_private_home.png",
+    "artifacts/build/smoke_after_upload.png"
+  ],
+  "oauth": "not faked; local test identity used because hosted GitHub OAuth is unconfigured",
+  "claim": "Local PWA preview smoked with Chrome headless. Not Pixel/device proof. Not hosted OAuth."
+}

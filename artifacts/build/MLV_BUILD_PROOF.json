@@ -1,0 +1,23 @@
+{
+  "typecheck": true,
+  "unit_privacy_tests": "16/16",
+  "local_postgres_rls": "14/14 pglite",
+  "build": true,
+  "package_manager": "pnpm",
+  "lockfile": "pnpm-lock.yaml",
+  "smoke": {
+    "index_html": true,
+    "sign_in_shell": true,
+    "local_test_identity": true,
+    "list_grid_fallback": true,
+    "privacy_badge": true,
+    "share_action": true,
+    "publish_action": true,
+    "make_private": true,
+    "viewer": true,
+    "world_route": true
+  },
+  "smoke_pass": true,
+  "oauth_note": "Live GitHub OAuth remains owner-gated. Smoke uses documented local test identity only.",
+  "finished": "2026-09-25T19:06:44Z"
+}
