@@ -1,0 +1,31 @@
+name: 3k MLV CI
+
+on:
+  pull_request:
+  push:
+    branches: [revival/gunnchos-world-workspace-v1, main]
+
+jobs:
+  privacy-and-build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Assert node_modules is not tracked
+        run: bash scripts/assert-no-tracked-node-modules.sh
+      - name: No secrets scan
+        run: bash scripts/scan-no-secrets.sh
+      - name: Enable corepack / pnpm
+        run: corepack enable
+      - name: Install
+        run: pnpm install --frozen-lockfile || pnpm install
+      - name: Privacy / RLS harness
+        run: node --test tests/privacy/two_user_privacy.test.mjs
+      - name: Typecheck
+        run: pnpm type-check
+      - name: Build
+        run: pnpm build
+        env:
+          NODE_ENV: production
