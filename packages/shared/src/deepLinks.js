@@ -1,8 +1,25 @@
 const UUID_RE = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
 const TOKEN_RE = /^[A-Za-z0-9_-]{16,256}$/;
+const SITE_KINDS = ['home', 'campus', 'gallery', 'atlas', 'academic', 'library', 'study', 'lecture', 'media'];
+const NODE_KINDS = ['node', 'public'];
 
 function reject(uri, reason) {
-  return { uri, valid: false, reason, kind: null, node_id: null, token_present: false };
+  return {
+    uri, valid: false, reason, kind: null, node_id: null, campus_slug: null, campus_rest: [], token_present: false,
+  };
+}
+
+function ok(uri, kind, extra = {}) {
+  return {
+    uri,
+    valid: true,
+    reason: null,
+    kind,
+    node_id: extra.node_id ?? null,
+    campus_slug: extra.campus_slug ?? null,
+    campus_rest: extra.campus_rest ?? [],
+    token_present: extra.token_present === true,
+  };
 }
 
 /**
@@ -29,26 +46,39 @@ export function parseMlvDeepLink(uri) {
 
   const parts = rest.split('/').filter(Boolean);
   const kind = (parts[0] || '').toLowerCase();
-  if (!['home', 'node', 'public', 'share'].includes(kind)) {
+  if (![...SITE_KINDS, ...NODE_KINDS, 'share'].includes(kind)) {
     return reject(trimmed, 'kind_rejected');
   }
 
-  if (kind === 'home') {
-    return { uri: trimmed, valid: true, reason: null, kind, node_id: null, token_present: false };
+  if (SITE_KINDS.includes(kind) && kind !== 'campus') {
+    return ok(trimmed, kind);
+  }
+
+  if (kind === 'campus') {
+    const slug = (parts[1] || '').toLowerCase();
+    return ok(trimmed, kind, {
+      campus_slug: slug || null,
+      campus_rest: parts.slice(2).map((p) => p.toLowerCase()),
+    });
   }
 
   const value = parts[1] || '';
   if (kind === 'node' || kind === 'public') {
     if (!UUID_RE.test(value)) return reject(trimmed, 'uuid_rejected');
-    return { uri: trimmed, valid: true, reason: null, kind, node_id: value, token_present: false };
+    return ok(trimmed, kind, { node_id: value });
   }
 
   if (!TOKEN_RE.test(value)) return reject(trimmed, 'token_rejected');
-  return { uri: trimmed, valid: true, reason: null, kind, node_id: null, token_present: true };
+  return ok(trimmed, kind, { token_present: true });
 }
 
 export function buildMlvDeepLink(kind, value) {
   if (kind === 'home') return 'gunnchos://mlv/home';
+  if (kind === 'gallery') return 'gunnchos://mlv/gallery';
+  if (kind === 'campus') return value ? `gunnchos://mlv/campus/${value}` : 'gunnchos://mlv/campus';
+  if (['atlas', 'academic', 'library', 'study', 'lecture', 'media'].includes(kind)) {
+    return `gunnchos://mlv/${kind}`;
+  }
   if (kind === 'node' || kind === 'public') return `gunnchos://mlv/${kind}/${value}`;
   if (kind === 'share') return `gunnchos://mlv/share/${value}`;
   throw new Error('unknown mlv deep link kind');

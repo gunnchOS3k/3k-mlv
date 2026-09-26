@@ -172,6 +172,14 @@ export function createBrowserWorkspace() {
       return { ok: true as const, node: result.node as MlvNode };
     },
 
+    insertNode(actor: { id: string }, node: MlvNode) {
+      if (!actor?.id || node.owner_id !== actor.id) {
+        return { ok: false as const, reason: 'not_owner' };
+      }
+      nodes.set(node.id, node);
+      return { ok: true as const, node };
+    },
+
     blobFor(actor: { id: string } | null, nodeId: string, shareContext?: { node_id: string; token_hash: string; revoked_at: string | null; expires_at: string | null }) {
       const node = nodes.get(nodeId);
       if (!canReadNode({ actor, node, shareContext })) return null;

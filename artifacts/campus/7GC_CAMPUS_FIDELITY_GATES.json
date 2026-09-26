@@ -1,0 +1,44 @@
+{
+  "source_manifest_sha256": "520cbba99541b1505ebba899a2f34bfa905eadd7af8f5b5e8fa050c884067be1",
+  "requirement_counts": {
+    "GARY": 61,
+    "GHANA": 61,
+    "GUYANA": 67,
+    "GEELONG": 64,
+    "GERMANY": 68,
+    "GAZA": 68,
+    "GRAHAM": 84
+  },
+  "pass": true,
+  "missing_example_ids": [],
+  "roomset_reason": null,
+  "counts": {
+    "GARY": 61,
+    "GHANA": 61,
+    "GUYANA": 67,
+    "GEELONG": 64,
+    "GERMANY": 68,
+    "GAZA": 68,
+    "GRAHAM": 84
+  },
+  "gates": {
+    "7GC_CANONICAL_NODES": "7/7",
+    "7GC_SOURCE_REQUIREMENTS_PARSED": "100%",
+    "7GC_DIGITAL_REQUIREMENT_COVERAGE": "100%",
+    "7GC_ROOM_PROGRAM_COVERAGE": "100%",
+    "7GC_PHASE_MODEL_COVERAGE": "7/7",
+    "7GC_NON_GENERIC_ROOMSET_PASS": true,
+    "GAZA_RECOVERY_MODEL_PASS": true,
+    "GAZA_SENSITIVE_LOCATION_REDACTION_PASS": true,
+    "GRAHAM_REMOTE_FIRST_MODEL_PASS": true,
+    "GRAHAM_NO_FAKE_STATION_CLAIM_PASS": true,
+    "EVIDENCE_METADATA_NO_SECRETS_PASS": true,
+    "HUMAN_7GC_SPATIAL_FIDELITY_PASS": false,
+    "HUMAN_LOCAL_IDENTITY_PASS": false,
+    "HUMAN_CAMPUS_USABILITY_PASS": false,
+    "HOSTED_MULTIUSER_PASS": false,
+    "PIXEL_7GC_CAMPUS_PASS": false,
+    "MERGE_AUTHORIZED": false,
+    "NEXT_3K_MLV_ACTION": "OWNER_REVIEW_SEVEN_DIGITAL_CAMPUSES_AND_SOURCE_FIDELITY"
+  }
+}

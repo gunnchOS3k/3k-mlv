@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { lazy, Suspense, useEffect, useMemo, useState } from 'react';
 import {
   isSupabaseConfigured,
   parseMlvDeepLink,
@@ -15,6 +15,27 @@ import ListWorkspace from './ui/ListWorkspace';
 import FileViewer from './ui/FileViewer';
 import { createBrowserWorkspace } from './workspace/browserStore';
 import { describeOffline } from './workspace/offline';
+import './campus/campus.css';
+
+const CampusLanding = lazy(() => import('./campus/CampusLanding'));
+const Atlas = lazy(() => import('./campus/Atlas'));
+const DigitalCampus = lazy(() => import('./campus/DigitalCampus'));
+const Library = lazy(() => import('./campus/Library'));
+const StudyRooms = lazy(() => import('./campus/StudyRooms'));
+const LectureHall = lazy(() => import('./campus/LectureHall'));
+const MediaCenter = lazy(() => import('./campus/MediaCenter'));
+const GallerySite = lazy(() => import('./campus/GallerySite'));
+const WaikeCenter = lazy(() => import('./campus/WaikeCenter'));
+
+type Site = 'HOME' | 'CAMPUS' | 'GALLERY';
+
+function siteFromRoute(kind: string | null): Site {
+  if (kind === 'gallery') return 'GALLERY';
+  if (kind && ['campus', 'atlas', 'academic', 'library', 'study', 'lecture', 'media'].includes(kind)) {
+    return 'CAMPUS';
+  }
+  return 'HOME';
+}
 
 type SessionUser = { id: string; email?: string; user_metadata?: { full_name?: string } };
 
@@ -91,6 +112,8 @@ export default function App() {
   };
 
   const actor = user ? { id: user.id } : null;
+  const site = siteFromRoute(route.kind);
+  const campusSlug = route.kind === 'campus' ? route.campus_slug : null;
 
   const handleUpload = async (file: File) => {
     if (!actor) return;
@@ -196,6 +219,11 @@ export default function App() {
           <p>Welcome back, {user.user_metadata?.full_name || user.email}</p>
         </div>
         <div className="mlv-topbar__actions">
+          <nav className="mlv-site-nav" aria-label="World sites">
+            <button type="button" aria-current={site === 'HOME' ? 'page' : undefined} onClick={() => { window.location.hash = '#/mlv/home'; }}>Home</button>
+            <button type="button" aria-current={site === 'CAMPUS' ? 'page' : undefined} onClick={() => { window.location.hash = '#/mlv/campus'; }}>Campus</button>
+            <button type="button" aria-current={site === 'GALLERY' ? 'page' : undefined} onClick={() => { window.location.hash = '#/mlv/gallery'; }}>Gallery</button>
+          </nav>
           <button type="button" onClick={() => setListOpen((v) => !v)}>
             {listOpen ? 'Hide files' : 'Files (list view)'}
           </button>
@@ -214,8 +242,15 @@ export default function App() {
         })}
       </p>
       <div className="mlv-stage">
-        <World homeTheme={homeTheme} placements={placements} nodes={nodes} onOpenNode={handleOpen} />
-        {listOpen && (
+        <World
+          homeTheme={homeTheme}
+          placements={placements}
+          nodes={site === 'HOME' ? nodes : nodes.filter((n) => n.visibility === 'public')}
+          onOpenNode={handleOpen}
+          site={site}
+          campusSlug={campusSlug}
+        />
+        {site === 'HOME' && listOpen && (
           <ListWorkspace
             nodes={nodes.filter((n) => !n.deleted_at)}
             onOpen={handleOpen}
@@ -226,6 +261,31 @@ export default function App() {
             onDelete={handleDelete}
             onUpload={handleUpload}
           />
+        )}
+        {site !== 'HOME' && (
+          <Suspense fallback={<p className="mlv-campus">Loading campus…</p>}>
+            {site === 'GALLERY' && actor && (
+              <GallerySite
+                nodes={nodes}
+                actor={actor}
+                onWorkingCopy={(node) => {
+                  local.insertNode(actor, node);
+                  refreshLocal({ id: actor.id });
+                  setStatus(`${node.name} saved as a private working copy. It is not public.`);
+                }}
+              />
+            )}
+            {site === 'CAMPUS' && route.kind === 'atlas' && <Atlas />}
+            {site === 'CAMPUS' && route.kind === 'academic' && (
+              <section className="mlv-campus"><WaikeCenter /></section>
+            )}
+            {site === 'CAMPUS' && route.kind === 'library' && <Library />}
+            {site === 'CAMPUS' && route.kind === 'study' && actor && <StudyRooms actor={actor} />}
+            {site === 'CAMPUS' && route.kind === 'lecture' && <LectureHall />}
+            {site === 'CAMPUS' && route.kind === 'media' && <MediaCenter />}
+            {site === 'CAMPUS' && route.kind === 'campus' && campusSlug && <DigitalCampus slug={campusSlug} />}
+            {site === 'CAMPUS' && route.kind === 'campus' && !campusSlug && <CampusLanding />}
+          </Suspense>
         )}
       </div>
       <Phone
