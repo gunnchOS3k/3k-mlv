@@ -71,6 +71,13 @@ export default function DigitalCampus({ slug }: { slug: string }) {
         <button type="button" className="mlv-chip" aria-pressed={mode === 'map'} onClick={() => setMode('map')}>
           Map
         </button>
+        <button
+          type="button"
+          className="mlv-chip"
+          onClick={() => { window.location.hash = `#/mlv/campus/${campus.slug}/network-twin`; }}
+        >
+          Network Twin Lab
+        </button>
       </div>
       <ul className="mlv-room-grid">
         {rooms.map((room) => (

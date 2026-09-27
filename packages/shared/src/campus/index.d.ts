@@ -90,3 +90,59 @@ export function createPrivateWorkingCopy<T extends { id: string; metadata?: Reco
   node: T,
   actor: { id: string },
 ): { ok: true; node: T & { visibility: 'private'; owner_id: string; parent_id: string; metadata: Record<string, unknown> } } | { ok: false; reason: string };
+
+export const NETWORK_LAYERS: readonly string[];
+export const DEFAULT_NETWORK_LAYER: string;
+export const EVIDENCE_CLASSES: readonly string[];
+export const OBJECTIVE_FIELDS: readonly string[];
+export const RIC_ALLOWED_STATES: readonly string[];
+export const RIC_DISABLED_STATES: readonly string[];
+export const DIGITAL_SHADOW_TIMELINE: readonly string[];
+export const CANDIDATE_KINDS: ReadonlyArray<{ id: string; label: string; role: string; planning_only: boolean }>;
+export const MATERIAL_ASSUMPTIONS: ReadonlyArray<{
+  id: string; label: string; profile: string; model: string; provenance: string; evidence_class: string; uncertainty: string; assumption: boolean;
+}>;
+export const SERVICE_INTENT_TEMPLATES: ReadonlyArray<{
+  id: string; label: string; schema_template: string; latency_ms: number; jitter_ms: number; packet_loss_pct: number;
+  throughput_mbps: number; reliability: number; continuity_class: string; compute: string; privacy_class: string;
+  priority_class: string; provenance: string; uncertainty: string;
+}>;
+export function exportCampusDesignBundle(slug: string, options?: Record<string, string>): {
+  ok: boolean;
+  reason?: string | null;
+  campus_identity?: string;
+  document?: {
+    source_manifest_sha256: string;
+    evidence_class: string;
+    phase: string;
+    geometry_fidelity: string;
+    zones: Array<{
+      campus_requirement_id: string;
+      digital_route: string;
+      digital_object: string;
+      kind: string;
+      service_intent_template: string;
+      geometry_fidelity: string;
+    }>;
+    candidate_infrastructure: Array<{
+      node_id: string; role: string; height_m_assumption: number; power_dbm_bound: number;
+      backhaul: string; orientation_assumption: string; band_profile: string;
+    }>;
+  };
+};
+export function consumeOptimizationDocument(doc: unknown, site?: string): {
+  ok: boolean;
+  document?: { alternatives?: Array<{ alternative_id: string; label: string; objectives: Record<string, number> }>; input_design_hash?: string };
+  recommendations: Array<{ recommended_action: string; reason: string; constraints: string; evidence_source: string; allowed_actions: string[] }>;
+  label: string;
+};
+export function descriptiveGrouping(alt: { objectives?: Record<string, number> }): string;
+export function geometryDisclaimer(): string;
+export function predictedMeasuredLabel(evidenceClass: string): string;
+export function proposalActionLabel(): string;
+export function ricDisplayState(requested: string): { state: string; enabled: boolean; reason?: string };
+export function syntheticLoopLabel(): string;
+export function unboundWaikeCampus(): {
+  readiness: { ready: number; partial: number };
+  consumer_summary: { mode: string };
+};

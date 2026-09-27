@@ -1,0 +1,1142 @@
+{
+  "CAMPUS_DESIGN_EXPORT_SCHEMA_PASS": "7/7",
+  "bundles": [
+    {
+      "schema_name": "gunnchos.campus_design_bundle",
+      "schema_version": "1.0.0",
+      "run_id": "mlv-network-twin-gary-design",
+      "site_id": "gary",
+      "campus_slug": "gary",
+      "phase": "FULL",
+      "geometry_fidelity": "AUTHORED_PLANNING_LAYOUT",
+      "source_manifest_sha256": "520cbba99541b1505ebba899a2f34bfa905eadd7af8f5b5e8fa050c884067be1",
+      "source_version_label": "mlv_campus_v2_current",
+      "projection_class": "network_design_planning",
+      "zones": [
+        {
+          "campus_slug": "gary",
+          "phase": "FULL",
+          "campus_requirement_id": "GARY.FULL.HARDWARE_REPAIR_LAB",
+          "digital_object": "gary.full.hardware_repair_lab",
+          "digital_route": "#/mlv/campus/gary/full/hardware-repair-lab",
+          "geometry_fidelity": "AUTHORED_PLANNING_LAYOUT",
+          "space_id": "hardware_repair_lab",
+          "kind": "ROOM",
+          "service_intent_template": "repair_lab",
+          "material_assumption": "drywall_and_concrete_planning",
+          "floor_index": 0,
+          "redacted": false
+        },
+        {
+          "campus_slug": "gary",
+          "phase": "PILOT",
+          "campus_requirement_id": "GARY.PILOT.FLEXIBLE_CLASSROOM",
+          "digital_object": "gary.pilot.flexible_classroom",
+          "digital_route": "#/mlv/campus/gary/pilot/flexible-classroom",
+          "geometry_fidelity": "AUTHORED_PLANNING_LAYOUT",
+          "space_id": "flexible_classroom",
+          "kind": "ROOM",
+          "service_intent_template": "classroom",
+          "material_assumption": "drywall_and_concrete_planning",
+          "floor_index": 0,
+          "redacted": false
+        }
+      ],
+      "candidate_infrastructure": [
+        {
+          "node_id": "gary-indoor-ap-1",
+          "role": "indoor_ap",
+          "height_m_assumption": 3,
+          "orientation_assumption": "ceiling_omni",
+          "power_dbm_bound": 20,
+          "radio_count": 2,
+          "band_profile": "n78_planning",
+          "backhaul": "terrestrial",
+          "edge_compute": false,
+          "anchor_requirement_id": "GARY.FULL.HARDWARE_REPAIR_LAB"
+        },
+        {
+          "node_id": "gary-edge-1",
+          "role": "edge_compute",
+          "height_m_assumption": 1,
+          "orientation_assumption": "rack",
+          "power_dbm_bound": 0,
+          "radio_count": 1,
+          "band_profile": "none",
+          "backhaul": "local_edge_wifi",
+          "edge_compute": true,
+          "anchor_requirement_id": "GARY.FULL.HARDWARE_REPAIR_LAB"
+        }
+      ],
+      "service_intents": [
+        {
+          "template": "repair_lab",
+          "source": "planning_template",
+          "assumptions": "Derived from room/program role. Not measured occupancy. Not learner records.",
+          "uncertainty": "high",
+          "origin": "configured",
+          "campus_requirement_id": "GARY.FULL.HARDWARE_REPAIR_LAB"
+        },
+        {
+          "template": "classroom",
+          "source": "planning_template",
+          "assumptions": "Derived from room/program role. Not measured occupancy. Not learner records.",
+          "uncertainty": "high",
+          "origin": "configured",
+          "campus_requirement_id": "GARY.PILOT.FLEXIBLE_CLASSROOM"
+        }
+      ],
+      "aggregate_demand": {
+        "values": {
+          "users_proxy": 24,
+          "downlink_mbps": 80,
+          "origin_note": "planning template, not measured traffic"
+        },
+        "origin": "configured"
+      },
+      "mobility": {
+        "values": {
+          "class": "low_named_zone",
+          "aggregate_only": true
+        },
+        "origin": "configured"
+      },
+      "blockage": {
+        "values": {
+          "scenario": "interior_partitions",
+          "extra_db": 8
+        },
+        "origin": "configured"
+      },
+      "outage": {
+        "values": {
+          "terrestrial_outage": true,
+          "degraded": false
+        },
+        "origin": "configured"
+      },
+      "compute": {
+        "values": {
+          "local_edge": true,
+          "offline_cache": false
+        },
+        "origin": "configured"
+      },
+      "spectrum": {
+        "values": {
+          "budget_mhz": 20,
+          "band_profile": "n78_planning"
+        },
+        "origin": "configured"
+      },
+      "energy": {
+        "values": {
+          "budget_j": 120
+        },
+        "origin": "configured"
+      },
+      "continuity": {
+        "values": {
+          "class": "degraded_ok",
+          "max_interruption_s": 180
+        },
+        "origin": "configured"
+      },
+      "privacy": {
+        "contains_direct_identifiers": false,
+        "contains_person_path": false,
+        "location_precision": "named_zone",
+        "gaza_sensitive_export": false,
+        "graham_station_claim": false
+      },
+      "uncertainty": {
+        "overall": "high",
+        "notes": "AUTHORED_PLANNING_LAYOUT; not surveyed geometry. Planning assumptions only."
+      },
+      "evidence_class": "SIMULATED",
+      "producer": {
+        "repository": "3k-mlv",
+        "commit": "5ce416d25f7821ee5506be1a60fd30315372956c"
+      },
+      "notes": "Education/community/library/help-desk plus outage scenarios. Representative projection only. 473-room catalog remains in Campus V2."
+    },
+    {
+      "schema_name": "gunnchos.campus_design_bundle",
+      "schema_version": "1.0.0",
+      "run_id": "mlv-network-twin-ghana-design",
+      "site_id": "ghana",
+      "campus_slug": "ghana",
+      "phase": "FULL",
+      "geometry_fidelity": "AUTHORED_PLANNING_LAYOUT",
+      "source_manifest_sha256": "520cbba99541b1505ebba899a2f34bfa905eadd7af8f5b5e8fa050c884067be1",
+      "source_version_label": "mlv_campus_v2_current",
+      "projection_class": "network_design_planning",
+      "zones": [
+        {
+          "campus_slug": "ghana",
+          "phase": "FULL",
+          "campus_requirement_id": "GHANA.FULL.MENTOR_WORKSPACE",
+          "digital_object": "ghana.full.mentor_workspace",
+          "digital_route": "#/mlv/campus/ghana/full/mentor-workspace",
+          "geometry_fidelity": "AUTHORED_PLANNING_LAYOUT",
+          "space_id": "mentor_workspace",
+          "kind": "ROOM",
+          "service_intent_template": "classroom",
+          "material_assumption": "drywall_and_concrete_planning",
+          "floor_index": 0,
+          "redacted": false
+        },
+        {
+          "campus_slug": "ghana",
+          "phase": "PILOT",
+          "campus_requirement_id": "GHANA.PILOT.FLEXIBLE_CLASSROOM",
+          "digital_object": "ghana.pilot.flexible_classroom",
+          "digital_route": "#/mlv/campus/ghana/pilot/flexible-classroom",
+          "geometry_fidelity": "AUTHORED_PLANNING_LAYOUT",
+          "space_id": "flexible_classroom",
+          "kind": "ROOM",
+          "service_intent_template": "classroom",
+          "material_assumption": "drywall_and_concrete_planning",
+          "floor_index": 0,
+          "redacted": false
+        }
+      ],
+      "candidate_infrastructure": [
+        {
+          "node_id": "ghana-indoor-ap-1",
+          "role": "indoor_ap",
+          "height_m_assumption": 3,
+          "orientation_assumption": "ceiling_omni",
+          "power_dbm_bound": 17,
+          "radio_count": 2,
+          "band_profile": "n78_planning",
+          "backhaul": "terrestrial",
+          "edge_compute": false,
+          "anchor_requirement_id": "GHANA.FULL.MENTOR_WORKSPACE"
+        },
+        {
+          "node_id": "ghana-edge-1",
+          "role": "edge_compute",
+          "height_m_assumption": 1,
+          "orientation_assumption": "rack",
+          "power_dbm_bound": 0,
+          "radio_count": 1,
+          "band_profile": "none",
+          "backhaul": "local_edge_wifi",
+          "edge_compute": true,
+          "anchor_requirement_id": "GHANA.FULL.MENTOR_WORKSPACE"
+        }
+      ],
+      "service_intents": [
+        {
+          "template": "classroom",
+          "source": "planning_template",
+          "assumptions": "Derived from room/program role. Not measured occupancy. Not learner records.",
+          "uncertainty": "high",
+          "origin": "configured",
+          "campus_requirement_id": "GHANA.FULL.MENTOR_WORKSPACE"
+        },
+        {
+          "template": "classroom",
+          "source": "planning_template",
+          "assumptions": "Derived from room/program role. Not measured occupancy. Not learner records.",
+          "uncertainty": "high",
+          "origin": "configured",
+          "campus_requirement_id": "GHANA.PILOT.FLEXIBLE_CLASSROOM"
+        }
+      ],
+      "aggregate_demand": {
+        "values": {
+          "users_proxy": 24,
+          "downlink_mbps": 80,
+          "origin_note": "planning template, not measured traffic"
+        },
+        "origin": "configured"
+      },
+      "mobility": {
+        "values": {
+          "class": "low_named_zone",
+          "aggregate_only": true
+        },
+        "origin": "configured"
+      },
+      "blockage": {
+        "values": {
+          "scenario": "interior_partitions",
+          "extra_db": 8
+        },
+        "origin": "configured"
+      },
+      "outage": {
+        "values": {
+          "terrestrial_outage": false,
+          "degraded": true
+        },
+        "origin": "configured"
+      },
+      "compute": {
+        "values": {
+          "local_edge": true,
+          "offline_cache": false
+        },
+        "origin": "configured"
+      },
+      "spectrum": {
+        "values": {
+          "budget_mhz": 10,
+          "band_profile": "n78_planning"
+        },
+        "origin": "configured"
+      },
+      "energy": {
+        "values": {
+          "budget_j": 60
+        },
+        "origin": "configured"
+      },
+      "continuity": {
+        "values": {
+          "class": "degraded_ok",
+          "max_interruption_s": 180
+        },
+        "origin": "configured"
+      },
+      "privacy": {
+        "contains_direct_identifiers": false,
+        "contains_person_path": false,
+        "location_precision": "named_zone",
+        "gaza_sensitive_export": false,
+        "graham_station_claim": false
+      },
+      "uncertainty": {
+        "overall": "high",
+        "notes": "AUTHORED_PLANNING_LAYOUT; not surveyed geometry. Planning assumptions only."
+      },
+      "evidence_class": "SIMULATED",
+      "producer": {
+        "repository": "3k-mlv",
+        "commit": "5ce416d25f7821ee5506be1a60fd30315372956c"
+      },
+      "notes": "Low-bandwidth, mobile-lab and power-constrained scenarios. Representative projection only. 473-room catalog remains in Campus V2."
+    },
+    {
+      "schema_name": "gunnchos.campus_design_bundle",
+      "schema_version": "1.0.0",
+      "run_id": "mlv-network-twin-guyana-design",
+      "site_id": "guyana",
+      "campus_slug": "guyana",
+      "phase": "FULL",
+      "geometry_fidelity": "AUTHORED_PLANNING_LAYOUT",
+      "source_manifest_sha256": "520cbba99541b1505ebba899a2f34bfa905eadd7af8f5b5e8fa050c884067be1",
+      "source_version_label": "mlv_campus_v2_current",
+      "projection_class": "network_design_planning",
+      "zones": [
+        {
+          "campus_slug": "guyana",
+          "phase": "FULL",
+          "campus_requirement_id": "GUYANA.FULL.CLIMATE_GIS_STUDIO",
+          "digital_object": "guyana.full.climate_gis_studio",
+          "digital_route": "#/mlv/campus/guyana/full/climate-gis-studio",
+          "geometry_fidelity": "AUTHORED_PLANNING_LAYOUT",
+          "space_id": "climate_gis_studio",
+          "kind": "ROOM",
+          "service_intent_template": "gis_climate",
+          "material_assumption": "drywall_and_concrete_planning",
+          "floor_index": 0,
+          "redacted": false
+        },
+        {
+          "campus_slug": "guyana",
+          "phase": "PILOT",
+          "campus_requirement_id": "GUYANA.PILOT.FLEXIBLE_CLASSROOM",
+          "digital_object": "guyana.pilot.flexible_classroom",
+          "digital_route": "#/mlv/campus/guyana/pilot/flexible-classroom",
+          "geometry_fidelity": "AUTHORED_PLANNING_LAYOUT",
+          "space_id": "flexible_classroom",
+          "kind": "ROOM",
+          "service_intent_template": "classroom",
+          "material_assumption": "drywall_and_concrete_planning",
+          "floor_index": 0,
+          "redacted": false
+        }
+      ],
+      "candidate_infrastructure": [
+        {
+          "node_id": "guyana-indoor-ap-1",
+          "role": "indoor_ap",
+          "height_m_assumption": 3,
+          "orientation_assumption": "ceiling_omni",
+          "power_dbm_bound": 20,
+          "radio_count": 2,
+          "band_profile": "n78_planning",
+          "backhaul": "terrestrial",
+          "edge_compute": false,
+          "anchor_requirement_id": "GUYANA.FULL.CLIMATE_GIS_STUDIO"
+        },
+        {
+          "node_id": "guyana-edge-1",
+          "role": "edge_compute",
+          "height_m_assumption": 1,
+          "orientation_assumption": "rack",
+          "power_dbm_bound": 0,
+          "radio_count": 1,
+          "band_profile": "none",
+          "backhaul": "local_edge_wifi",
+          "edge_compute": true,
+          "anchor_requirement_id": "GUYANA.FULL.CLIMATE_GIS_STUDIO"
+        }
+      ],
+      "service_intents": [
+        {
+          "template": "gis_climate",
+          "source": "planning_template",
+          "assumptions": "Derived from room/program role. Not measured occupancy. Not learner records.",
+          "uncertainty": "high",
+          "origin": "configured",
+          "campus_requirement_id": "GUYANA.FULL.CLIMATE_GIS_STUDIO"
+        },
+        {
+          "template": "classroom",
+          "source": "planning_template",
+          "assumptions": "Derived from room/program role. Not measured occupancy. Not learner records.",
+          "uncertainty": "high",
+          "origin": "configured",
+          "campus_requirement_id": "GUYANA.PILOT.FLEXIBLE_CLASSROOM"
+        }
+      ],
+      "aggregate_demand": {
+        "values": {
+          "users_proxy": 24,
+          "downlink_mbps": 80,
+          "origin_note": "planning template, not measured traffic"
+        },
+        "origin": "configured"
+      },
+      "mobility": {
+        "values": {
+          "class": "low_named_zone",
+          "aggregate_only": true
+        },
+        "origin": "configured"
+      },
+      "blockage": {
+        "values": {
+          "scenario": "interior_partitions",
+          "extra_db": 8
+        },
+        "origin": "configured"
+      },
+      "outage": {
+        "values": {
+          "terrestrial_outage": false,
+          "degraded": false
+        },
+        "origin": "configured"
+      },
+      "compute": {
+        "values": {
+          "local_edge": true,
+          "offline_cache": false
+        },
+        "origin": "configured"
+      },
+      "spectrum": {
+        "values": {
+          "budget_mhz": 20,
+          "band_profile": "n78_planning"
+        },
+        "origin": "configured"
+      },
+      "energy": {
+        "values": {
+          "budget_j": 120
+        },
+        "origin": "configured"
+      },
+      "continuity": {
+        "values": {
+          "class": "degraded_ok",
+          "max_interruption_s": 180
+        },
+        "origin": "configured"
+      },
+      "privacy": {
+        "contains_direct_identifiers": false,
+        "contains_person_path": false,
+        "location_precision": "named_zone",
+        "gaza_sensitive_export": false,
+        "graham_station_claim": false
+      },
+      "uncertainty": {
+        "overall": "high",
+        "notes": "AUTHORED_PLANNING_LAYOUT; not surveyed geometry. Planning assumptions only."
+      },
+      "evidence_class": "SIMULATED",
+      "producer": {
+        "repository": "3k-mlv",
+        "commit": "5ce416d25f7821ee5506be1a60fd30315372956c"
+      },
+      "notes": "Climate/GIS, energy/logistics and resilience scenarios. Representative projection only. 473-room catalog remains in Campus V2."
+    },
+    {
+      "schema_name": "gunnchos.campus_design_bundle",
+      "schema_version": "1.0.0",
+      "run_id": "mlv-network-twin-geelong-design",
+      "site_id": "geelong",
+      "campus_slug": "geelong",
+      "phase": "FULL",
+      "geometry_fidelity": "AUTHORED_PLANNING_LAYOUT",
+      "source_manifest_sha256": "520cbba99541b1505ebba899a2f34bfa905eadd7af8f5b5e8fa050c884067be1",
+      "source_version_label": "mlv_campus_v2_current",
+      "projection_class": "network_design_planning",
+      "zones": [
+        {
+          "campus_slug": "geelong",
+          "phase": "FULL",
+          "campus_requirement_id": "GEELONG.FULL.DESIGN_BUILD_STUDIO",
+          "digital_object": "geelong.full.design_build_studio",
+          "digital_route": "#/mlv/campus/geelong/full/design-build-studio",
+          "geometry_fidelity": "AUTHORED_PLANNING_LAYOUT",
+          "space_id": "design_build_studio",
+          "kind": "ROOM",
+          "service_intent_template": "industry40",
+          "material_assumption": "drywall_and_concrete_planning",
+          "floor_index": 0,
+          "redacted": false
+        },
+        {
+          "campus_slug": "geelong",
+          "phase": "PILOT",
+          "campus_requirement_id": "GEELONG.PILOT.FLEXIBLE_CLASSROOM",
+          "digital_object": "geelong.pilot.flexible_classroom",
+          "digital_route": "#/mlv/campus/geelong/pilot/flexible-classroom",
+          "geometry_fidelity": "AUTHORED_PLANNING_LAYOUT",
+          "space_id": "flexible_classroom",
+          "kind": "ROOM",
+          "service_intent_template": "classroom",
+          "material_assumption": "drywall_and_concrete_planning",
+          "floor_index": 0,
+          "redacted": false
+        }
+      ],
+      "candidate_infrastructure": [
+        {
+          "node_id": "geelong-indoor-ap-1",
+          "role": "indoor_ap",
+          "height_m_assumption": 3,
+          "orientation_assumption": "ceiling_omni",
+          "power_dbm_bound": 20,
+          "radio_count": 2,
+          "band_profile": "n78_planning",
+          "backhaul": "terrestrial",
+          "edge_compute": false,
+          "anchor_requirement_id": "GEELONG.FULL.DESIGN_BUILD_STUDIO"
+        },
+        {
+          "node_id": "geelong-edge-1",
+          "role": "edge_compute",
+          "height_m_assumption": 1,
+          "orientation_assumption": "rack",
+          "power_dbm_bound": 0,
+          "radio_count": 1,
+          "band_profile": "none",
+          "backhaul": "local_edge_wifi",
+          "edge_compute": true,
+          "anchor_requirement_id": "GEELONG.FULL.DESIGN_BUILD_STUDIO"
+        }
+      ],
+      "service_intents": [
+        {
+          "template": "industry40",
+          "source": "planning_template",
+          "assumptions": "Derived from room/program role. Not measured occupancy. Not learner records.",
+          "uncertainty": "high",
+          "origin": "configured",
+          "campus_requirement_id": "GEELONG.FULL.DESIGN_BUILD_STUDIO"
+        },
+        {
+          "template": "classroom",
+          "source": "planning_template",
+          "assumptions": "Derived from room/program role. Not measured occupancy. Not learner records.",
+          "uncertainty": "high",
+          "origin": "configured",
+          "campus_requirement_id": "GEELONG.PILOT.FLEXIBLE_CLASSROOM"
+        }
+      ],
+      "aggregate_demand": {
+        "values": {
+          "users_proxy": 24,
+          "downlink_mbps": 80,
+          "origin_note": "planning template, not measured traffic"
+        },
+        "origin": "configured"
+      },
+      "mobility": {
+        "values": {
+          "class": "low_named_zone",
+          "aggregate_only": true
+        },
+        "origin": "configured"
+      },
+      "blockage": {
+        "values": {
+          "scenario": "interior_partitions",
+          "extra_db": 8
+        },
+        "origin": "configured"
+      },
+      "outage": {
+        "values": {
+          "terrestrial_outage": false,
+          "degraded": false
+        },
+        "origin": "configured"
+      },
+      "compute": {
+        "values": {
+          "local_edge": true,
+          "offline_cache": false
+        },
+        "origin": "configured"
+      },
+      "spectrum": {
+        "values": {
+          "budget_mhz": 20,
+          "band_profile": "n78_planning"
+        },
+        "origin": "configured"
+      },
+      "energy": {
+        "values": {
+          "budget_j": 120
+        },
+        "origin": "configured"
+      },
+      "continuity": {
+        "values": {
+          "class": "degraded_ok",
+          "max_interruption_s": 180
+        },
+        "origin": "configured"
+      },
+      "privacy": {
+        "contains_direct_identifiers": false,
+        "contains_person_path": false,
+        "location_precision": "named_zone",
+        "gaza_sensitive_export": false,
+        "graham_station_claim": false
+      },
+      "uncertainty": {
+        "overall": "high",
+        "notes": "AUTHORED_PLANNING_LAYOUT; not surveyed geometry. Planning assumptions only."
+      },
+      "evidence_class": "SIMULATED",
+      "producer": {
+        "repository": "3k-mlv",
+        "commit": "5ce416d25f7821ee5506be1a60fd30315372956c"
+      },
+      "notes": "Design/prototyping and applied-industry workloads. Representative projection only. 473-room catalog remains in Campus V2."
+    },
+    {
+      "schema_name": "gunnchos.campus_design_bundle",
+      "schema_version": "1.0.0",
+      "run_id": "mlv-network-twin-germany-design",
+      "site_id": "germany",
+      "campus_slug": "germany",
+      "phase": "FULL",
+      "geometry_fidelity": "AUTHORED_PLANNING_LAYOUT",
+      "source_manifest_sha256": "520cbba99541b1505ebba899a2f34bfa905eadd7af8f5b5e8fa050c884067be1",
+      "source_version_label": "mlv_campus_v2_current",
+      "projection_class": "network_design_planning",
+      "zones": [
+        {
+          "campus_slug": "germany",
+          "phase": "FULL",
+          "campus_requirement_id": "GERMANY.FULL.INDUSTRY40_TWIN_LAB",
+          "digital_object": "germany.full.industry40_twin_lab",
+          "digital_route": "#/mlv/campus/germany/full/industry40-twin-lab",
+          "geometry_fidelity": "AUTHORED_PLANNING_LAYOUT",
+          "space_id": "industry40_twin_lab",
+          "kind": "ROOM",
+          "service_intent_template": "industry40",
+          "material_assumption": "drywall_and_concrete_planning",
+          "floor_index": 0,
+          "redacted": false
+        },
+        {
+          "campus_slug": "germany",
+          "phase": "PILOT",
+          "campus_requirement_id": "GERMANY.PILOT.FLEXIBLE_CLASSROOM",
+          "digital_object": "germany.pilot.flexible_classroom",
+          "digital_route": "#/mlv/campus/germany/pilot/flexible-classroom",
+          "geometry_fidelity": "AUTHORED_PLANNING_LAYOUT",
+          "space_id": "flexible_classroom",
+          "kind": "ROOM",
+          "service_intent_template": "classroom",
+          "material_assumption": "drywall_and_concrete_planning",
+          "floor_index": 0,
+          "redacted": false
+        }
+      ],
+      "candidate_infrastructure": [
+        {
+          "node_id": "germany-indoor-ap-1",
+          "role": "indoor_ap",
+          "height_m_assumption": 3,
+          "orientation_assumption": "ceiling_omni",
+          "power_dbm_bound": 20,
+          "radio_count": 2,
+          "band_profile": "n78_planning",
+          "backhaul": "terrestrial",
+          "edge_compute": false,
+          "anchor_requirement_id": "GERMANY.FULL.INDUSTRY40_TWIN_LAB"
+        },
+        {
+          "node_id": "germany-edge-1",
+          "role": "edge_compute",
+          "height_m_assumption": 1,
+          "orientation_assumption": "rack",
+          "power_dbm_bound": 0,
+          "radio_count": 1,
+          "band_profile": "none",
+          "backhaul": "local_edge_wifi",
+          "edge_compute": true,
+          "anchor_requirement_id": "GERMANY.FULL.INDUSTRY40_TWIN_LAB"
+        }
+      ],
+      "service_intents": [
+        {
+          "template": "industry40",
+          "source": "planning_template",
+          "assumptions": "Derived from room/program role. Not measured occupancy. Not learner records.",
+          "uncertainty": "high",
+          "origin": "configured",
+          "campus_requirement_id": "GERMANY.FULL.INDUSTRY40_TWIN_LAB"
+        },
+        {
+          "template": "classroom",
+          "source": "planning_template",
+          "assumptions": "Derived from room/program role. Not measured occupancy. Not learner records.",
+          "uncertainty": "high",
+          "origin": "configured",
+          "campus_requirement_id": "GERMANY.PILOT.FLEXIBLE_CLASSROOM"
+        }
+      ],
+      "aggregate_demand": {
+        "values": {
+          "users_proxy": 24,
+          "downlink_mbps": 80,
+          "origin_note": "planning template, not measured traffic"
+        },
+        "origin": "configured"
+      },
+      "mobility": {
+        "values": {
+          "class": "low_named_zone",
+          "aggregate_only": true
+        },
+        "origin": "configured"
+      },
+      "blockage": {
+        "values": {
+          "scenario": "interior_partitions",
+          "extra_db": 8
+        },
+        "origin": "configured"
+      },
+      "outage": {
+        "values": {
+          "terrestrial_outage": false,
+          "degraded": false
+        },
+        "origin": "configured"
+      },
+      "compute": {
+        "values": {
+          "local_edge": true,
+          "offline_cache": false
+        },
+        "origin": "configured"
+      },
+      "spectrum": {
+        "values": {
+          "budget_mhz": 20,
+          "band_profile": "n78_planning"
+        },
+        "origin": "configured"
+      },
+      "energy": {
+        "values": {
+          "budget_j": 120
+        },
+        "origin": "configured"
+      },
+      "continuity": {
+        "values": {
+          "class": "degraded_ok",
+          "max_interruption_s": 180
+        },
+        "origin": "configured"
+      },
+      "privacy": {
+        "contains_direct_identifiers": false,
+        "contains_person_path": false,
+        "location_precision": "named_zone",
+        "gaza_sensitive_export": false,
+        "graham_station_claim": false
+      },
+      "uncertainty": {
+        "overall": "high",
+        "notes": "AUTHORED_PLANNING_LAYOUT; not surveyed geometry. Planning assumptions only."
+      },
+      "evidence_class": "SIMULATED",
+      "producer": {
+        "repository": "3k-mlv",
+        "commit": "5ce416d25f7821ee5506be1a60fd30315372956c"
+      },
+      "notes": "Industry 4.0, sensors/mechatronics and edge-compute scenarios. Representative projection only. 473-room catalog remains in Campus V2."
+    },
+    {
+      "schema_name": "gunnchos.campus_design_bundle",
+      "schema_version": "1.0.0",
+      "run_id": "mlv-network-twin-gaza-design",
+      "site_id": "gaza",
+      "campus_slug": "gaza",
+      "phase": "RECOVERY",
+      "geometry_fidelity": "AUTHORED_PLANNING_LAYOUT",
+      "source_manifest_sha256": "520cbba99541b1505ebba899a2f34bfa905eadd7af8f5b5e8fa050c884067be1",
+      "source_version_label": "mlv_campus_v2_current",
+      "projection_class": "network_design_planning",
+      "zones": [
+        {
+          "campus_slug": "gaza",
+          "phase": "RECOVERY",
+          "campus_requirement_id": "GAZA.RECOVERY.OFFLINE_LEARNING_STUDIO",
+          "digital_object": "gaza.recovery.offline_learning_studio",
+          "digital_route": "#/mlv/campus/gaza/recovery/offline-learning-studio",
+          "geometry_fidelity": "AUTHORED_PLANNING_LAYOUT",
+          "space_id": "offline_learning_studio",
+          "kind": "ABSTRACT_ZONE",
+          "service_intent_template": "offline_recovery",
+          "material_assumption": "abstract_partition_planning",
+          "floor_index": 0,
+          "redacted": true
+        },
+        {
+          "campus_slug": "gaza",
+          "phase": "RECOVERY_NETWORK",
+          "campus_requirement_id": "GAZA.RECOVERY_NETWORK.SAFE_TEMPORARY_LEARNING_CIRCLE",
+          "digital_object": "gaza.recovery_network.safe_temporary_learning_circle",
+          "digital_route": "#/mlv/campus/gaza/recovery_network/safe-temporary-learning-circle",
+          "geometry_fidelity": "AUTHORED_PLANNING_LAYOUT",
+          "space_id": "safe_temporary_learning_circle",
+          "kind": "ABSTRACT_ZONE",
+          "service_intent_template": "classroom",
+          "material_assumption": "abstract_partition_planning",
+          "floor_index": 0,
+          "redacted": true
+        }
+      ],
+      "candidate_infrastructure": [
+        {
+          "node_id": "gaza-indoor-ap-1",
+          "role": "indoor_ap",
+          "height_m_assumption": 3,
+          "orientation_assumption": "ceiling_omni",
+          "power_dbm_bound": 20,
+          "radio_count": 2,
+          "band_profile": "n78_planning",
+          "backhaul": "degraded_local",
+          "edge_compute": false,
+          "anchor_requirement_id": "GAZA.RECOVERY.OFFLINE_LEARNING_STUDIO"
+        },
+        {
+          "node_id": "gaza-edge-1",
+          "role": "edge_compute",
+          "height_m_assumption": 1,
+          "orientation_assumption": "rack",
+          "power_dbm_bound": 0,
+          "radio_count": 1,
+          "band_profile": "none",
+          "backhaul": "local_edge_wifi",
+          "edge_compute": true,
+          "anchor_requirement_id": "GAZA.RECOVERY.OFFLINE_LEARNING_STUDIO"
+        },
+        {
+          "node_id": "gaza-offline-1",
+          "role": "offline_cache",
+          "height_m_assumption": 1,
+          "orientation_assumption": "local_cache",
+          "power_dbm_bound": 0,
+          "radio_count": 1,
+          "band_profile": "none",
+          "backhaul": "offline_continuation",
+          "edge_compute": false,
+          "anchor_requirement_id": "GAZA.RECOVERY.OFFLINE_LEARNING_STUDIO"
+        }
+      ],
+      "service_intents": [
+        {
+          "template": "offline_recovery",
+          "source": "planning_template",
+          "assumptions": "Derived from room/program role. Not measured occupancy. Not learner records.",
+          "uncertainty": "high",
+          "origin": "configured",
+          "campus_requirement_id": "GAZA.RECOVERY.OFFLINE_LEARNING_STUDIO"
+        },
+        {
+          "template": "classroom",
+          "source": "planning_template",
+          "assumptions": "Derived from room/program role. Not measured occupancy. Not learner records.",
+          "uncertainty": "high",
+          "origin": "configured",
+          "campus_requirement_id": "GAZA.RECOVERY_NETWORK.SAFE_TEMPORARY_LEARNING_CIRCLE"
+        }
+      ],
+      "aggregate_demand": {
+        "values": {
+          "users_proxy": 24,
+          "downlink_mbps": 80,
+          "origin_note": "planning template, not measured traffic"
+        },
+        "origin": "configured"
+      },
+      "mobility": {
+        "values": {
+          "class": "abstract_zone",
+          "aggregate_only": true
+        },
+        "origin": "configured"
+      },
+      "blockage": {
+        "values": {
+          "scenario": "interior_partitions",
+          "extra_db": 8
+        },
+        "origin": "configured"
+      },
+      "outage": {
+        "values": {
+          "terrestrial_outage": true,
+          "degraded": false
+        },
+        "origin": "configured"
+      },
+      "compute": {
+        "values": {
+          "local_edge": true,
+          "offline_cache": true
+        },
+        "origin": "configured"
+      },
+      "spectrum": {
+        "values": {
+          "budget_mhz": 20,
+          "band_profile": "n78_planning"
+        },
+        "origin": "configured"
+      },
+      "energy": {
+        "values": {
+          "budget_j": 120
+        },
+        "origin": "configured"
+      },
+      "continuity": {
+        "values": {
+          "class": "offline_first",
+          "max_interruption_s": 180
+        },
+        "origin": "configured"
+      },
+      "privacy": {
+        "contains_direct_identifiers": false,
+        "contains_person_path": false,
+        "location_precision": "abstract_zone",
+        "gaza_sensitive_export": false,
+        "graham_station_claim": false
+      },
+      "uncertainty": {
+        "overall": "high",
+        "notes": "AUTHORED_PLANNING_LAYOUT; not surveyed geometry. Planning assumptions only."
+      },
+      "evidence_class": "SIMULATED",
+      "producer": {
+        "repository": "3k-mlv",
+        "commit": "5ce416d25f7821ee5506be1a60fd30315372956c"
+      },
+      "notes": "Offline-first, connectivity/power resilience, abstract network zones only. Representative projection only. 473-room catalog remains in Campus V2."
+    },
+    {
+      "schema_name": "gunnchos.campus_design_bundle",
+      "schema_version": "1.0.0",
+      "run_id": "mlv-network-twin-graham-land-design",
+      "site_id": "graham_land",
+      "campus_slug": "graham-land",
+      "phase": "FULL",
+      "geometry_fidelity": "AUTHORED_PLANNING_LAYOUT",
+      "source_manifest_sha256": "520cbba99541b1505ebba899a2f34bfa905eadd7af8f5b5e8fa050c884067be1",
+      "source_version_label": "mlv_campus_v2_current",
+      "projection_class": "network_design_planning",
+      "zones": [
+        {
+          "campus_slug": "graham-land",
+          "phase": "FULL",
+          "campus_requirement_id": "GRAHAM.FULL.NTN_LAB",
+          "digital_object": "graham-land.full.ntn_lab",
+          "digital_route": "#/mlv/campus/graham-land/full/ntn-lab",
+          "geometry_fidelity": "AUTHORED_PLANNING_LAYOUT",
+          "space_id": "ntn_lab",
+          "kind": "ROOM",
+          "service_intent_template": "ntn_remote_sensing",
+          "material_assumption": "drywall_and_concrete_planning",
+          "floor_index": 0,
+          "redacted": false
+        },
+        {
+          "campus_slug": "graham-land",
+          "phase": "REMOTE",
+          "campus_requirement_id": "GRAHAM.REMOTE.FLEXIBLE_VIRTUAL_CLASSROOM",
+          "digital_object": "graham-land.remote.flexible_virtual_classroom",
+          "digital_route": "#/mlv/campus/graham-land/remote/flexible-virtual-classroom",
+          "geometry_fidelity": "AUTHORED_PLANNING_LAYOUT",
+          "space_id": "flexible_virtual_classroom",
+          "kind": "ROOM",
+          "service_intent_template": "classroom",
+          "material_assumption": "drywall_and_concrete_planning",
+          "floor_index": 0,
+          "redacted": false
+        }
+      ],
+      "candidate_infrastructure": [
+        {
+          "node_id": "graham-indoor-ap-1",
+          "role": "indoor_ap",
+          "height_m_assumption": 3,
+          "orientation_assumption": "ceiling_omni",
+          "power_dbm_bound": 20,
+          "radio_count": 2,
+          "band_profile": "n78_planning",
+          "backhaul": "terrestrial",
+          "edge_compute": false,
+          "anchor_requirement_id": "GRAHAM.FULL.NTN_LAB"
+        },
+        {
+          "node_id": "graham-edge-1",
+          "role": "edge_compute",
+          "height_m_assumption": 1,
+          "orientation_assumption": "rack",
+          "power_dbm_bound": 0,
+          "radio_count": 1,
+          "band_profile": "none",
+          "backhaul": "local_edge_wifi",
+          "edge_compute": true,
+          "anchor_requirement_id": "GRAHAM.FULL.NTN_LAB"
+        },
+        {
+          "node_id": "graham-ntn-1",
+          "role": "ntn_gateway",
+          "height_m_assumption": 2,
+          "orientation_assumption": "optional_fallback",
+          "power_dbm_bound": 23,
+          "radio_count": 1,
+          "band_profile": "ntn_s_band_planning",
+          "backhaul": "ntn_fallback",
+          "edge_compute": false,
+          "anchor_requirement_id": "GRAHAM.FULL.NTN_LAB"
+        }
+      ],
+      "service_intents": [
+        {
+          "template": "ntn_remote_sensing",
+          "source": "planning_template",
+          "assumptions": "Derived from room/program role. Not measured occupancy. Not learner records.",
+          "uncertainty": "high",
+          "origin": "configured",
+          "campus_requirement_id": "GRAHAM.FULL.NTN_LAB"
+        },
+        {
+          "template": "classroom",
+          "source": "planning_template",
+          "assumptions": "Derived from room/program role. Not measured occupancy. Not learner records.",
+          "uncertainty": "high",
+          "origin": "configured",
+          "campus_requirement_id": "GRAHAM.REMOTE.FLEXIBLE_VIRTUAL_CLASSROOM"
+        }
+      ],
+      "aggregate_demand": {
+        "values": {
+          "users_proxy": 24,
+          "downlink_mbps": 80,
+          "origin_note": "planning template, not measured traffic"
+        },
+        "origin": "configured"
+      },
+      "mobility": {
+        "values": {
+          "class": "low_named_zone",
+          "aggregate_only": true
+        },
+        "origin": "configured"
+      },
+      "blockage": {
+        "values": {
+          "scenario": "interior_partitions",
+          "extra_db": 8
+        },
+        "origin": "configured"
+      },
+      "outage": {
+        "values": {
+          "terrestrial_outage": false,
+          "degraded": false
+        },
+        "origin": "configured"
+      },
+      "compute": {
+        "values": {
+          "local_edge": true,
+          "offline_cache": false
+        },
+        "origin": "configured"
+      },
+      "spectrum": {
+        "values": {
+          "budget_mhz": 20,
+          "band_profile": "n78_planning"
+        },
+        "origin": "configured"
+      },
+      "energy": {
+        "values": {
+          "budget_j": 60
+        },
+        "origin": "configured"
+      },
+      "continuity": {
+        "values": {
+          "class": "degraded_ok",
+          "max_interruption_s": 180
+        },
+        "origin": "configured"
+      },
+      "privacy": {
+        "contains_direct_identifiers": false,
+        "contains_person_path": false,
+        "location_precision": "named_zone",
+        "gaza_sensitive_export": false,
+        "graham_station_claim": false
+      },
+      "uncertainty": {
+        "overall": "high",
+        "notes": "AUTHORED_PLANNING_LAYOUT; not surveyed geometry. Planning assumptions only."
+      },
+      "evidence_class": "SIMULATED",
+      "producer": {
+        "repository": "3k-mlv",
+        "commit": "5ce416d25f7821ee5506be1a60fd30315372956c"
+      },
+      "notes": "NTN, remote sensing, low-bandwidth/extreme-environment simulation. Representative projection only. 473-room catalog remains in Campus V2."
+    }
+  ]
+}

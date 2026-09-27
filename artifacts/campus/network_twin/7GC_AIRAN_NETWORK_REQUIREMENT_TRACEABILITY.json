@@ -1,0 +1,116 @@
+{
+  "schema_version": "1.0.0",
+  "separate_from_473_source_requirements": true,
+  "source_manifest_sha256": "520cbba99541b1505ebba899a2f34bfa905eadd7af8f5b5e8fa050c884067be1",
+  "example_campus_v2_ids": [
+    "GARY.FULL.HARDWARE_REPAIR_LAB",
+    "GHANA.FULL.MENTOR_WORKSPACE",
+    "GUYANA.FULL.CLIMATE_GIS_STUDIO",
+    "GEELONG.FULL.DESIGN_BUILD_STUDIO",
+    "GERMANY.FULL.INDUSTRY40_TWIN_LAB",
+    "GAZA.RECOVERY.OFFLINE_LEARNING_STUDIO",
+    "GRAHAM.FULL.NTN_LAB"
+  ],
+  "backend_pins": {
+    "field_kit": {
+      "repo": "gunnchOS3k/gunnchos-7gc-ai-ran-field-kit",
+      "number": 120,
+      "branch": "integration/7gc-campus-airan-closed-loop-v2",
+      "head": "f7ca0bacbea33f3a97e550cf3c8c28e5dc6928f9"
+    },
+    "digital_twin": {
+      "repo": "gunnchOS3k/7gc-digital-twin",
+      "number": 33,
+      "branch": "integration/mlv-campus-network-twin-v2",
+      "head": "1d3c159ed942bb499a83af0c4e1533bf439a5970"
+    },
+    "spectrumx": {
+      "repo": "gunnchOS3k/spectrumx-ai-ran-gary",
+      "number": 104,
+      "branch": "integration/7gc-planning-ric-loop-v2",
+      "head": "bffa5161de5b8f3118e89f210f43f375e6cde717"
+    },
+    "edge_io": {
+      "repo": "gunnchOS3k/edge-io-measurement-node",
+      "number": 41,
+      "branch": "integration/campus-calibration-evidence-v2",
+      "head": "1af382b489732d4dfa745f67eef9ee61ec1ba9a4"
+    }
+  },
+  "waike_pin": {
+    "repo": "gunnchOS3k/gunnchos-waike-learning-platform",
+    "number": 25,
+    "branch": "product/learner-first-adoption-parity-v1",
+    "head": "f0176c2c45c1c366ad22f46407e6c55c3c5f3e8e",
+    "imported": "18/18",
+    "ready": 16,
+    "partial": 2,
+    "partial_ids": [
+      "DIGITAL_CONFIDENCE",
+      "IT_SUPPORT_HARDWARE"
+    ],
+    "consumer_summary_endpoint": "/api/v1/mlv/consumer-summary"
+  },
+  "rows": [
+    {
+      "requirement_id": "NT-01",
+      "requirement": "NT-01 Network Twin Lab inside Campus navigation",
+      "digital_route": "#/mlv/campus/network-twin",
+      "evidence": "SIMULATED"
+    },
+    {
+      "requirement_id": "NT-02",
+      "requirement": "NT-02 Contract-valid campus_design_bundle producer for 7 campuses",
+      "digital_route": "#/mlv/campus/network-twin",
+      "evidence": "SIMULATED"
+    },
+    {
+      "requirement_id": "NT-03",
+      "requirement": "NT-03 Consume campus_optimization_result fixtures without opaque AI score",
+      "digital_route": "#/mlv/campus/network-twin",
+      "evidence": "SIMULATED"
+    },
+    {
+      "requirement_id": "NT-04",
+      "requirement": "NT-04 Planning-only candidate infrastructure",
+      "digital_route": "#/mlv/campus/network-twin",
+      "evidence": "SIMULATED"
+    },
+    {
+      "requirement_id": "NT-05",
+      "requirement": "NT-05 Predicted vs measured honesty",
+      "digital_route": "#/mlv/campus/network-twin",
+      "evidence": "SIMULATED"
+    },
+    {
+      "requirement_id": "NT-06",
+      "requirement": "NT-06 No browser actuation / no RIC secrets",
+      "digital_route": "#/mlv/campus/network-twin",
+      "evidence": "SIMULATED"
+    },
+    {
+      "requirement_id": "NT-07",
+      "requirement": "NT-07 WAIKE PR25 consumer-summary without shadow LMS",
+      "digital_route": "#/mlv/campus/network-twin",
+      "evidence": "SIMULATED"
+    },
+    {
+      "requirement_id": "NT-08",
+      "requirement": "NT-08 No learner records in network optimization",
+      "digital_route": "#/mlv/campus/network-twin",
+      "evidence": "SIMULATED"
+    },
+    {
+      "requirement_id": "NT-09",
+      "requirement": "NT-09 Gaza abstract zones / Graham no fake station",
+      "digital_route": "#/mlv/campus/network-twin",
+      "evidence": "SIMULATED"
+    },
+    {
+      "requirement_id": "NT-10",
+      "requirement": "NT-10 Separate from the 473 campus source requirements",
+      "digital_route": "#/mlv/campus/network-twin",
+      "evidence": "SIMULATED"
+    }
+  ]
+}

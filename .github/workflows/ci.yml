@@ -3,7 +3,7 @@ name: 3k MLV CI
 on:
   pull_request:
   push:
-    branches: [revival/gunnchos-world-workspace-v1, world/home-7gc-campus-gallery-v2, main]
+    branches: [revival/gunnchos-world-workspace-v1, world/home-7gc-campus-gallery-v2, world/7gc-airan-network-twin-extension-v3, main]
 
 jobs:
   privacy-and-build:
@@ -29,6 +29,10 @@ jobs:
         run: node --test tests/privacy/*.test.mjs
       - name: 7GC campus source fidelity
         run: node --test tests/campus/*.test.mjs
+      - name: Network Twin gates
+        run: node --test tests/network_twin/*.test.mjs
+      - name: Network Twin artifacts
+        run: node scripts/build-network-twin-artifacts.mjs
       - name: Local PGlite PostgreSQL RLS
         run: node scripts/run-local-postgres-rls.mjs
       - name: Typecheck
