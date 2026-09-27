@@ -26,6 +26,7 @@ const LectureHall = lazy(() => import('./campus/LectureHall'));
 const MediaCenter = lazy(() => import('./campus/MediaCenter'));
 const GallerySite = lazy(() => import('./campus/GallerySite'));
 const WaikeCenter = lazy(() => import('./campus/WaikeCenter'));
+const NetworkTwinLab = lazy(() => import('./campus/NetworkTwinLab'));
 
 type Site = 'HOME' | 'CAMPUS' | 'GALLERY';
 
@@ -113,7 +114,11 @@ export default function App() {
 
   const actor = user ? { id: user.id } : null;
   const site = siteFromRoute(route.kind);
-  const campusSlug = route.kind === 'campus' ? route.campus_slug : null;
+  const campusSlug = route.kind === 'campus' && route.campus_slug !== 'network-twin'
+    ? route.campus_slug
+    : null;
+  const networkTwinOpen = route.kind === 'campus'
+    && (route.campus_slug === 'network-twin' || (route.campus_rest || []).includes('network-twin'));
 
   const handleUpload = async (file: File) => {
     if (!actor) return;
@@ -283,8 +288,9 @@ export default function App() {
             {site === 'CAMPUS' && route.kind === 'study' && actor && <StudyRooms actor={actor} />}
             {site === 'CAMPUS' && route.kind === 'lecture' && <LectureHall />}
             {site === 'CAMPUS' && route.kind === 'media' && <MediaCenter />}
-            {site === 'CAMPUS' && route.kind === 'campus' && campusSlug && <DigitalCampus slug={campusSlug} />}
-            {site === 'CAMPUS' && route.kind === 'campus' && !campusSlug && <CampusLanding />}
+            {site === 'CAMPUS' && networkTwinOpen && <NetworkTwinLab slug={campusSlug} />}
+            {site === 'CAMPUS' && route.kind === 'campus' && campusSlug && !networkTwinOpen && <DigitalCampus slug={campusSlug} />}
+            {site === 'CAMPUS' && route.kind === 'campus' && !campusSlug && !networkTwinOpen && <CampusLanding />}
           </Suspense>
         )}
       </div>

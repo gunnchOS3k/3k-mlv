@@ -51,6 +51,7 @@ export const CAMPUS_LANDING = Object.freeze([
   { id: 'lecture-hall', label: 'Lecture Hall', route: '#/mlv/campus/lecture' },
   { id: 'media-center', label: 'Media Center', route: '#/mlv/campus/media' },
   { id: 'atlas', label: '7GC Atlas', route: '#/mlv/campus/atlas' },
+  { id: 'network-twin', label: 'Network Twin Lab', route: '#/mlv/campus/network-twin' },
 ]);
 
 function room(key, name, extra = {}) {

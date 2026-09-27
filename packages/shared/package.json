@@ -20,6 +20,7 @@
   },
   "exports": {
     ".": "./src/index.ts",
-    "./campus": "./src/campus/index.js"
+    "./campus": "./src/campus/index.js",
+    "./networkTwin": "./src/networkTwin/index.js"
   }
 }

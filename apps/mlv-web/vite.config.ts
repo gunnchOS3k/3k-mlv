@@ -51,6 +51,7 @@ export default defineConfig({
   resolve: {
     alias: {
       '@3k-mlv/shared': path.resolve(__dirname, '../../packages/shared/src/index.ts'),
+      '@3k-mlv/shared/networkTwin': path.resolve(__dirname, '../../packages/shared/src/networkTwin/web.js'),
       '@3k-mlv/campus': path.resolve(__dirname, '../../packages/shared/src/campus/index.js'),
     },
   },
