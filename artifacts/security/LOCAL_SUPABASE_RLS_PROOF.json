@@ -1,0 +1,89 @@
+{
+  "proven": true,
+  "engine": "pglite-postgres-rls",
+  "engine_note": "PGlite is in-process PostgreSQL. Docker/Supabase CLI were unavailable; this is local real-SQL RLS, not hosted Supabase.",
+  "started": "2026-09-25T19:06:18.351Z",
+  "finished": "2026-09-25T19:06:19.262Z",
+  "blockers_avoided_by_fallback": [
+    "Docker is not installed on this host.",
+    "Supabase CLI is not installed.",
+    "Hosted/local supabase start was not available.",
+    "Homebrew PostgreSQL is not installed."
+  ],
+  "hosted_supabase_still_required": true,
+  "cases": [
+    {
+      "name": "alice_reads_private_node",
+      "ok": true,
+      "detail": "pass"
+    },
+    {
+      "name": "bob_cannot_select_private_node",
+      "ok": true,
+      "detail": "pass"
+    },
+    {
+      "name": "anonymous_cannot_select_private_node",
+      "ok": true,
+      "detail": "pass"
+    },
+    {
+      "name": "bob_cannot_infer_private_filename_or_count",
+      "ok": true,
+      "detail": "pass"
+    },
+    {
+      "name": "shared_uuid_alone_does_not_grant_access",
+      "ok": true,
+      "detail": "pass"
+    },
+    {
+      "name": "valid_share_token_opens_only_intended_node",
+      "ok": true,
+      "detail": "pass"
+    },
+    {
+      "name": "revoked_token_fails",
+      "ok": true,
+      "detail": "pass"
+    },
+    {
+      "name": "expired_token_fails",
+      "ok": true,
+      "detail": "pass"
+    },
+    {
+      "name": "anonymous_reads_public_node",
+      "ok": true,
+      "detail": "pass"
+    },
+    {
+      "name": "unpublish_removes_public_access",
+      "ok": true,
+      "detail": "pass"
+    },
+    {
+      "name": "bob_cannot_update_or_delete_alice_node",
+      "ok": true,
+      "detail": "pass"
+    },
+    {
+      "name": "private_placement_does_not_leak",
+      "ok": true,
+      "detail": "pass"
+    },
+    {
+      "name": "alice_can_read_own_private_storage_object",
+      "ok": true,
+      "detail": "pass"
+    },
+    {
+      "name": "bob_cannot_read_alice_private_storage_object",
+      "ok": true,
+      "detail": "pass"
+    }
+  ],
+  "passed": 14,
+  "failed": 0,
+  "claim": "Local PostgreSQL RLS isolation proven via PGlite. Not hosted/production security."
+}

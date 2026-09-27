@@ -1,0 +1,35 @@
+name: 3k MLV CI
+
+on:
+  pull_request:
+  push:
+    branches: [revival/gunnchos-world-workspace-v1, main]
+
+jobs:
+  privacy-and-build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9.15.9
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+      - name: Assert node_modules is not tracked
+        run: bash scripts/assert-no-tracked-node-modules.sh
+      - name: No secrets scan
+        run: bash scripts/scan-no-secrets.sh
+      - name: Install (frozen lockfile)
+        run: pnpm install --frozen-lockfile
+      - name: In-memory privacy harness
+        run: node --test tests/privacy/two_user_privacy.test.mjs
+      - name: Local PGlite PostgreSQL RLS
+        run: node scripts/run-local-postgres-rls.mjs
+      - name: Typecheck
+        run: pnpm type-check
+      - name: Build
+        run: pnpm build
+        env:
+          NODE_ENV: production

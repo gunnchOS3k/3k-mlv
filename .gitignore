@@ -1,0 +1,35 @@
+# Dependencies (must never be versioned)
+node_modules/
+**/node_modules/
+
+# Build outputs
+dist/
+**/dist/
+.vite/
+coverage/
+
+# Environment and secrets — examples only
+.env
+.env.local
+.env.*.local
+!.env.example
+!**/.env.example
+
+# Logs and OS
+*.log
+npm-debug.log*
+pnpm-debug.log*
+.DS_Store
+Thumbs.db
+
+# Editor
+.idea/
+.vscode/
+*.swp
+
+# Test artifacts
+!artifacts/security/
+!artifacts/build/
+.nyc_output/
+playwright-report/
+test-results/

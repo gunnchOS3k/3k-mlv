@@ -81,3 +81,68 @@ export interface ChatMessage {
   timestamp: string;
   type: 'text' | 'emote';
 }
+
+export type MlvVisibility = 'private' | 'shared' | 'public';
+export type MlvNodeKind = 'file' | 'folder' | 'project' | 'shortcut' | 'creation';
+export type MlvSharePermission = 'view' | 'download';
+
+export interface MlvNode {
+  id: string;
+  owner_id: string;
+  parent_id: string | null;
+  kind: MlvNodeKind;
+  name: string;
+  mime_type: string | null;
+  size_bytes: number | null;
+  sha256: string | null;
+  storage_key: string | null;
+  visibility: MlvVisibility;
+  metadata: Record<string, unknown>;
+  created_at: string;
+  updated_at: string;
+  deleted_at: string | null;
+}
+
+export interface MlvShareLink {
+  id: string;
+  node_id: string;
+  owner_id: string;
+  token_hash: string;
+  permission: MlvSharePermission;
+  expires_at: string | null;
+  revoked_at: string | null;
+  created_at: string;
+}
+
+export interface MlvWorldPlacement {
+  id: string;
+  owner_id: string;
+  node_id: string;
+  room_id: string;
+  position: { x: number; y: number; z: number };
+  rotation: { x: number; y: number; z: number };
+  scale: { x: number; y: number; z: number };
+  presentation_type: string;
+  created_at: string;
+  updated_at: string;
+}
+
+export interface MlvPlayerInstance {
+  owner_id: string;
+  world_config: Record<string, unknown>;
+  home_theme: string;
+  spawn: { x: number; y: number; z: number };
+  updated_at: string;
+}
+
+export interface GunnchOSArtifactIntent {
+  artifact_id: string;
+  owner_id: string;
+  title: string;
+  mime_type: string;
+  app_id: string;
+  local_uri?: string | null;
+  cloud_node_id?: string | null;
+  suggested_presentation?: string;
+  default_visibility: 'private';
+}

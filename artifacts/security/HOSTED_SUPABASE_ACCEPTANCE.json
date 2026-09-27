@@ -1,0 +1,16 @@
+{
+  "kind": "hosted_supabase_acceptance",
+  "executed": false,
+  "reason": "Refusing to run. Missing or placeholder env: VITE_SUPABASE_URL, VITE_SUPABASE_ANON_KEY, MLV_TEST_ALICE_EMAIL, MLV_TEST_ALICE_PASSWORD, MLV_TEST_BOB_EMAIL, MLV_TEST_BOB_PASSWORD. See docs/security/HOSTED_SUPABASE_OWNER_RUNBOOK.md.",
+  "run_id": "mlv-hosted-2026-09-25T194131044Z-0595d033",
+  "started_at": "2026-09-25T19:41:31.043Z",
+  "finished_at": "2026-09-25T19:41:31.044Z",
+  "claim_boundary": "Hosted gates remain false until an owner-authorized run completes against a live project.",
+  "gates": {
+    "MLV_HOSTED_SUPABASE_RLS_PASS": false,
+    "MLV_GITHUB_OAUTH_PASS": false,
+    "MLV_HOSTED_TWO_USER_PRIVACY_PASS": false,
+    "MLV_PRODUCTION_SECURITY_CLAIM": false
+  },
+  "cases": []
+}

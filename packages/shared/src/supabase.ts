@@ -1,8 +1,18 @@
 import { createClient } from '@supabase/supabase-js';
 import type { Profile, AvatarConfig, Project, HouseLayout, PresenceUser, ChatMessage } from './types';
 
-const supabaseUrl = (import.meta as any).env?.VITE_SUPABASE_URL || 'https://your-project.supabase.co';
-const supabaseKey = (import.meta as any).env?.VITE_SUPABASE_ANON_KEY || 'your-anon-key';
+const PLACEHOLDER_URL = 'https://your-project.supabase.co';
+const PLACEHOLDER_KEY = 'your-anon-key';
+
+const supabaseUrl = (import.meta as any).env?.VITE_SUPABASE_URL || PLACEHOLDER_URL;
+const supabaseKey = (import.meta as any).env?.VITE_SUPABASE_ANON_KEY || PLACEHOLDER_KEY;
+
+export const isSupabaseConfigured =
+  Boolean(supabaseUrl) &&
+  Boolean(supabaseKey) &&
+  supabaseUrl !== PLACEHOLDER_URL &&
+  supabaseKey !== PLACEHOLDER_KEY &&
+  !String(supabaseKey).includes('your-anon-key');
 
 export const supabase = createClient(supabaseUrl, supabaseKey);
 
@@ -161,6 +171,38 @@ export const useHouseLayout = () => {
   };
 
   return { getHouseLayout, updateHouseLayout };
+};
+
+export const useMlvWorkspace = () => {
+  const ensurePlayerInstance = async () => {
+    const { data, error } = await supabase.rpc('mlv_ensure_player_instance');
+    return { data, error };
+  };
+
+  const listOwnNodes = async () => {
+    const { data, error } = await supabase
+      .from('mlv_nodes')
+      .select('*')
+      .is('deleted_at', null)
+      .order('updated_at', { ascending: false });
+    return { data: data || [], error };
+  };
+
+  const openShare = async (token: string) => {
+    const { data, error } = await supabase.rpc('mlv_open_share', { p_token: token });
+    return { data, error };
+  };
+
+  const listPublicNodes = async () => {
+    const { data, error } = await supabase
+      .from('mlv_nodes')
+      .select('id, owner_id, kind, name, mime_type, size_bytes, visibility, metadata, created_at, updated_at')
+      .eq('visibility', 'public')
+      .is('deleted_at', null);
+    return { data: data || [], error };
+  };
+
+  return { ensurePlayerInstance, listOwnNodes, openShare, listPublicNodes };
 };
 
 export type { Profile, AvatarConfig, Project, HouseLayout, PresenceUser, ChatMessage };

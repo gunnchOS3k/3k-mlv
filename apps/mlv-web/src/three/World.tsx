@@ -1,186 +1,116 @@
-import { Suspense, useRef, useState, useEffect } from 'react';
-import { Canvas, useFrame } from '@react-three/fiber';
-import { OrbitControls, Text, Box, Sphere } from '@react-three/drei';
-// import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
-// import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader';
-import * as THREE from 'three';
+import { Suspense } from 'react';
+import { Canvas } from '@react-three/fiber';
+import { OrbitControls, Text, Box } from '@react-three/drei';
+import type { MlvNode, MlvWorldPlacement } from '@3k-mlv/shared';
 
-// House component
-function House({ position, color, onClick }: { position: [number, number, number], color: string, onClick: () => void }) {
-  const meshRef = useRef<THREE.Mesh>(null);
-  
-  useFrame((state) => {
-    if (meshRef.current) {
-      meshRef.current.rotation.y = Math.sin(state.clock.elapsedTime * 0.5) * 0.1;
-    }
-  });
+const PRESENTATION_COLOR: Record<string, string> = {
+  frame: '#f6c445',
+  book: '#8b4513',
+  record: '#c0392b',
+  screen: '#2c3e50',
+  terminal: '#1abc9c',
+  arcade: '#9b59b6',
+  pedestal: '#7f8c8d',
+  notebook: '#27ae60',
+  lab_console: '#2980b9',
+  parcel: '#d35400',
+};
 
+function Home({ theme }: { theme: string }) {
+  const color = theme === 'cozy' ? '#c9a27e' : '#8899aa';
   return (
-    <group position={position} onClick={onClick}>
-      <Box ref={meshRef} args={[2, 2, 2]} position={[0, 1, 0]}>
+    <group>
+      <Box args={[4.2, 2.4, 3.2]} position={[0, 1.2, -4]}>
         <meshStandardMaterial color={color} />
       </Box>
-      <Box args={[2.2, 0.2, 2.2]} position={[0, 2.1, 0]}>
-        <meshStandardMaterial color="#8B4513" />
+      <Box args={[4.6, 0.25, 3.6]} position={[0, 2.5, -4]}>
+        <meshStandardMaterial color="#6b4226" />
       </Box>
-      <Box args={[0.4, 0.8, 0.1]} position={[1, 0.8, 0]}>
-        <meshStandardMaterial color="#654321" />
-      </Box>
-    </group>
-  );
-}
-
-// Player avatar component
-function PlayerAvatar({ position, color, name }: { position: [number, number, number], color: string, name: string }) {
-  const meshRef = useRef<THREE.Mesh>(null);
-  
-  useFrame((state) => {
-    if (meshRef.current) {
-      meshRef.current.position.y = Math.sin(state.clock.elapsedTime * 2) * 0.1 + 1;
-    }
-  });
-
-  return (
-    <group position={position}>
-      <Sphere ref={meshRef} args={[0.3, 8, 8]} position={[0, 1, 0]}>
-        <meshStandardMaterial color={color} />
-      </Sphere>
-      <Text
-        position={[0, 2, 0]}
-        fontSize={0.2}
-        color="white"
-        anchorX="center"
-        anchorY="middle"
-      >
-        {name}
+      <Text position={[0, 3.1, -4]} fontSize={0.28} color="white" anchorX="center">
+        Home
       </Text>
     </group>
   );
 }
 
-// Ground component
+function Desk() {
+  return (
+    <Box args={[3.2, 0.18, 1.2]} position={[0, 0.7, 0]}>
+      <meshStandardMaterial color="#7a4e2d" />
+    </Box>
+  );
+}
+
+function WorldObject({
+  placement,
+  node,
+  onOpen,
+}: {
+  placement: MlvWorldPlacement;
+  node: MlvNode;
+  onOpen: (node: MlvNode) => void;
+}) {
+  const color = PRESENTATION_COLOR[placement.presentation_type] || PRESENTATION_COLOR.parcel;
+  return (
+    <group
+      position={[placement.position.x, placement.position.y, placement.position.z]}
+      onClick={(event: { stopPropagation: () => void }) => {
+        event.stopPropagation();
+        onOpen(node);
+      }}
+    >
+      <Box args={[0.55, 0.55, 0.55]}>
+        <meshStandardMaterial color={color} />
+      </Box>
+      <Text position={[0, 0.55, 0]} fontSize={0.12} color="white" anchorX="center">
+        {node.name}
+      </Text>
+    </group>
+  );
+}
+
 function Ground() {
   return (
-    <Box args={[20, 0.1, 20]} position={[0, -0.05, 0]}>
+    <Box args={[24, 0.1, 24]} position={[0, -0.05, 0]}>
       <meshStandardMaterial color="#4a7c59" />
     </Box>
   );
 }
 
-// Main world component
-function WorldScene({ onHouseClick }: { onHouseClick: (houseId: string) => void }) {
-  
-  // Sample houses data
-  const houses = [
-    { id: 'house1', position: [-6, 0, -6] as [number, number, number], color: '#ff6b6b', owner: 'gunnchOS3k' },
-    { id: 'house2', position: [0, 0, -6] as [number, number, number], color: '#4ecdc4', owner: 'friend1' },
-    { id: 'house3', position: [6, 0, -6] as [number, number, number], color: '#45b7d1', owner: 'friend2' },
-    { id: 'house4', position: [-6, 0, 0] as [number, number, number], color: '#96ceb4', owner: 'friend3' },
-    { id: 'house5', position: [6, 0, 0] as [number, number, number], color: '#feca57', owner: 'friend4' },
-    { id: 'house6', position: [-6, 0, 6] as [number, number, number], color: '#ff9ff3', owner: 'friend5' },
-    { id: 'house7', position: [0, 0, 6] as [number, number, number], color: '#54a0ff', owner: 'friend6' },
-    { id: 'house8', position: [6, 0, 6] as [number, number, number], color: '#5f27cd', owner: 'friend7' },
-  ];
-
-  // Sample players data
-  const players = [
-    { id: 'player1', position: [2, 0, 2] as [number, number, number], color: '#ff6b6b', name: 'You' },
-    { id: 'player2', position: [-2, 0, 2] as [number, number, number], color: '#4ecdc4', name: 'Friend1' },
-    { id: 'player3', position: [0, 0, -2] as [number, number, number], color: '#45b7d1', name: 'Friend2' },
-  ];
-
+export default function World({
+  homeTheme,
+  placements,
+  nodes,
+  onOpenNode,
+}: {
+  homeTheme: string;
+  placements: MlvWorldPlacement[];
+  nodes: MlvNode[];
+  onOpenNode: (node: MlvNode) => void;
+}) {
+  const byId = new Map(nodes.map((n) => [n.id, n]));
   return (
-    <>
-      <ambientLight intensity={0.4} />
-      <directionalLight position={[10, 10, 5]} intensity={1} />
-      
-      <Ground />
-      
-      {houses.map((house) => (
-        <House
-          key={house.id}
-          position={house.position}
-          color={house.color}
-          onClick={() => onHouseClick(house.id)}
-        />
-      ))}
-      
-      {players.map((player) => (
-        <PlayerAvatar
-          key={player.id}
-          position={player.position}
-          color={player.color}
-          name={player.name}
-        />
-      ))}
-    </>
-  );
-}
-
-// Loading component
-function LoadingFallback() {
-  return (
-    <Text
-      position={[0, 0, 0]}
-      fontSize={0.5}
-      color="white"
-      anchorX="center"
-      anchorY="middle"
-    >
-      Loading 3k MLV...
-    </Text>
-  );
-}
-
-// Main World component
-export default function World({ onHouseClick }: { onHouseClick: (houseId: string) => void }) {
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    // Simulate loading
-    setTimeout(() => setLoading(false), 2000);
-  }, []);
-
-  if (loading) {
-    return (
-      <div style={{
-        position: 'fixed',
-        top: 0,
-        left: 0,
-        width: '100%',
-        height: '100%',
-        background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        color: 'white',
-        fontSize: '1.5rem'
-      }}>
-        <div style={{ textAlign: 'center' }}>
-          <div style={{ marginBottom: '1rem' }}>🏠</div>
-          <div>Loading 3k MLV...</div>
-          <div style={{ fontSize: '0.8rem', marginTop: '0.5rem', opacity: 0.7 }}>
-            Setting up your cozy neighborhood
-          </div>
-        </div>
-      </div>
-    );
-  }
-
-  return (
-    <Canvas
-      camera={{ position: [0, 10, 10], fov: 60 }}
-      style={{ width: '100%', height: '100%' }}
-    >
-      <Suspense fallback={<LoadingFallback />}>
-        <WorldScene onHouseClick={onHouseClick} />
-        <OrbitControls
-          enablePan={true}
-          enableZoom={true}
-          enableRotate={true}
-          minDistance={5}
-          maxDistance={20}
-        />
+    <Canvas camera={{ position: [0, 8, 10], fov: 55 }} style={{ width: '100%', height: '100%' }}>
+      <color attach="background" args={['#87b5d9']} />
+      <Suspense fallback={null}>
+        <ambientLight intensity={0.45} />
+        <directionalLight position={[8, 12, 6]} intensity={1} />
+        <Ground />
+        <Home theme={homeTheme} />
+        <Desk />
+        {placements.map((placement) => {
+          const node = byId.get(placement.node_id);
+          if (!node) return null;
+          return (
+            <WorldObject
+              key={placement.id}
+              placement={placement}
+              node={node}
+              onOpen={onOpenNode}
+            />
+          );
+        })}
+        <OrbitControls enablePan enableZoom enableRotate minDistance={4} maxDistance={22} />
       </Suspense>
     </Canvas>
   );
