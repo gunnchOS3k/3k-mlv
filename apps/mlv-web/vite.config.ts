@@ -51,6 +51,7 @@ export default defineConfig({
   resolve: {
     alias: {
       '@3k-mlv/shared': path.resolve(__dirname, '../../packages/shared/src/index.ts'),
+      '@3k-mlv/campus': path.resolve(__dirname, '../../packages/shared/src/campus/index.js'),
     },
   },
   base: '/3k-mlv/',
@@ -62,6 +63,8 @@ export default defineConfig({
           if (id.includes('node_modules/three')) return 'three';
           if (id.includes('node_modules/@react-three')) return 'react-three';
           if (id.includes('node_modules/@supabase')) return 'supabase';
+          if (id.includes('/src/campus/') || id.includes('/src/three/CampusWorld')) return 'campus';
+          if (id.includes('/campus/catalog.js') || id.includes('/campus/model.js')) return 'campus-source';
           if (id.includes('node_modules')) return 'vendor';
         }
       }

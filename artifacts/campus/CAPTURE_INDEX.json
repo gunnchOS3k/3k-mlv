@@ -1,0 +1,19 @@
+{
+  "human_gates_false": true,
+  "PIXEL_7GC_CAMPUS_PASS": false,
+  "captures": [
+    "campus_landing.html",
+    "atlas.html",
+    "gary_overview.html",
+    "ghana_overview.html",
+    "guyana_overview.html",
+    "geelong_overview.html",
+    "germany_overview.html",
+    "gaza_overview.html",
+    "graham-land_overview.html",
+    "phase_selector.html",
+    "evidence_panel.html",
+    "gaza_recovery.html",
+    "graham_land_twin.html"
+  ]
+}
