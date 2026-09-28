@@ -1,0 +1,40 @@
+{
+  "schema": "gunnchos.mlv.universal_shell_gates.v1",
+  "MLV_HOST_NEUTRAL_ARCHITECTURE_PASS": true,
+  "MLV_HOST_CAPABILITY_ADAPTER_PASS": true,
+  "MLV_CORE_WORLD_NO_GUNNCHOS_HARD_DEPENDENCY_PASS": true,
+  "MLV_HOST_PRIVACY_PARITY_PASS": true,
+  "adapters": [
+    {
+      "host_id": "gunnchos",
+      "adapter": "GunnchOsHostAdapter",
+      "status": "AUTOMATED_PASS"
+    },
+    {
+      "host_id": "browser_pwa",
+      "adapter": "BrowserHostAdapter",
+      "status": "AUTOMATED_PASS"
+    },
+    {
+      "host_id": "windows",
+      "adapter": "StubHostAdapter(windows)",
+      "status": "NOT_TESTED"
+    },
+    {
+      "host_id": "linux",
+      "adapter": "StubHostAdapter(linux)",
+      "status": "NOT_TESTED"
+    },
+    {
+      "host_id": "android",
+      "adapter": "StubHostAdapter(android)",
+      "status": "NOT_TESTED"
+    },
+    {
+      "host_id": "macos",
+      "adapter": "StubHostAdapter(macos)",
+      "status": "NOT_TESTED"
+    }
+  ],
+  "banned_hits": []
+}
