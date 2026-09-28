@@ -1,0 +1,37 @@
+{
+  "schema": "gunnchos.mlv.host_os_support_matrix.v1",
+  "generated_at_utc": "2026-09-28T19:42:00.730Z",
+  "claim": "Do not claim every OS. Rows reflect actual digital testability in this PR.",
+  "rows": [
+    {
+      "host": "gunnchos",
+      "status": "AUTOMATED_PASS",
+      "note": "Deepest first-party adapter contract exercised digitally."
+    },
+    {
+      "host": "browser_pwa",
+      "status": "AUTOMATED_PASS",
+      "note": "Browser adapter contract exercised in node/browser baseline."
+    },
+    {
+      "host": "windows",
+      "status": "NOT_TESTED",
+      "note": "Stub adapter present; runtime not exercised in this PR."
+    },
+    {
+      "host": "linux",
+      "status": "NOT_TESTED",
+      "note": "Stub adapter present; runtime not exercised in this PR."
+    },
+    {
+      "host": "android",
+      "status": "NOT_TESTED",
+      "note": "Stub adapter present; runtime not exercised in this PR."
+    },
+    {
+      "host": "macos",
+      "status": "NOT_TESTED",
+      "note": "Stub adapter present; runtime not exercised in this PR."
+    }
+  ]
+}
