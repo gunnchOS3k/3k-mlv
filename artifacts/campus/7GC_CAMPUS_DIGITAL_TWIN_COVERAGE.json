@@ -1,0 +1,2977 @@
+{
+  "schema_version": "2.0.0",
+  "BRIEF_DIGITAL_COVERAGE": "100%",
+  "campuses": [
+    {
+      "campus_id": "GARY",
+      "campus_slug": "gary",
+      "truth_state": "PROPOSED",
+      "fidelity": {
+        "program_fidelity": "1:1",
+        "geometry_fidelity": "AUTHORED_PLANNING_LAYOUT",
+        "data_fidelity": "PLANNING_TWIN",
+        "operational_fidelity": "PROPOSAL",
+        "source_status": "URBAN_PLANNING_BRIEF"
+      },
+      "requirement_count": 61,
+      "implemented_count": 61,
+      "classified_count": 0,
+      "omitted_count": 0,
+      "brief_digital_coverage": "100%",
+      "requirements": [
+        {
+          "requirement_id": "GARY.PILOT.FLEXIBLE_CLASSROOM",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GARY.PILOT.DEVICE_HELP_DESK_TABLE",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GARY.PILOT.MOBILE_HARDWARE_CART",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GARY.PILOT.MOBILE_NETWORKING_CYBER_CART",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GARY.PILOT.PRESENTATION_WALL",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GARY.PILOT.SECURE_STORAGE",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GARY.PILOT.QUIET_SUPPORT_AREA",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GARY.PILOT.STAFF_PLANNING_TABLE",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GARY.PILOT.WAIKE_ACADEMIC_CENTER",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GARY.PILOT.TODAY_CONTINUE_COURSES",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GARY.PILOT.DIRECT_NAVIGATION",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GARY.PILOT.LIST_MAP_MODE",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GARY.PILOT.PUBLIC_COMMON_STUDY",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GARY.PILOT.INSTANCED_STUDY_ROOMS",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GARY.PILOT.LOCAL_CONTEXT_PANEL",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GARY.PILOT.PHASE_SELECTOR",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GARY.PILOT.EVIDENCE_STATUS_PANEL",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GARY.SEMI.FLEXIBLE_CLASSROOM_A",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GARY.SEMI.FLEXIBLE_CLASSROOM_B",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GARY.SEMI.DEVICE_BAR",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GARY.SEMI.HARDWARE_REPAIR_LAB",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GARY.SEMI.NETWORKING_CYBER_LAB",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GARY.SEMI.AI_CLOUD_STUDIO",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GARY.SEMI.CAREER_PORTFOLIO_STUDIO",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GARY.SEMI.COMMUNITY_ROOM",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GARY.SEMI.STAFF_OFFICE",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GARY.SEMI.STORAGE_WORKROOM",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GARY.SEMI.STUDENT_LOUNGE",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GARY.SEMI.WAIKE_ACADEMIC_CENTER",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GARY.SEMI.TODAY_CONTINUE_COURSES",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GARY.SEMI.DIRECT_NAVIGATION",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GARY.SEMI.LIST_MAP_MODE",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GARY.SEMI.PUBLIC_COMMON_STUDY",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GARY.SEMI.INSTANCED_STUDY_ROOMS",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GARY.SEMI.LOCAL_CONTEXT_PANEL",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GARY.SEMI.PHASE_SELECTOR",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GARY.SEMI.EVIDENCE_STATUS_PANEL",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GARY.FULL.MULTI_ROOM_LEARNING_HUB",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GARY.FULL.DEDICATED_LABS",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GARY.FULL.HARDWARE_REPAIR_LAB",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GARY.FULL.COMMUNITY_EVENT_SPACE",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GARY.FULL.APPRENTICESHIP_PROJECT_STUDIO",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GARY.FULL.RESEARCH_DIGITAL_TWIN_OPS",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GARY.FULL.SHOWCASE_DEMO_GALLERY",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GARY.FULL.SECURE_DEVICE_DEPOT",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GARY.FULL.PARTNER_MEETING_ROOMS",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GARY.FULL.HYBRID_LEARNING_STUDIO",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GARY.FULL.LECTURE_EVENT_SPACE",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GARY.FULL.MEDIA_SOCIAL_CENTER",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GARY.FULL.WAIKE_ACADEMIC_CENTER",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GARY.FULL.TODAY_CONTINUE_COURSES",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GARY.FULL.DIRECT_NAVIGATION",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GARY.FULL.LIST_MAP_MODE",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GARY.FULL.PUBLIC_COMMON_STUDY",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GARY.FULL.INSTANCED_STUDY_ROOMS",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GARY.FULL.LOCAL_CONTEXT_PANEL",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GARY.FULL.PHASE_SELECTOR",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GARY.FULL.EVIDENCE_STATUS_PANEL",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GARY.FULL.PROJECT_WALLS",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GARY.FULL.LOCAL_MAPS",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GARY.FULL.PUBLIC_DASHBOARDS",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        }
+      ]
+    },
+    {
+      "campus_id": "GHANA",
+      "campus_slug": "ghana",
+      "truth_state": "PROPOSED",
+      "fidelity": {
+        "program_fidelity": "1:1",
+        "geometry_fidelity": "AUTHORED_PLANNING_LAYOUT",
+        "data_fidelity": "PLANNING_TWIN",
+        "operational_fidelity": "PROPOSAL",
+        "source_status": "URBAN_PLANNING_BRIEF"
+      },
+      "requirement_count": 61,
+      "implemented_count": 61,
+      "classified_count": 0,
+      "omitted_count": 0,
+      "brief_digital_coverage": "100%",
+      "requirements": [
+        {
+          "requirement_id": "GHANA.PILOT.FLEXIBLE_CLASSROOM",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GHANA.PILOT.DEVICE_HELP_DESK",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GHANA.PILOT.MOBILE_HARDWARE_CART",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GHANA.PILOT.MOBILE_NETWORKING_CYBER_CART",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GHANA.PILOT.PRESENTATION_WALL",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GHANA.PILOT.SECURE_STORAGE",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GHANA.PILOT.QUIET_SUPPORT",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GHANA.PILOT.STAFF_PLANNING",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GHANA.PILOT.HYBRID_LEARNING_RECORDING",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GHANA.PILOT.WAIKE_ACADEMIC_CENTER",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GHANA.PILOT.TODAY_CONTINUE_COURSES",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GHANA.PILOT.DIRECT_NAVIGATION",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GHANA.PILOT.LIST_MAP_MODE",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GHANA.PILOT.PUBLIC_COMMON_STUDY",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GHANA.PILOT.INSTANCED_STUDY_ROOMS",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GHANA.PILOT.LOCAL_CONTEXT_PANEL",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GHANA.PILOT.PHASE_SELECTOR",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GHANA.PILOT.EVIDENCE_STATUS_PANEL",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GHANA.SEMI.FLEXIBLE_CLASSROOM_A",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GHANA.SEMI.FLEXIBLE_CLASSROOM_B",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GHANA.SEMI.DEVICE_BAR",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GHANA.SEMI.HARDWARE_REPAIR_LAB",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GHANA.SEMI.NETWORKING_CYBER_LAB",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GHANA.SEMI.AI_CLOUD_STUDIO",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GHANA.SEMI.CAREER_PORTFOLIO_STUDIO",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GHANA.SEMI.COMMUNITY_ROOM",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GHANA.SEMI.STAFF_OFFICE",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GHANA.SEMI.STORAGE_WORKROOM",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GHANA.SEMI.STUDENT_LOUNGE",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GHANA.SEMI.SMALL_MEDIA_HYBRID_STUDIO",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GHANA.SEMI.WAIKE_ACADEMIC_CENTER",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GHANA.SEMI.TODAY_CONTINUE_COURSES",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GHANA.SEMI.DIRECT_NAVIGATION",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GHANA.SEMI.LIST_MAP_MODE",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GHANA.SEMI.PUBLIC_COMMON_STUDY",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GHANA.SEMI.INSTANCED_STUDY_ROOMS",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GHANA.SEMI.LOCAL_CONTEXT_PANEL",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GHANA.SEMI.PHASE_SELECTOR",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GHANA.SEMI.EVIDENCE_STATUS_PANEL",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GHANA.FULL.MULTI_ROOM_LEARNING_HUB",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GHANA.FULL.DEDICATED_LABS",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GHANA.FULL.COMMUNITY_EVENT_SPACE",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GHANA.FULL.APPRENTICESHIP_PROJECT_STUDIO",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GHANA.FULL.RESEARCH_DIGITAL_TWIN_OPS",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GHANA.FULL.SHOWCASE_DEMO_GALLERY",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GHANA.FULL.SECURE_DEVICE_DEPOT",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GHANA.FULL.PARTNER_MEETING_ROOMS",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GHANA.FULL.HYBRID_LEARNING_STUDIO",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GHANA.FULL.REGIONAL_POPUP_LAB_STORAGE",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GHANA.FULL.MENTOR_WORKSPACE",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GHANA.FULL.LECTURE_EVENT_SPACE",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GHANA.FULL.MEDIA_SOCIAL_CENTER",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GHANA.FULL.WAIKE_ACADEMIC_CENTER",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GHANA.FULL.TODAY_CONTINUE_COURSES",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GHANA.FULL.DIRECT_NAVIGATION",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GHANA.FULL.LIST_MAP_MODE",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GHANA.FULL.PUBLIC_COMMON_STUDY",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GHANA.FULL.INSTANCED_STUDY_ROOMS",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GHANA.FULL.LOCAL_CONTEXT_PANEL",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GHANA.FULL.PHASE_SELECTOR",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GHANA.FULL.EVIDENCE_STATUS_PANEL",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        }
+      ]
+    },
+    {
+      "campus_id": "GUYANA",
+      "campus_slug": "guyana",
+      "truth_state": "PROPOSED",
+      "fidelity": {
+        "program_fidelity": "1:1",
+        "geometry_fidelity": "AUTHORED_PLANNING_LAYOUT",
+        "data_fidelity": "PLANNING_TWIN",
+        "operational_fidelity": "PROPOSAL",
+        "source_status": "URBAN_PLANNING_BRIEF"
+      },
+      "requirement_count": 67,
+      "implemented_count": 67,
+      "classified_count": 0,
+      "omitted_count": 0,
+      "brief_digital_coverage": "100%",
+      "requirements": [
+        {
+          "requirement_id": "GUYANA.PILOT.FLEXIBLE_CLASSROOM",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GUYANA.PILOT.DEVICE_HELP_DESK",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GUYANA.PILOT.MOBILE_HARDWARE_CART",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GUYANA.PILOT.MOBILE_NETWORKING_CYBER_CART",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GUYANA.PILOT.CLIMATE_GIS_WORKSTATION",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GUYANA.PILOT.PRESENTATION_WALL",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GUYANA.PILOT.SECURE_STORAGE",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GUYANA.PILOT.QUIET_SUPPORT",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GUYANA.PILOT.STAFF_PLANNING",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GUYANA.PILOT.HYBRID_LEARNING_RECORDING",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GUYANA.PILOT.WAIKE_ACADEMIC_CENTER",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GUYANA.PILOT.TODAY_CONTINUE_COURSES",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GUYANA.PILOT.DIRECT_NAVIGATION",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GUYANA.PILOT.LIST_MAP_MODE",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GUYANA.PILOT.PUBLIC_COMMON_STUDY",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GUYANA.PILOT.INSTANCED_STUDY_ROOMS",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GUYANA.PILOT.LOCAL_CONTEXT_PANEL",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GUYANA.PILOT.PHASE_SELECTOR",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GUYANA.PILOT.EVIDENCE_STATUS_PANEL",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GUYANA.SEMI.FLEXIBLE_CLASSROOM_A",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GUYANA.SEMI.FLEXIBLE_CLASSROOM_B",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GUYANA.SEMI.DEVICE_BAR",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GUYANA.SEMI.HARDWARE_REPAIR_LAB",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GUYANA.SEMI.NETWORKING_CYBER_LAB",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GUYANA.SEMI.AI_CLOUD_STUDIO",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GUYANA.SEMI.CLIMATE_GIS_DATA_STUDIO",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GUYANA.SEMI.ENERGY_LOGISTICS_STUDIO",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GUYANA.SEMI.CAREER_PORTFOLIO_STUDIO",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GUYANA.SEMI.COMMUNITY_ROOM",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GUYANA.SEMI.STAFF_OFFICE",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GUYANA.SEMI.STORAGE_WORKROOM",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GUYANA.SEMI.STUDENT_LOUNGE",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GUYANA.SEMI.SMALL_MEDIA_HYBRID_STUDIO",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GUYANA.SEMI.WAIKE_ACADEMIC_CENTER",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GUYANA.SEMI.TODAY_CONTINUE_COURSES",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GUYANA.SEMI.DIRECT_NAVIGATION",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GUYANA.SEMI.LIST_MAP_MODE",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GUYANA.SEMI.PUBLIC_COMMON_STUDY",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GUYANA.SEMI.INSTANCED_STUDY_ROOMS",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GUYANA.SEMI.LOCAL_CONTEXT_PANEL",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GUYANA.SEMI.PHASE_SELECTOR",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GUYANA.SEMI.EVIDENCE_STATUS_PANEL",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GUYANA.FULL.MULTI_ROOM_LEARNING_HUB",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GUYANA.FULL.DEDICATED_LABS",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GUYANA.FULL.COMMUNITY_EVENT_SPACE",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GUYANA.FULL.APPRENTICESHIP_PROJECT_STUDIO",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GUYANA.FULL.CLIMATE_GIS_STUDIO",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GUYANA.FULL.ENERGY_LOGISTICS_INDUSTRY_STUDIO",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GUYANA.FULL.RESEARCH_DIGITAL_TWIN_OPS",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GUYANA.FULL.SHOWCASE_DEMO_GALLERY",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GUYANA.FULL.SECURE_DEVICE_DEPOT",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GUYANA.FULL.PARTNER_MEETING_ROOMS",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GUYANA.FULL.HYBRID_LEARNING_STUDIO",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GUYANA.FULL.REGIONAL_POPUP_LAB_STORAGE",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GUYANA.FULL.MENTOR_WORKSPACE",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GUYANA.FULL.PUBLIC_DASHBOARD_WALL",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GUYANA.FULL.LECTURE_EVENT_SPACE",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GUYANA.FULL.MEDIA_SOCIAL_CENTER",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GUYANA.FULL.WAIKE_ACADEMIC_CENTER",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GUYANA.FULL.TODAY_CONTINUE_COURSES",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GUYANA.FULL.DIRECT_NAVIGATION",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GUYANA.FULL.LIST_MAP_MODE",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GUYANA.FULL.PUBLIC_COMMON_STUDY",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GUYANA.FULL.INSTANCED_STUDY_ROOMS",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GUYANA.FULL.LOCAL_CONTEXT_PANEL",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GUYANA.FULL.PHASE_SELECTOR",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GUYANA.FULL.EVIDENCE_STATUS_PANEL",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        }
+      ]
+    },
+    {
+      "campus_id": "GEELONG",
+      "campus_slug": "geelong",
+      "truth_state": "PROPOSED",
+      "fidelity": {
+        "program_fidelity": "1:1",
+        "geometry_fidelity": "AUTHORED_PLANNING_LAYOUT",
+        "data_fidelity": "PLANNING_TWIN",
+        "operational_fidelity": "PROPOSAL",
+        "source_status": "URBAN_PLANNING_BRIEF"
+      },
+      "requirement_count": 64,
+      "implemented_count": 64,
+      "classified_count": 0,
+      "omitted_count": 0,
+      "brief_digital_coverage": "100%",
+      "requirements": [
+        {
+          "requirement_id": "GEELONG.PILOT.FLEXIBLE_CLASSROOM",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GEELONG.PILOT.DEVICE_HELP_DESK",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GEELONG.PILOT.MOBILE_HARDWARE_CART",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GEELONG.PILOT.MOBILE_NETWORKING_CYBER_CART",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GEELONG.PILOT.PRESENTATION_WALL",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GEELONG.PILOT.SECURE_STORAGE",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GEELONG.PILOT.QUIET_SUPPORT",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GEELONG.PILOT.STAFF_PLANNING",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GEELONG.PILOT.HYBRID_LEARNING_RECORDING",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GEELONG.PILOT.WAIKE_ACADEMIC_CENTER",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GEELONG.PILOT.TODAY_CONTINUE_COURSES",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GEELONG.PILOT.DIRECT_NAVIGATION",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GEELONG.PILOT.LIST_MAP_MODE",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GEELONG.PILOT.PUBLIC_COMMON_STUDY",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GEELONG.PILOT.INSTANCED_STUDY_ROOMS",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GEELONG.PILOT.LOCAL_CONTEXT_PANEL",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GEELONG.PILOT.PHASE_SELECTOR",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GEELONG.PILOT.EVIDENCE_STATUS_PANEL",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GEELONG.SEMI.FLEXIBLE_CLASSROOM_A",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GEELONG.SEMI.FLEXIBLE_CLASSROOM_B",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GEELONG.SEMI.DEVICE_BAR",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GEELONG.SEMI.HARDWARE_REPAIR_LAB",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GEELONG.SEMI.NETWORKING_CYBER_LAB",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GEELONG.SEMI.AI_CLOUD_STUDIO",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GEELONG.SEMI.DESIGN_BUILD_STUDIO",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GEELONG.SEMI.CAREER_PORTFOLIO_STUDIO",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GEELONG.SEMI.COMMUNITY_ROOM",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GEELONG.SEMI.STAFF_OFFICE",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GEELONG.SEMI.STORAGE_WORKROOM",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GEELONG.SEMI.STUDENT_LOUNGE",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GEELONG.SEMI.SMALL_MEDIA_HYBRID_STUDIO",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GEELONG.SEMI.WAIKE_ACADEMIC_CENTER",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GEELONG.SEMI.TODAY_CONTINUE_COURSES",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GEELONG.SEMI.DIRECT_NAVIGATION",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GEELONG.SEMI.LIST_MAP_MODE",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GEELONG.SEMI.PUBLIC_COMMON_STUDY",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GEELONG.SEMI.INSTANCED_STUDY_ROOMS",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GEELONG.SEMI.LOCAL_CONTEXT_PANEL",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GEELONG.SEMI.PHASE_SELECTOR",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GEELONG.SEMI.EVIDENCE_STATUS_PANEL",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GEELONG.FULL.MULTI_ROOM_LEARNING_HUB",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GEELONG.FULL.DEDICATED_LABS",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GEELONG.FULL.COMMUNITY_EVENT_SPACE",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GEELONG.FULL.APPRENTICESHIP_PROJECT_STUDIO",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GEELONG.FULL.DESIGN_BUILD_STUDIO",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GEELONG.FULL.RESEARCH_DIGITAL_TWIN_OPS",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GEELONG.FULL.SHOWCASE_DEMO_GALLERY",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GEELONG.FULL.SECURE_DEVICE_DEPOT",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GEELONG.FULL.PARTNER_MEETING_ROOMS",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GEELONG.FULL.HYBRID_LEARNING_STUDIO",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GEELONG.FULL.REGIONAL_POPUP_LAB_STORAGE",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GEELONG.FULL.MENTOR_WORKSPACE",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GEELONG.FULL.INDUSTRY_PROJECT_BRIEFING_ROOM",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GEELONG.FULL.LECTURE_EVENT_SPACE",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GEELONG.FULL.MEDIA_SOCIAL_CENTER",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GEELONG.FULL.WAIKE_ACADEMIC_CENTER",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GEELONG.FULL.TODAY_CONTINUE_COURSES",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GEELONG.FULL.DIRECT_NAVIGATION",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GEELONG.FULL.LIST_MAP_MODE",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GEELONG.FULL.PUBLIC_COMMON_STUDY",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GEELONG.FULL.INSTANCED_STUDY_ROOMS",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GEELONG.FULL.LOCAL_CONTEXT_PANEL",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GEELONG.FULL.PHASE_SELECTOR",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GEELONG.FULL.EVIDENCE_STATUS_PANEL",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        }
+      ]
+    },
+    {
+      "campus_id": "GERMANY",
+      "campus_slug": "germany",
+      "truth_state": "PROPOSED",
+      "fidelity": {
+        "program_fidelity": "1:1",
+        "geometry_fidelity": "AUTHORED_PLANNING_LAYOUT",
+        "data_fidelity": "PLANNING_TWIN",
+        "operational_fidelity": "PROPOSAL",
+        "source_status": "URBAN_PLANNING_BRIEF"
+      },
+      "requirement_count": 68,
+      "implemented_count": 68,
+      "classified_count": 0,
+      "omitted_count": 0,
+      "brief_digital_coverage": "100%",
+      "requirements": [
+        {
+          "requirement_id": "GERMANY.PILOT.FLEXIBLE_CLASSROOM",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GERMANY.PILOT.DEVICE_HELP_DESK",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GERMANY.PILOT.MOBILE_HARDWARE_MECHATRONICS_CART",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GERMANY.PILOT.MOBILE_NETWORKING_CYBER_CART",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GERMANY.PILOT.TECHNICAL_DOCUMENTATION_WORKSTATION",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GERMANY.PILOT.PRESENTATION_WALL",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GERMANY.PILOT.SECURE_STORAGE",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GERMANY.PILOT.QUIET_SUPPORT",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GERMANY.PILOT.STAFF_PLANNING",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GERMANY.PILOT.HYBRID_LEARNING_RECORDING",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GERMANY.PILOT.WAIKE_ACADEMIC_CENTER",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GERMANY.PILOT.TODAY_CONTINUE_COURSES",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GERMANY.PILOT.DIRECT_NAVIGATION",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GERMANY.PILOT.LIST_MAP_MODE",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GERMANY.PILOT.PUBLIC_COMMON_STUDY",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GERMANY.PILOT.INSTANCED_STUDY_ROOMS",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GERMANY.PILOT.LOCAL_CONTEXT_PANEL",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GERMANY.PILOT.PHASE_SELECTOR",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GERMANY.PILOT.EVIDENCE_STATUS_PANEL",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GERMANY.SEMI.FLEXIBLE_CLASSROOM_A",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GERMANY.SEMI.FLEXIBLE_CLASSROOM_B",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GERMANY.SEMI.DEVICE_BAR",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GERMANY.SEMI.HARDWARE_REPAIR_MECHATRONICS_LAB",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GERMANY.SEMI.NETWORKING_CYBER_LAB",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GERMANY.SEMI.AI_CLOUD_STUDIO",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GERMANY.SEMI.INDUSTRY40_DIGITAL_TWIN_STUDIO",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GERMANY.SEMI.TECHNICAL_DOCUMENTATION_PORTFOLIO_STUDIO",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GERMANY.SEMI.CAREER_APPRENTICESHIP_STUDIO",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GERMANY.SEMI.COMMUNITY_ROOM",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GERMANY.SEMI.STAFF_OFFICE",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GERMANY.SEMI.STORAGE_WORKROOM",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GERMANY.SEMI.STUDENT_LOUNGE",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GERMANY.SEMI.SMALL_MEDIA_HYBRID_STUDIO",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GERMANY.SEMI.WAIKE_ACADEMIC_CENTER",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GERMANY.SEMI.TODAY_CONTINUE_COURSES",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GERMANY.SEMI.DIRECT_NAVIGATION",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GERMANY.SEMI.LIST_MAP_MODE",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GERMANY.SEMI.PUBLIC_COMMON_STUDY",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GERMANY.SEMI.INSTANCED_STUDY_ROOMS",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GERMANY.SEMI.LOCAL_CONTEXT_PANEL",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GERMANY.SEMI.PHASE_SELECTOR",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GERMANY.SEMI.EVIDENCE_STATUS_PANEL",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GERMANY.FULL.MULTI_ROOM_LEARNING_HUB",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GERMANY.FULL.DEDICATED_LABS",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GERMANY.FULL.COMMUNITY_EVENT_SPACE",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GERMANY.FULL.APPRENTICESHIP_PROJECT_STUDIO",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GERMANY.FULL.INDUSTRY40_TWIN_LAB",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GERMANY.FULL.MECHATRONICS_SENSOR_STUDIO",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GERMANY.FULL.RESEARCH_DIGITAL_TWIN_OPS",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GERMANY.FULL.SHOWCASE_DEMO_GALLERY",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GERMANY.FULL.SECURE_DEVICE_DEPOT",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GERMANY.FULL.PARTNER_MEETING_ROOMS",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GERMANY.FULL.HYBRID_LEARNING_STUDIO",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GERMANY.FULL.REGIONAL_POPUP_LAB_STORAGE",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GERMANY.FULL.MENTOR_WORKSPACE",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GERMANY.FULL.EMPLOYER_PROJECT_BRIEFING_ROOM",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GERMANY.FULL.TECHNICAL_DOCUMENTATION_QUALITY_REVIEW_ROOM",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GERMANY.FULL.LECTURE_EVENT_SPACE",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GERMANY.FULL.MEDIA_SOCIAL_CENTER",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GERMANY.FULL.WAIKE_ACADEMIC_CENTER",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GERMANY.FULL.TODAY_CONTINUE_COURSES",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GERMANY.FULL.DIRECT_NAVIGATION",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GERMANY.FULL.LIST_MAP_MODE",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GERMANY.FULL.PUBLIC_COMMON_STUDY",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GERMANY.FULL.INSTANCED_STUDY_ROOMS",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GERMANY.FULL.LOCAL_CONTEXT_PANEL",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GERMANY.FULL.PHASE_SELECTOR",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GERMANY.FULL.EVIDENCE_STATUS_PANEL",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        }
+      ]
+    },
+    {
+      "campus_id": "GAZA",
+      "campus_slug": "gaza",
+      "truth_state": "PROPOSED",
+      "fidelity": {
+        "program_fidelity": "1:1",
+        "geometry_fidelity": "AUTHORED_PLANNING_LAYOUT",
+        "data_fidelity": "PLANNING_TWIN",
+        "operational_fidelity": "PROPOSAL",
+        "source_status": "URBAN_PLANNING_BRIEF"
+      },
+      "requirement_count": 68,
+      "implemented_count": 68,
+      "classified_count": 0,
+      "omitted_count": 0,
+      "brief_digital_coverage": "100%",
+      "requirements": [
+        {
+          "requirement_id": "GAZA.RECOVERY_NETWORK.SAFE_TEMPORARY_LEARNING_CIRCLE",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GAZA.RECOVERY_NETWORK.DEVICE_HELP_DESK",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GAZA.RECOVERY_NETWORK.OFFLINE_LEARNING_KIT",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GAZA.RECOVERY_NETWORK.MOBILE_DEVICE_REPAIR_KIT",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GAZA.RECOVERY_NETWORK.CHARGING_POWER_KIT",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GAZA.RECOVERY_NETWORK.PRINTED_CURRICULUM_PACKETS",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GAZA.RECOVERY_NETWORK.TEACHER_GUIDES",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GAZA.RECOVERY_NETWORK.CAREGIVER_GUIDES",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GAZA.RECOVERY_NETWORK.SECURE_STORAGE_CONTAINER",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GAZA.RECOVERY_NETWORK.QUIET_SUPPORT_AREA",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GAZA.RECOVERY_NETWORK.REMOTE_MENTOR_CONNECTION_DEVICE",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GAZA.RECOVERY_NETWORK.EMERGENCY_PAUSE_RELOCATION_PLAN",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GAZA.RECOVERY_NETWORK.WAIKE_ACADEMIC_CENTER",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GAZA.RECOVERY_NETWORK.TODAY_CONTINUE_COURSES",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GAZA.RECOVERY_NETWORK.DIRECT_NAVIGATION",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GAZA.RECOVERY_NETWORK.LIST_MAP_MODE",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GAZA.RECOVERY_NETWORK.PUBLIC_COMMON_STUDY",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GAZA.RECOVERY_NETWORK.INSTANCED_STUDY_ROOMS",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GAZA.RECOVERY_NETWORK.LOCAL_CONTEXT_PANEL",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GAZA.RECOVERY_NETWORK.PHASE_SELECTOR",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GAZA.RECOVERY_NETWORK.EVIDENCE_STATUS_PANEL",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GAZA.SEMI.LEARNING_CIRCLE_A",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GAZA.SEMI.LEARNING_CIRCLE_B",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GAZA.SEMI.DEVICE_BAR",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GAZA.SEMI.HARDWARE_REPAIR_BENCH",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GAZA.SEMI.LOW_BANDWIDTH_CONNECTIVITY_LAB",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GAZA.SEMI.OFFLINE_SERVER_CONTENT_STATION",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GAZA.SEMI.AI_CLOUD_PORTFOLIO_CORNER",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GAZA.SEMI.RECONSTRUCTION_DOCUMENTATION_STUDIO",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GAZA.SEMI.TEACHER_SUPPORT_STATION",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GAZA.SEMI.COMMUNITY_ROOM",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GAZA.SEMI.PSYCHOSOCIAL_DECOMPRESSION_SPACE",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GAZA.SEMI.SECURE_STORAGE_WORKROOM",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GAZA.SEMI.SMALL_HYBRID_LEARNING_SETUP",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GAZA.SEMI.WAIKE_ACADEMIC_CENTER",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GAZA.SEMI.TODAY_CONTINUE_COURSES",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GAZA.SEMI.DIRECT_NAVIGATION",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GAZA.SEMI.LIST_MAP_MODE",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GAZA.SEMI.PUBLIC_COMMON_STUDY",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GAZA.SEMI.INSTANCED_STUDY_ROOMS",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GAZA.SEMI.LOCAL_CONTEXT_PANEL",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GAZA.SEMI.PHASE_SELECTOR",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GAZA.SEMI.EVIDENCE_STATUS_PANEL",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GAZA.RECOVERY.MULTI_ROOM_LEARNING_HUB",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GAZA.RECOVERY.DEDICATED_DEVICE_BAR",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GAZA.RECOVERY.REPAIR_LAB",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GAZA.RECOVERY.NETWORKING_CONNECTIVITY_LAB",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GAZA.RECOVERY.OFFLINE_LEARNING_STUDIO",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GAZA.RECOVERY.AI_CLOUD_PORTFOLIO_STUDIO",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GAZA.RECOVERY.RECONSTRUCTION_DOCUMENTATION_STUDIO",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GAZA.RECOVERY.TEACHER_SUPPORT_CENTER",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GAZA.RECOVERY.COMMUNITY_LEARNING_ROOM",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GAZA.RECOVERY.PSYCHOSOCIAL_SUPPORT_REFERRAL_SPACE",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GAZA.RECOVERY.SECURE_DEVICE_DEPOT",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GAZA.RECOVERY.PARTNER_MEETING_ROOM",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GAZA.RECOVERY.HYBRID_LEARNING_STUDIO",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GAZA.RECOVERY.DIGITAL_TWIN_PLANNING_WORKSPACE",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GAZA.RECOVERY.MOBILE_KIT_STORAGE_DEPLOYMENT_ROOM",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GAZA.RECOVERY.WAIKE_ACADEMIC_CENTER",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GAZA.RECOVERY.TODAY_CONTINUE_COURSES",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GAZA.RECOVERY.DIRECT_NAVIGATION",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GAZA.RECOVERY.LIST_MAP_MODE",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GAZA.RECOVERY.PUBLIC_COMMON_STUDY",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GAZA.RECOVERY.INSTANCED_STUDY_ROOMS",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GAZA.RECOVERY.LOCAL_CONTEXT_PANEL",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GAZA.RECOVERY.PHASE_SELECTOR",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GAZA.RECOVERY.EVIDENCE_STATUS_PANEL",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GAZA.RECOVERY.NO_SENSITIVE_LOCATION_EXPOSURE",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        }
+      ]
+    },
+    {
+      "campus_id": "GRAHAM",
+      "campus_slug": "graham-land",
+      "truth_state": "DIGITAL_TWIN",
+      "fidelity": {
+        "program_fidelity": "1:1",
+        "geometry_fidelity": "AUTHORED_PLANNING_LAYOUT",
+        "data_fidelity": "PLANNING_TWIN",
+        "operational_fidelity": "SIMULATION",
+        "source_status": "URBAN_PLANNING_BRIEF"
+      },
+      "requirement_count": 84,
+      "implemented_count": 83,
+      "classified_count": 1,
+      "omitted_count": 0,
+      "brief_digital_coverage": "100%",
+      "requirements": [
+        {
+          "requirement_id": "GRAHAM.REMOTE.FLEXIBLE_VIRTUAL_CLASSROOM",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GRAHAM.REMOTE.DATA_LAB",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GRAHAM.REMOTE.MAPPING_GIS_WORKSTATION",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GRAHAM.REMOTE.DEVICE_HELP_DESK",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GRAHAM.REMOTE.MOBILE_SENSOR_HARDWARE_CART",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GRAHAM.REMOTE.NETWORKING_SATCOM_DEMO_CART",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GRAHAM.REMOTE.PRESENTATION_WALL",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GRAHAM.REMOTE.SECURE_STORAGE",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GRAHAM.REMOTE.QUIET_SUPPORT",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GRAHAM.REMOTE.STAFF_PLANNING",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GRAHAM.REMOTE.HYBRID_LEARNING_RECORDING",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GRAHAM.REMOTE.WAIKE_ACADEMIC_CENTER",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GRAHAM.REMOTE.TODAY_CONTINUE_COURSES",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GRAHAM.REMOTE.DIRECT_NAVIGATION",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GRAHAM.REMOTE.LIST_MAP_MODE",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GRAHAM.REMOTE.PUBLIC_COMMON_STUDY",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GRAHAM.REMOTE.INSTANCED_STUDY_ROOMS",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GRAHAM.REMOTE.LOCAL_CONTEXT_PANEL",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GRAHAM.REMOTE.PHASE_SELECTOR",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GRAHAM.REMOTE.EVIDENCE_STATUS_PANEL",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GRAHAM.TWIN.FLEXIBLE_CLASSROOM_A",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GRAHAM.TWIN.FLEXIBLE_CLASSROOM_B",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GRAHAM.TWIN.CLIMATE_DATA_LAB",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GRAHAM.TWIN.GIS_REMOTE_SENSING_STUDIO",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GRAHAM.TWIN.HARDWARE_SENSOR_LAB",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GRAHAM.TWIN.NETWORKING_CYBER_LAB",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GRAHAM.TWIN.AI_CLOUD_STUDIO",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GRAHAM.TWIN.FIELD_SAFETY_CLASSROOM",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GRAHAM.TWIN.PUBLIC_EDUCATION_STUDIO",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GRAHAM.TWIN.STAFF_OFFICE",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GRAHAM.TWIN.STORAGE_WORKROOM",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GRAHAM.TWIN.STUDENT_LOUNGE",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GRAHAM.TWIN.MEDIA_HYBRID_STUDIO",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GRAHAM.TWIN.WAIKE_ACADEMIC_CENTER",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GRAHAM.TWIN.TODAY_CONTINUE_COURSES",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GRAHAM.TWIN.DIRECT_NAVIGATION",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GRAHAM.TWIN.LIST_MAP_MODE",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GRAHAM.TWIN.PUBLIC_COMMON_STUDY",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GRAHAM.TWIN.INSTANCED_STUDY_ROOMS",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GRAHAM.TWIN.LOCAL_CONTEXT_PANEL",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GRAHAM.TWIN.PHASE_SELECTOR",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GRAHAM.TWIN.EVIDENCE_STATUS_PANEL",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GRAHAM.FULL.MULTI_ROOM_LEARNING_HUB",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GRAHAM.FULL.CLIMATE_DATA_LAB",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GRAHAM.FULL.GIS_REMOTE_SENSING_LAB",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GRAHAM.FULL.SENSOR_ROBOTICS_BENCH",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GRAHAM.FULL.NTN_LAB",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GRAHAM.FULL.AI_CLOUD_REPRODUCIBLE_SCIENCE_STUDIO",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GRAHAM.FULL.PUBLIC_EXHIBIT",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GRAHAM.FULL.RESEARCH_POSTER_DEMO_GALLERY",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GRAHAM.FULL.SECURE_DEVICE_DEPOT",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GRAHAM.FULL.PARTNER_MEETING_ROOMS",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GRAHAM.FULL.HYBRID_LEARNING_STUDIO",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GRAHAM.FULL.CROSS_CAMPUS_OPERATIONS_ROOM",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GRAHAM.FULL.DIGITAL_TWIN_OPERATIONS_AREA",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GRAHAM.FULL.LECTURE_EVENT_SPACE",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GRAHAM.FULL.MEDIA_SOCIAL_CENTER",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GRAHAM.FULL.WAIKE_ACADEMIC_CENTER",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GRAHAM.FULL.TODAY_CONTINUE_COURSES",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GRAHAM.FULL.DIRECT_NAVIGATION",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GRAHAM.FULL.LIST_MAP_MODE",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GRAHAM.FULL.PUBLIC_COMMON_STUDY",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GRAHAM.FULL.INSTANCED_STUDY_ROOMS",
+          "coverage": "IMPLEMENTED_BOTH",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GRAHAM.FULL.LOCAL_CONTEXT_PANEL",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GRAHAM.FULL.PHASE_SELECTOR",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GRAHAM.FULL.EVIDENCE_STATUS_PANEL",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GRAHAM.FULL.NO_WAIKE_OWNED_ANTARCTIC_CAMPUS",
+          "coverage": "NOT_APPLICABLE",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GRAHAM.FULL.ANTARCTIC_PENINSULA_GEOGRAPHY",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "SIMULATION",
+          "represented": true
+        },
+        {
+          "requirement_id": "GRAHAM.FULL.GRAHAM_LAND_REFERENCE_ZONES",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "SIMULATION",
+          "represented": true
+        },
+        {
+          "requirement_id": "GRAHAM.FULL.RESEARCH_STATION_REFERENCE_POINTS",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PARTNER_REFERENCE",
+          "represented": true
+        },
+        {
+          "requirement_id": "GRAHAM.FULL.PERMITTED_NON_PERMITTED_ASSUMPTIONS",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        },
+        {
+          "requirement_id": "GRAHAM.FULL.WEATHER_CLIMATE_VARIABLES",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "SIMULATION",
+          "represented": true
+        },
+        {
+          "requirement_id": "GRAHAM.FULL.SEA_ICE_SEASONAL_ACCESS",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "SIMULATION",
+          "represented": true
+        },
+        {
+          "requirement_id": "GRAHAM.FULL.SATELLITE_COMMUNICATIONS",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "SIMULATION",
+          "represented": true
+        },
+        {
+          "requirement_id": "GRAHAM.FULL.LOW_BANDWIDTH_TRANSFER",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "SIMULATION",
+          "represented": true
+        },
+        {
+          "requirement_id": "GRAHAM.FULL.FIELD_CAMP_COMMUNICATION_SCENARIOS",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "SIMULATION",
+          "represented": true
+        },
+        {
+          "requirement_id": "GRAHAM.FULL.SENSOR_DEPLOYMENT_SIMULATIONS",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "SIMULATION",
+          "represented": true
+        },
+        {
+          "requirement_id": "GRAHAM.FULL.AUTONOMOUS_ROBOT_ROUTE_SCENARIOS",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "SIMULATION",
+          "represented": true
+        },
+        {
+          "requirement_id": "GRAHAM.FULL.ENVIRONMENTAL_CONSTRAINTS",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "SIMULATION",
+          "represented": true
+        },
+        {
+          "requirement_id": "GRAHAM.FULL.PROTECTED_AREA_AWARENESS",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "SIMULATION",
+          "represented": true
+        },
+        {
+          "requirement_id": "GRAHAM.FULL.LOGISTICS_ROUTES",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "SIMULATION",
+          "represented": true
+        },
+        {
+          "requirement_id": "GRAHAM.FULL.EMERGENCY_SCENARIOS",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "SIMULATION",
+          "represented": true
+        },
+        {
+          "requirement_id": "GRAHAM.FULL.DATA_PIPELINES",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "SIMULATION",
+          "represented": true
+        },
+        {
+          "requirement_id": "GRAHAM.FULL.STUDENT_OUTPUTS",
+          "coverage": "IMPLEMENTED_FUNCTIONALLY",
+          "evidence_status": "PROPOSAL",
+          "represented": true
+        }
+      ]
+    }
+  ]
+}

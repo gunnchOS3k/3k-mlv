@@ -30,6 +30,7 @@ Thumbs.db
 # Test artifacts
 !artifacts/security/
 !artifacts/build/
+!artifacts/campus/
 .nyc_output/
 playwright-report/
 test-results/

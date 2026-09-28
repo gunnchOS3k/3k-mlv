@@ -1,0 +1,23 @@
+{
+  "field_kit_pr120": "f7ca0bacbea33f3a97e550cf3c8c28e5dc6928f9",
+  "source_manifest_sha256": "520cbba99541b1505ebba899a2f34bfa905eadd7af8f5b5e8fa050c884067be1",
+  "contract_hashes": {
+    "field_kit_pr120_head": "f7ca0bacbea33f3a97e550cf3c8c28e5dc6928f9",
+    "hashes": {
+      "contracts/field-kit/campus_design_bundle.v1.schema.json": "48c2499c6e3b96b863baa5e69a26813ba929b19094a9b87a2ee20d25172ec60d",
+      "contracts/field-kit/campus_measurement_mapping.v1.schema.json": "7cae09ac819669b624d093e69cb1e8d82ee7ca98c18ee07e3bdf8b9c54b2c72b",
+      "contracts/field-kit/campus_optimization_result.v1.schema.json": "4b027a321a00bf62e44de516ccf48f7cb2884cab5fd72e8e7b22462f7f999dd6",
+      "contracts/field-kit/closed_loop_v2.ts": "83a7072d97c0caecef5c0d05895ba5a45bba99d36fec70329897bc9d2447cb6e",
+      "contracts/field-kit/ran_actuation_receipt.v1.schema.json": "255683e306cd74edf93bded5a8a657caba75f6bf884dc048b794a84a76c4c4b6",
+      "contracts/field-kit/ran_actuation_request.v1.schema.json": "b14d953636e982aa0c8390f74191c54c561f07b7e67698ea9f964bb78509dfdb",
+      "contracts/field-kit/twin_calibration_bundle.v1.schema.json": "30f2d583bcace89d6709ac306b68d5b40334521ff7634d31a40f9c66c6118e06",
+      "data/network_twin/fixtures/valid/campus_design_bundle.valid.json": "e364b1592555fc789caa9d473e64bee26b74b2b777fdb578747533a8849b787a",
+      "data/network_twin/fixtures/valid/campus_measurement_mapping.valid.json": "fb0f67295a8d010ae0b6def94c9f689dd180f8fc2b47b6334b5e35afebc7c3de",
+      "data/network_twin/fixtures/valid/campus_optimization_result.valid.json": "536a8f5cabf66197039bfaf1d6b121a4d8e984779c949195f8362d3322bb9073",
+      "data/network_twin/fixtures/valid/ran_actuation_receipt.valid.json": "356d04a99bceafa66bca0949f1843bb8f974ccef61f7f33965a379f7eeb5ba65",
+      "data/network_twin/fixtures/valid/ran_actuation_request.valid.json": "441c31c2193253ebeb78a26a625b0595a784896c13ad206ae57879896527b549",
+      "data/network_twin/fixtures/valid/twin_calibration_bundle.valid.json": "a172163024ae5fd045bda0a9504bb8a56d99156933a1a3cd32bf4ae3945906ec"
+    }
+  },
+  "design_export_sha256": "c24e9620a988c7dc82b4dea61975daa8e6284e1e3e39f2bb93666b517e0b254f"
+}
