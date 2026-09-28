@@ -24,7 +24,9 @@
     /* Path mapping */
     "baseUrl": ".",
     "paths": {
-      "@3k-mlv/shared": ["../../packages/shared/src"]
+      "@3k-mlv/shared": ["../../packages/shared/src"],
+      "@3k-mlv/shared/networkTwin": ["../../packages/shared/src/networkTwin/index.js"],
+      "@3k-mlv/campus": ["../../packages/shared/src/campus/index.d.ts"]
     }
   },
   "include": ["src"],

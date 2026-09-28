@@ -1,7 +1,9 @@
-import { Suspense } from 'react';
+import { lazy, Suspense } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, Text, Box } from '@react-three/drei';
 import type { MlvNode, MlvWorldPlacement } from '@3k-mlv/shared';
+
+const CampusWorld = lazy(() => import('./CampusWorld'));
 
 const PRESENTATION_COLOR: Record<string, string> = {
   frame: '#f6c445',
@@ -82,13 +84,25 @@ export default function World({
   placements,
   nodes,
   onOpenNode,
+  site,
+  campusSlug,
+  campusPhaseId,
 }: {
   homeTheme: string;
   placements: MlvWorldPlacement[];
   nodes: MlvNode[];
   onOpenNode: (node: MlvNode) => void;
+  site: 'HOME' | 'CAMPUS' | 'GALLERY';
+  campusSlug?: string | null;
+  campusPhaseId?: string;
 }) {
   const byId = new Map(nodes.map((n) => [n.id, n]));
+  const visiblePlacements = site === 'GALLERY'
+    ? placements.filter((placement) => byId.get(placement.node_id)?.visibility === 'public')
+    : site === 'HOME'
+      ? placements
+      : [];
+
   return (
     <Canvas camera={{ position: [0, 8, 10], fov: 55 }} style={{ width: '100%', height: '100%' }}>
       <color attach="background" args={['#87b5d9']} />
@@ -96,9 +110,21 @@ export default function World({
         <ambientLight intensity={0.45} />
         <directionalLight position={[8, 12, 6]} intensity={1} />
         <Ground />
-        <Home theme={homeTheme} />
-        <Desk />
-        {placements.map((placement) => {
+        {site === 'HOME' && (
+          <>
+            <Home theme={homeTheme} />
+            <Desk />
+          </>
+        )}
+        {site === 'CAMPUS' && campusSlug && (
+          <CampusWorld slug={campusSlug} phaseId={campusPhaseId || 'PILOT'} />
+        )}
+        {site === 'GALLERY' && (
+          <Text position={[0, 3, -4]} fontSize={0.32} color="white" anchorX="center">
+            Gallery
+          </Text>
+        )}
+        {visiblePlacements.map((placement) => {
           const node = byId.get(placement.node_id);
           if (!node) return null;
           return (

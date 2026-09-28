@@ -21,6 +21,32 @@ PUBLIC  = anyone may discover and view
 - PUBLIC read never grants edit/delete.
 - Placement never overrides node visibility.
 
+## Top-level sites
+
+```text
+HOME     private-by-default player instance
+CAMPUS   WAIKE Academic Center + 7GC Atlas digital twins
+GALLERY  PUBLIC works only
+```
+
+Campus landing:
+
+```text
+Campus
+├── My WAIKE / Today
+├── Academic Center
+├── Library
+├── Study Rooms
+├── Lecture Hall
+├── Media Center
+└── 7GC Atlas
+```
+
+7GC Atlas nodes: Gary, Ghana, Guyana, Geelong, Germany, Gaza, Graham Land.
+Each node is a phase-aware authored planning twin, not a palette swap and not a
+claim that a physical campus exists. Canonical source:
+`docs/campus/7GC_CAMPUS_SOURCE_REQUIREMENTS.md`.
+
 ## Player instance
 
 A player instance is a logical private workspace namespace.
