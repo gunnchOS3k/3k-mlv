@@ -1,44 +1,55 @@
 {
   "slug": "graham-land",
+  "atlas_name": "Graham Land",
   "source_requirements": [
-    "rejects building new WAIKE campus in Antarctica",
-    "remote-first polar research education twin"
+    "Remote-first polar research education twin \u2014 brief rejects WAIKE-owned Antarctic campus",
+    "Climate data, GIS/remote sensing, sensors, NTN/satcom, cyber/research data, field safety",
+    "Public exhibit, hybrid communications, cross-campus operations",
+    "Simulation layers and partner references remain labeled as such",
+    "Nonconventional phases: remote lab \u2192 twin studio \u2192 non-Antarctic polar education hub"
   ],
   "design_interpretations": [
-    "modular research/ops cluster",
-    "antenna/sensor systems",
-    "simulation labels"
+    "Modular polar research/ops cluster with antenna/sensor mast (V4)",
+    "Simulated polar terrain plate (explicitly simulation) (V4)",
+    "Truth labels on all phases rejecting ownership claims (V4)",
+    "FULL expands connectors + ops/exhibit without claiming Antarctic ownership (V4)"
   ],
   "building_typologies": [
-    "polar_research_module",
-    "ops_lab"
+    "polar research module",
+    "antenna/sensor mast",
+    "ops visualization room",
+    "GIS/remote-sensing lab",
+    "exhibit studio"
   ],
   "public_realm": [
-    "exhibit studio (simulated)"
+    "simulation terrain edge",
+    "truth panel",
+    "exhibit arrival"
   ],
   "circulation": [
-    "ops overlays",
-    "station/route diagrams as simulation"
+    "modular connectors",
+    "ops cluster links"
   ],
   "landscape_infrastructure": [
-    "simulated polar terrain"
+    "simulated ice/terrain plate",
+    "sensor overlay markers"
   ],
   "specialist_spaces": [
     "climate data lab",
-    "GIS/remote-sensing",
-    "NTN/satellite comms",
-    "cyber/research-data",
-    "field-safety ops",
-    "cross-campus ops"
+    "GIS/RS studio",
+    "NTN/satcom",
+    "cyber/research-data lab",
+    "cross-campus ops room"
   ],
   "truth_boundaries": [
-    "NOT an owned Antarctic campus",
-    "simulation/partner references only",
-    "no WAIKE ownership claim of research station"
+    "REMOTE POLAR EDUCATION TWIN",
+    "Simulation / partner reference \u2014 not WAIKE ownership of a research station",
+    "External station references remain external"
   ],
   "avoid": [
-    "ownership claim of Antarctic station",
-    "physical campus completion claim"
-  ],
-  "silhouette": "modular research/ops cluster + antenna/sensor systems + operations visualization layers"
+    "fake WAIKE research-station claims",
+    "adventure-tourism aesthetic",
+    "territorial/ownership visuals",
+    "decorative polar clich\u00e9s"
+  ]
 }

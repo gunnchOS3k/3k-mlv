@@ -1,41 +1,52 @@
 {
   "slug": "geelong",
+  "atlas_name": "Geelong",
   "source_requirements": [
-    "industrial transition",
-    "design/build",
-    "advanced manufacturing",
-    "welcoming not sterile"
+    "Geelong-rooted design/build, manufacturing, health-tech, port/logistics, clean-energy node",
+    "Workshop yard industrial but welcoming",
+    "Design/build studio, manufacturing/robotics, community showcase",
+    "Industry briefing board / prototype wall"
   ],
   "design_interpretations": [
-    "large-span workshop sheds",
-    "maker yard",
-    "clean-energy canopy"
+    "Sawtooth large-span workshop sheds flanking maker yard (V4)",
+    "Port/logistics gantry as abstract reference, not a claim (V4)",
+    "Clean-energy solar canopy as climate/infrastructure response (V4)",
+    "Civic showcase volume distinct from workshop sheds (V4)"
   ],
   "building_typologies": [
-    "workshop_shed",
-    "design_studio",
-    "showcase_hall"
+    "sawtooth workshop shed",
+    "maker yard",
+    "design studio",
+    "health-tech lab",
+    "showcase hall",
+    "solar canopy",
+    "gantry reference"
   ],
   "public_realm": [
-    "maker/prototype yard"
+    "maker/prototype yard",
+    "prototype wall wayfinding",
+    "showcase arrival"
   ],
   "circulation": [
-    "yard spine",
-    "shed bays"
+    "yard between sheds",
+    "service edge to gantry",
+    "studio connectors"
   ],
   "landscape_infrastructure": [
+    "industrial yard plate",
     "clean-energy canopy"
   ],
   "specialist_spaces": [
-    "manufacturing/robotics",
+    "design/build studio",
+    "manufacturing shed",
     "health-tech lab",
-    "community showcase"
+    "industry briefing/showcase"
   ],
   "truth_boundaries": [
-    "DIGITAL_TWIN planning interpretation"
+    "Planning twin \u2014 gantry is schematic reference only"
   ],
   "avoid": [
-    "theme-park local branding"
-  ],
-  "silhouette": "large-span workshop sheds + maker yard + clean-energy canopy + civic showcase volume"
+    "theme-park local branding",
+    "sterile innovation-office styling"
+  ]
 }

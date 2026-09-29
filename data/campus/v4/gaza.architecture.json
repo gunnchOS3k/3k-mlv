@@ -1,46 +1,57 @@
 {
   "slug": "gaza",
+  "atlas_name": "Gaza",
   "source_requirements": [
-    "rejects normal permanent campus as first model",
-    "distributed recovery learning",
-    "offline modules"
+    "Palestinian-led recovery-centered remote/offline-first education network \u2014 NOT a normal fixed campus",
+    "Safe temporary learning circle, offline kit, repair, charging/power, secure storage",
+    "Reconstruction documentation, teacher support, psychosocial quiet space, remote mentor",
+    "No sensitive location exposure / no coordinates",
+    "Nonconventional phases: recovery network \u2192 semi hub \u2192 full recovery hub representation"
   ],
   "design_interpretations": [
-    "schematic module network",
-    "temporary learning circle",
-    "solar canopy",
-    "truth labels"
+    "Distributed temporary modules in a respectful schematic network (V4)",
+    "Solar resilience canopy + quiet module as network identity (V4)",
+    "Visible truth labels on all phases (V4)",
+    "FULL adds linked hub nodes without implying permanent campus buildings (V4)"
   ],
   "building_typologies": [
-    "temporary_module",
-    "solar_canopy"
+    "temporary learning module",
+    "solar canopy",
+    "secure storage module",
+    "documentation studio module",
+    "teacher-support station"
   ],
   "public_realm": [
-    "learning circle"
+    "safe temporary learning circle",
+    "dignified schematic commons \u2014 no rubble spectacle"
   ],
   "circulation": [
-    "distributed network schematic"
+    "module network links",
+    "covered walk at FULL phase only"
   ],
   "landscape_infrastructure": [
-    "solar/power resilience canopy"
+    "neutral planning plate",
+    "no sensitive map geometry"
   ],
   "specialist_spaces": [
-    "device repair bench",
     "offline learning module",
-    "reconstruction documentation",
+    "repair bench",
+    "reconstruction documentation studio",
     "psychosocial quiet space",
     "remote mentor link"
   ],
   "truth_boundaries": [
-    "NOT a conventional campus building",
-    "no precise/sensitive real locations",
-    "no destroyed-city spectacle",
-    "no fake permanent building claim"
+    "DIGITAL RECOVERY NETWORK \u2014 not a permanent campus claim",
+    "No precise/sensitive real locations",
+    "No destroyed-city spectacle",
+    "No foreign rescue campus imagery"
   ],
   "avoid": [
-    "destroyed-city spectacle",
-    "foreign rescue campus imagery",
-    "precise sensitive locations"
-  ],
-  "silhouette": "distributed modules + temporary circle + solar canopy + truth labels"
+    "foreign-NGO aesthetic",
+    "disaster tourism",
+    "rubble as branding",
+    "sensitive-location maps",
+    "military/faction aesthetics",
+    "performative futurism"
+  ]
 }
