@@ -1,56 +1,45 @@
 {
   "slug": "gary",
-  "atlas_name": "Gary",
   "source_requirements": [
-    "Flagship civic technology and workforce campus rooted in Gary, Indiana",
-    "Adaptive-reuse civic/industrial hall with project corridor",
-    "Hardware/repair lab, networking/cyber lab, AI/cloud studio",
-    "Community event space and apprenticeship/project studio",
-    "Showcase/demo gallery and public dashboards",
-    "Phase model PILOT / SEMI / FULL"
+    "civic/workforce infrastructure",
+    "retrofit-first",
+    "Gary industrial memory",
+    "project corridor"
   ],
   "design_interpretations": [
-    "Long civic-industrial hall silhouette with taller gallery volume (V4)",
-    "Visible lab bays as glazed repair/network volumes (V4)",
-    "Arrival plaza + project corridor as primary site plan (V4)",
-    "Phase massing: pilot mobile carts \u2192 semi lab wing \u2192 full community + apprenticeship volumes"
+    "adaptive-reuse civic-industrial hall",
+    "visible lab bays",
+    "arrival plaza"
   ],
   "building_typologies": [
-    "adaptive-reuse civic/industrial hall",
-    "steel-frame / masonry massing",
-    "transparent lab bays",
-    "community event hall",
-    "gallery/showcase volume"
+    "civic_industrial_hall",
+    "gallery_volume",
+    "lab_bay"
   ],
   "public_realm": [
-    "arrival plaza",
-    "project corridor",
-    "student project walls / wayfinding",
-    "civic/workforce dashboard wall"
+    "arrival court",
+    "project corridor"
   ],
   "circulation": [
-    "project corridor spine",
-    "arcade connector",
-    "plaza-to-hall entry"
+    "central corridor",
+    "plaza entry"
   ],
   "landscape_infrastructure": [
-    "civic hardscape plaza",
-    "industrial memory landscape plate"
+    "hardscape plaza"
   ],
   "specialist_spaces": [
-    "repair bay",
+    "repair lab",
     "networking lab",
     "apprenticeship studio",
-    "showcase gallery",
-    "AI/cloud via lab wing"
+    "community hall"
   ],
   "truth_boundaries": [
-    "Authored planning twin \u2014 not a claim that the physical campus exists",
-    "WAIKE remains source of record for academic surfaces"
+    "DIGITAL_TWIN / PROPOSED planning interpretation"
   ],
   "avoid": [
     "abandoned-factory cosplay",
     "deficit imagery",
-    "generic tech-campus glass box"
-  ]
+    "generic glass tech campus"
+  ],
+  "silhouette": "long civic-industrial hall + taller project/gallery volume + visible lab bays"
 }

@@ -1,50 +1,42 @@
 {
   "slug": "guyana",
-  "atlas_name": "Guyana",
   "source_requirements": [
-    "Guyana-led climate-resilience learning node; Georgetown\u2013Demerara first anchor with national reach",
-    "River-aware linear campus with climate + GIS studio",
-    "Energy/logistics systems studio and public dashboard",
-    "Hardware/network labs and flood literacy landscape"
+    "Georgetown\u2013Demerara first anchor",
+    "rivers/coast/climate resilience",
+    "GIS",
+    "drainage literacy"
   ],
   "design_interpretations": [
-    "Raised linear learning spine above flood demonstration edge (V4)",
-    "Bridge/boardwalk connectors between spine volumes (V4)",
-    "Climate/GIS as taller signature tower/studio volume (V4)",
-    "Water edge + rain-garden landscape as site identity (V4)"
+    "raised linear spine",
+    "water edge",
+    "climate+GIS signature volume"
   ],
   "building_typologies": [
-    "raised learning spine",
-    "climate-data tower/studio",
-    "energy/logistics studio",
-    "elevated classroom volumes"
+    "raised_spine",
+    "climate_data_tower"
   ],
   "public_realm": [
-    "river-facing landscape edge",
-    "public resilience dashboard",
-    "shaded veranda"
+    "boardwalk circulation",
+    "resilience dashboard wall"
   ],
   "circulation": [
-    "elevated spine",
-    "bridge connectors",
-    "boardwalk-like links"
+    "elevated connector",
+    "bridges"
   ],
   "landscape_infrastructure": [
-    "water edge",
-    "flood-aware demonstration landscape",
-    "rain-garden plate"
+    "rain-garden / water edge",
+    "flood-aware demo zone"
   ],
   "specialist_spaces": [
-    "climate + GIS studio",
+    "climate+GIS studio",
     "energy/logistics studio",
-    "hardware/network labs",
-    "public dashboard"
+    "hardware/network labs"
   ],
   "truth_boundaries": [
-    "Authored river-aware planning twin \u2014 not surveyed Georgetown geometry"
+    "DIGITAL_TWIN; not an oil-themed campus"
   ],
   "avoid": [
-    "oil-themed campus",
-    "generic glass campus"
-  ]
+    "oil-themed campus imagery"
+  ],
+  "silhouette": "long raised spine + bridge connectors + climate-data tower + water edge"
 }

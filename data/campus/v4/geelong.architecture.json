@@ -1,52 +1,41 @@
 {
   "slug": "geelong",
-  "atlas_name": "Geelong",
   "source_requirements": [
-    "Geelong-rooted design/build, manufacturing, health-tech, port/logistics, clean-energy node",
-    "Workshop yard industrial but welcoming",
-    "Design/build studio, manufacturing/robotics, community showcase",
-    "Industry briefing board / prototype wall"
+    "industrial transition",
+    "design/build",
+    "advanced manufacturing",
+    "welcoming not sterile"
   ],
   "design_interpretations": [
-    "Sawtooth large-span workshop sheds flanking maker yard (V4)",
-    "Port/logistics gantry as abstract reference, not a claim (V4)",
-    "Clean-energy solar canopy as climate/infrastructure response (V4)",
-    "Civic showcase volume distinct from workshop sheds (V4)"
+    "large-span workshop sheds",
+    "maker yard",
+    "clean-energy canopy"
   ],
   "building_typologies": [
-    "sawtooth workshop shed",
-    "maker yard",
-    "design studio",
-    "health-tech lab",
-    "showcase hall",
-    "solar canopy",
-    "gantry reference"
+    "workshop_shed",
+    "design_studio",
+    "showcase_hall"
   ],
   "public_realm": [
-    "maker/prototype yard",
-    "prototype wall wayfinding",
-    "showcase arrival"
+    "maker/prototype yard"
   ],
   "circulation": [
-    "yard between sheds",
-    "service edge to gantry",
-    "studio connectors"
+    "yard spine",
+    "shed bays"
   ],
   "landscape_infrastructure": [
-    "industrial yard plate",
     "clean-energy canopy"
   ],
   "specialist_spaces": [
-    "design/build studio",
-    "manufacturing shed",
+    "manufacturing/robotics",
     "health-tech lab",
-    "industry briefing/showcase"
+    "community showcase"
   ],
   "truth_boundaries": [
-    "Planning twin \u2014 gantry is schematic reference only"
+    "DIGITAL_TWIN planning interpretation"
   ],
   "avoid": [
-    "theme-park local branding",
-    "sterile innovation-office styling"
-  ]
+    "theme-park local branding"
+  ],
+  "silhouette": "large-span workshop sheds + maker yard + clean-energy canopy + civic showcase volume"
 }

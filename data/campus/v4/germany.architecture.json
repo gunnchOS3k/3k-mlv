@@ -1,49 +1,41 @@
 {
   "slug": "germany",
-  "atlas_name": "Germany",
   "source_requirements": [
-    "Ruhr/Rhine-Ruhr apprenticeship / Industry 4.0 applied-industry node",
-    "Precise grid apprenticeship halls with standards/documentation",
-    "Manufacturing systems, industrial networking/cyber, worker commons",
-    "Logistics/service lane and rail/transit urban edge"
+    "Ruhr / Rhine-Ruhr transition",
+    "apprenticeship",
+    "Industry 4.0",
+    "worker-centered automation"
   ],
   "design_interpretations": [
-    "Ordered brick/steel hall grid with disciplined spacing (V4)",
-    "Tall service/industrial bay as skyline marker (V4)",
-    "Rail/transit edge as urban infrastructure context (V4)",
-    "Documentation/standards gallery as dedicated volume (V4)"
+    "precise adaptive-reuse industrial grid",
+    "documentation gallery",
+    "service bay"
   ],
   "building_typologies": [
-    "brick/steel apprenticeship hall grid",
-    "tall industrial bay",
-    "Industry 4.0 lab",
-    "standards gallery",
-    "worker commons"
+    "apprenticeship_grid",
+    "service_bay"
   ],
   "public_realm": [
-    "logistics/service lane",
-    "apprenticeship path wayfinding",
-    "worker commons"
+    "worker commons",
+    "logistics lane"
   ],
   "circulation": [
-    "disciplined grid aisles",
-    "service lane",
-    "rail-edge arrival"
+    "disciplined grid",
+    "transit urban edge"
   ],
   "landscape_infrastructure": [
-    "urban hardscape",
     "rail/transit edge"
   ],
   "specialist_spaces": [
-    "Industry 4.0 twin lab",
-    "mechatronics bay",
-    "cyber/industrial network lab",
-    "documentation gallery"
+    "manufacturing systems lab",
+    "industrial networking/cyber lab",
+    "standards gallery"
   ],
   "truth_boundaries": [
-    "Planning twin for first-anchor Ruhr concept \u2014 not a claimed owned facility"
+    "DIGITAL_TWIN planning interpretation"
   ],
   "avoid": [
     "luxury innovation-office styling"
-  ]
+  ],
+  "silhouette": "ordered brick/steel hall grid + tall service bay + disciplined circulation"
 }
