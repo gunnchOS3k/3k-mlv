@@ -1,4 +1,6 @@
-import { useMemo, useState } from 'react';
+import { Suspense, lazy, useMemo, useState } from 'react';
+import { Canvas } from '@react-three/fiber';
+import { OrbitControls } from '@react-three/drei';
 import {
   SPECIALIST_WAIKE_TRACKS,
   campusBySlug,
@@ -8,6 +10,8 @@ import {
 } from '@3k-mlv/campus';
 import EvidencePanel from './EvidencePanel';
 import WaikeCenter from './WaikeCenter';
+
+const CampusWorld = lazy(() => import('../three/CampusWorld'));
 
 export default function DigitalCampus({ slug }: { slug: string }) {
   const campus = campusBySlug(slug);
@@ -79,6 +83,21 @@ export default function DigitalCampus({ slug }: { slug: string }) {
           Network Twin Lab
         </button>
       </div>
+
+      {mode === 'map' ? (
+        <div className="mlv-campus-map" style={{ height: 'min(62vh, 520px)', borderRadius: 12, overflow: 'hidden', marginBottom: '1rem' }}>
+          <Canvas camera={{ position: [0, 12, 14], fov: 50 }} style={{ width: '100%', height: '100%' }}>
+            <ambientLight intensity={0.5} />
+            <directionalLight position={[10, 14, 6]} intensity={1.05} />
+            <Suspense fallback={null}>
+              <CampusWorld slug={campus.slug} phaseId={phaseId} />
+            </Suspense>
+            <OrbitControls enablePan enableZoom enableRotate minDistance={5} maxDistance={28} />
+          </Canvas>
+          <p className="mlv-kicker">Architectural planning twin. Phase selector changes massing. List mode remains available for direct navigation.</p>
+        </div>
+      ) : null}
+
       <ul className="mlv-room-grid">
         {rooms.map((room) => (
           <li key={`${phase?.token}-${room.key}`}>

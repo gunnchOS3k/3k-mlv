@@ -1,0 +1,35 @@
+{
+  "schema_version": "v4.architecture.fidelity.1",
+  "technical_pass": true,
+  "field_errors": [],
+  "gates": {
+    "SEVEN_UNIQUE_SITE_PLANS_PASS": true,
+    "SEVEN_UNIQUE_MASSING_SILHOUETTES_PASS": true,
+    "NO_VISIBLE_ROOM_BOX_PLACEHOLDER_PASS": true,
+    "CAMPUS_BRIEF_TRACEABILITY_PASS": true,
+    "GARY_ARCHITECTURAL_IDENTITY_PASS": true,
+    "GHANA_ARCHITECTURAL_IDENTITY_PASS": true,
+    "GUYANA_ARCHITECTURAL_IDENTITY_PASS": true,
+    "GEELONG_ARCHITECTURAL_IDENTITY_PASS": true,
+    "GERMANY_ARCHITECTURAL_IDENTITY_PASS": true,
+    "GAZA_NONCONVENTIONAL_NETWORK_TRUTH_PASS": true,
+    "GRAHAM_LAND_REMOTE_TWIN_TRUTH_PASS": true,
+    "PIXEL_7GC_PERFORMANCE_BUDGET_PASS": true,
+    "ACCESSIBLE_DIRECT_NAV_PARITY_PASS": true,
+    "PHASE_MASSING_DISTINCT_PASS": true,
+    "PIXEL_7GC_CAMPUS_PASS": false,
+    "HUMAN_7GC_SPATIAL_FIDELITY_PASS": false,
+    "HUMAN_LOCAL_IDENTITY_PASS": false,
+    "HUMAN_CAMPUS_USABILITY_PASS": false,
+    "NEXT_3K_MLV_ACTION": "OWNER_PIXEL_REVIEW_V4_SEVEN_CAMPUSES"
+  },
+  "scene_fingerprints_sha256": "24ab51fd3b9891652c99e6e4ba21e043136a99808d4ae461b4752a815c88de61",
+  "architecture_docs_sha256": "9850aa39ed9eb8e61ab35c732417d3d34459b23db6a208d8dfbae8a1fdd5a55c",
+  "source_files": [
+    "apps/mlv-web/src/three/CampusWorld.tsx",
+    "apps/mlv-web/src/three/architecture/",
+    "data/campus/v4/",
+    "docs/campus/7GC_CAMPUS_SOURCE_REQUIREMENTS.md",
+    "packages/shared/src/campus/catalog.js"
+  ]
+}
