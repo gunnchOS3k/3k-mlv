@@ -1,0 +1,77 @@
+{
+  "schema": "mlv_gallery_rights_matrix_v4_2",
+  "PRIVATE_TO_PUBLIC_GALLERY_LEAK_COUNT": 0,
+  "exhibits": [
+    {
+      "institution": "IU Northwest Gallery for Contemporary Art / School of the Arts Gallery",
+      "rights_status": "metadata-only",
+      "thumbnail_status": "none"
+    },
+    {
+      "institution": "Gary Public Library Indiana Room",
+      "rights_status": "metadata-only",
+      "thumbnail_status": "none"
+    },
+    {
+      "institution": "National Museum of Ghana",
+      "rights_status": "metadata-only",
+      "thumbnail_status": "none"
+    },
+    {
+      "institution": "Nubuke Foundation",
+      "rights_status": "metadata-only",
+      "thumbnail_status": "none"
+    },
+    {
+      "institution": "Castellani House / National Gallery of Art",
+      "rights_status": "metadata-only",
+      "thumbnail_status": "none"
+    },
+    {
+      "institution": "Guyana National Museum",
+      "rights_status": "metadata-only",
+      "thumbnail_status": "none"
+    },
+    {
+      "institution": "National Wool Museum",
+      "rights_status": "metadata-only",
+      "thumbnail_status": "none"
+    },
+    {
+      "institution": "Geelong Gallery",
+      "rights_status": "metadata-only",
+      "thumbnail_status": "none"
+    },
+    {
+      "institution": "Ruhr Museum at Zollverein",
+      "rights_status": "metadata-only",
+      "thumbnail_status": "none"
+    },
+    {
+      "institution": "Museum Folkwang",
+      "rights_status": "metadata-only",
+      "thumbnail_status": "none"
+    },
+    {
+      "institution": "Gaza Heritage & Art Memory rotation",
+      "rights_status": "metadata-only",
+      "thumbnail_status": "none"
+    },
+    {
+      "institution": "Palestinian Museum / documented Gaza-focused cultural programming",
+      "rights_status": "metadata-only",
+      "thumbnail_status": "none"
+    },
+    {
+      "institution": "Port Lockroy Museum / UK Antarctic Heritage Trust",
+      "rights_status": "metadata-only",
+      "thumbnail_status": "none"
+    }
+  ],
+  "public_wing_allows": [
+    "PUBLIC files only"
+  ],
+  "my_gallery_allows": [
+    "owner-published works only"
+  ]
+}

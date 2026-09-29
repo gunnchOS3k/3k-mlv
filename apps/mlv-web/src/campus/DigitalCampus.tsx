@@ -12,11 +12,12 @@ import EvidencePanel from './EvidencePanel';
 import WaikeCenter from './WaikeCenter';
 
 const CampusWorld = lazy(() => import('../three/CampusWorld'));
+const WorldRuntime = lazy(() => import('../world/WorldRuntime'));
 
 export default function DigitalCampus({ slug }: { slug: string }) {
   const campus = campusBySlug(slug);
   const [phaseId, setPhaseId] = useState(campus?.phases[0]?.id || '');
-  const [mode, setMode] = useState<'list' | 'map'>('list');
+  const [mode, setMode] = useState<'list' | 'map' | 'world'>('world');
   const [roomKey, setRoomKey] = useState<string | null>(null);
 
   const rooms = useMemo(
@@ -69,6 +70,9 @@ export default function DigitalCampus({ slug }: { slug: string }) {
             {item.label}
           </button>
         ))}
+        <button type="button" className="mlv-chip" aria-pressed={mode === 'world'} onClick={() => setMode('world')}>
+          WORLD
+        </button>
         <button type="button" className="mlv-chip" aria-pressed={mode === 'list'} onClick={() => setMode('list')}>
           List
         </button>
@@ -83,6 +87,16 @@ export default function DigitalCampus({ slug }: { slug: string }) {
           Network Twin Lab
         </button>
       </div>
+
+      {mode === 'world' ? (
+        <Suspense fallback={<p className="mlv-kicker">Loading world…</p>}>
+          <WorldRuntime
+            initialWorld="CAMPUS"
+            campusSlug={campus.slug}
+            planningSlot={null}
+          />
+        </Suspense>
+      ) : null}
 
       {mode === 'map' ? (
         <div className="mlv-campus-map" style={{ height: 'min(62vh, 520px)', borderRadius: 12, overflow: 'hidden', marginBottom: '1rem' }}>

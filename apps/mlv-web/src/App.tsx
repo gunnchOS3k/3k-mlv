@@ -27,6 +27,7 @@ const MediaCenter = lazy(() => import('./campus/MediaCenter'));
 const GallerySite = lazy(() => import('./campus/GallerySite'));
 const WaikeCenter = lazy(() => import('./campus/WaikeCenter'));
 const NetworkTwinLab = lazy(() => import('./campus/NetworkTwinLab'));
+const WorldRuntime = lazy(() => import('./world/WorldRuntime'));
 
 type Site = 'HOME' | 'CAMPUS' | 'GALLERY';
 
@@ -247,14 +248,20 @@ export default function App() {
         })}
       </p>
       <div className="mlv-stage">
-        <World
-          homeTheme={homeTheme}
-          placements={placements}
-          nodes={site === 'HOME' ? nodes : nodes.filter((n) => n.visibility === 'public')}
-          onOpenNode={handleOpen}
-          site={site}
-          campusSlug={campusSlug}
-        />
+        {site === 'HOME' ? (
+          <Suspense fallback={<p className="mlv-campus">Loading home world…</p>}>
+            <WorldRuntime initialWorld="HOME" onStatus={setStatus} />
+          </Suspense>
+        ) : site === 'GALLERY' ? null : (
+          <World
+            homeTheme={homeTheme}
+            placements={placements}
+            nodes={nodes.filter((n) => n.visibility === 'public')}
+            onOpenNode={handleOpen}
+            site={site}
+            campusSlug={campusSlug}
+          />
+        )}
         {site === 'HOME' && listOpen && (
           <ListWorkspace
             nodes={nodes.filter((n) => !n.deleted_at)}
@@ -269,6 +276,9 @@ export default function App() {
         )}
         {site !== 'HOME' && (
           <Suspense fallback={<p className="mlv-campus">Loading campus…</p>}>
+            {site === 'GALLERY' && (
+              <WorldRuntime initialWorld="GALLERY" onStatus={setStatus} />
+            )}
             {site === 'GALLERY' && actor && (
               <GallerySite
                 nodes={nodes}
