@@ -16,6 +16,7 @@ import FileViewer from './ui/FileViewer';
 import { createBrowserWorkspace } from './workspace/browserStore';
 import { describeOffline } from './workspace/offline';
 import './campus/campus.css';
+import { portalReturnHref } from './portalReturn.mjs';
 
 const CampusLanding = lazy(() => import('./campus/CampusLanding'));
 const Atlas = lazy(() => import('./campus/Atlas'));
@@ -29,6 +30,15 @@ const WaikeCenter = lazy(() => import('./campus/WaikeCenter'));
 const NetworkTwinLab = lazy(() => import('./campus/NetworkTwinLab'));
 
 type Site = 'HOME' | 'CAMPUS' | 'GALLERY';
+
+function PortalReturn({ href }: { href: string | null }) {
+  if (!href) return null;
+  return (
+    <a className="mlv-portal-return" href={href} aria-label="Return to gunnchOS">
+      ← gunnchOS
+    </a>
+  );
+}
 
 function siteFromRoute(kind: string | null): Site {
   if (kind === 'gallery') return 'GALLERY';
@@ -51,6 +61,7 @@ export default function App() {
   const [viewer, setViewer] = useState<{ node: MlvNode; blob: Blob | null } | null>(null);
   const [status, setStatus] = useState('');
   const [route, setRoute] = useState(() => parseMlvDeepLink(window.location.hash || window.location.href));
+  const portalHref = portalReturnHref(import.meta.env.VITE_GUNNCHOS_PORTAL_URL);
 
   const { signInWithGitHub, signOut } = useAuth();
   const remote = useMlvWorkspace();
@@ -182,6 +193,7 @@ export default function App() {
   if (!user) {
     return (
       <main className="mlv-sign-in">
+        <PortalReturn href={portalHref} />
         <h1>3k MLV</h1>
         <h2>My Little Vicinity</h2>
         <p>A private-by-default gunnchOS world workspace. New files start PRIVATE.</p>
@@ -224,6 +236,7 @@ export default function App() {
           <p>Welcome back, {user.user_metadata?.full_name || user.email}</p>
         </div>
         <div className="mlv-topbar__actions">
+          <PortalReturn href={portalHref} />
           <nav className="mlv-site-nav" aria-label="World sites">
             <button type="button" aria-current={site === 'HOME' ? 'page' : undefined} onClick={() => { window.location.hash = '#/mlv/home'; }}>Home</button>
             <button type="button" aria-current={site === 'CAMPUS' ? 'page' : undefined} onClick={() => { window.location.hash = '#/mlv/campus'; }}>Campus</button>
