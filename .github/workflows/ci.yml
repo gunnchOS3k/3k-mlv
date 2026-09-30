@@ -23,6 +23,8 @@ jobs:
         run: bash scripts/scan-no-secrets.sh
       - name: Install (frozen lockfile)
         run: pnpm install --frozen-lockfile
+      - name: Pinned Wrangler supports Worker Previews
+        run: pnpm exec wrangler --version
       - name: 7GC campus artifacts
         run: node scripts/build-campus-artifacts.mjs
       - name: In-memory privacy harness
@@ -41,3 +43,4 @@ jobs:
         run: pnpm build
         env:
           NODE_ENV: production
+          VITE_BASE_PATH: /
