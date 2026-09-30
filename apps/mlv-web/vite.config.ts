@@ -2,12 +2,21 @@ import path from 'node:path';
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import { VitePWA } from 'vite-plugin-pwa';
+import { normalizeViteBasePath } from '../../scripts/vite-base-path.mjs';
+
+// Cloudflare production/previews and local dev use `/`.
+// GitHub Pages sets VITE_BASE_PATH=/3k-mlv/.
+const base = normalizeViteBasePath(process.env.VITE_BASE_PATH);
 
 export default defineConfig({
   plugins: [
     react(),
     VitePWA({
       registerType: 'autoUpdate',
+      manifest: {
+        start_url: base,
+        scope: base,
+      },
       workbox: {
         globPatterns: ['**/*.{js,css,html,ico,png,svg,woff2,wasm,glb}'],
         runtimeCaching: [
@@ -55,7 +64,7 @@ export default defineConfig({
       '@3k-mlv/campus': path.resolve(__dirname, '../../packages/shared/src/campus/index.js'),
     },
   },
-  base: '/3k-mlv/',
+  base,
   build: {
     sourcemap: false,
     rollupOptions: {

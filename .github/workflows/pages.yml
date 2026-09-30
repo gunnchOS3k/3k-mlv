@@ -15,18 +15,26 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9.15.9
+          run_install: false
+
       - uses: actions/setup-node@v4
-        with: { node-version: 20 }
+        with:
+          node-version: 22
+          cache: pnpm
+
       - name: Install dependencies
-        run: |
-          cd apps/mlv-web
-          npm ci
-      - name: Build 3k MLV
-        run: |
-          cd apps/mlv-web
-          npm run build
+        run: pnpm install --frozen-lockfile
+
+      - name: Build 3k MLV for GitHub Pages
+        run: pnpm run build
         env:
           NODE_ENV: production
+          VITE_BASE_PATH: /3k-mlv/
+
       - name: Upload build artifacts
         uses: actions/upload-pages-artifact@v3
         with:
