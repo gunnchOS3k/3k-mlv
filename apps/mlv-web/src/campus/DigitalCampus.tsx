@@ -94,6 +94,7 @@ export default function DigitalCampus({ slug }: { slug: string }) {
             initialWorld="CAMPUS"
             campusSlug={campus.slug}
             planningSlot={null}
+            massing={<CampusWorld slug={campus.slug} phaseId={phaseId} />}
           />
         </Suspense>
       ) : null}

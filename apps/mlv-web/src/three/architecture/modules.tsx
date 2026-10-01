@@ -158,38 +158,104 @@ export function WorkshopShed({
   );
 }
 
-export function LearningHall({ position, size, color }: { position: Vec3; size: Vec3; color?: string }) {
+export function LearningHall({ position, size, color, language }: { position: Vec3; size: Vec3; color?: string; language?: string }) {
+  const body = color || MAT.warmBrick;
+  const h = size[1];
+  if (language === 'pavilion') {
+    return (
+      <group position={position}>
+        <BoxMesh args={[size[0], h * 0.42, size[2]]} position={[0, h * 0.21, 0]} color={body} />
+        <BoxMesh args={[size[0] * 1.28, 0.1, size[2] * 1.4]} position={[0, h * 0.52, 0]} color="#78716c" />
+        <BoxMesh args={[0.14, h * 0.55, 0.14]} position={[-size[0] * 0.42, h * 0.28, -size[2] * 0.42]} color={MAT.timber} />
+        <BoxMesh args={[0.14, h * 0.55, 0.14]} position={[size[0] * 0.42, h * 0.28, size[2] * 0.42]} color={MAT.timber} />
+        <BoxMesh args={[0.14, h * 0.55, 0.14]} position={[-size[0] * 0.42, h * 0.28, size[2] * 0.42]} color={MAT.timber} />
+        <BoxMesh args={[0.14, h * 0.55, 0.14]} position={[size[0] * 0.42, h * 0.28, -size[2] * 0.42]} color={MAT.timber} />
+      </group>
+    );
+  }
+  if (language === 'stilted') {
+    return (
+      <group position={position}>
+        <BoxMesh args={[0.18, h * 0.48, 0.18]} position={[-size[0] * 0.38, h * 0.22, -size[2] * 0.32]} color="#78716c" />
+        <BoxMesh args={[0.18, h * 0.48, 0.18]} position={[size[0] * 0.38, h * 0.22, size[2] * 0.32]} color="#78716c" />
+        <BoxMesh args={[0.18, h * 0.48, 0.18]} position={[-size[0] * 0.38, h * 0.22, size[2] * 0.32]} color="#78716c" />
+        <BoxMesh args={[0.18, h * 0.48, 0.18]} position={[size[0] * 0.38, h * 0.22, -size[2] * 0.32]} color="#78716c" />
+        <BoxMesh args={[size[0], h * 0.46, size[2]]} position={[0, h * 0.7, 0]} color={body} />
+        <BoxMesh args={[size[0] * 1.12, 0.12, size[2] * 1.2]} position={[0, h * 0.98, 0]} color="#57534e" />
+      </group>
+    );
+  }
+  if (language === 'brick-grid') {
+    return (
+      <group position={position}>
+        <BoxMesh args={size} position={[0, h * 0.5, 0]} color={body} />
+        {[-0.34, 0, 0.34].map((t, i) => (
+          <BoxMesh key={i} args={[0.14, h * 0.92, size[2] * 1.02]} position={[t * size[0], h * 0.46, 0]} color="#44403c" />
+        ))}
+        <BoxMesh args={[size[0] * 1.04, 0.16, size[2] * 1.04]} position={[0, h + 0.05, 0]} color="#292524" />
+      </group>
+    );
+  }
   return (
     <group position={position}>
-      <BoxMesh args={size} position={[0, size[1] * 0.5, 0]} color={color || MAT.warmBrick} />
-      <BoxMesh args={[size[0] * 1.05, 0.18, size[2] * 1.05]} position={[0, size[1] + 0.05, 0]} color="#57534e" />
+      <BoxMesh args={[size[0], h * 0.78, size[2]]} position={[0, h * 0.39, 0]} color={body} />
+      <BoxMesh args={[size[0] * 0.5, h * 0.28, size[2] * 0.62]} position={[0, h * 0.88, 0]} color="#57534e" />
+      <BoxMesh args={[size[0] * 0.32, h * 0.16, 0.06]} position={[0, h * 0.92, size[2] * 0.32]} color={MAT.glass} />
+      <BoxMesh args={[size[0] * 0.18, h * 0.32, 0.08]} position={[0, h * 0.18, size[2] * 0.52]} color="#3f2a1d" />
     </group>
   );
 }
 
 export function LabBlock({ position, size, color, accent }: { position: Vec3; size: Vec3; color?: string; accent?: string }) {
+  const glass = accent || MAT.glass;
   return (
     <group position={position}>
       <BoxMesh args={size} position={[0, size[1] * 0.5, 0]} color={color || MAT.steel} />
-      <BoxMesh args={[size[0] * 0.7, size[1] * 0.45, 0.08]} position={[0, size[1] * 0.55, size[2] * 0.51]} color={accent || MAT.glass} />
+      {[-0.28, 0, 0.28].map((t, i) => (
+        <BoxMesh key={i} args={[size[0] * 0.18, size[1] * 0.42, 0.06]} position={[t * size[0], size[1] * 0.55, size[2] * 0.51]} color={glass} />
+      ))}
     </group>
   );
 }
 
-export function CommunityHall({ position, size, color }: { position: Vec3; size: Vec3; color?: string }) {
+export function CommunityHall({ position, size, color, language }: { position: Vec3; size: Vec3; color?: string; language?: string }) {
+  const body = color || '#b45309';
+  if (language === 'showcase-shed') {
+    return (
+      <group position={position}>
+        <BoxMesh args={[size[0], size[1] * 0.72, size[2]]} position={[0, size[1] * 0.36, 0]} color={body} />
+        <BoxMesh args={[size[0] * 1.08, 0.16, size[2] * 0.45]} position={[0, size[1] * 0.82, size[2] * 0.15]} color="#64748b" rotationY={0} />
+        <BoxMesh args={[size[0] * 0.7, size[1] * 0.4, 0.06]} position={[0, size[1] * 0.4, size[2] * 0.52]} color={MAT.glass} />
+      </group>
+    );
+  }
   return (
     <group position={position}>
-      <BoxMesh args={size} position={[0, size[1] * 0.5, 0]} color={color || '#b45309'} />
-      <BoxMesh args={[size[0] * 0.4, size[1] * 0.35, size[2] * 0.2]} position={[0, size[1] * 1.05, 0]} color="#92400e" />
+      <BoxMesh args={size} position={[0, size[1] * 0.5, 0]} color={body} />
+      <BoxMesh args={[size[0] * 0.55, size[1] * 0.22, size[2] * 0.55]} position={[0, size[1] * 1.02, 0]} color="#92400e" />
+      <BoxMesh args={[size[0] * 0.28, size[1] * 0.4, 0.08]} position={[0, size[1] * 0.35, size[2] * 0.52]} color="#3f2a1d" />
     </group>
   );
 }
 
-export function GalleryHall({ position, size, color }: { position: Vec3; size: Vec3; color?: string }) {
+export function GalleryHall({ position, size, color, language }: { position: Vec3; size: Vec3; color?: string; language?: string }) {
+  const body = color || '#78716c';
+  if (language === 'standards') {
+    return (
+      <group position={position}>
+        <BoxMesh args={size} position={[0, size[1] * 0.5, 0]} color={body} />
+        <BoxMesh args={[0.16, size[1] * 0.9, size[2] * 1.02]} position={[-size[0] * 0.38, size[1] * 0.45, 0]} color="#44403c" />
+        <BoxMesh args={[0.16, size[1] * 0.9, size[2] * 1.02]} position={[size[0] * 0.38, size[1] * 0.45, 0]} color="#44403c" />
+        <BoxMesh args={[size[0] * 0.4, size[1] * 0.5, 0.06]} position={[0, size[1] * 0.5, size[2] * 0.52]} color="#e7e5e4" />
+      </group>
+    );
+  }
   return (
     <group position={position}>
-      <BoxMesh args={size} position={[0, size[1] * 0.5, 0]} color={color || '#78716c'} />
-      <BoxMesh args={[size[0] * 0.85, size[1] * 0.55, 0.06]} position={[0, size[1] * 0.55, size[2] * 0.52]} color={MAT.glass} />
+      <BoxMesh args={[size[0], size[1] * 0.72, size[2]]} position={[0, size[1] * 0.36, 0]} color={body} />
+      <BoxMesh args={[size[0] * 0.72, size[1] * 0.32, size[2] * 0.72]} position={[0, size[1] * 0.86, 0]} color="#d6d3d1" />
+      <BoxMesh args={[size[0] * 0.4, size[1] * 0.16, 0.05]} position={[0, size[1] * 0.9, size[2] * 0.38]} color={MAT.glass} />
+      <BoxMesh args={[size[0] * 0.22, size[1] * 0.28, 0.08]} position={[0, size[1] * 0.16, size[2] * 0.52]} color="#1c1917" />
     </group>
   );
 }
@@ -359,13 +425,13 @@ export function renderModule(m: ModulePlacement) {
     case 'workshop_shed':
       return <WorkshopShed key={m.id} position={m.position} size={m.size} color={m.color} />;
     case 'learning_hall':
-      return <LearningHall key={m.id} position={m.position} size={m.size} color={m.color} />;
+      return <LearningHall key={m.id} position={m.position} size={m.size} color={m.color} language={m.language} />;
     case 'lab_block':
       return <LabBlock key={m.id} position={m.position} size={m.size} color={m.color} accent={m.accent} />;
     case 'community_hall':
-      return <CommunityHall key={m.id} position={m.position} size={m.size} color={m.color} />;
+      return <CommunityHall key={m.id} position={m.position} size={m.size} color={m.color} language={m.language} />;
     case 'gallery_hall':
-      return <GalleryHall key={m.id} position={m.position} size={m.size} color={m.color} />;
+      return <GalleryHall key={m.id} position={m.position} size={m.size} color={m.color} language={m.language} />;
     case 'repair_bay':
       return <RepairBay key={m.id} position={m.position} size={m.size} />;
     case 'solar_canopy':

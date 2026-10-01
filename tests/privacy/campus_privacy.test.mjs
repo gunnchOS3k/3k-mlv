@@ -5,12 +5,16 @@ import { createPrivateNode, VISIBILITY } from '../../packages/shared/src/privacy
 import { parseMlvDeepLink } from '../../packages/shared/src/deepLinks.js';
 import {
   campusPresenceDoesNotExposeHomePrivate,
+  createMyGalleryAsset,
   createPrivateWorkingCopy,
   createStudyRoom,
   evidenceMetadataHasNoSecrets,
   friendDoesNotGrantStudyAccess,
+  friendHomeDoesNotRevealPrivateGallery,
   galleryPublicOnly,
   gazaSensitiveLocationSuppressed,
+  publicGalleryAssets,
+  publishGalleryAsset,
   redactGazaSensitive,
   studyRoomAclAllows,
 } from '../../packages/shared/src/campus/privacy.js';
@@ -49,6 +53,47 @@ describe('Campus / Gallery / study-room privacy', () => {
     const discovered = galleryPublicOnly([privateNotes, publicPoster]);
     assert.equal(discovered.length, 1);
     assert.equal(discovered[0].id, publicPoster.id);
+  });
+
+  it('My Gallery is private by default and public wings consume explicit publishes only', () => {
+    const created = createMyGalleryAsset({
+      ownerId: ALICE.id,
+      name: 'studio-sketch.png',
+      mimeType: 'image/png',
+      extra: { id: '44444444-4444-4444-8444-444444444444' },
+    });
+    assert.equal(created.ok, true);
+    assert.equal(created.node.visibility, VISIBILITY.PRIVATE);
+    assert.equal(created.node.metadata.published, false);
+    assert.equal(publicGalleryAssets([created.node, publicPoster]).length, 0);
+    const denied = publishGalleryAsset(created.node, { confirmed: false, wing: 'public_community' });
+    assert.equal(denied.ok, false);
+    assert.equal(created.node.visibility, VISIBILITY.PRIVATE);
+    const published = publishGalleryAsset(created.node, { confirmed: true, wing: 'exchange_7gc' });
+    assert.equal(published.ok, true);
+    assert.equal(published.node.visibility, VISIBILITY.PUBLIC);
+    assert.equal(published.node.metadata.published, true);
+    assert.equal(published.node.metadata.gallery_zone, 'exchange_7gc');
+    const visible = publicGalleryAssets([created.node, published.node, publicPoster]);
+    assert.equal(visible.length, 1);
+    assert.equal(visible[0].id, published.node.id);
+  });
+
+  it('friend Home does not reveal private Gallery files', () => {
+    const mine = createMyGalleryAsset({
+      ownerId: ALICE.id,
+      name: 'private-gallery-file.png',
+      mimeType: 'image/png',
+      extra: { id: '55555555-5555-4555-8555-555555555555' },
+    });
+    const result = friendHomeDoesNotRevealPrivateGallery({
+      homeNodes: [privateNotes, mine.node, publicPoster],
+      friendId: BOB.id,
+    });
+    assert.equal(result.pass, true);
+    assert.equal(result.leaked_ids.length, 0);
+    assert.equal(result.visible_ids.includes(mine.node.id), false);
+    assert.equal(result.visible_ids.includes(publicPoster.id), true);
   });
 
   it('public project edits use a private working copy', () => {

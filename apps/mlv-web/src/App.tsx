@@ -288,6 +288,21 @@ export default function App() {
                   refreshLocal({ id: actor.id });
                   setStatus(`${node.name} saved as a private working copy. It is not public.`);
                 }}
+                onCreatePrivate={(node) => {
+                  local.insertNode(actor, node);
+                  refreshLocal({ id: actor.id });
+                  setStatus(`${node.name} is in My Gallery and stays private.`);
+                }}
+                onPublish={(node, wing) => {
+                  const confirmed = window.confirm(`Publish "${node.name}" to ${wing === 'exchange_7gc' ? '7GC Exchange' : 'Public Community Gallery'}?`);
+                  const result = local.publishGallery(actor, node.id, confirmed, wing);
+                  if (!result.ok) {
+                    setStatus('Publish cancelled. My Gallery file stays private.');
+                    return;
+                  }
+                  refreshLocal({ id: actor.id });
+                  setStatus(`${node.name} is published. Public wings only show confirmed assets.`);
+                }}
               />
             )}
             {site === 'CAMPUS' && route.kind === 'atlas' && <Atlas />}

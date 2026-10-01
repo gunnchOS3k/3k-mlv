@@ -79,6 +79,39 @@ describe('V4 7GC architectural fidelity', () => {
     assert.doesNotMatch(src, /positionFor/);
   });
 
+  it('keeps institution sources for seven campuses with affiliation false', () => {
+    const doc = JSON.parse(readFileSync(join(root, 'data/gallery/v1/institution_sources.json'), 'utf8'));
+    const slugs = new Set(doc.sources.map((row) => row.campus_slug));
+    for (const slug of SLUGS) assert.equal(slugs.has(slug), true, slug);
+    for (const row of doc.sources) {
+      assert.equal(row.affiliation_claim, false, row.institution);
+      assert.ok(row.source_url.startsWith('https://'), row.institution);
+      assert.ok(row.city_region && row.why_relevant && row.digital_treatment && row.safety_notes);
+    }
+    const raw = JSON.stringify(doc.sources.filter((row) => row.campus_slug === 'gaza' || row.campus_slug === 'graham-land'));
+    assert.doesNotMatch(raw, /\b-?\d{1,3}\.\d{3,}\s*,\s*-?\d{1,3}\.\d{3,}\b/);
+    assert.match(raw, /No WAIKE-owned|no permanent gunnchOS station|Not a gunnchOS|no invented/i);
+  });
+
+  it('writes schematic owner review captures without flipping human or pixel gates', () => {
+    const result = spawnSync(process.execPath, ['scripts/build-owner-review-captures.mjs'], {
+      cwd: root,
+      encoding: 'utf8',
+    });
+    assert.equal(result.status, 0, result.stderr || result.stdout);
+    const index = JSON.parse(readFileSync(join(root, 'artifacts/campus/v4/owner_review/INDEX.json'), 'utf8'));
+    assert.equal(index.pixel_framebuffer, false);
+    assert.equal(index.PIXEL_7GC_CAMPUS_PASS, false);
+    assert.equal(index.HUMAN_7GC_SPATIAL_FIDELITY_PASS, false);
+    assert.equal(index.campuses.length, 7);
+    const views = ['aerial', 'street', 'entry', 'program', 'gallery', 'truth', 'grayscale'];
+    for (const slug of SLUGS) {
+      for (const view of views) {
+        assert.equal(existsSync(join(root, `artifacts/campus/v4/owner_review/${slug}/${view}.svg`)), true);
+      }
+    }
+  });
+
   it('preserves list mode and phase selector in DigitalCampus', () => {
     const src = readFileSync(join(root, 'apps/mlv-web/src/campus/DigitalCampus.tsx'), 'utf8');
     assert.match(src, /setMode\('list'\)/);

@@ -73,7 +73,10 @@ export default defineConfig({
   },
   server: {
     port: 3001,
-    host: true
+    host: true,
+    fs: {
+      allow: [path.resolve(__dirname, '../..')],
+    },
   },
   preview: {
     port: 4174,

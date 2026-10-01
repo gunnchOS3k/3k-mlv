@@ -41,6 +41,11 @@
       "id": "atlas",
       "label": "7GC Atlas",
       "route": "#/mlv/campus/atlas"
+    },
+    {
+      "id": "network-twin",
+      "label": "Network Twin Lab",
+      "route": "#/mlv/campus/network-twin"
     }
   ],
   "waike_contract_surfaces": [

@@ -20,6 +20,8 @@ type Props = {
   campusSlug?: string;
   onStatus?: (msg: string) => void;
   planningSlot?: React.ReactNode;
+  /** Place-specific campus massing. When set, the generic shell is not drawn. */
+  massing?: React.ReactNode;
 };
 
 function defFor(initialWorld: Props['initialWorld'], campusSlug?: string): WorldDefinition {
@@ -28,7 +30,7 @@ function defFor(initialWorld: Props['initialWorld'], campusSlug?: string): World
   return HOME_WORLD;
 }
 
-export default function WorldRuntime({ initialWorld = 'HOME', campusSlug, onStatus, planningSlot }: Props) {
+export default function WorldRuntime({ initialWorld = 'HOME', campusSlug, onStatus, planningSlot, massing }: Props) {
   const worldDef = useMemo(() => defFor(initialWorld, campusSlug), [initialWorld, campusSlug]);
   const [mode, setMode] = useState<WorldMode>('WORLD');
   const [pos, setPos] = useState<[number, number, number]>(worldDef.spawn);
@@ -129,7 +131,7 @@ export default function WorldRuntime({ initialWorld = 'HOME', campusSlug, onStat
             <ambientLight intensity={0.55} />
             <directionalLight position={[8, 14, 6]} intensity={1.0} />
             <Suspense fallback={null}>
-              <WorldGeometry props={worldDef.props} />
+              {massing || <WorldGeometry props={worldDef.props} />}
               <AvatarController
                 position={pos}
                 facing={facing}

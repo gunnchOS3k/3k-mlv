@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="400" viewBox="0 0 640 400">
+  <rect width="100%" height="100%" fill="#87a0b8"/>
+  <text x="16" y="22" fill="#111" font-family="system-ui,sans-serif" font-size="14">gaza street approach</text>
+  <text x="16" y="388" fill="#1c1917" font-family="system-ui,sans-serif" font-size="11">Street elevation from module heights. Not a photograph.</text>
+  <rect x="219.3" y="343.9" width="201.4" height="20.1" fill="#7f1d1d" stroke="#111"><title>gz-truth</title></rect>
+<rect x="259.6" y="303.6" width="120.8" height="60.4" fill="#a8a29e" stroke="#111"><title>gz-recon</title></rect>
+<rect x="416.7" y="311.6" width="88.6" height="52.4" fill="#a8a29e" stroke="#111"><title>gz-store</title></rect>
+<rect x="130.7" y="315.7" width="96.7" height="48.3" fill="#a8a29e" stroke="#111"><title>gz-quiet</title></rect>
+<rect x="388.5" y="315.7" width="8.1" height="48.3" fill="#a8a29e" stroke="#111"><title>gz-way</title></rect>
+<rect x="219.3" y="360.8" width="201.4" height="3.2" fill="#a8a29e" stroke="#111"><title>gz-circle</title></rect>
+<rect x="54.2" y="307.6" width="88.6" height="56.4" fill="#a8a29e" stroke="#111"><title>gz-teacher</title></rect>
+<rect x="497.2" y="307.6" width="88.6" height="56.4" fill="#a8a29e" stroke="#111"><title>gz-mentor</title></rect>
+<rect x="424.7" y="315.7" width="96.7" height="48.3" fill="#a8a29e" stroke="#111"><title>gz-repair</title></rect>
+<rect x="108.6" y="275.4" width="141.0" height="88.6" fill="#fbbf24" stroke="#111"><title>gz-solar</title></rect>
+<rect x="255.6" y="307.6" width="128.9" height="56.4" fill="#a8a29e" stroke="#111"><title>gz-learn</title></rect>
+<rect x="28.0" y="303.6" width="100.7" height="60.4" fill="#a8a29e" stroke="#111"><title>gz-hub-a</title></rect>
+<rect x="511.3" y="303.6" width="100.7" height="60.4" fill="#a8a29e" stroke="#111"><title>gz-hub-b</title></rect>
+<rect x="118.6" y="291.5" width="402.8" height="72.5" fill="#a8a29e" stroke="#111"><title>gz-link</title></rect>
+<rect x="239.4" y="347.9" width="161.1" height="16.1" fill="#7f1d1d" stroke="#111"><title>gz-truth-2</title></rect>
+</svg>

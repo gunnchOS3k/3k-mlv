@@ -43,6 +43,8 @@ export interface ModulePlacement {
   color?: string;
   accent?: string;
   label?: string;
+  /** Place language for hall volumes. Layout stays in the scene; this only articulates the volume. */
+  language?: string;
   /** Minimum phase tier for this volume to appear. */
   fromPhase?: PhaseTier;
   trace?: string;

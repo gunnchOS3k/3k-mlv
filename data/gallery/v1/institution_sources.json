@@ -1,0 +1,139 @@
+{
+  "schema": "mlv_gallery_institution_sources_v1",
+  "verified_on": "2026-10-01",
+  "verification_note": "Source URLs were fetched before this file was written. Two hosts answered with bot challenges (Cloudflare on the City of Greater Geelong National Wool Museum path; Sucuri on palmuseum.org). Those two URLs are the ones cited by the English Wikipedia articles National Wool Museum (Geelong) and The Palestinian Museum, and both domains responded. No artwork files are stored. affiliation_claim is false on every record.",
+  "sources": [
+    {
+      "campus": "Gary",
+      "campus_slug": "gary",
+      "institution": "IU Northwest Gallery for Contemporary Art / School of the Arts Gallery",
+      "source_url": "https://northwest.iu.edu/arts/about/facilities.html",
+      "city_region": "Gary, Indiana, United States",
+      "why_relevant": "Indiana University Northwest School of the Arts facilities page names the Gallery for Contemporary Art and the School of the Arts Gallery as campus gallery spaces. That is the local contemporary-art reference for a Gary learning gallery wing.",
+      "digital_treatment": "Metadata-only local culture reference inside the Local Culture and Rotating Institution wings. No artwork reproduction, no partnership mark.",
+      "affiliation_claim": false,
+      "safety_notes": "Page title confirmed: Facilities - Indiana University Northwest. Visible text names Gallery for Contemporary Art and School of the Arts Gallery. gunnchOS is not affiliated with IU Northwest."
+    },
+    {
+      "campus": "Gary",
+      "campus_slug": "gary",
+      "institution": "Gary Public Library Indiana Room",
+      "source_url": "https://www.garypubliclibrary.org/indiana-room",
+      "city_region": "Gary, Indiana, United States",
+      "why_relevant": "The Indiana Room is the Gary Public Library local-history reference desk. It belongs in the local-culture wing wherever Gary history is cited.",
+      "digital_treatment": "Metadata-only local history reference. No collection images copied.",
+      "affiliation_claim": false,
+      "safety_notes": "Page title confirmed: Indiana Room | Gary Public Library. gunnchOS is not a library partner."
+    },
+    {
+      "campus": "Ghana",
+      "campus_slug": "ghana",
+      "institution": "National Museum of Ghana",
+      "source_url": "https://gmmb.gov.gh/the-national-museum-accra-1957/",
+      "city_region": "Accra, Ghana",
+      "why_relevant": "The Ghana Museums and Monuments Board page documents the National Museum in Accra (1957). It is the national collections reference for the Ghana campus gallery wing.",
+      "digital_treatment": "Metadata-only national museum reference. No collection photography.",
+      "affiliation_claim": false,
+      "safety_notes": "Page title confirmed: The National Museum, Accra (1957) – Ghana Museums and Monuments Board. The board homepage title also reads National Museum of Ghana. No affiliation."
+    },
+    {
+      "campus": "Ghana",
+      "campus_slug": "ghana",
+      "institution": "Nubuke Foundation",
+      "source_url": "https://nubukefoundation.com/",
+      "city_region": "Accra, Ghana",
+      "why_relevant": "Nubuke Foundation is an Accra contemporary-arts organization. It is the contemporary rotating-institution reference for the Ghana wing.",
+      "digital_treatment": "Metadata-only contemporary arts reference. Exhibition titles on the public site are not reproduced as gunnchOS holdings.",
+      "affiliation_claim": false,
+      "safety_notes": "Page title confirmed: Nubuke Foundation. Visible text includes Nubuke Foundation, Accra. nubukefoundation.org did not resolve; this .com host did. No affiliation."
+    },
+    {
+      "campus": "Guyana",
+      "campus_slug": "guyana",
+      "institution": "Castellani House / National Gallery of Art",
+      "source_url": "https://ntg.gov.gy/monument/castellani-house-national-gallery-of-art/",
+      "city_region": "Georgetown, Guyana",
+      "why_relevant": "The National Trust of Guyana monument record identifies Castellani House as the National Gallery of Art. It is the national gallery reference for the Guyana wing.",
+      "digital_treatment": "Metadata-only gallery reference. No collection images.",
+      "affiliation_claim": false,
+      "safety_notes": "Page title confirmed: Castellani House (National Gallery of Art) – National Trust. A prior Facebook page is not used. No affiliation."
+    },
+    {
+      "campus": "Guyana",
+      "campus_slug": "guyana",
+      "institution": "Guyana National Museum",
+      "source_url": "https://ntg.gov.gy/monument/guyana-national-museum/",
+      "city_region": "Georgetown, Guyana",
+      "why_relevant": "The National Trust record describes the Guyana National Museum on North Road, Robbstown, Georgetown. It is the national museum reference for the Guyana wing.",
+      "digital_treatment": "Metadata-only museum reference. No collection images.",
+      "affiliation_claim": false,
+      "safety_notes": "Page title confirmed: Guyana National Museum – National Trust. Visible text places it in Georgetown. museum.gy did not resolve. No affiliation."
+    },
+    {
+      "campus": "Geelong",
+      "campus_slug": "geelong",
+      "institution": "National Wool Museum",
+      "source_url": "https://www.geelongaustralia.com.au/nwm/about/history/article/item/8cbcc313afa77a5.aspx",
+      "city_region": "Geelong, Victoria, Australia",
+      "why_relevant": "This is the City of Greater Geelong National Wool Museum history page cited by the English Wikipedia article National Wool Museum (Geelong). It is the industry-heritage reference for the Geelong wing.",
+      "digital_treatment": "Metadata-only heritage reference. No collection images.",
+      "affiliation_claim": false,
+      "safety_notes": "Direct fetch returned HTTP 403 Cloudflare challenge, not 404. URL taken from the Wikipedia article National Wool Museum (Geelong) external link. gunnchOS is not affiliated with the museum or the city."
+    },
+    {
+      "campus": "Geelong",
+      "campus_slug": "geelong",
+      "institution": "Geelong Gallery",
+      "source_url": "https://www.geelonggallery.org.au/",
+      "city_region": "Geelong, Victoria, Australia",
+      "why_relevant": "Geelong Gallery is the city's public art museum. It is the visual-arts reference for the Geelong wing.",
+      "digital_treatment": "Metadata-only gallery reference. No collection images.",
+      "affiliation_claim": false,
+      "safety_notes": "Page title confirmed: Geelong Gallery | Geelong Gallery. About page also returned 200. No affiliation."
+    },
+    {
+      "campus": "Germany",
+      "campus_slug": "germany",
+      "institution": "Ruhr Museum at Zollverein",
+      "source_url": "https://ruhrmuseum.de/en",
+      "city_region": "Essen (Zollverein), Ruhr, Germany",
+      "why_relevant": "The Ruhr Museum English page identifies the museum in the industrial setting of the UNESCO Zollverein site. It is the industrial-heritage reference for the Ruhr campus wing.",
+      "digital_treatment": "Metadata-only museum reference. No collection images. The digital campus remains a planning interpretation, not a copy of the coal-washing plant.",
+      "affiliation_claim": false,
+      "safety_notes": "Page title confirmed: The Ruhr Museum | Ruhr Museum. Page text names UNESCO-Welterbe Zollverein. Zollverein's own site also names the Ruhr Museum. No affiliation."
+    },
+    {
+      "campus": "Germany",
+      "campus_slug": "germany",
+      "institution": "Museum Folkwang",
+      "source_url": "https://www.museum-folkwang.de/en",
+      "city_region": "Essen, Ruhr, Germany",
+      "why_relevant": "Museum Folkwang is the Essen museum of modern art. It is the fine-art rotating-institution reference for the Ruhr wing.",
+      "digital_treatment": "Metadata-only museum reference. No collection images.",
+      "affiliation_claim": false,
+      "safety_notes": "Page title confirmed: Front page | Museum Folkwang. No affiliation."
+    },
+    {
+      "campus": "Gaza",
+      "campus_slug": "gaza",
+      "institution": "The Palestinian Museum",
+      "source_url": "https://www.palmuseum.org/",
+      "city_region": "External cultural reference (Birzeit). No Gaza site coordinate is stored.",
+      "why_relevant": "A safe heritage and art-memory institution reference for the Gaza recovery-learning twin. The museum is an external cultural institution. It is not a gunnchOS campus and not a claim of a physical site in Gaza.",
+      "digital_treatment": "Metadata-only external art-memory reference in the Rotating Institution wing. No maps, no coordinates, no sensitive locations, no invented physical campus.",
+      "affiliation_claim": false,
+      "safety_notes": "English Wikipedia article The Palestinian Museum lists http://palmuseum.org/en as the official website and cites https://www.palmuseum.org/ pages. Direct fetch hit a Sucuri JavaScript challenge (HTTP 307, no location header). No coordinates are stored in this record. No affiliation. No learner or site location."
+    },
+    {
+      "campus": "Graham Land",
+      "campus_slug": "graham-land",
+      "institution": "Port Lockroy Museum / UK Antarctic Heritage Trust",
+      "source_url": "https://ukaht.org/places/port-lockroy/",
+      "city_region": "Port Lockroy, Antarctic Peninsula (external heritage site)",
+      "why_relevant": "UK Antarctic Heritage Trust publishes Base A, Port Lockroy, including its museum, as a heritage place. It is an external polar reference for the Graham Land education twin.",
+      "digital_treatment": "Metadata-only external heritage reference. The digital twin stays a remote education simulation. No permanent gunnchOS station is implied.",
+      "affiliation_claim": false,
+      "safety_notes": "Page title confirmed: Base A, Port Lockroy | UKAHT. The older /heritage/port-lockroy/ path redirects here. No WAIKE-owned or gunnchOS Antarctic station."
+    }
+  ]
+}
