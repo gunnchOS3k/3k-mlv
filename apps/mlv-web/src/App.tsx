@@ -10,6 +10,7 @@ import {
   type Project,
 } from '@3k-mlv/shared';
 import World from './three/World';
+import NeighborhoodWorld from './world/NeighborhoodWorld';
 import Phone from './ui/Phone';
 import ListWorkspace from './ui/ListWorkspace';
 import FileViewer from './ui/FileViewer';
@@ -53,7 +54,8 @@ type SessionUser = { id: string; email?: string; user_metadata?: { full_name?: s
 export default function App() {
   const [user, setUser] = useState<SessionUser | null>(null);
   const [phoneOpen, setPhoneOpen] = useState(false);
-  const [listOpen, setListOpen] = useState(true);
+  const [listOpen, setListOpen] = useState(false);
+  const [worldScene, setWorldScene] = useState('commons');
   const [projects, setProjects] = useState<Project[]>([]);
   const [nodes, setNodes] = useState<MlvNode[]>([]);
   const [placements, setPlacements] = useState<MlvWorldPlacement[]>([]);
@@ -238,8 +240,9 @@ export default function App() {
         <div className="mlv-topbar__actions">
           <PortalReturn href={portalHref} />
           <nav className="mlv-site-nav" aria-label="World sites">
-            <button type="button" aria-current={site === 'HOME' ? 'page' : undefined} onClick={() => { window.location.hash = '#/mlv/home'; }}>Home</button>
-            <button type="button" aria-current={site === 'CAMPUS' ? 'page' : undefined} onClick={() => { window.location.hash = '#/mlv/campus'; }}>Campus</button>
+            <button type="button" aria-current={site === 'HOME' && worldScene === 'commons' ? 'page' : undefined} onClick={() => { window.location.hash = '#/mlv/home'; setWorldScene('commons'); }}>Commons</button>
+            <button type="button" aria-current={site === 'HOME' && worldScene === 'transit' ? 'page' : undefined} onClick={() => { window.location.hash = '#/mlv/home'; setWorldScene('transit'); }}>Transit</button>
+            <button type="button" aria-current={site === 'CAMPUS' ? 'page' : undefined} onClick={() => { window.location.hash = '#/mlv/campus'; }}>Records</button>
             <button type="button" aria-current={site === 'GALLERY' ? 'page' : undefined} onClick={() => { window.location.hash = '#/mlv/gallery'; }}>Gallery</button>
           </nav>
           <button type="button" onClick={() => setListOpen((v) => !v)}>
@@ -250,7 +253,7 @@ export default function App() {
         </div>
       </header>
       <p className="mlv-status" role="status">{status}</p>
-      <p className="mlv-offline">
+      <p className={site === 'HOME' ? 'mlv-offline mlv-offline--dock' : 'mlv-offline'}>
         {describeOffline({
           shellReady: true,
           recentMetadataCached: true,
@@ -259,15 +262,19 @@ export default function App() {
           socialDegraded: !isSupabaseConfigured,
         })}
       </p>
-      <div className="mlv-stage">
-        <World
-          homeTheme={homeTheme}
-          placements={placements}
-          nodes={site === 'HOME' ? nodes : nodes.filter((n) => n.visibility === 'public')}
-          onOpenNode={handleOpen}
-          site={site}
-          campusSlug={campusSlug}
-        />
+      <div className={site === 'HOME' && !listOpen ? 'mlv-stage mlv-stage--world' : 'mlv-stage'}>
+        {site === 'HOME' ? (
+          <NeighborhoodWorld sceneId={worldScene} onScene={setWorldScene} />
+        ) : (
+          <World
+            homeTheme={homeTheme}
+            placements={placements}
+            nodes={nodes.filter((n) => n.visibility === 'public')}
+            onOpenNode={handleOpen}
+            site={site}
+            campusSlug={campusSlug}
+          />
+        )}
         {site === 'HOME' && listOpen && (
           <ListWorkspace
             nodes={nodes.filter((n) => !n.deleted_at)}

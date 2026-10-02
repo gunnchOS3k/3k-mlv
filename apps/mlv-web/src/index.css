@@ -99,6 +99,62 @@ body {
   height: 100vh;
 }
 
+.mlv-stage--world {
+  grid-template-columns: 1fr;
+}
+
+.mlv-world {
+  position: relative;
+  min-height: 100vh;
+  height: 100%;
+}
+
+.mlv-world-hud {
+  position: absolute;
+  left: 0.6rem;
+  right: 0.6rem;
+  bottom: 0.55rem;
+  top: auto;
+  z-index: 6;
+  width: auto;
+  max-height: 26vh;
+  overflow: auto;
+  display: grid;
+  gap: 0.35rem;
+  padding: 0.55rem 0.75rem;
+  border-radius: 12px;
+  background: rgba(18, 22, 28, 0.78);
+  color: #f4f1ea;
+}
+
+.mlv-world-hud h2,
+.mlv-world-hud p {
+  margin: 0;
+}
+
+.mlv-world-hud ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.mlv-world-hud button {
+  width: auto;
+  text-align: left;
+}
+
+.mlv-world-hud__near {
+  color: #f2c14e;
+}
+
+.mlv-world-hud__hint {
+  font-size: 0.85rem;
+  opacity: 0.85;
+}
+
 .mlv-status,
 .mlv-offline {
   position: absolute;
@@ -111,6 +167,15 @@ body {
 
 .mlv-status { top: 4.6rem; }
 .mlv-offline { bottom: 1rem; }
+
+.mlv-offline--dock {
+  top: 4.4rem;
+  right: 0.8rem;
+  bottom: auto;
+  left: auto;
+  max-width: 16rem;
+  font-size: 0.8rem;
+}
 
 .mlv-list {
   overflow: auto;
