@@ -1,4 +1,4 @@
-import { publicDiscoveryFilter, canReadNode, VISIBILITY } from '../privacyPolicy.js';
+import { publicDiscoveryFilter, canReadNode, confirmPublish, createPrivateNode, VISIBILITY, visitorVisibleNodes } from '../privacyPolicy.js';
 import { campusBySlug } from './model.js';
 
 const COORDINATE_RE = /\b(-?\d{1,3}\.\d{3,}),\s*(-?\d{1,3}\.\d{3,})\b/;
@@ -104,8 +104,94 @@ export function createPrivateWorkingCopy(node, actor) {
       owner_id: actor.id,
       visibility: VISIBILITY.PRIVATE,
       parent_id: node.id,
-      metadata: { ...(node.metadata || {}), working_copy_of: node.id, gallery_edit: true },
+      metadata: { ...(node.metadata || {}), working_copy_of: node.id, gallery_edit: true, gallery_zone: 'my_gallery', published: false },
       updated_at: new Date().toISOString(),
     },
   };
+}
+
+/** Product wings. Public wings never read My Gallery until an explicit publish. */
+export const GALLERY_PRODUCT_ZONES = Object.freeze([
+  'local_culture',
+  'rotating_institution',
+  'exchange_7gc',
+  'public_community',
+  'my_gallery',
+]);
+
+export const PUBLIC_GALLERY_ZONES = Object.freeze([
+  'local_culture',
+  'rotating_institution',
+  'exchange_7gc',
+  'public_community',
+]);
+
+export function isPrivateGalleryFile(node) {
+  if (!node || node.deleted_at) return false;
+  const zone = node.metadata?.gallery_zone;
+  const galleryFile = zone === 'my_gallery'
+    || node.metadata?.gallery_file === true
+    || node.metadata?.gallery_edit === true;
+  return galleryFile && node.visibility !== VISIBILITY.PUBLIC;
+}
+
+export function createMyGalleryAsset({ ownerId, name, mimeType, extra }) {
+  if (!ownerId) return { ok: false, reason: 'owner_required' };
+  const node = createPrivateNode({
+    ownerId,
+    name: name || 'Untitled gallery file',
+    mimeType: mimeType || 'text/plain',
+    extra: {
+      ...(extra || {}),
+      metadata: {
+        ...((extra && extra.metadata) || {}),
+        gallery_zone: 'my_gallery',
+        gallery_file: true,
+        published: false,
+      },
+    },
+  });
+  return { ok: true, node };
+}
+
+export function publishGalleryAsset(node, { confirmed, wing } = {}) {
+  if (!node) return { ok: false, reason: 'missing_node' };
+  const destination = PUBLIC_GALLERY_ZONES.includes(wing) ? wing : 'public_community';
+  const result = confirmPublish(node, { confirmed: !!confirmed });
+  if (!result.ok) return result;
+  return {
+    ok: true,
+    node: {
+      ...result.node,
+      metadata: {
+        ...(result.node.metadata || {}),
+        gallery_file: true,
+        gallery_zone: destination,
+        published: true,
+      },
+    },
+  };
+}
+
+export function friendHomeDoesNotRevealPrivateGallery({ homeNodes, friendId }) {
+  const visible = visitorVisibleNodes({
+    actor: friendId ? { id: friendId } : null,
+    nodes: homeNodes || [],
+  }).filter((node) => !isPrivateGalleryFile(node));
+  const leaked = (homeNodes || []).filter((node) =>
+    isPrivateGalleryFile(node)
+    && node.owner_id !== friendId
+    && visible.some((seen) => seen.id === node.id),
+  );
+  return { pass: leaked.length === 0, leaked_ids: leaked.map((node) => node.id), visible_ids: visible.map((node) => node.id) };
+}
+
+/** Public Gallery wings consume explicitly published assets only. */
+export function publicGalleryAssets(nodes) {
+  return (nodes || []).filter((node) =>
+    node
+    && !node.deleted_at
+    && node.visibility === VISIBILITY.PUBLIC
+    && node.metadata?.published === true,
+  );
 }

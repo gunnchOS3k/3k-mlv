@@ -1,0 +1,150 @@
+{
+  "gary": {
+    "site_plan": "arrival plaza → project corridor spine → adaptive-reuse hall with lab wing",
+    "silhouette": "long civic-industrial hall + taller project/gallery volume + visible lab bays",
+    "module_kinds": [
+      "terrain",
+      "plaza",
+      "street",
+      "learning_hall",
+      "arcade",
+      "gallery_hall",
+      "repair_bay",
+      "lab_block",
+      "community_hall",
+      "wayfinding"
+    ],
+    "phase_massing": {
+      "pilot": "0.85x0.75x0.85+mobile_carts",
+      "semi": "0.95x0.95x0.95",
+      "full": "1.05x1.1x1.05"
+    }
+  },
+  "ghana": {
+    "site_plan": "ring of learning pavilions around shaded civic courtyard with device bar",
+    "silhouette": "low pavilion cluster + strong central courtyard + shade canopies",
+    "module_kinds": [
+      "terrain",
+      "courtyard",
+      "solar_canopy",
+      "learning_hall",
+      "covered_walk",
+      "lab_block",
+      "community_hall",
+      "media_studio",
+      "workshop_shed",
+      "wayfinding"
+    ],
+    "phase_massing": {
+      "pilot": "0.8x0.7x0.8",
+      "semi": "0.95x0.9x0.95",
+      "full": "1.08x1x1.08"
+    }
+  },
+  "guyana": {
+    "site_plan": "river edge → elevated linear learning spine with bridge connectors and flood landscape",
+    "silhouette": "long raised spine + bridge connectors + climate-data tower/studio + water edge",
+    "module_kinds": [
+      "terrain",
+      "water",
+      "landscape",
+      "raised_walk",
+      "learning_hall",
+      "bridge",
+      "lab_block",
+      "covered_walk",
+      "operations",
+      "wayfinding"
+    ],
+    "phase_massing": {
+      "pilot": "0.75x0.85x0.75",
+      "semi": "0.95x1x0.95",
+      "full": "1.1x1.15x1.05"
+    }
+  },
+  "geelong": {
+    "site_plan": "workshop sheds flanking maker yard with gantry reference and solar canopy",
+    "silhouette": "large-span workshop sheds + maker yard + clean-energy canopy + one civic/showcase volume",
+    "module_kinds": [
+      "terrain",
+      "plaza",
+      "workshop_shed",
+      "solar_canopy",
+      "gantry",
+      "lab_block",
+      "community_hall",
+      "wayfinding"
+    ],
+    "phase_massing": {
+      "pilot": "0.7x0.65x0.7+cart",
+      "semi": "0.92x0.9x0.92",
+      "full": "1.08x1.12x1.05"
+    }
+  },
+  "germany": {
+    "site_plan": "precise industrial grid with logistics lane and rail/transit urban edge",
+    "silhouette": "ordered brick/steel hall grid + tall service/industrial bay + disciplined circulation",
+    "module_kinds": [
+      "terrain",
+      "transit",
+      "street",
+      "learning_hall",
+      "workshop_shed",
+      "lab_block",
+      "gallery_hall",
+      "community_hall",
+      "wayfinding"
+    ],
+    "phase_massing": {
+      "pilot": "0.78x0.72x0.78",
+      "semi": "0.94x0.95x0.94",
+      "full": "1.06x1.08x1.06"
+    }
+  },
+  "gaza": {
+    "site_plan": "schematic recovery node network — no precise/sensitive real locations",
+    "silhouette": "distributed temporary learning modules in a respectful schematic network",
+    "module_kinds": [
+      "terrain",
+      "truth_label",
+      "courtyard",
+      "temporary_module",
+      "solar_canopy",
+      "media_studio",
+      "lab_block",
+      "operations",
+      "covered_walk",
+      "wayfinding"
+    ],
+    "phase_massing": {
+      "pilot": "0.85x0.8x0.85",
+      "semi": "1x0.95x1",
+      "full": "1.12x1.05x1.12+truth2"
+    },
+    "nonconventional": true,
+    "truth_required": true
+  },
+  "graham-land": {
+    "site_plan": "remote-first polar education twin with simulated terrain and partner-reference overlays",
+    "silhouette": "modular research/operations cluster + antenna/sensor systems + operations visualization layers",
+    "module_kinds": [
+      "terrain",
+      "landscape",
+      "truth_label",
+      "polar_module",
+      "antenna",
+      "lab_block",
+      "operations",
+      "media_studio",
+      "covered_walk",
+      "wayfinding"
+    ],
+    "phase_massing": {
+      "pilot": "0.8x0.75x0.8+cart",
+      "semi": "0.95x0.95x0.95",
+      "full": "1.1x1.1x1.1+truth2"
+    },
+    "nonconventional": true,
+    "truth_required": true
+  }
+}

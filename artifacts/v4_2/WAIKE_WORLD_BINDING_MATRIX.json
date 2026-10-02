@@ -1,0 +1,55 @@
+{
+  "schema": "mlv_waike_world_binding_matrix_v4_2",
+  "bindings": [
+    {
+      "world": "GARY",
+      "object": "personal_locker",
+      "source": "WAIKE",
+      "deep_link": "waike://learner/locker",
+      "invented_coursework": false
+    },
+    {
+      "world": "GHANA",
+      "object": "device_study_station",
+      "source": "WAIKE",
+      "deep_link": "waike://learner/locker",
+      "invented_coursework": false
+    },
+    {
+      "world": "GUYANA",
+      "object": "systems_studio_station",
+      "source": "WAIKE",
+      "deep_link": "waike://learner/locker",
+      "invented_coursework": false
+    },
+    {
+      "world": "GEELONG",
+      "object": "maker_station",
+      "source": "WAIKE",
+      "deep_link": "waike://learner/locker",
+      "invented_coursework": false
+    },
+    {
+      "world": "GERMANY",
+      "object": "apprenticeship_station",
+      "source": "WAIKE",
+      "deep_link": "waike://learner/locker",
+      "invented_coursework": false
+    },
+    {
+      "world": "GAZA",
+      "object": "offline_learning_node",
+      "source": "WAIKE",
+      "deep_link": "waike://learner/locker",
+      "invented_coursework": false
+    },
+    {
+      "world": "GRAHAM_LAND",
+      "object": "research_education_bench",
+      "source": "WAIKE",
+      "deep_link": "waike://learner/locker",
+      "invented_coursework": false
+    }
+  ],
+  "WAIKE_BINDING_7_OF_7": true
+}

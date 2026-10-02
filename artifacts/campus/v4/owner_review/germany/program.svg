@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="400" viewBox="0 0 640 400">
+  <rect width="100%" height="100%" fill="#11181f"/>
+  <text x="16" y="22" fill="#f4f1ea" font-family="system-ui,sans-serif" font-size="14">germany key program: Hall A</text>
+  <text x="16" y="388" fill="#c5bba8" font-family="system-ui,sans-serif" font-size="11">Schematic from authored scene coordinates. Not a Pixel capture. Not surveyed architecture.</text>
+  <rect x="16.0" y="16.0" width="506.0" height="368.0" fill="#4d7c0f" stroke="#111" stroke-width="1"><title>terrain de-terrain</title></rect>
+<rect x="62.0" y="80.4" width="414.0" height="32.2" fill="#a8a29e" stroke="#111" stroke-width="1"><title>street de-lane</title></rect>
+<rect x="39.0" y="18.3" width="460.0" height="41.4" fill="#a8a29e" stroke="#111" stroke-width="1"><title>transit de-rail</title></rect>
+<rect x="220.7" y="124.1" width="4.6" height="4.6" fill="#a8a29e" stroke="#111" stroke-width="1"><title>wayfinding de-way</title></rect>
+<rect x="432.3" y="131.0" width="64.4" height="69.0" fill="#a8a29e" stroke="#111" stroke-width="1"><title>lab_block de-cyber</title></rect>
+<rect x="41.3" y="131.0" width="64.4" height="69.0" fill="#a8a29e" stroke="#111" stroke-width="1"><title>community_hall de-commons</title></rect>
+<rect x="223.0" y="286.3" width="92.0" height="80.5" fill="#a8a29e" stroke="#111" stroke-width="1"><title>lab_block de-i40</title></rect>
+<rect x="108.0" y="142.5" width="92.0" height="115.0" fill="#a8a29e" stroke="#f6c445" stroke-width="3"><title>learning_hall de-h1</title></rect>
+<rect x="223.0" y="142.5" width="92.0" height="115.0" fill="#a8a29e" stroke="#111" stroke-width="1"><title>learning_hall de-h2</title></rect>
+<rect x="338.0" y="142.5" width="92.0" height="115.0" fill="#a8a29e" stroke="#111" stroke-width="1"><title>learning_hall de-h3</title></rect>
+<rect x="338.0" y="286.3" width="92.0" height="80.5" fill="#78716c" stroke="#111" stroke-width="1"><title>gallery_hall de-docs</title></rect>
+<rect x="102.3" y="280.5" width="103.5" height="92.0" fill="#a8a29e" stroke="#111" stroke-width="1"><title>workshop_shed de-bay</title></rect>
+</svg>

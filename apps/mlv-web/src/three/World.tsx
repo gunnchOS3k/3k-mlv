@@ -105,11 +105,11 @@ export default function World({
 
   return (
     <Canvas camera={{ position: [0, 8, 10], fov: 55 }} style={{ width: '100%', height: '100%' }}>
-      <color attach="background" args={['#87b5d9']} />
+      <color attach="background" args={[site === 'CAMPUS' ? '#6b8499' : '#87b5d9']} />
       <Suspense fallback={null}>
         <ambientLight intensity={0.45} />
         <directionalLight position={[8, 12, 6]} intensity={1} />
-        <Ground />
+        {site !== 'CAMPUS' && <Ground />}
         {site === 'HOME' && (
           <>
             <Home theme={homeTheme} />

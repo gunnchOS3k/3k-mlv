@@ -1,0 +1,153 @@
+{
+  "schema": "mlv_cultural_rotation_v4_2",
+  "exhibits": [
+    {
+      "campus": "Gary",
+      "institution": "IU Northwest Gallery for Contemporary Art / School of the Arts Gallery",
+      "title": "Regional contemporary rotation",
+      "creator": "Institutional program",
+      "date": "ongoing",
+      "source_url": "https://northwest.iu.edu/arts/about/facilities.html",
+      "rights_status": "metadata-only",
+      "thumbnail_status": "none",
+      "local_context": "Northwest Indiana arts education"
+    },
+    {
+      "campus": "Gary",
+      "institution": "Gary Public Library Indiana Room",
+      "title": "Local history reference rotation",
+      "creator": "Gary Public Library",
+      "date": "ongoing",
+      "source_url": "https://www.garypubliclibrary.org/indiana-room",
+      "rights_status": "metadata-only",
+      "thumbnail_status": "none",
+      "local_context": "Gary local history"
+    },
+    {
+      "campus": "Ghana",
+      "institution": "National Museum of Ghana",
+      "title": "National collections education reference",
+      "creator": "National Museum of Ghana",
+      "date": "ongoing",
+      "source_url": "https://gmmb.gov.gh/the-national-museum-accra-1957/",
+      "rights_status": "metadata-only",
+      "thumbnail_status": "none",
+      "local_context": "Accra national museum"
+    },
+    {
+      "campus": "Ghana",
+      "institution": "Nubuke Foundation",
+      "title": "Contemporary Ghanaian arts programming",
+      "creator": "Nubuke Foundation",
+      "date": "ongoing",
+      "source_url": "https://nubukefoundation.com/",
+      "rights_status": "metadata-only",
+      "thumbnail_status": "none",
+      "local_context": "Accra contemporary arts"
+    },
+    {
+      "campus": "Guyana",
+      "institution": "Castellani House / National Gallery of Art",
+      "title": "National gallery education reference",
+      "creator": "National Gallery of Art Guyana",
+      "date": "ongoing",
+      "source_url": "https://ntg.gov.gy/monument/castellani-house-national-gallery-of-art/",
+      "rights_status": "metadata-only",
+      "thumbnail_status": "none",
+      "local_context": "Georgetown arts"
+    },
+    {
+      "campus": "Guyana",
+      "institution": "Guyana National Museum",
+      "title": "National museum education reference",
+      "creator": "Guyana National Museum",
+      "date": "ongoing",
+      "source_url": "https://ntg.gov.gy/monument/guyana-national-museum/",
+      "rights_status": "metadata-only",
+      "thumbnail_status": "none",
+      "local_context": "Guyana heritage"
+    },
+    {
+      "campus": "Geelong",
+      "institution": "National Wool Museum",
+      "title": "Wool industry heritage education",
+      "creator": "National Wool Museum",
+      "date": "ongoing",
+      "source_url": "https://www.geelongaustralia.com.au/nwm/about/history/article/item/8cbcc313afa77a5.aspx",
+      "rights_status": "metadata-only",
+      "thumbnail_status": "none",
+      "local_context": "Geelong industry heritage"
+    },
+    {
+      "campus": "Geelong",
+      "institution": "Geelong Gallery",
+      "title": "Geelong Gallery education reference",
+      "creator": "Geelong Gallery",
+      "date": "ongoing",
+      "source_url": "https://www.geelonggallery.org.au/",
+      "rights_status": "metadata-only",
+      "thumbnail_status": "none",
+      "local_context": "Geelong visual arts"
+    },
+    {
+      "campus": "Germany",
+      "institution": "Ruhr Museum at Zollverein",
+      "title": "Industrial heritage education reference",
+      "creator": "Ruhr Museum",
+      "date": "ongoing",
+      "source_url": "https://ruhrmuseum.de/en",
+      "rights_status": "metadata-only",
+      "thumbnail_status": "none",
+      "local_context": "Ruhr industrial culture"
+    },
+    {
+      "campus": "Germany",
+      "institution": "Museum Folkwang",
+      "title": "Folkwang collection education reference",
+      "creator": "Museum Folkwang",
+      "date": "ongoing",
+      "source_url": "https://www.museum-folkwang.de/",
+      "rights_status": "metadata-only",
+      "thumbnail_status": "none",
+      "local_context": "Essen modern arts"
+    },
+    {
+      "campus": "Gaza",
+      "institution": "Gaza Heritage & Art Memory rotation",
+      "title": "Documented cultural memory programming",
+      "creator": "Curatorial education descriptor",
+      "date": "ongoing",
+      "source_url": "https://www.palmuseum.org/",
+      "rights_status": "metadata-only",
+      "thumbnail_status": "none",
+      "local_context": "Distributed recovery-learning cultural memory \u2014 no precise sensitive locations"
+    },
+    {
+      "campus": "Gaza",
+      "institution": "Palestinian Museum / documented Gaza-focused cultural programming",
+      "title": "External reference programming",
+      "creator": "Palestinian Museum (external reference)",
+      "date": "ongoing",
+      "source_url": "https://www.palmuseum.org/",
+      "rights_status": "metadata-only",
+      "thumbnail_status": "none",
+      "local_context": "External cultural reference only"
+    },
+    {
+      "campus": "Graham Land",
+      "institution": "Port Lockroy Museum / UK Antarctic Heritage Trust",
+      "title": "Antarctic heritage education reference",
+      "creator": "UK Antarctic Heritage Trust",
+      "date": "ongoing",
+      "source_url": "https://ukaht.org/places/port-lockroy/",
+      "rights_status": "metadata-only",
+      "thumbnail_status": "none",
+      "local_context": "External polar heritage \u2014 no WAIKE-owned station claim"
+    }
+  ],
+  "forbidden": [
+    "unlicensed copyrighted image reproduction",
+    "mass scraping",
+    "fabricated provenance"
+  ]
+}

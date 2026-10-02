@@ -1,0 +1,54 @@
+{
+  "slug": "ghana",
+  "atlas_name": "Ghana",
+  "source_requirements": [
+    "Ghana-led civic/workforce/technology campus; Accra\u2013Tema first anchor, not Accra-only",
+    "Courtyard learning cluster with climate-aware shade",
+    "Device bar, repair/network labs, mentor workspace",
+    "Hybrid recording studio and regional pop-up lab storage",
+    "Community room opening to event court"
+  ],
+  "design_interpretations": [
+    "Low pavilion cluster around shaded courtyard (V4)",
+    "Deep overhang / solar canopy as climate response (V4)",
+    "Covered breezeways connecting pavilions (V4)",
+    "Pop-up deployment yard as FULL-phase massing addition (V4)"
+  ],
+  "building_typologies": [
+    "learning pavilion cluster",
+    "shade canopy",
+    "device bar pavilion",
+    "media studio",
+    "pop-up storage shed"
+  ],
+  "public_realm": [
+    "shaded civic courtyard",
+    "event court edge",
+    "mentor wayfinding"
+  ],
+  "circulation": [
+    "covered breezeways",
+    "courtyard ring",
+    "pavilion doors facing court"
+  ],
+  "landscape_infrastructure": [
+    "courtyard planting plate",
+    "shade canopy"
+  ],
+  "specialist_spaces": [
+    "device bar",
+    "repair/network labs",
+    "hybrid recording studio",
+    "mentor workspace",
+    "regional pop-up yard"
+  ],
+  "truth_boundaries": [
+    "Planning twin for Ghana-led node \u2014 not Accra-only claim",
+    "No stereotyped motifs; identity via spatial logic"
+  ],
+  "avoid": [
+    "foreign-branch styling",
+    "imported campus clone",
+    "stereotyped motifs"
+  ]
+}

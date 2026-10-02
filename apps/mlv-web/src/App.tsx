@@ -28,6 +28,7 @@ const MediaCenter = lazy(() => import('./campus/MediaCenter'));
 const GallerySite = lazy(() => import('./campus/GallerySite'));
 const WaikeCenter = lazy(() => import('./campus/WaikeCenter'));
 const NetworkTwinLab = lazy(() => import('./campus/NetworkTwinLab'));
+const WorldRuntime = lazy(() => import('./world/WorldRuntime'));
 
 type Site = 'HOME' | 'CAMPUS' | 'GALLERY';
 
@@ -260,14 +261,20 @@ export default function App() {
         })}
       </p>
       <div className="mlv-stage">
-        <World
-          homeTheme={homeTheme}
-          placements={placements}
-          nodes={site === 'HOME' ? nodes : nodes.filter((n) => n.visibility === 'public')}
-          onOpenNode={handleOpen}
-          site={site}
-          campusSlug={campusSlug}
-        />
+        {site === 'HOME' ? (
+          <Suspense fallback={<p className="mlv-campus">Loading home world…</p>}>
+            <WorldRuntime initialWorld="HOME" onStatus={setStatus} />
+          </Suspense>
+        ) : site === 'GALLERY' ? null : (
+          <World
+            homeTheme={homeTheme}
+            placements={placements}
+            nodes={nodes.filter((n) => n.visibility === 'public')}
+            onOpenNode={handleOpen}
+            site={site}
+            campusSlug={campusSlug}
+          />
+        )}
         {site === 'HOME' && listOpen && (
           <ListWorkspace
             nodes={nodes.filter((n) => !n.deleted_at)}
@@ -282,6 +289,9 @@ export default function App() {
         )}
         {site !== 'HOME' && (
           <Suspense fallback={<p className="mlv-campus">Loading campus…</p>}>
+            {site === 'GALLERY' && (
+              <WorldRuntime initialWorld="GALLERY" onStatus={setStatus} />
+            )}
             {site === 'GALLERY' && actor && (
               <GallerySite
                 nodes={nodes}
@@ -290,6 +300,21 @@ export default function App() {
                   local.insertNode(actor, node);
                   refreshLocal({ id: actor.id });
                   setStatus(`${node.name} saved as a private working copy. It is not public.`);
+                }}
+                onCreatePrivate={(node) => {
+                  local.insertNode(actor, node);
+                  refreshLocal({ id: actor.id });
+                  setStatus(`${node.name} is in My Gallery and stays private.`);
+                }}
+                onPublish={(node, wing) => {
+                  const confirmed = window.confirm(`Publish "${node.name}" to ${wing === 'exchange_7gc' ? '7GC Exchange' : 'Public Community Gallery'}?`);
+                  const result = local.publishGallery(actor, node.id, confirmed, wing);
+                  if (!result.ok) {
+                    setStatus('Publish cancelled. My Gallery file stays private.');
+                    return;
+                  }
+                  refreshLocal({ id: actor.id });
+                  setStatus(`${node.name} is published. Public wings only show confirmed assets.`);
                 }}
               />
             )}

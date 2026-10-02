@@ -1,0 +1,9 @@
+{
+  "generated_at": "2026-09-29T01:43:48.908655+00:00",
+  "production_build": "pass_local",
+  "pwa_dist": "apps/mlv-web/dist",
+  "device": "27211JEGR06194",
+  "adb_reverse": "pending_owner_session",
+  "PIXEL_ALL_WORLDS_PERFORMANCE_PASS": false,
+  "reason": "World runtime + production build ready; sustained FPS capture not completed this pass due to review-pack priority and disk pressure."
+}
