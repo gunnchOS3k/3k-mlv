@@ -31,11 +31,9 @@ function formatBytes(bytes) {
   return `${bytes} B`;
 }
 
-const expectBase = arg('--base');
-if (!expectBase) {
-  console.error('usage: node scripts/validate-hosting-outputs.mjs --base </|/3k-mlv/>');
-  process.exit(2);
-}
+// The repo-native command validates the production root build by default.
+// Pages callers still pass --base /3k-mlv/ explicitly after a Pages build.
+const expectBase = arg('--base') || '/';
 const base = expectBase.endsWith('/') ? expectBase : `${expectBase}/`;
 const rootHosting = base === '/';
 

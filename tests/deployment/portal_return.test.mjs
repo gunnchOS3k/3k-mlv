@@ -32,9 +32,11 @@ test('world shell uses the configured portal href and keeps hash routes', () => 
   assert.doesNotMatch(app, /iframe/i);
   assert.doesNotMatch(app, /history\.(pushState|replaceState)/);
   assert.doesNotMatch(app, /location\.replace/);
-  assert.match(app, /window\.location\.hash = '#\/mlv\/home'/);
-  assert.match(app, /window\.location\.hash = '#\/mlv\/campus'/);
-  assert.match(app, /window\.location\.hash = '#\/mlv\/gallery'/);
+  assert.match(app, /window\.location\.hash = `#\/mlv\/scene\/\$\{encodeURIComponent\(sceneId\)\}`/);
+  assert.match(app, /navigateToScene\('commons'\)/);
+  assert.match(app, /navigateToScene\('home-yard'\)/);
+  assert.match(app, /navigateToScene\('gallery-lobby'\)/);
+  assert.match(app, /navigateToScene\('transit'\)/);
   assert.match(css, /\.mlv-portal-return:focus-visible/);
   assert.match(css, /min-height:\s*44px/);
 });

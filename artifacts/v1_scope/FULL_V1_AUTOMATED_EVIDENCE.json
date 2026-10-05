@@ -1,0 +1,98 @@
+{
+  "schema": "gunnchos.mlv.full_v1_automated_evidence.v1",
+  "generated_on": "2026-10-05",
+  "branch": "world/spatial-commons-neighborhood-v1",
+  "baseline_sha": "47cdb5b3902a9e3004228a30b17a44090c6c3370",
+  "merge_sha": "9bb79efc",
+  "implementation_sha": "c032eeab",
+  "architecture": {
+    "authoritative_runtime": "WorldRuntime",
+    "shipping_runtime_count": 1,
+    "legacy_neighborhood_runtime_shipping": false
+  },
+  "world_graph": {
+    "declared_scene_count": 55,
+    "reachable_scene_count": 55,
+    "validation_errors": 0,
+    "all_portal_targets_exist": true,
+    "required_reciprocal_routes_pass": true
+  },
+  "automated_completion_matrix": {
+    "commons": { "scenes": 1, "graph_and_behavior_pass": true },
+    "home": { "scenes": 5, "rooms_and_return_pass": true },
+    "gallery": { "scenes": 6, "lobby_wings_rotation_privacy_pass": true },
+    "transit": { "scenes": 1, "seven_campus_routes_pass": true },
+    "campuses": {
+      "count": 7,
+      "scenes": 42,
+      "arrival_orientation_learning_research_culture_community_return_pass": true,
+      "campus_slugs": ["gary", "ghana", "guyana", "geelong", "germany", "gaza", "graham-land"]
+    },
+    "waike_handoff_return_contract_pass": true,
+    "research_handoff_return_contract_pass": true,
+    "local_privacy_share_publish_contract_pass": true,
+    "reload_recovery_contract_pass": true,
+    "accessible_direct_navigation_contract_pass": true,
+    "mobile_input_contract_pass": true,
+    "gamepad_input_contract_pass": true
+  },
+  "real_app_browser_acceptance": {
+    "built_application_used": true,
+    "declared_routes_traversed": 55,
+    "route_failures": [],
+    "single_authoritative_runtime_on_every_route": true,
+    "scene_heading_truth_and_direct_navigation_on_every_route": true,
+    "reload_and_local_test_identity_recovery_pass": true,
+    "accessible_direct_navigation_commons_home_living_pass": true,
+    "waike_clickthrough_and_return_pass": false,
+    "research_clickthrough_and_return_pass": false,
+    "privacy_share_publish_interaction_pass": false,
+    "mobile_viewport_and_touch_pass": false,
+    "interruption": "The Codex browser-control plugin became unavailable after the app crash. No standalone browser substitute was used. Unfinished browser checks remain false."
+  },
+  "validation": {
+    "pnpm_type_check": "pass",
+    "pnpm_test": { "status": "pass", "tests": 94 },
+    "pnpm_build": { "status": "pass", "largest_javascript_bytes": 718489, "precache_kib": 1651.4, "chunk_size_warning": true },
+    "pnpm_test_rls": { "status": "pass", "tests": 14, "environment": "local PGlite PostgreSQL", "hosted": false },
+    "pnpm_validate_hosting": { "status": "pass", "dist_bytes": 1714435 },
+    "pnpm_assert_no_node_modules": "pass",
+    "pnpm_scan_secrets": "pass",
+    "pnpm_campus_architecture": "pass",
+    "git_diff_check": "pass"
+  },
+  "recovery_patch": {
+    "path": "/Users/gunnchos/Downloads/3k-mlv-sceneGraph-pre-codex-full-v1.patch",
+    "sha256": "0afa9f4de473bc9b584dfc86191ec503dfff1db7a9870017c201cf40ca9ab36a",
+    "working_file_sha256_at_capture": "57ea5a5e493a4b527fee815eca9073c2a7e80a9ee75a81d9c4001689b066b0c0",
+    "working_blob_at_capture": "9072128806b19530b21c12d1829e05a8159dd849"
+  },
+  "gates": {
+    "V1_MLV_AUTOMATED_SCOPE_PASS": true,
+    "V1_MLV_HUMAN_PASS": false,
+    "HUMAN_LOCAL_IDENTITY_PASS": false,
+    "OWNER_VISUAL_QUALITY_PASS": false,
+    "HUMAN_USABILITY_PASS": false,
+    "PIXEL_DEVICE_ACCEPTANCE_PASS": false,
+    "PERFORMANCE_HUMAN_PASS": false,
+    "HOSTED_SUPABASE_ACCEPTANCE_PASS": false,
+    "BROWSER_WAIKE_RESEARCH_ACCEPTANCE_PASS": false,
+    "BROWSER_PRIVACY_PUBLISH_ACCEPTANCE_PASS": false,
+    "BROWSER_MOBILE_INPUT_ACCEPTANCE_PASS": false,
+    "MERGE_AUTHORIZED": false
+  },
+  "remaining_blockers": [
+    "Hosted Supabase validation requires a configured external project and credentials.",
+    "Physical Pixel/device and peripheral validation requires the target hardware.",
+    "Performance, local-identity, visual-quality, and usability approval require human observation and owner sign-off.",
+    "Interrupted browser-only WAIKE, research, privacy/publish, and mobile viewport checks require restoration of the approved browser-control plugin.",
+    "Merging PR #9 requires explicit owner authorization."
+  ],
+  "prohibited_actions_not_taken": {
+    "force_push": true,
+    "merge_pr_9": true,
+    "publish_release": true,
+    "reset_clean_or_discard_recovery_work": true
+  },
+  "push_required_after_final_commit": true
+}

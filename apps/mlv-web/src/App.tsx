@@ -77,6 +77,13 @@ function siteFromRoute(kind: string | null, sceneId: string | null): Site {
 
 type SessionUser = { id: string; email?: string; user_metadata?: { full_name?: string } };
 
+const LOCAL_TEST_SESSION_KEY = 'mlv.local_test_identity.active';
+const LOCAL_TEST_USER: SessionUser = {
+  id: '11111111-1111-4111-8111-111111111111',
+  email: 'alice-local-test@mlv.local',
+  user_metadata: { full_name: 'Alice (local test identity)' },
+};
+
 export default function App() {
   const [user, setUser] = useState<SessionUser | null>(null);
   const [phoneOpen, setPhoneOpen] = useState(false);
@@ -103,6 +110,11 @@ export default function App() {
   useEffect(() => {
     let unsubscribe = () => {};
     const boot = async () => {
+      if (!isSupabaseConfigured && sessionStorage.getItem(LOCAL_TEST_SESSION_KEY) === 'true') {
+        setUser(LOCAL_TEST_USER);
+        await loadWorkspace(LOCAL_TEST_USER);
+        return;
+      }
       const { data: { session } } = await supabase.auth.getSession();
       if (session?.user) {
         setUser(session.user as SessionUser);
@@ -115,6 +127,7 @@ export default function App() {
         setUser(session.user as SessionUser);
         loadWorkspace(session.user as SessionUser);
       } else {
+        if (!isSupabaseConfigured && sessionStorage.getItem(LOCAL_TEST_SESSION_KEY) === 'true') return;
         setUser(null);
         setNodes([]);
         setPlacements([]);
@@ -277,6 +290,7 @@ export default function App() {
     setPlacements([]);
     setProjects([]);
     setViewer(null);
+    sessionStorage.removeItem(LOCAL_TEST_SESSION_KEY);
   };
 
   useEffect(() => {
@@ -342,13 +356,9 @@ export default function App() {
           <button
             type="button"
             onClick={() => {
-              const localUser = {
-                id: '11111111-1111-4111-8111-111111111111',
-                email: 'alice-local-test@mlv.local',
-                user_metadata: { full_name: 'Alice (local test identity)' },
-              };
-              setUser(localUser);
-              void loadWorkspace(localUser);
+              sessionStorage.setItem(LOCAL_TEST_SESSION_KEY, 'true');
+              setUser(LOCAL_TEST_USER);
+              void loadWorkspace(LOCAL_TEST_USER);
               setStatus('Local test identity only. Not production GitHub OAuth.');
             }}
           >
