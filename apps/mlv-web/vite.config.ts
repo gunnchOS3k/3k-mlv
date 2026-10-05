@@ -64,6 +64,7 @@ export default defineConfig({
       '@3k-mlv/campus': path.resolve(__dirname, '../../packages/shared/src/campus/index.js'),
     },
   },
+  cacheDir: path.resolve(__dirname, '../../.vite-spatial'),
   base,
   build: {
     sourcemap: false,

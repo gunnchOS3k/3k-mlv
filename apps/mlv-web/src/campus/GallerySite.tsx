@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import type { MlvNode } from '@3k-mlv/shared';
 import {
   createMyGalleryAsset,
@@ -6,6 +6,8 @@ import {
   publicGalleryAssets,
 } from '@3k-mlv/campus';
 import sourcesDoc from '../../../../data/gallery/v1/institution_sources.json';
+import rotationDoc from '../../../../data/gallery/cultural_rotation_v4_2.json';
+import { advanceRotationIndex, rotationAt } from './galleryRotation.mjs';
 
 type InstitutionSource = {
   campus: string;
@@ -19,7 +21,20 @@ type InstitutionSource = {
   safety_notes: string;
 };
 
+type RotationExhibit = {
+  campus: string;
+  institution: string;
+  title: string;
+  creator: string;
+  date: string;
+  source_url: string;
+  rights_status: 'metadata-only';
+  thumbnail_status: 'none';
+  local_context: string;
+};
+
 const SOURCES = (sourcesDoc as { sources: InstitutionSource[] }).sources;
+const ROTATION = (rotationDoc as { exhibits: RotationExhibit[] }).exhibits;
 
 export default function GallerySite({
   nodes,
@@ -35,6 +50,8 @@ export default function GallerySite({
   onPublish: (node: MlvNode, wing: 'public_community' | 'exchange_7gc') => void;
 }) {
   const [campus, setCampus] = useState<string>('all');
+  const [rotationIndex, setRotationIndex] = useState(0);
+  const [rotationPlaying, setRotationPlaying] = useState(true);
   const campuses = useMemo(
     () => ['all', ...Array.from(new Set(SOURCES.map((source) => source.campus)))],
     [],
@@ -48,6 +65,16 @@ export default function GallerySite({
     && !node.deleted_at
     && (node.metadata?.gallery_zone === 'my_gallery' || node.metadata?.gallery_file === true || node.metadata?.gallery_edit === true),
   );
+  const currentRotation = rotationAt(ROTATION, rotationIndex);
+
+  useEffect(() => {
+    if (!rotationPlaying || ROTATION.length < 2) return undefined;
+    if (window.matchMedia?.('(prefers-reduced-motion: reduce)').matches) return undefined;
+    const timer = window.setInterval(() => {
+      setRotationIndex((current) => advanceRotationIndex(ROTATION.length, current, 1));
+    }, 12000);
+    return () => window.clearInterval(timer);
+  }, [rotationPlaying]);
 
   return (
     <section className="mlv-gallery" aria-label="Gallery">
@@ -55,6 +82,13 @@ export default function GallerySite({
       <p className="mlv-kicker">
         Five wings. Institution wings are metadata references only. My Gallery is private until you explicitly publish. A friend&apos;s Home does not show those private files.
       </p>
+      <nav className="mlv-gallery__wing-nav" aria-label="Gallery wings">
+        <a href="#wing-local">Local Culture</a>
+        <a href="#wing-rotating">Rotating Institution</a>
+        <a href="#wing-exchange">7GC Exchange</a>
+        <a href="#wing-public">Public Community</a>
+        <a href="#wing-mine">My Gallery</a>
+      </nav>
 
       <section aria-labelledby="wing-local">
         <h2 id="wing-local">Local Culture Wing</h2>
@@ -82,14 +116,34 @@ export default function GallerySite({
 
       <section aria-labelledby="wing-rotating">
         <h2 id="wing-rotating">Rotating Institution Wing</h2>
-        <p className="mlv-kicker">Metadata rotation across the seven campuses. No scraped images. Affiliation stays false.</p>
-        <ul className="mlv-room-grid">
-          {SOURCES.map((source) => (
-            <li key={`rot-${source.source_url}`}>
-              <InstitutionCard source={source} />
-            </li>
-          ))}
-        </ul>
+        <p className="mlv-kicker">A live metadata-only rotation across the seven campuses. No artwork is copied, no scraped images are shown, and no affiliation is implied.</p>
+        {currentRotation ? (
+          <article className="mlv-gallery__rotation" aria-live="polite" aria-atomic="true">
+            <p className="mlv-kicker">Exhibit {rotationIndex + 1} of {ROTATION.length}</p>
+            <h3>{currentRotation.title}</h3>
+            <p>{currentRotation.institution} · {currentRotation.campus}</p>
+            <p>{currentRotation.local_context}</p>
+            <p className="mlv-kicker">
+              {currentRotation.creator} · {currentRotation.date} · rights={currentRotation.rights_status} · thumbnail={currentRotation.thumbnail_status}
+            </p>
+            <p>
+              <a href={currentRotation.source_url} target="_blank" rel="noreferrer noopener">
+                Open verified external source
+              </a>
+            </p>
+          </article>
+        ) : <p>No rotation sources are available.</p>}
+        <div className="mlv-toolbar" role="group" aria-label="Institution rotation controls">
+          <button type="button" className="mlv-chip" onClick={() => setRotationIndex((current) => advanceRotationIndex(ROTATION.length, current, -1))}>
+            Previous institution
+          </button>
+          <button type="button" className="mlv-chip" aria-pressed={rotationPlaying} onClick={() => setRotationPlaying((playing) => !playing)}>
+            {rotationPlaying ? 'Pause rotation' : 'Resume rotation'}
+          </button>
+          <button type="button" className="mlv-chip" onClick={() => setRotationIndex((current) => advanceRotationIndex(ROTATION.length, current, 1))}>
+            Next institution
+          </button>
+        </div>
       </section>
 
       <section aria-labelledby="wing-exchange">

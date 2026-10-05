@@ -6,6 +6,7 @@ node_modules/
 dist/
 **/dist/
 .vite/
+.vite-spatial/
 coverage/
 
 # Environment and secrets — examples only

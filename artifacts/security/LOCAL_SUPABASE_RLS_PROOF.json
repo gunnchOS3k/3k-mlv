@@ -2,8 +2,8 @@
   "proven": true,
   "engine": "pglite-postgres-rls",
   "engine_note": "PGlite is in-process PostgreSQL. Docker/Supabase CLI were unavailable; this is local real-SQL RLS, not hosted Supabase.",
-  "started": "2026-09-25T19:06:18.351Z",
-  "finished": "2026-09-25T19:06:19.262Z",
+  "started": "2026-10-05T15:15:41.354Z",
+  "finished": "2026-10-05T15:15:42.052Z",
   "blockers_avoided_by_fallback": [
     "Docker is not installed on this host.",
     "Supabase CLI is not installed.",

@@ -11,10 +11,12 @@ type Props = {
   collisions: AABB[];
   moveInput: { x: number; y: number };
   lookInput: { x: number; y: number };
+  pitch: number;
+  onPitchChange: (pitch: number) => void;
   seated?: boolean;
 };
 
-export default function AvatarController({ position, facing, onChange, collisions, moveInput, lookInput, seated }: Props) {
+export default function AvatarController({ position, facing, onChange, collisions, moveInput, lookInput, pitch, onPitchChange, seated }: Props) {
   const keys = useRef<Record<string, boolean>>({});
   useEffect(() => {
     const down = (e: KeyboardEvent) => { keys.current[e.key.toLowerCase()] = true; };
@@ -34,6 +36,8 @@ export default function AvatarController({ position, facing, onChange, collision
     if (keys.current['a'] || keys.current['arrowleft']) mx -= 1;
     if (keys.current['d'] || keys.current['arrowright']) mx += 1;
     let yaw = facing + (lookInput.x + (pad?.lookX || 0)) * dt * 1.8;
+    const pitchDelta = (lookInput.y + (pad?.lookY || 0)) * dt * 1.2;
+    if (pitchDelta !== 0) onPitchChange(Math.max(-0.35, Math.min(0.9, pitch + pitchDelta)));
     const speed = 3.2;
     const forward = -my;
     const strafe = mx;
