@@ -1,0 +1,49 @@
+{
+  "slug": "germany",
+  "atlas_name": "Germany",
+  "source_requirements": [
+    "Ruhr/Rhine-Ruhr apprenticeship / Industry 4.0 applied-industry node",
+    "Precise grid apprenticeship halls with standards/documentation",
+    "Manufacturing systems, industrial networking/cyber, worker commons",
+    "Logistics/service lane and rail/transit urban edge"
+  ],
+  "design_interpretations": [
+    "Ordered brick/steel hall grid with disciplined spacing (V4)",
+    "Tall service/industrial bay as skyline marker (V4)",
+    "Rail/transit edge as urban infrastructure context (V4)",
+    "Documentation/standards gallery as dedicated volume (V4)"
+  ],
+  "building_typologies": [
+    "brick/steel apprenticeship hall grid",
+    "tall industrial bay",
+    "Industry 4.0 lab",
+    "standards gallery",
+    "worker commons"
+  ],
+  "public_realm": [
+    "logistics/service lane",
+    "apprenticeship path wayfinding",
+    "worker commons"
+  ],
+  "circulation": [
+    "disciplined grid aisles",
+    "service lane",
+    "rail-edge arrival"
+  ],
+  "landscape_infrastructure": [
+    "urban hardscape",
+    "rail/transit edge"
+  ],
+  "specialist_spaces": [
+    "Industry 4.0 twin lab",
+    "mechatronics bay",
+    "cyber/industrial network lab",
+    "documentation gallery"
+  ],
+  "truth_boundaries": [
+    "Planning twin for first-anchor Ruhr concept \u2014 not a claimed owned facility"
+  ],
+  "avoid": [
+    "luxury innovation-office styling"
+  ]
+}

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="400" viewBox="0 0 640 400">
+  <rect width="100%" height="100%" fill="#e5e5e5"/>
+  <text x="16" y="22" fill="#f4f1ea" font-family="system-ui,sans-serif" font-size="14">gaza grayscale massing</text>
+  <text x="16" y="388" fill="#c5bba8" font-family="system-ui,sans-serif" font-size="11">Schematic from authored scene coordinates. Not a Pixel capture. Not surveyed architecture.</text>
+  <rect x="16.0" y="16.0" width="414.0" height="368.0" fill="rgb(189,189,189)" stroke="#111" stroke-width="1"><title>terrain gz-terrain</title></rect>
+<rect x="165.5" y="142.5" width="115.0" height="115.0" fill="rgb(189,189,189)" stroke="#111" stroke-width="1"><title>courtyard gz-circle</title></rect>
+<rect x="177.0" y="371.3" width="92.0" height="4.0" fill="rgb(189,189,189)" stroke="#111" stroke-width="1"><title>truth_label gz-truth-2</title></rect>
+<rect x="165.5" y="26.4" width="115.0" height="4.0" fill="rgb(189,189,189)" stroke="#111" stroke-width="1"><title>truth_label gz-truth</title></rect>
+<rect x="282.8" y="200.0" width="55.2" height="46.0" fill="rgb(176,176,176)" stroke="#111" stroke-width="1"><title>temporary_module gz-repair</title></rect>
+<rect x="114.9" y="117.2" width="55.2" height="50.6" fill="rgb(176,176,176)" stroke="#111" stroke-width="1"><title>temporary_module gz-quiet</title></rect>
+<rect x="262.1" y="170.1" width="4.6" height="4.6" fill="rgb(176,176,176)" stroke="#111" stroke-width="1"><title>wayfinding gz-way</title></rect>
+<rect x="278.2" y="119.5" width="50.6" height="46.0" fill="rgb(174,174,174)" stroke="#111" stroke-width="1"><title>temporary_module gz-store</title></rect>
+<rect x="186.2" y="246.0" width="73.6" height="55.2" fill="rgb(171,171,171)" stroke="#111" stroke-width="1"><title>temporary_module gz-learn</title></rect>
+<rect x="71.2" y="171.3" width="50.6" height="57.5" fill="rgb(171,171,171)" stroke="#111" stroke-width="1"><title>lab_block gz-teacher</title></rect>
+<rect x="324.2" y="174.7" width="50.6" height="50.6" fill="rgb(171,171,171)" stroke="#111" stroke-width="1"><title>operations gz-mentor</title></rect>
+<rect x="188.5" y="87.3" width="69.0" height="50.6" fill="rgb(168,168,168)" stroke="#111" stroke-width="1"><title>media_studio gz-recon</title></rect>
+<rect x="56.3" y="278.2" width="57.5" height="50.6" fill="rgb(168,168,168)" stroke="#111" stroke-width="1"><title>temporary_module gz-hub-a</title></rect>
+<rect x="332.3" y="278.2" width="57.5" height="50.6" fill="rgb(168,168,168)" stroke="#111" stroke-width="1"><title>temporary_module gz-hub-b</title></rect>
+<rect x="108.0" y="312.7" width="230.0" height="27.6" fill="rgb(160,160,160)" stroke="#111" stroke-width="1"><title>covered_walk gz-link</title></rect>
+<rect x="102.3" y="188.5" width="80.5" height="69.0" fill="rgb(148,148,148)" stroke="#111" stroke-width="1"><title>solar_canopy gz-solar</title></rect>
+</svg>

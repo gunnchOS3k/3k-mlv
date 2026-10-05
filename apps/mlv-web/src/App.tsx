@@ -10,7 +10,6 @@ import {
   type Project,
 } from '@3k-mlv/shared';
 import World from './three/World';
-import NeighborhoodWorld from './world/NeighborhoodWorld';
 import Phone from './ui/Phone';
 import ListWorkspace from './ui/ListWorkspace';
 import FileViewer from './ui/FileViewer';
@@ -29,6 +28,7 @@ const MediaCenter = lazy(() => import('./campus/MediaCenter'));
 const GallerySite = lazy(() => import('./campus/GallerySite'));
 const WaikeCenter = lazy(() => import('./campus/WaikeCenter'));
 const NetworkTwinLab = lazy(() => import('./campus/NetworkTwinLab'));
+const WorldRuntime = lazy(() => import('./world/WorldRuntime'));
 
 type Site = 'HOME' | 'CAMPUS' | 'GALLERY';
 
@@ -54,8 +54,7 @@ type SessionUser = { id: string; email?: string; user_metadata?: { full_name?: s
 export default function App() {
   const [user, setUser] = useState<SessionUser | null>(null);
   const [phoneOpen, setPhoneOpen] = useState(false);
-  const [listOpen, setListOpen] = useState(false);
-  const [worldScene, setWorldScene] = useState('commons');
+  const [listOpen, setListOpen] = useState(true);
   const [projects, setProjects] = useState<Project[]>([]);
   const [nodes, setNodes] = useState<MlvNode[]>([]);
   const [placements, setPlacements] = useState<MlvWorldPlacement[]>([]);
@@ -240,9 +239,8 @@ export default function App() {
         <div className="mlv-topbar__actions">
           <PortalReturn href={portalHref} />
           <nav className="mlv-site-nav" aria-label="World sites">
-            <button type="button" aria-current={site === 'HOME' && worldScene === 'commons' ? 'page' : undefined} onClick={() => { window.location.hash = '#/mlv/home'; setWorldScene('commons'); }}>Commons</button>
-            <button type="button" aria-current={site === 'HOME' && worldScene === 'transit' ? 'page' : undefined} onClick={() => { window.location.hash = '#/mlv/home'; setWorldScene('transit'); }}>Transit</button>
-            <button type="button" aria-current={site === 'CAMPUS' ? 'page' : undefined} onClick={() => { window.location.hash = '#/mlv/campus'; }}>Records</button>
+            <button type="button" aria-current={site === 'HOME' ? 'page' : undefined} onClick={() => { window.location.hash = '#/mlv/home'; }}>Home</button>
+            <button type="button" aria-current={site === 'CAMPUS' ? 'page' : undefined} onClick={() => { window.location.hash = '#/mlv/campus'; }}>Campus</button>
             <button type="button" aria-current={site === 'GALLERY' ? 'page' : undefined} onClick={() => { window.location.hash = '#/mlv/gallery'; }}>Gallery</button>
           </nav>
           <button type="button" onClick={() => setListOpen((v) => !v)}>
@@ -253,7 +251,7 @@ export default function App() {
         </div>
       </header>
       <p className="mlv-status" role="status">{status}</p>
-      <p className={site === 'HOME' ? 'mlv-offline mlv-offline--dock' : 'mlv-offline'}>
+      <p className="mlv-offline">
         {describeOffline({
           shellReady: true,
           recentMetadataCached: true,
@@ -262,10 +260,12 @@ export default function App() {
           socialDegraded: !isSupabaseConfigured,
         })}
       </p>
-      <div className={site === 'HOME' && !listOpen ? 'mlv-stage mlv-stage--world' : 'mlv-stage'}>
+      <div className="mlv-stage">
         {site === 'HOME' ? (
-          <NeighborhoodWorld sceneId={worldScene} onScene={setWorldScene} />
-        ) : (
+          <Suspense fallback={<p className="mlv-campus">Loading home world…</p>}>
+            <WorldRuntime initialWorld="HOME" onStatus={setStatus} />
+          </Suspense>
+        ) : site === 'GALLERY' ? null : (
           <World
             homeTheme={homeTheme}
             placements={placements}
@@ -289,6 +289,9 @@ export default function App() {
         )}
         {site !== 'HOME' && (
           <Suspense fallback={<p className="mlv-campus">Loading campus…</p>}>
+            {site === 'GALLERY' && (
+              <WorldRuntime initialWorld="GALLERY" onStatus={setStatus} />
+            )}
             {site === 'GALLERY' && actor && (
               <GallerySite
                 nodes={nodes}
@@ -297,6 +300,21 @@ export default function App() {
                   local.insertNode(actor, node);
                   refreshLocal({ id: actor.id });
                   setStatus(`${node.name} saved as a private working copy. It is not public.`);
+                }}
+                onCreatePrivate={(node) => {
+                  local.insertNode(actor, node);
+                  refreshLocal({ id: actor.id });
+                  setStatus(`${node.name} is in My Gallery and stays private.`);
+                }}
+                onPublish={(node, wing) => {
+                  const confirmed = window.confirm(`Publish "${node.name}" to ${wing === 'exchange_7gc' ? '7GC Exchange' : 'Public Community Gallery'}?`);
+                  const result = local.publishGallery(actor, node.id, confirmed, wing);
+                  if (!result.ok) {
+                    setStatus('Publish cancelled. My Gallery file stays private.');
+                    return;
+                  }
+                  refreshLocal({ id: actor.id });
+                  setStatus(`${node.name} is published. Public wings only show confirmed assets.`);
                 }}
               />
             )}

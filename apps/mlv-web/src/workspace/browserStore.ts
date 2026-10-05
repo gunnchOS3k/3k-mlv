@@ -8,6 +8,7 @@ import {
   presentationForMime,
   publicDiscoveryFilter,
 } from '@3k-mlv/shared';
+import { isPrivateGalleryFile, publishGalleryAsset } from '@3k-mlv/campus';
 
 const MAX_UPLOAD_BYTES = 25 * 1024 * 1024;
 const ALLOWED_PREFIXES = [
@@ -98,6 +99,7 @@ export function createBrowserWorkspace() {
     listVisible(actor: { id: string } | null, ownerId?: string, shareContext?: { node_id: string; token_hash: string; revoked_at: string | null; expires_at: string | null }) {
       return [...nodes.values()].filter((node) => {
         if (ownerId && node.owner_id !== ownerId) return false;
+        if (actor?.id !== node.owner_id && isPrivateGalleryFile(node)) return false;
         return canReadNode({ actor, node, shareContext });
       });
     },
@@ -161,15 +163,30 @@ export function createBrowserWorkspace() {
       return result;
     },
 
+    publishGallery(actor: { id: string }, nodeId: string, confirmed: boolean, wing: 'public_community' | 'exchange_7gc') {
+      const node = nodes.get(nodeId);
+      if (!canMutateNode({ actor, node })) return { ok: false as const, reason: 'not_owner' };
+      const result = publishGalleryAsset(node!, { confirmed, wing });
+      if (result.ok) nodes.set(nodeId, result.node as MlvNode);
+      return result;
+    },
+
     unpublish(actor: { id: string }, nodeId: string) {
       const node = nodes.get(nodeId);
       if (!canMutateNode({ actor, node })) return { ok: false as const, reason: 'not_owner' };
       const result = makePrivate(node!);
-      nodes.set(nodeId, result.node as MlvNode);
+      const metadata = { ...(result.node.metadata || {}) };
+      if (metadata.gallery_zone || metadata.gallery_file || metadata.published) {
+        metadata.published = false;
+        metadata.gallery_zone = 'my_gallery';
+        metadata.gallery_file = true;
+      }
+      const next = { ...result.node, metadata } as MlvNode;
+      nodes.set(nodeId, next);
       for (const link of shares.values()) {
         if (link.node_id === nodeId) link.revoked_at = new Date().toISOString();
       }
-      return { ok: true as const, node: result.node as MlvNode };
+      return { ok: true as const, node: next };
     },
 
     insertNode(actor: { id: string }, node: MlvNode) {

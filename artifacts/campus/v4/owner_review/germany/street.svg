@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="400" viewBox="0 0 640 400">
+  <rect width="100%" height="100%" fill="#87a0b8"/>
+  <text x="16" y="22" fill="#111" font-family="system-ui,sans-serif" font-size="14">germany street approach</text>
+  <text x="16" y="388" fill="#1c1917" font-family="system-ui,sans-serif" font-size="11">Street elevation from module heights. Not a photograph.</text>
+  <rect x="28.0" y="361.1" width="584.0" height="3.0" fill="#a8a29e" stroke="#111"><title>de-rail</title></rect>
+<rect x="57.2" y="361.7" width="525.6" height="3.0" fill="#a8a29e" stroke="#111"><title>de-lane</title></rect>
+<rect x="258.7" y="329.0" width="5.8" height="35.0" fill="#a8a29e" stroke="#111"><title>de-way</title></rect>
+<rect x="527.3" y="311.4" width="81.8" height="52.6" fill="#a8a29e" stroke="#111"><title>de-cyber</title></rect>
+<rect x="30.9" y="311.4" width="81.8" height="52.6" fill="#a8a29e" stroke="#111"><title>de-commons</title></rect>
+<rect x="115.6" y="299.8" width="116.8" height="64.2" fill="#a8a29e" stroke="#111"><title>de-h1</title></rect>
+<rect x="261.6" y="299.8" width="116.8" height="64.2" fill="#a8a29e" stroke="#111"><title>de-h2</title></rect>
+<rect x="407.6" y="299.8" width="116.8" height="64.2" fill="#a8a29e" stroke="#111"><title>de-h3</title></rect>
+<rect x="108.3" y="253.0" width="131.4" height="111.0" fill="#a8a29e" stroke="#111"><title>de-bay</title></rect>
+<rect x="261.6" y="305.6" width="116.8" height="58.4" fill="#a8a29e" stroke="#111"><title>de-i40</title></rect>
+<rect x="407.6" y="293.9" width="116.8" height="70.1" fill="#78716c" stroke="#111"><title>de-docs</title></rect>
+</svg>

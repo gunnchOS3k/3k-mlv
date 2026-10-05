@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="400" viewBox="0 0 640 400">
+  <rect width="100%" height="100%" fill="#87a0b8"/>
+  <text x="16" y="22" fill="#111" font-family="system-ui,sans-serif" font-size="14">ghana street approach</text>
+  <text x="16" y="388" fill="#1c1917" font-family="system-ui,sans-serif" font-size="11">Street elevation from module heights. Not a photograph.</text>
+  <rect x="201.5" y="315.5" width="167.9" height="48.5" fill="#a8a29e" stroke="#111"><title>gh-device</title></rect>
+<rect x="393.7" y="296.8" width="119.4" height="67.2" fill="#a8a29e" stroke="#111"><title>gh-community</title></rect>
+<rect x="65.3" y="304.3" width="104.5" height="59.7" fill="#a8a29e" stroke="#111"><title>gh-media</title></rect>
+<rect x="173.5" y="289.4" width="223.9" height="74.6" fill="#a8a29e" stroke="#111"><title>gh-breeze</title></rect>
+<rect x="375.0" y="319.2" width="7.5" height="44.8" fill="#a8a29e" stroke="#111"><title>gh-way</title></rect>
+<rect x="154.9" y="360.3" width="261.2" height="3.7" fill="#a8a29e" stroke="#111"><title>gh-court</title></rect>
+<rect x="136.2" y="274.4" width="298.5" height="89.6" fill="#fbbf24" stroke="#111"><title>gh-shade</title></rect>
+<rect x="438.5" y="308.0" width="104.5" height="56.0" fill="#a8a29e" stroke="#111"><title>gh-pav-e</title></rect>
+<rect x="28.0" y="308.0" width="104.5" height="56.0" fill="#a8a29e" stroke="#111"><title>gh-pav-w</title></rect>
+<rect x="518.7" y="308.0" width="93.3" height="56.0" fill="#a8a29e" stroke="#111"><title>gh-mentor</title></rect>
+<rect x="192.2" y="308.0" width="186.6" height="56.0" fill="#a8a29e" stroke="#111"><title>gh-pav-n</title></rect>
+<rect x="173.5" y="296.8" width="223.9" height="67.2" fill="#a8a29e" stroke="#111"><title>gh-popup</title></rect>
+</svg>

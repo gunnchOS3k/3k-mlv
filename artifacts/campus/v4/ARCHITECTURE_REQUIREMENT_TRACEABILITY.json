@@ -1,0 +1,1065 @@
+{
+  "schema_version": "v4.architecture.traceability.1",
+  "generated_note": "Digital planning interpretations of UPNOW briefs. Not surveyed architecture. Not physical-campus completion.",
+  "row_count": 128,
+  "required_fields": [
+    "source_requirements",
+    "design_interpretations",
+    "building_typologies",
+    "public_realm",
+    "circulation",
+    "landscape_infrastructure",
+    "specialist_spaces",
+    "truth_boundaries",
+    "avoid"
+  ],
+  "field_errors": [],
+  "scene_fingerprints": {
+    "gary": {
+      "site_plan": "arrival plaza → project corridor spine → adaptive-reuse hall with lab wing",
+      "silhouette": "long civic-industrial hall + taller project/gallery volume + visible lab bays",
+      "module_kinds": [
+        "terrain",
+        "plaza",
+        "street",
+        "learning_hall",
+        "arcade",
+        "gallery_hall",
+        "repair_bay",
+        "lab_block",
+        "community_hall",
+        "wayfinding"
+      ],
+      "phase_massing": {
+        "pilot": "0.85x0.75x0.85+mobile_carts",
+        "semi": "0.95x0.95x0.95",
+        "full": "1.05x1.1x1.05"
+      }
+    },
+    "ghana": {
+      "site_plan": "ring of learning pavilions around shaded civic courtyard with device bar",
+      "silhouette": "low pavilion cluster + strong central courtyard + shade canopies",
+      "module_kinds": [
+        "terrain",
+        "courtyard",
+        "solar_canopy",
+        "learning_hall",
+        "covered_walk",
+        "lab_block",
+        "community_hall",
+        "media_studio",
+        "workshop_shed",
+        "wayfinding"
+      ],
+      "phase_massing": {
+        "pilot": "0.8x0.7x0.8",
+        "semi": "0.95x0.9x0.95",
+        "full": "1.08x1x1.08"
+      }
+    },
+    "guyana": {
+      "site_plan": "river edge → elevated linear learning spine with bridge connectors and flood landscape",
+      "silhouette": "long raised spine + bridge connectors + climate-data tower/studio + water edge",
+      "module_kinds": [
+        "terrain",
+        "water",
+        "landscape",
+        "raised_walk",
+        "learning_hall",
+        "bridge",
+        "lab_block",
+        "covered_walk",
+        "operations",
+        "wayfinding"
+      ],
+      "phase_massing": {
+        "pilot": "0.75x0.85x0.75",
+        "semi": "0.95x1x0.95",
+        "full": "1.1x1.15x1.05"
+      }
+    },
+    "geelong": {
+      "site_plan": "workshop sheds flanking maker yard with gantry reference and solar canopy",
+      "silhouette": "large-span workshop sheds + maker yard + clean-energy canopy + one civic/showcase volume",
+      "module_kinds": [
+        "terrain",
+        "plaza",
+        "workshop_shed",
+        "solar_canopy",
+        "gantry",
+        "lab_block",
+        "community_hall",
+        "wayfinding"
+      ],
+      "phase_massing": {
+        "pilot": "0.7x0.65x0.7+cart",
+        "semi": "0.92x0.9x0.92",
+        "full": "1.08x1.12x1.05"
+      }
+    },
+    "germany": {
+      "site_plan": "precise industrial grid with logistics lane and rail/transit urban edge",
+      "silhouette": "ordered brick/steel hall grid + tall service/industrial bay + disciplined circulation",
+      "module_kinds": [
+        "terrain",
+        "transit",
+        "street",
+        "learning_hall",
+        "workshop_shed",
+        "lab_block",
+        "gallery_hall",
+        "community_hall",
+        "wayfinding"
+      ],
+      "phase_massing": {
+        "pilot": "0.78x0.72x0.78",
+        "semi": "0.94x0.95x0.94",
+        "full": "1.06x1.08x1.06"
+      }
+    },
+    "gaza": {
+      "site_plan": "schematic recovery node network — no precise/sensitive real locations",
+      "silhouette": "distributed temporary learning modules in a respectful schematic network",
+      "module_kinds": [
+        "terrain",
+        "truth_label",
+        "courtyard",
+        "temporary_module",
+        "solar_canopy",
+        "media_studio",
+        "lab_block",
+        "operations",
+        "covered_walk",
+        "wayfinding"
+      ],
+      "phase_massing": {
+        "pilot": "0.85x0.8x0.85",
+        "semi": "1x0.95x1",
+        "full": "1.12x1.05x1.12+truth2"
+      },
+      "nonconventional": true,
+      "truth_required": true
+    },
+    "graham-land": {
+      "site_plan": "remote-first polar education twin with simulated terrain and partner-reference overlays",
+      "silhouette": "modular research/operations cluster + antenna/sensor systems + operations visualization layers",
+      "module_kinds": [
+        "terrain",
+        "landscape",
+        "truth_label",
+        "polar_module",
+        "antenna",
+        "lab_block",
+        "operations",
+        "media_studio",
+        "covered_walk",
+        "wayfinding"
+      ],
+      "phase_massing": {
+        "pilot": "0.8x0.75x0.8+cart",
+        "semi": "0.95x0.95x0.95",
+        "full": "1.1x1.1x1.1+truth2"
+      },
+      "nonconventional": true,
+      "truth_required": true
+    }
+  },
+  "rows": [
+    {
+      "slug": "gary",
+      "kind": "source_requirement",
+      "statement": "Flagship civic technology and workforce campus rooted in Gary, Indiana",
+      "silhouette": "long civic-industrial hall + taller project/gallery volume + visible lab bays",
+      "evidence": "docs/campus/7GC_CAMPUS_SOURCE_REQUIREMENTS.md + packages/shared/src/campus/catalog.js"
+    },
+    {
+      "slug": "gary",
+      "kind": "source_requirement",
+      "statement": "Adaptive-reuse civic/industrial hall with project corridor",
+      "silhouette": "long civic-industrial hall + taller project/gallery volume + visible lab bays",
+      "evidence": "docs/campus/7GC_CAMPUS_SOURCE_REQUIREMENTS.md + packages/shared/src/campus/catalog.js"
+    },
+    {
+      "slug": "gary",
+      "kind": "source_requirement",
+      "statement": "Hardware/repair lab, networking/cyber lab, AI/cloud studio",
+      "silhouette": "long civic-industrial hall + taller project/gallery volume + visible lab bays",
+      "evidence": "docs/campus/7GC_CAMPUS_SOURCE_REQUIREMENTS.md + packages/shared/src/campus/catalog.js"
+    },
+    {
+      "slug": "gary",
+      "kind": "source_requirement",
+      "statement": "Community event space and apprenticeship/project studio",
+      "silhouette": "long civic-industrial hall + taller project/gallery volume + visible lab bays",
+      "evidence": "docs/campus/7GC_CAMPUS_SOURCE_REQUIREMENTS.md + packages/shared/src/campus/catalog.js"
+    },
+    {
+      "slug": "gary",
+      "kind": "source_requirement",
+      "statement": "Showcase/demo gallery and public dashboards",
+      "silhouette": "long civic-industrial hall + taller project/gallery volume + visible lab bays",
+      "evidence": "docs/campus/7GC_CAMPUS_SOURCE_REQUIREMENTS.md + packages/shared/src/campus/catalog.js"
+    },
+    {
+      "slug": "gary",
+      "kind": "source_requirement",
+      "statement": "Phase model PILOT / SEMI / FULL",
+      "silhouette": "long civic-industrial hall + taller project/gallery volume + visible lab bays",
+      "evidence": "docs/campus/7GC_CAMPUS_SOURCE_REQUIREMENTS.md + packages/shared/src/campus/catalog.js"
+    },
+    {
+      "slug": "gary",
+      "kind": "design_interpretation",
+      "statement": "Long civic-industrial hall silhouette with taller gallery volume (V4)",
+      "silhouette": "long civic-industrial hall + taller project/gallery volume + visible lab bays",
+      "evidence": "V4 architectural scene assembly"
+    },
+    {
+      "slug": "gary",
+      "kind": "design_interpretation",
+      "statement": "Visible lab bays as glazed repair/network volumes (V4)",
+      "silhouette": "long civic-industrial hall + taller project/gallery volume + visible lab bays",
+      "evidence": "V4 architectural scene assembly"
+    },
+    {
+      "slug": "gary",
+      "kind": "design_interpretation",
+      "statement": "Arrival plaza + project corridor as primary site plan (V4)",
+      "silhouette": "long civic-industrial hall + taller project/gallery volume + visible lab bays",
+      "evidence": "V4 architectural scene assembly"
+    },
+    {
+      "slug": "gary",
+      "kind": "design_interpretation",
+      "statement": "Phase massing: pilot mobile carts → semi lab wing → full community + apprenticeship volumes",
+      "silhouette": "long civic-industrial hall + taller project/gallery volume + visible lab bays",
+      "evidence": "V4 architectural scene assembly"
+    },
+    {
+      "slug": "gary",
+      "kind": "visible_module",
+      "statement": "terrain",
+      "silhouette": "long civic-industrial hall + taller project/gallery volume + visible lab bays",
+      "evidence": "apps/mlv-web/src/three/architecture/scenes.ts (gary)"
+    },
+    {
+      "slug": "gary",
+      "kind": "visible_module",
+      "statement": "plaza",
+      "silhouette": "long civic-industrial hall + taller project/gallery volume + visible lab bays",
+      "evidence": "apps/mlv-web/src/three/architecture/scenes.ts (gary)"
+    },
+    {
+      "slug": "gary",
+      "kind": "visible_module",
+      "statement": "street",
+      "silhouette": "long civic-industrial hall + taller project/gallery volume + visible lab bays",
+      "evidence": "apps/mlv-web/src/three/architecture/scenes.ts (gary)"
+    },
+    {
+      "slug": "gary",
+      "kind": "visible_module",
+      "statement": "learning_hall",
+      "silhouette": "long civic-industrial hall + taller project/gallery volume + visible lab bays",
+      "evidence": "apps/mlv-web/src/three/architecture/scenes.ts (gary)"
+    },
+    {
+      "slug": "gary",
+      "kind": "visible_module",
+      "statement": "arcade",
+      "silhouette": "long civic-industrial hall + taller project/gallery volume + visible lab bays",
+      "evidence": "apps/mlv-web/src/three/architecture/scenes.ts (gary)"
+    },
+    {
+      "slug": "gary",
+      "kind": "visible_module",
+      "statement": "gallery_hall",
+      "silhouette": "long civic-industrial hall + taller project/gallery volume + visible lab bays",
+      "evidence": "apps/mlv-web/src/three/architecture/scenes.ts (gary)"
+    },
+    {
+      "slug": "gary",
+      "kind": "visible_module",
+      "statement": "repair_bay",
+      "silhouette": "long civic-industrial hall + taller project/gallery volume + visible lab bays",
+      "evidence": "apps/mlv-web/src/three/architecture/scenes.ts (gary)"
+    },
+    {
+      "slug": "gary",
+      "kind": "visible_module",
+      "statement": "lab_block",
+      "silhouette": "long civic-industrial hall + taller project/gallery volume + visible lab bays",
+      "evidence": "apps/mlv-web/src/three/architecture/scenes.ts (gary)"
+    },
+    {
+      "slug": "gary",
+      "kind": "visible_module",
+      "statement": "community_hall",
+      "silhouette": "long civic-industrial hall + taller project/gallery volume + visible lab bays",
+      "evidence": "apps/mlv-web/src/three/architecture/scenes.ts (gary)"
+    },
+    {
+      "slug": "gary",
+      "kind": "visible_module",
+      "statement": "wayfinding",
+      "silhouette": "long civic-industrial hall + taller project/gallery volume + visible lab bays",
+      "evidence": "apps/mlv-web/src/three/architecture/scenes.ts (gary)"
+    },
+    {
+      "slug": "ghana",
+      "kind": "source_requirement",
+      "statement": "Ghana-led civic/workforce/technology campus; Accra–Tema first anchor, not Accra-only",
+      "silhouette": "low pavilion cluster + strong central courtyard + shade canopies",
+      "evidence": "docs/campus/7GC_CAMPUS_SOURCE_REQUIREMENTS.md + packages/shared/src/campus/catalog.js"
+    },
+    {
+      "slug": "ghana",
+      "kind": "source_requirement",
+      "statement": "Courtyard learning cluster with climate-aware shade",
+      "silhouette": "low pavilion cluster + strong central courtyard + shade canopies",
+      "evidence": "docs/campus/7GC_CAMPUS_SOURCE_REQUIREMENTS.md + packages/shared/src/campus/catalog.js"
+    },
+    {
+      "slug": "ghana",
+      "kind": "source_requirement",
+      "statement": "Device bar, repair/network labs, mentor workspace",
+      "silhouette": "low pavilion cluster + strong central courtyard + shade canopies",
+      "evidence": "docs/campus/7GC_CAMPUS_SOURCE_REQUIREMENTS.md + packages/shared/src/campus/catalog.js"
+    },
+    {
+      "slug": "ghana",
+      "kind": "source_requirement",
+      "statement": "Hybrid recording studio and regional pop-up lab storage",
+      "silhouette": "low pavilion cluster + strong central courtyard + shade canopies",
+      "evidence": "docs/campus/7GC_CAMPUS_SOURCE_REQUIREMENTS.md + packages/shared/src/campus/catalog.js"
+    },
+    {
+      "slug": "ghana",
+      "kind": "source_requirement",
+      "statement": "Community room opening to event court",
+      "silhouette": "low pavilion cluster + strong central courtyard + shade canopies",
+      "evidence": "docs/campus/7GC_CAMPUS_SOURCE_REQUIREMENTS.md + packages/shared/src/campus/catalog.js"
+    },
+    {
+      "slug": "ghana",
+      "kind": "design_interpretation",
+      "statement": "Low pavilion cluster around shaded courtyard (V4)",
+      "silhouette": "low pavilion cluster + strong central courtyard + shade canopies",
+      "evidence": "V4 architectural scene assembly"
+    },
+    {
+      "slug": "ghana",
+      "kind": "design_interpretation",
+      "statement": "Deep overhang / solar canopy as climate response (V4)",
+      "silhouette": "low pavilion cluster + strong central courtyard + shade canopies",
+      "evidence": "V4 architectural scene assembly"
+    },
+    {
+      "slug": "ghana",
+      "kind": "design_interpretation",
+      "statement": "Covered breezeways connecting pavilions (V4)",
+      "silhouette": "low pavilion cluster + strong central courtyard + shade canopies",
+      "evidence": "V4 architectural scene assembly"
+    },
+    {
+      "slug": "ghana",
+      "kind": "design_interpretation",
+      "statement": "Pop-up deployment yard as FULL-phase massing addition (V4)",
+      "silhouette": "low pavilion cluster + strong central courtyard + shade canopies",
+      "evidence": "V4 architectural scene assembly"
+    },
+    {
+      "slug": "ghana",
+      "kind": "visible_module",
+      "statement": "terrain",
+      "silhouette": "low pavilion cluster + strong central courtyard + shade canopies",
+      "evidence": "apps/mlv-web/src/three/architecture/scenes.ts (ghana)"
+    },
+    {
+      "slug": "ghana",
+      "kind": "visible_module",
+      "statement": "courtyard",
+      "silhouette": "low pavilion cluster + strong central courtyard + shade canopies",
+      "evidence": "apps/mlv-web/src/three/architecture/scenes.ts (ghana)"
+    },
+    {
+      "slug": "ghana",
+      "kind": "visible_module",
+      "statement": "solar_canopy",
+      "silhouette": "low pavilion cluster + strong central courtyard + shade canopies",
+      "evidence": "apps/mlv-web/src/three/architecture/scenes.ts (ghana)"
+    },
+    {
+      "slug": "ghana",
+      "kind": "visible_module",
+      "statement": "learning_hall",
+      "silhouette": "low pavilion cluster + strong central courtyard + shade canopies",
+      "evidence": "apps/mlv-web/src/three/architecture/scenes.ts (ghana)"
+    },
+    {
+      "slug": "ghana",
+      "kind": "visible_module",
+      "statement": "covered_walk",
+      "silhouette": "low pavilion cluster + strong central courtyard + shade canopies",
+      "evidence": "apps/mlv-web/src/three/architecture/scenes.ts (ghana)"
+    },
+    {
+      "slug": "ghana",
+      "kind": "visible_module",
+      "statement": "lab_block",
+      "silhouette": "low pavilion cluster + strong central courtyard + shade canopies",
+      "evidence": "apps/mlv-web/src/three/architecture/scenes.ts (ghana)"
+    },
+    {
+      "slug": "ghana",
+      "kind": "visible_module",
+      "statement": "community_hall",
+      "silhouette": "low pavilion cluster + strong central courtyard + shade canopies",
+      "evidence": "apps/mlv-web/src/three/architecture/scenes.ts (ghana)"
+    },
+    {
+      "slug": "ghana",
+      "kind": "visible_module",
+      "statement": "media_studio",
+      "silhouette": "low pavilion cluster + strong central courtyard + shade canopies",
+      "evidence": "apps/mlv-web/src/three/architecture/scenes.ts (ghana)"
+    },
+    {
+      "slug": "ghana",
+      "kind": "visible_module",
+      "statement": "workshop_shed",
+      "silhouette": "low pavilion cluster + strong central courtyard + shade canopies",
+      "evidence": "apps/mlv-web/src/three/architecture/scenes.ts (ghana)"
+    },
+    {
+      "slug": "ghana",
+      "kind": "visible_module",
+      "statement": "wayfinding",
+      "silhouette": "low pavilion cluster + strong central courtyard + shade canopies",
+      "evidence": "apps/mlv-web/src/three/architecture/scenes.ts (ghana)"
+    },
+    {
+      "slug": "guyana",
+      "kind": "source_requirement",
+      "statement": "Guyana-led climate-resilience learning node; Georgetown–Demerara first anchor with national reach",
+      "silhouette": "long raised spine + bridge connectors + climate-data tower/studio + water edge",
+      "evidence": "docs/campus/7GC_CAMPUS_SOURCE_REQUIREMENTS.md + packages/shared/src/campus/catalog.js"
+    },
+    {
+      "slug": "guyana",
+      "kind": "source_requirement",
+      "statement": "River-aware linear campus with climate + GIS studio",
+      "silhouette": "long raised spine + bridge connectors + climate-data tower/studio + water edge",
+      "evidence": "docs/campus/7GC_CAMPUS_SOURCE_REQUIREMENTS.md + packages/shared/src/campus/catalog.js"
+    },
+    {
+      "slug": "guyana",
+      "kind": "source_requirement",
+      "statement": "Energy/logistics systems studio and public dashboard",
+      "silhouette": "long raised spine + bridge connectors + climate-data tower/studio + water edge",
+      "evidence": "docs/campus/7GC_CAMPUS_SOURCE_REQUIREMENTS.md + packages/shared/src/campus/catalog.js"
+    },
+    {
+      "slug": "guyana",
+      "kind": "source_requirement",
+      "statement": "Hardware/network labs and flood literacy landscape",
+      "silhouette": "long raised spine + bridge connectors + climate-data tower/studio + water edge",
+      "evidence": "docs/campus/7GC_CAMPUS_SOURCE_REQUIREMENTS.md + packages/shared/src/campus/catalog.js"
+    },
+    {
+      "slug": "guyana",
+      "kind": "design_interpretation",
+      "statement": "Raised linear learning spine above flood demonstration edge (V4)",
+      "silhouette": "long raised spine + bridge connectors + climate-data tower/studio + water edge",
+      "evidence": "V4 architectural scene assembly"
+    },
+    {
+      "slug": "guyana",
+      "kind": "design_interpretation",
+      "statement": "Bridge/boardwalk connectors between spine volumes (V4)",
+      "silhouette": "long raised spine + bridge connectors + climate-data tower/studio + water edge",
+      "evidence": "V4 architectural scene assembly"
+    },
+    {
+      "slug": "guyana",
+      "kind": "design_interpretation",
+      "statement": "Climate/GIS as taller signature tower/studio volume (V4)",
+      "silhouette": "long raised spine + bridge connectors + climate-data tower/studio + water edge",
+      "evidence": "V4 architectural scene assembly"
+    },
+    {
+      "slug": "guyana",
+      "kind": "design_interpretation",
+      "statement": "Water edge + rain-garden landscape as site identity (V4)",
+      "silhouette": "long raised spine + bridge connectors + climate-data tower/studio + water edge",
+      "evidence": "V4 architectural scene assembly"
+    },
+    {
+      "slug": "guyana",
+      "kind": "visible_module",
+      "statement": "terrain",
+      "silhouette": "long raised spine + bridge connectors + climate-data tower/studio + water edge",
+      "evidence": "apps/mlv-web/src/three/architecture/scenes.ts (guyana)"
+    },
+    {
+      "slug": "guyana",
+      "kind": "visible_module",
+      "statement": "water",
+      "silhouette": "long raised spine + bridge connectors + climate-data tower/studio + water edge",
+      "evidence": "apps/mlv-web/src/three/architecture/scenes.ts (guyana)"
+    },
+    {
+      "slug": "guyana",
+      "kind": "visible_module",
+      "statement": "landscape",
+      "silhouette": "long raised spine + bridge connectors + climate-data tower/studio + water edge",
+      "evidence": "apps/mlv-web/src/three/architecture/scenes.ts (guyana)"
+    },
+    {
+      "slug": "guyana",
+      "kind": "visible_module",
+      "statement": "raised_walk",
+      "silhouette": "long raised spine + bridge connectors + climate-data tower/studio + water edge",
+      "evidence": "apps/mlv-web/src/three/architecture/scenes.ts (guyana)"
+    },
+    {
+      "slug": "guyana",
+      "kind": "visible_module",
+      "statement": "learning_hall",
+      "silhouette": "long raised spine + bridge connectors + climate-data tower/studio + water edge",
+      "evidence": "apps/mlv-web/src/three/architecture/scenes.ts (guyana)"
+    },
+    {
+      "slug": "guyana",
+      "kind": "visible_module",
+      "statement": "bridge",
+      "silhouette": "long raised spine + bridge connectors + climate-data tower/studio + water edge",
+      "evidence": "apps/mlv-web/src/three/architecture/scenes.ts (guyana)"
+    },
+    {
+      "slug": "guyana",
+      "kind": "visible_module",
+      "statement": "lab_block",
+      "silhouette": "long raised spine + bridge connectors + climate-data tower/studio + water edge",
+      "evidence": "apps/mlv-web/src/three/architecture/scenes.ts (guyana)"
+    },
+    {
+      "slug": "guyana",
+      "kind": "visible_module",
+      "statement": "covered_walk",
+      "silhouette": "long raised spine + bridge connectors + climate-data tower/studio + water edge",
+      "evidence": "apps/mlv-web/src/three/architecture/scenes.ts (guyana)"
+    },
+    {
+      "slug": "guyana",
+      "kind": "visible_module",
+      "statement": "operations",
+      "silhouette": "long raised spine + bridge connectors + climate-data tower/studio + water edge",
+      "evidence": "apps/mlv-web/src/three/architecture/scenes.ts (guyana)"
+    },
+    {
+      "slug": "guyana",
+      "kind": "visible_module",
+      "statement": "wayfinding",
+      "silhouette": "long raised spine + bridge connectors + climate-data tower/studio + water edge",
+      "evidence": "apps/mlv-web/src/three/architecture/scenes.ts (guyana)"
+    },
+    {
+      "slug": "geelong",
+      "kind": "source_requirement",
+      "statement": "Geelong-rooted design/build, manufacturing, health-tech, port/logistics, clean-energy node",
+      "silhouette": "large-span workshop sheds + maker yard + clean-energy canopy + one civic/showcase volume",
+      "evidence": "docs/campus/7GC_CAMPUS_SOURCE_REQUIREMENTS.md + packages/shared/src/campus/catalog.js"
+    },
+    {
+      "slug": "geelong",
+      "kind": "source_requirement",
+      "statement": "Workshop yard industrial but welcoming",
+      "silhouette": "large-span workshop sheds + maker yard + clean-energy canopy + one civic/showcase volume",
+      "evidence": "docs/campus/7GC_CAMPUS_SOURCE_REQUIREMENTS.md + packages/shared/src/campus/catalog.js"
+    },
+    {
+      "slug": "geelong",
+      "kind": "source_requirement",
+      "statement": "Design/build studio, manufacturing/robotics, community showcase",
+      "silhouette": "large-span workshop sheds + maker yard + clean-energy canopy + one civic/showcase volume",
+      "evidence": "docs/campus/7GC_CAMPUS_SOURCE_REQUIREMENTS.md + packages/shared/src/campus/catalog.js"
+    },
+    {
+      "slug": "geelong",
+      "kind": "source_requirement",
+      "statement": "Industry briefing board / prototype wall",
+      "silhouette": "large-span workshop sheds + maker yard + clean-energy canopy + one civic/showcase volume",
+      "evidence": "docs/campus/7GC_CAMPUS_SOURCE_REQUIREMENTS.md + packages/shared/src/campus/catalog.js"
+    },
+    {
+      "slug": "geelong",
+      "kind": "design_interpretation",
+      "statement": "Sawtooth large-span workshop sheds flanking maker yard (V4)",
+      "silhouette": "large-span workshop sheds + maker yard + clean-energy canopy + one civic/showcase volume",
+      "evidence": "V4 architectural scene assembly"
+    },
+    {
+      "slug": "geelong",
+      "kind": "design_interpretation",
+      "statement": "Port/logistics gantry as abstract reference, not a claim (V4)",
+      "silhouette": "large-span workshop sheds + maker yard + clean-energy canopy + one civic/showcase volume",
+      "evidence": "V4 architectural scene assembly"
+    },
+    {
+      "slug": "geelong",
+      "kind": "design_interpretation",
+      "statement": "Clean-energy solar canopy as climate/infrastructure response (V4)",
+      "silhouette": "large-span workshop sheds + maker yard + clean-energy canopy + one civic/showcase volume",
+      "evidence": "V4 architectural scene assembly"
+    },
+    {
+      "slug": "geelong",
+      "kind": "design_interpretation",
+      "statement": "Civic showcase volume distinct from workshop sheds (V4)",
+      "silhouette": "large-span workshop sheds + maker yard + clean-energy canopy + one civic/showcase volume",
+      "evidence": "V4 architectural scene assembly"
+    },
+    {
+      "slug": "geelong",
+      "kind": "visible_module",
+      "statement": "terrain",
+      "silhouette": "large-span workshop sheds + maker yard + clean-energy canopy + one civic/showcase volume",
+      "evidence": "apps/mlv-web/src/three/architecture/scenes.ts (geelong)"
+    },
+    {
+      "slug": "geelong",
+      "kind": "visible_module",
+      "statement": "plaza",
+      "silhouette": "large-span workshop sheds + maker yard + clean-energy canopy + one civic/showcase volume",
+      "evidence": "apps/mlv-web/src/three/architecture/scenes.ts (geelong)"
+    },
+    {
+      "slug": "geelong",
+      "kind": "visible_module",
+      "statement": "workshop_shed",
+      "silhouette": "large-span workshop sheds + maker yard + clean-energy canopy + one civic/showcase volume",
+      "evidence": "apps/mlv-web/src/three/architecture/scenes.ts (geelong)"
+    },
+    {
+      "slug": "geelong",
+      "kind": "visible_module",
+      "statement": "solar_canopy",
+      "silhouette": "large-span workshop sheds + maker yard + clean-energy canopy + one civic/showcase volume",
+      "evidence": "apps/mlv-web/src/three/architecture/scenes.ts (geelong)"
+    },
+    {
+      "slug": "geelong",
+      "kind": "visible_module",
+      "statement": "gantry",
+      "silhouette": "large-span workshop sheds + maker yard + clean-energy canopy + one civic/showcase volume",
+      "evidence": "apps/mlv-web/src/three/architecture/scenes.ts (geelong)"
+    },
+    {
+      "slug": "geelong",
+      "kind": "visible_module",
+      "statement": "lab_block",
+      "silhouette": "large-span workshop sheds + maker yard + clean-energy canopy + one civic/showcase volume",
+      "evidence": "apps/mlv-web/src/three/architecture/scenes.ts (geelong)"
+    },
+    {
+      "slug": "geelong",
+      "kind": "visible_module",
+      "statement": "community_hall",
+      "silhouette": "large-span workshop sheds + maker yard + clean-energy canopy + one civic/showcase volume",
+      "evidence": "apps/mlv-web/src/three/architecture/scenes.ts (geelong)"
+    },
+    {
+      "slug": "geelong",
+      "kind": "visible_module",
+      "statement": "wayfinding",
+      "silhouette": "large-span workshop sheds + maker yard + clean-energy canopy + one civic/showcase volume",
+      "evidence": "apps/mlv-web/src/three/architecture/scenes.ts (geelong)"
+    },
+    {
+      "slug": "germany",
+      "kind": "source_requirement",
+      "statement": "Ruhr/Rhine-Ruhr apprenticeship / Industry 4.0 applied-industry node",
+      "silhouette": "ordered brick/steel hall grid + tall service/industrial bay + disciplined circulation",
+      "evidence": "docs/campus/7GC_CAMPUS_SOURCE_REQUIREMENTS.md + packages/shared/src/campus/catalog.js"
+    },
+    {
+      "slug": "germany",
+      "kind": "source_requirement",
+      "statement": "Precise grid apprenticeship halls with standards/documentation",
+      "silhouette": "ordered brick/steel hall grid + tall service/industrial bay + disciplined circulation",
+      "evidence": "docs/campus/7GC_CAMPUS_SOURCE_REQUIREMENTS.md + packages/shared/src/campus/catalog.js"
+    },
+    {
+      "slug": "germany",
+      "kind": "source_requirement",
+      "statement": "Manufacturing systems, industrial networking/cyber, worker commons",
+      "silhouette": "ordered brick/steel hall grid + tall service/industrial bay + disciplined circulation",
+      "evidence": "docs/campus/7GC_CAMPUS_SOURCE_REQUIREMENTS.md + packages/shared/src/campus/catalog.js"
+    },
+    {
+      "slug": "germany",
+      "kind": "source_requirement",
+      "statement": "Logistics/service lane and rail/transit urban edge",
+      "silhouette": "ordered brick/steel hall grid + tall service/industrial bay + disciplined circulation",
+      "evidence": "docs/campus/7GC_CAMPUS_SOURCE_REQUIREMENTS.md + packages/shared/src/campus/catalog.js"
+    },
+    {
+      "slug": "germany",
+      "kind": "design_interpretation",
+      "statement": "Ordered brick/steel hall grid with disciplined spacing (V4)",
+      "silhouette": "ordered brick/steel hall grid + tall service/industrial bay + disciplined circulation",
+      "evidence": "V4 architectural scene assembly"
+    },
+    {
+      "slug": "germany",
+      "kind": "design_interpretation",
+      "statement": "Tall service/industrial bay as skyline marker (V4)",
+      "silhouette": "ordered brick/steel hall grid + tall service/industrial bay + disciplined circulation",
+      "evidence": "V4 architectural scene assembly"
+    },
+    {
+      "slug": "germany",
+      "kind": "design_interpretation",
+      "statement": "Rail/transit edge as urban infrastructure context (V4)",
+      "silhouette": "ordered brick/steel hall grid + tall service/industrial bay + disciplined circulation",
+      "evidence": "V4 architectural scene assembly"
+    },
+    {
+      "slug": "germany",
+      "kind": "design_interpretation",
+      "statement": "Documentation/standards gallery as dedicated volume (V4)",
+      "silhouette": "ordered brick/steel hall grid + tall service/industrial bay + disciplined circulation",
+      "evidence": "V4 architectural scene assembly"
+    },
+    {
+      "slug": "germany",
+      "kind": "visible_module",
+      "statement": "terrain",
+      "silhouette": "ordered brick/steel hall grid + tall service/industrial bay + disciplined circulation",
+      "evidence": "apps/mlv-web/src/three/architecture/scenes.ts (germany)"
+    },
+    {
+      "slug": "germany",
+      "kind": "visible_module",
+      "statement": "transit",
+      "silhouette": "ordered brick/steel hall grid + tall service/industrial bay + disciplined circulation",
+      "evidence": "apps/mlv-web/src/three/architecture/scenes.ts (germany)"
+    },
+    {
+      "slug": "germany",
+      "kind": "visible_module",
+      "statement": "street",
+      "silhouette": "ordered brick/steel hall grid + tall service/industrial bay + disciplined circulation",
+      "evidence": "apps/mlv-web/src/three/architecture/scenes.ts (germany)"
+    },
+    {
+      "slug": "germany",
+      "kind": "visible_module",
+      "statement": "learning_hall",
+      "silhouette": "ordered brick/steel hall grid + tall service/industrial bay + disciplined circulation",
+      "evidence": "apps/mlv-web/src/three/architecture/scenes.ts (germany)"
+    },
+    {
+      "slug": "germany",
+      "kind": "visible_module",
+      "statement": "workshop_shed",
+      "silhouette": "ordered brick/steel hall grid + tall service/industrial bay + disciplined circulation",
+      "evidence": "apps/mlv-web/src/three/architecture/scenes.ts (germany)"
+    },
+    {
+      "slug": "germany",
+      "kind": "visible_module",
+      "statement": "lab_block",
+      "silhouette": "ordered brick/steel hall grid + tall service/industrial bay + disciplined circulation",
+      "evidence": "apps/mlv-web/src/three/architecture/scenes.ts (germany)"
+    },
+    {
+      "slug": "germany",
+      "kind": "visible_module",
+      "statement": "gallery_hall",
+      "silhouette": "ordered brick/steel hall grid + tall service/industrial bay + disciplined circulation",
+      "evidence": "apps/mlv-web/src/three/architecture/scenes.ts (germany)"
+    },
+    {
+      "slug": "germany",
+      "kind": "visible_module",
+      "statement": "community_hall",
+      "silhouette": "ordered brick/steel hall grid + tall service/industrial bay + disciplined circulation",
+      "evidence": "apps/mlv-web/src/three/architecture/scenes.ts (germany)"
+    },
+    {
+      "slug": "germany",
+      "kind": "visible_module",
+      "statement": "wayfinding",
+      "silhouette": "ordered brick/steel hall grid + tall service/industrial bay + disciplined circulation",
+      "evidence": "apps/mlv-web/src/three/architecture/scenes.ts (germany)"
+    },
+    {
+      "slug": "gaza",
+      "kind": "source_requirement",
+      "statement": "Palestinian-led recovery-centered remote/offline-first education network — NOT a normal fixed campus",
+      "silhouette": "distributed temporary learning modules in a respectful schematic network",
+      "evidence": "docs/campus/7GC_CAMPUS_SOURCE_REQUIREMENTS.md + packages/shared/src/campus/catalog.js"
+    },
+    {
+      "slug": "gaza",
+      "kind": "source_requirement",
+      "statement": "Safe temporary learning circle, offline kit, repair, charging/power, secure storage",
+      "silhouette": "distributed temporary learning modules in a respectful schematic network",
+      "evidence": "docs/campus/7GC_CAMPUS_SOURCE_REQUIREMENTS.md + packages/shared/src/campus/catalog.js"
+    },
+    {
+      "slug": "gaza",
+      "kind": "source_requirement",
+      "statement": "Reconstruction documentation, teacher support, psychosocial quiet space, remote mentor",
+      "silhouette": "distributed temporary learning modules in a respectful schematic network",
+      "evidence": "docs/campus/7GC_CAMPUS_SOURCE_REQUIREMENTS.md + packages/shared/src/campus/catalog.js"
+    },
+    {
+      "slug": "gaza",
+      "kind": "source_requirement",
+      "statement": "No sensitive location exposure / no coordinates",
+      "silhouette": "distributed temporary learning modules in a respectful schematic network",
+      "evidence": "docs/campus/7GC_CAMPUS_SOURCE_REQUIREMENTS.md + packages/shared/src/campus/catalog.js"
+    },
+    {
+      "slug": "gaza",
+      "kind": "source_requirement",
+      "statement": "Nonconventional phases: recovery network → semi hub → full recovery hub representation",
+      "silhouette": "distributed temporary learning modules in a respectful schematic network",
+      "evidence": "docs/campus/7GC_CAMPUS_SOURCE_REQUIREMENTS.md + packages/shared/src/campus/catalog.js"
+    },
+    {
+      "slug": "gaza",
+      "kind": "design_interpretation",
+      "statement": "Distributed temporary modules in a respectful schematic network (V4)",
+      "silhouette": "distributed temporary learning modules in a respectful schematic network",
+      "evidence": "V4 architectural scene assembly"
+    },
+    {
+      "slug": "gaza",
+      "kind": "design_interpretation",
+      "statement": "Solar resilience canopy + quiet module as network identity (V4)",
+      "silhouette": "distributed temporary learning modules in a respectful schematic network",
+      "evidence": "V4 architectural scene assembly"
+    },
+    {
+      "slug": "gaza",
+      "kind": "design_interpretation",
+      "statement": "Visible truth labels on all phases (V4)",
+      "silhouette": "distributed temporary learning modules in a respectful schematic network",
+      "evidence": "V4 architectural scene assembly"
+    },
+    {
+      "slug": "gaza",
+      "kind": "design_interpretation",
+      "statement": "FULL adds linked hub nodes without implying permanent campus buildings (V4)",
+      "silhouette": "distributed temporary learning modules in a respectful schematic network",
+      "evidence": "V4 architectural scene assembly"
+    },
+    {
+      "slug": "gaza",
+      "kind": "visible_module",
+      "statement": "terrain",
+      "silhouette": "distributed temporary learning modules in a respectful schematic network",
+      "evidence": "apps/mlv-web/src/three/architecture/scenes.ts (gaza)"
+    },
+    {
+      "slug": "gaza",
+      "kind": "visible_module",
+      "statement": "truth_label",
+      "silhouette": "distributed temporary learning modules in a respectful schematic network",
+      "evidence": "apps/mlv-web/src/three/architecture/scenes.ts (gaza)"
+    },
+    {
+      "slug": "gaza",
+      "kind": "visible_module",
+      "statement": "courtyard",
+      "silhouette": "distributed temporary learning modules in a respectful schematic network",
+      "evidence": "apps/mlv-web/src/three/architecture/scenes.ts (gaza)"
+    },
+    {
+      "slug": "gaza",
+      "kind": "visible_module",
+      "statement": "temporary_module",
+      "silhouette": "distributed temporary learning modules in a respectful schematic network",
+      "evidence": "apps/mlv-web/src/three/architecture/scenes.ts (gaza)"
+    },
+    {
+      "slug": "gaza",
+      "kind": "visible_module",
+      "statement": "solar_canopy",
+      "silhouette": "distributed temporary learning modules in a respectful schematic network",
+      "evidence": "apps/mlv-web/src/three/architecture/scenes.ts (gaza)"
+    },
+    {
+      "slug": "gaza",
+      "kind": "visible_module",
+      "statement": "media_studio",
+      "silhouette": "distributed temporary learning modules in a respectful schematic network",
+      "evidence": "apps/mlv-web/src/three/architecture/scenes.ts (gaza)"
+    },
+    {
+      "slug": "gaza",
+      "kind": "visible_module",
+      "statement": "lab_block",
+      "silhouette": "distributed temporary learning modules in a respectful schematic network",
+      "evidence": "apps/mlv-web/src/three/architecture/scenes.ts (gaza)"
+    },
+    {
+      "slug": "gaza",
+      "kind": "visible_module",
+      "statement": "operations",
+      "silhouette": "distributed temporary learning modules in a respectful schematic network",
+      "evidence": "apps/mlv-web/src/three/architecture/scenes.ts (gaza)"
+    },
+    {
+      "slug": "gaza",
+      "kind": "visible_module",
+      "statement": "covered_walk",
+      "silhouette": "distributed temporary learning modules in a respectful schematic network",
+      "evidence": "apps/mlv-web/src/three/architecture/scenes.ts (gaza)"
+    },
+    {
+      "slug": "gaza",
+      "kind": "visible_module",
+      "statement": "wayfinding",
+      "silhouette": "distributed temporary learning modules in a respectful schematic network",
+      "evidence": "apps/mlv-web/src/three/architecture/scenes.ts (gaza)"
+    },
+    {
+      "slug": "graham-land",
+      "kind": "source_requirement",
+      "statement": "Remote-first polar research education twin — brief rejects WAIKE-owned Antarctic campus",
+      "silhouette": "modular research/operations cluster + antenna/sensor systems + operations visualization layers",
+      "evidence": "docs/campus/7GC_CAMPUS_SOURCE_REQUIREMENTS.md + packages/shared/src/campus/catalog.js"
+    },
+    {
+      "slug": "graham-land",
+      "kind": "source_requirement",
+      "statement": "Climate data, GIS/remote sensing, sensors, NTN/satcom, cyber/research data, field safety",
+      "silhouette": "modular research/operations cluster + antenna/sensor systems + operations visualization layers",
+      "evidence": "docs/campus/7GC_CAMPUS_SOURCE_REQUIREMENTS.md + packages/shared/src/campus/catalog.js"
+    },
+    {
+      "slug": "graham-land",
+      "kind": "source_requirement",
+      "statement": "Public exhibit, hybrid communications, cross-campus operations",
+      "silhouette": "modular research/operations cluster + antenna/sensor systems + operations visualization layers",
+      "evidence": "docs/campus/7GC_CAMPUS_SOURCE_REQUIREMENTS.md + packages/shared/src/campus/catalog.js"
+    },
+    {
+      "slug": "graham-land",
+      "kind": "source_requirement",
+      "statement": "Simulation layers and partner references remain labeled as such",
+      "silhouette": "modular research/operations cluster + antenna/sensor systems + operations visualization layers",
+      "evidence": "docs/campus/7GC_CAMPUS_SOURCE_REQUIREMENTS.md + packages/shared/src/campus/catalog.js"
+    },
+    {
+      "slug": "graham-land",
+      "kind": "source_requirement",
+      "statement": "Nonconventional phases: remote lab → twin studio → non-Antarctic polar education hub",
+      "silhouette": "modular research/operations cluster + antenna/sensor systems + operations visualization layers",
+      "evidence": "docs/campus/7GC_CAMPUS_SOURCE_REQUIREMENTS.md + packages/shared/src/campus/catalog.js"
+    },
+    {
+      "slug": "graham-land",
+      "kind": "design_interpretation",
+      "statement": "Modular polar research/ops cluster with antenna/sensor mast (V4)",
+      "silhouette": "modular research/operations cluster + antenna/sensor systems + operations visualization layers",
+      "evidence": "V4 architectural scene assembly"
+    },
+    {
+      "slug": "graham-land",
+      "kind": "design_interpretation",
+      "statement": "Simulated polar terrain plate (explicitly simulation) (V4)",
+      "silhouette": "modular research/operations cluster + antenna/sensor systems + operations visualization layers",
+      "evidence": "V4 architectural scene assembly"
+    },
+    {
+      "slug": "graham-land",
+      "kind": "design_interpretation",
+      "statement": "Truth labels on all phases rejecting ownership claims (V4)",
+      "silhouette": "modular research/operations cluster + antenna/sensor systems + operations visualization layers",
+      "evidence": "V4 architectural scene assembly"
+    },
+    {
+      "slug": "graham-land",
+      "kind": "design_interpretation",
+      "statement": "FULL expands connectors + ops/exhibit without claiming Antarctic ownership (V4)",
+      "silhouette": "modular research/operations cluster + antenna/sensor systems + operations visualization layers",
+      "evidence": "V4 architectural scene assembly"
+    },
+    {
+      "slug": "graham-land",
+      "kind": "visible_module",
+      "statement": "terrain",
+      "silhouette": "modular research/operations cluster + antenna/sensor systems + operations visualization layers",
+      "evidence": "apps/mlv-web/src/three/architecture/scenes.ts (graham-land)"
+    },
+    {
+      "slug": "graham-land",
+      "kind": "visible_module",
+      "statement": "landscape",
+      "silhouette": "modular research/operations cluster + antenna/sensor systems + operations visualization layers",
+      "evidence": "apps/mlv-web/src/three/architecture/scenes.ts (graham-land)"
+    },
+    {
+      "slug": "graham-land",
+      "kind": "visible_module",
+      "statement": "truth_label",
+      "silhouette": "modular research/operations cluster + antenna/sensor systems + operations visualization layers",
+      "evidence": "apps/mlv-web/src/three/architecture/scenes.ts (graham-land)"
+    },
+    {
+      "slug": "graham-land",
+      "kind": "visible_module",
+      "statement": "polar_module",
+      "silhouette": "modular research/operations cluster + antenna/sensor systems + operations visualization layers",
+      "evidence": "apps/mlv-web/src/three/architecture/scenes.ts (graham-land)"
+    },
+    {
+      "slug": "graham-land",
+      "kind": "visible_module",
+      "statement": "antenna",
+      "silhouette": "modular research/operations cluster + antenna/sensor systems + operations visualization layers",
+      "evidence": "apps/mlv-web/src/three/architecture/scenes.ts (graham-land)"
+    },
+    {
+      "slug": "graham-land",
+      "kind": "visible_module",
+      "statement": "lab_block",
+      "silhouette": "modular research/operations cluster + antenna/sensor systems + operations visualization layers",
+      "evidence": "apps/mlv-web/src/three/architecture/scenes.ts (graham-land)"
+    },
+    {
+      "slug": "graham-land",
+      "kind": "visible_module",
+      "statement": "operations",
+      "silhouette": "modular research/operations cluster + antenna/sensor systems + operations visualization layers",
+      "evidence": "apps/mlv-web/src/three/architecture/scenes.ts (graham-land)"
+    },
+    {
+      "slug": "graham-land",
+      "kind": "visible_module",
+      "statement": "media_studio",
+      "silhouette": "modular research/operations cluster + antenna/sensor systems + operations visualization layers",
+      "evidence": "apps/mlv-web/src/three/architecture/scenes.ts (graham-land)"
+    },
+    {
+      "slug": "graham-land",
+      "kind": "visible_module",
+      "statement": "covered_walk",
+      "silhouette": "modular research/operations cluster + antenna/sensor systems + operations visualization layers",
+      "evidence": "apps/mlv-web/src/three/architecture/scenes.ts (graham-land)"
+    },
+    {
+      "slug": "graham-land",
+      "kind": "visible_module",
+      "statement": "wayfinding",
+      "silhouette": "modular research/operations cluster + antenna/sensor systems + operations visualization layers",
+      "evidence": "apps/mlv-web/src/three/architecture/scenes.ts (graham-land)"
+    }
+  ]
+}

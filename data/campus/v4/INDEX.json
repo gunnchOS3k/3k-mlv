@@ -1,0 +1,23 @@
+{
+  "schema_version": "v4.architecture.1",
+  "required_fields": [
+    "source_requirements",
+    "design_interpretations",
+    "building_typologies",
+    "public_realm",
+    "circulation",
+    "landscape_infrastructure",
+    "specialist_spaces",
+    "truth_boundaries",
+    "avoid"
+  ],
+  "slugs": [
+    "gary",
+    "ghana",
+    "guyana",
+    "geelong",
+    "germany",
+    "gaza",
+    "graham-land"
+  ]
+}

@@ -81,6 +81,16 @@ export function consumeWaikeContract(adapter: { readSurfaces: () => Record<strin
 };
 export function specialistWaikeDeepLink(trackId: string): string | null;
 export function galleryPublicOnly<T extends { visibility: string; deleted_at?: string | null }>(nodes: T[]): T[];
+export const GALLERY_PRODUCT_ZONES: readonly string[];
+export const PUBLIC_GALLERY_ZONES: readonly string[];
+export function isPrivateGalleryFile(node: { deleted_at?: string | null; visibility: string; owner_id?: string; metadata?: Record<string, unknown> } | null | undefined): boolean;
+export function createMyGalleryAsset(input: { ownerId: string; name?: string; mimeType?: string; extra?: Record<string, unknown> }): { ok: true; node: { id?: string; owner_id: string; visibility: 'private'; metadata: Record<string, unknown>; name: string } } | { ok: false; reason: string };
+export function publishGalleryAsset<T extends { metadata?: Record<string, unknown>; visibility: string }>(
+  node: T,
+  options?: { confirmed?: boolean; wing?: string },
+): { ok: true; node: T & { visibility: 'public'; metadata: Record<string, unknown> } } | { ok: false; reason: string; node?: T };
+export function friendHomeDoesNotRevealPrivateGallery(input: { homeNodes: Array<{ id: string; owner_id?: string; visibility: string; deleted_at?: string | null; metadata?: Record<string, unknown> }>; friendId?: string | null }): { pass: boolean; leaked_ids: string[]; visible_ids: string[] };
+export function publicGalleryAssets<T extends { visibility: string; deleted_at?: string | null; metadata?: Record<string, unknown> }>(nodes: T[]): T[];
 export function createStudyRoom(input: { ownerId: string; name?: string; acl?: string[] }): {
   id: string; owner_id: string; name: string; acl: string[]; kind: string; unlimited: boolean;
 };
