@@ -1,5 +1,7 @@
 export type MlvDeepLinkKind =
+  | 'commons'
   | 'home'
+  | 'transit'
   | 'node'
   | 'public'
   | 'share'
@@ -10,7 +12,9 @@ export type MlvDeepLinkKind =
   | 'library'
   | 'study'
   | 'lecture'
-  | 'media';
+  | 'media'
+  | 'scene'
+  | 'research';
 
 export function parseMlvDeepLink(uri: string | null | undefined): {
   uri: string | null | undefined;
@@ -20,6 +24,10 @@ export function parseMlvDeepLink(uri: string | null | undefined): {
   node_id: string | null;
   campus_slug: string | null;
   campus_rest: string[];
+  scene_id: string | null;
+  research_id: string | null;
+  /** Present only for an accepted share route. Never display or log this value. */
+  share_token: string | null;
   token_present: boolean;
 };
 export function buildMlvDeepLink(kind: MlvDeepLinkKind, value?: string): string;

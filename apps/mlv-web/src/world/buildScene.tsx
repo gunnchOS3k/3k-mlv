@@ -2,6 +2,8 @@ import { useMemo } from 'react';
 import * as THREE from 'three';
 import { CAMPUSES, COMMONS_LAYOUT, HOUSE_EXTERIOR, campusById as campusByIdRaw } from './sceneGraph.mjs';
 
+/** @deprecated Geometry helper for the quarantined NeighborhoodWorld review path. */
+
 export type Portal = {
   id: string;
   label: string;

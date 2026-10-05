@@ -4,6 +4,8 @@ import * as THREE from 'three';
 import SceneBody, { type Portal, type Scene, asSceneMap } from './buildScene';
 import { SCENES } from './sceneGraph.mjs';
 
+/** @deprecated Development review only. App.tsx ships WorldRuntime exclusively. */
+
 const scenes = asSceneMap(SCENES);
 
 function isTyping(event: KeyboardEvent) {
