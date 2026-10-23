@@ -3,20 +3,23 @@ import fs from 'node:fs';
 import path from 'node:path';
 import test from 'node:test';
 import { fileURLToPath } from 'node:url';
-import { portalReturnHref } from '../../apps/mlv-web/src/portalReturn.mjs';
+import { GUEST_PORTAL_URL, portalReturnHref } from '../../apps/mlv-web/src/portalReturn.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const preview = 'https://gunnchos-site.gunnchos-finds.workers.dev';
 const production = 'https://gunnchos.com';
 
-test('portal return parses public http(s) URLs and rejects anything else', () => {
-  assert.equal(portalReturnHref(undefined), null);
-  assert.equal(portalReturnHref(''), null);
-  assert.equal(portalReturnHref('   '), null);
+test('portal return defaults to gunnchos.com and rejects unsafe URLs', () => {
+  assert.equal(GUEST_PORTAL_URL, production);
+  assert.equal(portalReturnHref(undefined), production);
+  assert.equal(portalReturnHref(''), production);
+  assert.equal(portalReturnHref('   '), production);
   assert.equal(portalReturnHref('not a url'), null);
   assert.equal(portalReturnHref('javascript:alert(1)'), null);
-  assert.equal(portalReturnHref(`${preview}/`), preview);
+  assert.equal(portalReturnHref(`${preview}/`), production);
+  assert.equal(portalReturnHref('https://review-gunnchos-site.gunnchos-finds.workers.dev/labs'), production);
   assert.equal(portalReturnHref(production), production);
+  assert.equal(portalReturnHref('https://example.com/path/'), 'https://example.com/path');
 });
 
 test('world shell uses the configured portal href and keeps hash routes', () => {
