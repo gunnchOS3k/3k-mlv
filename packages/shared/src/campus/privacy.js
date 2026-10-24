@@ -7,8 +7,19 @@ const SENSITIVE_KEYS = new Set([
   'learner_location', 'site_location', 'real_world_address',
 ]);
 
+function homeMarked(node) {
+  const meta = node?.metadata || {};
+  return meta.home_file === true || meta.location === 'home' || meta.zone === 'home';
+}
+
+export function isPrivateHomeFile(node) {
+  if (!node || node.deleted_at) return false;
+  if (node.visibility === VISIBILITY.PRIVATE && homeMarked(node)) return true;
+  return homeMarked(node) && node.metadata?.published !== true;
+}
+
 export function galleryPublicOnly(nodes) {
-  return publicDiscoveryFilter(nodes || []);
+  return publicDiscoveryFilter(nodes || []).filter((node) => !isPrivateHomeFile(node));
 }
 
 export function campusPresenceDoesNotExposeHomePrivate({ homeNodes, campusVisibleNodes, actor }) {
