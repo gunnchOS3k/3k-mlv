@@ -38,7 +38,11 @@ export default function WaikeCenter() {
           </button>
         ))}
       </div>
-      {readerHref ? <p><a href={readerHref}>Open the WAIKE reader</a></p> : null}
+      {readerHref ? (
+        <p><a href={readerHref}>Open the WAIKE reader</a></p>
+      ) : (
+        <p>WAIKE reader unavailable.</p>
+      )}
       <p><a href={returnHref}>Return to the saved world location</a></p>
     </section>
   );

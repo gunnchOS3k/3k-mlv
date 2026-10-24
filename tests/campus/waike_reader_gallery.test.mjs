@@ -6,10 +6,16 @@ import { campusWaikeReaderHref, WAIKE_PUBLIC_READER_URL } from '../../packages/s
 
 describe('Campus WAIKE reader and Gallery home files', () => {
   it('links only to the public WAIKE reader', () => {
+    const withReturn = 'https://learn.gunnchos.com/?return=https%3A%2F%2Fgunnchos.com';
     assert.equal(WAIKE_PUBLIC_READER_URL, 'https://learn.gunnchos.com');
-    assert.equal(campusWaikeReaderHref(undefined), 'https://learn.gunnchos.com');
-    assert.equal(campusWaikeReaderHref(''), 'https://learn.gunnchos.com');
-    assert.equal(campusWaikeReaderHref('https://learn.gunnchos.com/'), 'https://learn.gunnchos.com');
+    assert.equal(campusWaikeReaderHref(undefined), withReturn);
+    assert.equal(campusWaikeReaderHref(''), withReturn);
+    assert.equal(campusWaikeReaderHref('https://learn.gunnchos.com/'), withReturn);
+    assert.equal(campusWaikeReaderHref('https://learn.gunnchos.com/?return=https://gunnchos.com'), withReturn);
+    assert.equal(campusWaikeReaderHref('https://learn.gunnchos.com/?return=https://gunnchos.com/'), withReturn);
+    assert.equal(campusWaikeReaderHref('https://learn.gunnchos.com/?return=https://example.com'), null);
+    assert.equal(campusWaikeReaderHref('https://learn.gunnchos.com/?return=https://gunnchos.com/path'), null);
+    assert.equal(campusWaikeReaderHref('https://learn.gunnchos.com/?return=https://gunnchos.com&next=1'), null);
     assert.equal(campusWaikeReaderHref('https://learn.gunnchos.com/lesson/1'), null);
     assert.equal(campusWaikeReaderHref('https://waike.gunnchos-finds.workers.dev/'), null);
     assert.equal(campusWaikeReaderHref('javascript:alert(1)'), null);
