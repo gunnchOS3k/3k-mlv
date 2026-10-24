@@ -80,6 +80,9 @@ export function consumeWaikeContract(adapter: { readSurfaces: () => Record<strin
   surfaces: Record<string, { id: string; items: unknown[]; available: boolean }>;
 };
 export function specialistWaikeDeepLink(trackId: string): string | null;
+export const WAIKE_PUBLIC_READER_URL: 'https://learn.gunnchos.com';
+export function campusWaikeReaderHref(value?: string | null): 'https://learn.gunnchos.com' | null;
+export function isPrivateHomeFile(node: { deleted_at?: string | null; visibility?: string; metadata?: Record<string, unknown> } | null | undefined): boolean;
 export function galleryPublicOnly<T extends { visibility: string; deleted_at?: string | null }>(nodes: T[]): T[];
 export const GALLERY_PRODUCT_ZONES: readonly string[];
 export const PUBLIC_GALLERY_ZONES: readonly string[];
