@@ -100,6 +100,10 @@ export function publishGalleryAsset<T extends { metadata?: Record<string, unknow
 ): { ok: true; node: T & { visibility: 'public'; metadata: Record<string, unknown> } } | { ok: false; reason: string; node?: T };
 export function friendHomeDoesNotRevealPrivateGallery(input: { homeNodes: Array<{ id: string; owner_id?: string; visibility: string; deleted_at?: string | null; metadata?: Record<string, unknown> }>; friendId?: string | null }): { pass: boolean; leaked_ids: string[]; visible_ids: string[] };
 export function publicGalleryAssets<T extends { visibility: string; deleted_at?: string | null; metadata?: Record<string, unknown> }>(nodes: T[]): T[];
+export function galleryResumeWings<T extends { id: string; owner_id?: string; visibility: string; deleted_at?: string | null; metadata?: Record<string, unknown> }>(
+  nodes: T[],
+  actorId: string,
+): { published: T[]; mine: T[]; hiddenHomeIds: string[] };
 export function createStudyRoom(input: { ownerId: string; name?: string; acl?: string[] }): {
   id: string; owner_id: string; name: string; acl: string[]; kind: string; unlimited: boolean;
 };

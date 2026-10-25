@@ -206,3 +206,22 @@ export function publicGalleryAssets(nodes) {
     && node.metadata?.published === true,
   );
 }
+
+/** Restored Home files stay out of Gallery wings until they are published. */
+export function galleryResumeWings(nodes, actorId) {
+  const hiddenHomeIds = (nodes || []).filter((node) => isPrivateHomeFile(node)).map((node) => node.id);
+  const visible = (nodes || []).filter((node) => !isPrivateHomeFile(node));
+  return {
+    published: publicGalleryAssets(visible),
+    mine: visible.filter((node) =>
+      node.owner_id === actorId
+      && !node.deleted_at
+      && (
+        node.metadata?.gallery_zone === 'my_gallery'
+        || node.metadata?.gallery_file === true
+        || node.metadata?.gallery_edit === true
+      )
+    ),
+    hiddenHomeIds,
+  };
+}
