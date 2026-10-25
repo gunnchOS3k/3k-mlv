@@ -1,5 +1,7 @@
 export const WAIKE_PUBLIC_READER_URL = 'https://learn.gunnchos.com';
 export const CAMPUS_PORTAL_RETURN_URL = 'https://gunnchos.com';
+/** Live https://learn.gunnchos.com first HTML is the WAIKE Learning OS shell. It does not list tracks. */
+export const WAIKE_PUBLIC_READER_DOCUMENT = 'shell';
 
 const READER_WITH_RETURN = `${WAIKE_PUBLIC_READER_URL}/?return=${encodeURIComponent(CAMPUS_PORTAL_RETURN_URL)}`;
 
@@ -34,4 +36,13 @@ export function campusWaikeReaderHref(value) {
   if (keys.length !== 1 || keys[0] !== 'return') return null;
   if (portalReturnTarget(url.searchParams.get('return')) !== CAMPUS_PORTAL_RETURN_URL) return null;
   return READER_WITH_RETURN;
+}
+
+export function campusWaikeReaderControl(value, documentKind = WAIKE_PUBLIC_READER_DOCUMENT) {
+  const href = campusWaikeReaderHref(value);
+  if (documentKind !== 'tracks') {
+    return { state: 'unavailable', href: null, reason: 'public_document_is_shell' };
+  }
+  if (!href) return { state: 'unavailable', href: null, reason: 'reader_url_rejected' };
+  return { state: 'link', href, reason: null };
 }

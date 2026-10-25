@@ -2,7 +2,12 @@ import assert from 'node:assert/strict';
 import { describe, it } from 'node:test';
 import { createPrivateNode, VISIBILITY } from '../../packages/shared/src/privacyPolicy.js';
 import { galleryPublicOnly, isPrivateHomeFile } from '../../packages/shared/src/campus/privacy.js';
-import { campusWaikeReaderHref, WAIKE_PUBLIC_READER_URL } from '../../packages/shared/src/campus/waikeReader.js';
+import {
+  campusWaikeReaderControl,
+  campusWaikeReaderHref,
+  WAIKE_PUBLIC_READER_DOCUMENT,
+  WAIKE_PUBLIC_READER_URL,
+} from '../../packages/shared/src/campus/waikeReader.js';
 
 describe('Campus WAIKE reader and Gallery home files', () => {
   it('links only to the public WAIKE reader', () => {
@@ -19,6 +24,17 @@ describe('Campus WAIKE reader and Gallery home files', () => {
     assert.equal(campusWaikeReaderHref('https://learn.gunnchos.com/lesson/1'), null);
     assert.equal(campusWaikeReaderHref('https://waike.gunnchos-finds.workers.dev/'), null);
     assert.equal(campusWaikeReaderHref('javascript:alert(1)'), null);
+    const parsed = new URL(withReturn);
+    assert.deepEqual([...parsed.searchParams.keys()], ['return']);
+    assert.equal(parsed.searchParams.get('return'), 'https://gunnchos.com');
+    assert.equal(WAIKE_PUBLIC_READER_DOCUMENT, 'shell');
+    const shell = campusWaikeReaderControl(undefined);
+    assert.equal(shell.state, 'unavailable');
+    assert.equal(shell.href, null);
+    assert.equal(shell.reason, 'public_document_is_shell');
+    const tracks = campusWaikeReaderControl(undefined, 'tracks');
+    assert.equal(tracks.state, 'link');
+    assert.equal(tracks.href, withReturn);
   });
 
   it('keeps private home files out of Gallery', () => {

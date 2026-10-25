@@ -1,4 +1,4 @@
-import { campusWaikeReaderHref, consumeWaikeContract } from '@3k-mlv/campus';
+import { campusWaikeReaderControl, consumeWaikeContract } from '@3k-mlv/campus';
 import { readReturnContext } from '../world/ReturnContext';
 import { returnSceneHash } from '../world/handoffRoutes.mjs';
 
@@ -15,7 +15,7 @@ const LABELS: Record<string, string> = {
 
 export default function WaikeCenter() {
   const contract = consumeWaikeContract(null);
-  const readerHref = campusWaikeReaderHref(import.meta.env.VITE_WAIKE_READER_URL);
+  const reader = campusWaikeReaderControl(import.meta.env.VITE_WAIKE_READER_URL);
   const returnHref = returnSceneHash(readReturnContext());
   return (
     <section aria-label="WAIKE Academic Center">
@@ -38,10 +38,10 @@ export default function WaikeCenter() {
           </button>
         ))}
       </div>
-      {readerHref ? (
-        <p><a href={readerHref}>Open the WAIKE reader</a></p>
+      {reader.state === 'link' && reader.href ? (
+        <p><a href={reader.href}>Open the WAIKE reader</a></p>
       ) : (
-        <p>WAIKE reader unavailable.</p>
+        <p>WAIKE reader unavailable. The public page is a shell and does not include the track list.</p>
       )}
       <p><a href={returnHref}>Return to the saved world location</a></p>
     </section>
