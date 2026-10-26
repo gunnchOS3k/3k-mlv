@@ -1,4 +1,4 @@
-import { campusWaikeReaderControl, consumeWaikeContract } from '@3k-mlv/campus';
+import { campusWaikeReaderControl, consumeWaikeContract, WAIKE_PUBLIC_READER_DOCUMENT } from '@3k-mlv/campus';
 import { readReturnContext } from '../world/ReturnContext';
 import { returnSceneHash } from '../world/handoffRoutes.mjs';
 
@@ -15,7 +15,7 @@ const LABELS: Record<string, string> = {
 
 export default function WaikeCenter() {
   const contract = consumeWaikeContract(null);
-  const reader = campusWaikeReaderControl(import.meta.env.VITE_WAIKE_READER_URL);
+  const reader = campusWaikeReaderControl(import.meta.env.VITE_WAIKE_READER_URL, WAIKE_PUBLIC_READER_DOCUMENT);
   const returnHref = returnSceneHash(readReturnContext());
   return (
     <section aria-label="WAIKE Academic Center">
