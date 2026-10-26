@@ -53,3 +53,29 @@ export function campusWaikeReaderControl(value, documentKind = WAIKE_PUBLIC_READ
   if (!href) return { state: 'unavailable', href: null, reason: 'reader_url_rejected' };
   return { state: 'link', href, reason: null };
 }
+
+/**
+ * Preview of built MLV Home → Campus → a built WAIKE track list.
+ * The public Campus control stays on the shell document and is not activated.
+ * The lesson target is the hash inside that built document, not learn.gunnchos.com.
+ * joinedBrowserExecuted stays false: this does not open the two built apps together.
+ */
+export function previewBuiltReaderHandoff({ readerHtml, homeFileId }) {
+  const publicLink = campusWaikeReaderControl(undefined, WAIKE_PUBLIC_READER_DOCUMENT);
+  const kind = readerDocumentKind(readerHtml);
+  const match = typeof readerHtml === 'string'
+    ? readerHtml.match(/href="(#\/learn\/[A-Z0-9_]+\/\d+)"/)
+    : null;
+  const lessonHref = kind === 'tracks' && match ? match[1] : null;
+  const leaked = Boolean(lessonHref && homeFileId && lessonHref.includes(String(homeFileId)));
+  const pointsAtLearnHost = Boolean(lessonHref && lessonHref.includes('learn.gunnchos.com'));
+  return {
+    joinedBrowserExecuted: false,
+    publicCampusActivated: publicLink.state === 'link',
+    publicCampusHref: publicLink.href,
+    pointsAtLearnHost,
+    documentKind: kind,
+    lessonHref: leaked || pointsAtLearnHost ? null : lessonHref,
+    returnTo: lessonHref && !leaked && !pointsAtLearnHost ? CAMPUS_PORTAL_RETURN_URL : null,
+  };
+}

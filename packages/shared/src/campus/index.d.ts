@@ -88,6 +88,18 @@ export function campusWaikeReaderControl(
   value?: string | null,
   documentKind?: string,
 ): { state: 'unavailable' | 'link'; href: string | null; reason: string | null };
+export function previewBuiltReaderHandoff(input: {
+  readerHtml?: string | null;
+  homeFileId?: string | null;
+}): {
+  joinedBrowserExecuted: false;
+  publicCampusActivated: boolean;
+  publicCampusHref: string | null;
+  pointsAtLearnHost: boolean;
+  documentKind: string;
+  lessonHref: string | null;
+  returnTo: string | null;
+};
 export function isPrivateHomeFile(node: { deleted_at?: string | null; visibility?: string; metadata?: Record<string, unknown> } | null | undefined): boolean;
 export function galleryPublicOnly<T extends { visibility: string; deleted_at?: string | null }>(nodes: T[]): T[];
 export const GALLERY_PRODUCT_ZONES: readonly string[];
