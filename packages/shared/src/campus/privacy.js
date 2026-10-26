@@ -167,6 +167,7 @@ export function createMyGalleryAsset({ ownerId, name, mimeType, extra }) {
 
 export function publishGalleryAsset(node, { confirmed, wing } = {}) {
   if (!node) return { ok: false, reason: 'missing_node' };
+  if (homeMarked(node)) return { ok: false, reason: 'home_file_stays_private', node };
   const destination = PUBLIC_GALLERY_ZONES.includes(wing) ? wing : 'public_community';
   const result = confirmPublish(node, { confirmed: !!confirmed });
   if (!result.ok) return result;
@@ -195,6 +196,23 @@ export function friendHomeDoesNotRevealPrivateGallery({ homeNodes, friendId }) {
     && visible.some((seen) => seen.id === node.id),
   );
   return { pass: leaked.length === 0, leaked_ids: leaked.map((node) => node.id), visible_ids: visible.map((node) => node.id) };
+}
+
+/** Take a published Gallery file out of public wings. Home files stay private. */
+export function removeGalleryPublication(node) {
+  if (!node) return { ok: false, reason: 'missing_node' };
+  return {
+    ok: true,
+    node: {
+      ...node,
+      visibility: VISIBILITY.PRIVATE,
+      metadata: {
+        ...(node.metadata || {}),
+        published: false,
+        gallery_zone: homeMarked(node) ? node.metadata?.gallery_zone : 'my_gallery',
+      },
+    },
+  };
 }
 
 /** Public Gallery wings consume explicitly published assets only. */

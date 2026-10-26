@@ -94,6 +94,9 @@ export const GALLERY_PRODUCT_ZONES: readonly string[];
 export const PUBLIC_GALLERY_ZONES: readonly string[];
 export function isPrivateGalleryFile(node: { deleted_at?: string | null; visibility: string; owner_id?: string; metadata?: Record<string, unknown> } | null | undefined): boolean;
 export function createMyGalleryAsset(input: { ownerId: string; name?: string; mimeType?: string; extra?: Record<string, unknown> }): { ok: true; node: { id?: string; owner_id: string; visibility: 'private'; metadata: Record<string, unknown>; name: string } } | { ok: false; reason: string };
+export function removeGalleryPublication<T extends { metadata?: Record<string, unknown>; visibility: string }>(
+  node: T,
+): { ok: true; node: T & { visibility: 'private'; metadata: Record<string, unknown> } } | { ok: false; reason: string; node?: T };
 export function publishGalleryAsset<T extends { metadata?: Record<string, unknown>; visibility: string }>(
   node: T,
   options?: { confirmed?: boolean; wing?: string },
