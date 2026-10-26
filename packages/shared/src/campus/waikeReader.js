@@ -38,6 +38,13 @@ export function campusWaikeReaderHref(value) {
   return READER_WITH_RETURN;
 }
 
+export function readerDocumentKind(html) {
+  if (typeof html !== 'string') return 'shell';
+  if (!html.includes('id="waike-public-tracks"')) return 'shell';
+  if (!/#\/learn\/[A-Z0-9_]+\//.test(html)) return 'shell';
+  return 'tracks';
+}
+
 export function campusWaikeReaderControl(value, documentKind = WAIKE_PUBLIC_READER_DOCUMENT) {
   const href = campusWaikeReaderHref(value);
   if (documentKind !== 'tracks') {
