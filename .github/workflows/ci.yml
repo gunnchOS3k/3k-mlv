@@ -77,3 +77,12 @@ jobs:
           /tmp/mlv-joined-playwright/node_modules/.bin/playwright install --with-deps chromium
       - name: Joined Campus to WAIKE browser
         run: node scripts/play/joined_campus_waike.mjs
+      - name: Home+Gary spatial journey browser
+        run: node scripts/play/home_gary_spatial_journey.mjs
+      - name: Upload Home+Gary spatial evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: home-gary-spatial-journey
+          path: artifacts/play/spatial_home_gary/
+          if-no-files-found: warn

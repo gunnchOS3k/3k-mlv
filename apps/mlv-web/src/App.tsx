@@ -18,6 +18,7 @@ import './campus/campus.css';
 import { portalReturnHref } from './portalReturn.mjs';
 import { sceneById } from './world/worldDefs';
 import type { WorldEntry, WorldSceneId } from './world/types';
+import HomePrivateWorkbench from './world/HomePrivateWorkbench';
 
 const CampusLanding = lazy(() => import('./campus/CampusLanding'));
 const Atlas = lazy(() => import('./campus/Atlas'));
@@ -88,6 +89,7 @@ export default function App() {
   const [user, setUser] = useState<SessionUser | null>(null);
   const [phoneOpen, setPhoneOpen] = useState(false);
   const [listOpen, setListOpen] = useState(true);
+  const [workbenchOpen, setWorkbenchOpen] = useState(false);
   const [projects, setProjects] = useState<Project[]>([]);
   const [nodes, setNodes] = useState<MlvNode[]>([]);
   const [placements, setPlacements] = useState<MlvWorldPlacement[]>([]);
@@ -414,7 +416,15 @@ export default function App() {
             onStatus={setStatus}
             onSceneChange={navigateToScene}
             onSignOut={handleSignOut}
-            onPrivateFile={() => setListOpen(true)}
+            onPrivateFile={(destination) => {
+              if (destination === 'home-private-workspace') {
+                setWorkbenchOpen(true);
+                setListOpen(true);
+                setStatus('Opened the private Home office workbench. Notes stay on this device.');
+                return;
+              }
+              setListOpen(true);
+            }}
             onPublicFile={() => {
               document.getElementById('wing-public')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }}
@@ -430,6 +440,9 @@ export default function App() {
             ) : undefined}
           />
         </Suspense>
+        {site === 'HOME' && workbenchOpen && (
+          <HomePrivateWorkbench onClose={() => setWorkbenchOpen(false)} />
+        )}
         {site === 'HOME' && listOpen && (
           <ListWorkspace
             nodes={nodes.filter((n) => !n.deleted_at)}

@@ -27,25 +27,32 @@ export const GARY_SCENE: CampusSceneDefinition = {
     { kind: 'community_hall', id: 'gary-community', position: [4.8, 0, 3.5], size: [3.5, 2, 3], color: '#b45309', fromPhase: 'full', trace: 'community event hall' },
     { kind: 'lab_block', id: 'gary-apprentice', position: [-2, 0, -3.5], size: [5, 1.8, 2.8], color: '#78716c', fromPhase: 'full', trace: 'apprenticeship/project studio' },
     { kind: 'wayfinding', id: 'gary-way', position: [-3, 0, 6.5], size: [0.2, 1.4, 0.2], label: 'Build→Ship', fromPhase: 'pilot' },
+    { kind: 'wayfinding', id: 'gary-way-lobby', position: [2.8, 0, 6.2], size: [0.2, 1.5, 0.2], label: 'Orientation', fromPhase: 'pilot' },
+    { kind: 'covered_walk', id: 'gary-entry-canopy', position: [0, 0, 4.4], size: [5.5, 2.2, 1.6], fromPhase: 'pilot', trace: 'entry canopy / civic threshold' },
+    { kind: 'operations', id: 'gary-quiet-support', position: [3.8, 0, -3.2], size: [2.4, 1.5, 2.2], fromPhase: 'pilot', trace: 'quiet support / staff planning table' },
   ),
   programZones: zones(
     { id: 'gz1', buildingId: 'gary-hall', wingId: 'main', programKey: 'FLEXIBLE_CLASSROOM', name: 'Classroom', position: [-3, 0.05, 0.2], fromPhase: 'pilot' },
     { id: 'gz2', buildingId: 'gary-hall', wingId: 'main', programKey: 'DEVICE_HELP_DESK_TABLE', name: 'Device desk', position: [0, 0.05, 0.8], fromPhase: 'pilot' },
+    { id: 'gz2b', buildingId: 'gary-hall', wingId: 'main', programKey: 'PRESENTATION_WALL', name: 'Presentation wall', position: [2.4, 0.05, 0.2], fromPhase: 'pilot' },
+    { id: 'gz2c', buildingId: 'gary-quiet-support', wingId: 'support', programKey: 'QUIET_SUPPORT_AREA', name: 'Quiet support', position: [3.8, 0.05, -3.2], fromPhase: 'pilot' },
     { id: 'gz3', buildingId: 'gary-repair', wingId: 'labs', programKey: 'HARDWARE_REPAIR_LAB', name: 'Repair', position: [-5.2, 0.05, -0.5], fromPhase: 'semi' },
     { id: 'gz4', buildingId: 'gary-gallery', wingId: 'gallery', programKey: 'SHOWCASE_DEMO_GALLERY', name: 'Gallery', position: [5.5, 0.05, -1.5], fromPhase: 'semi' },
     { id: 'gz5', buildingId: 'gary-community', wingId: 'civic', programKey: 'COMMUNITY_EVENT_SPACE', name: 'Community', position: [4.8, 0.05, 3.5], fromPhase: 'full' },
   ),
   phaseMassing: {
     pilot: {
-      scale: [0.85, 0.75, 0.85],
+      scale: [0.9, 0.85, 0.9],
       extraModules: [
         { kind: 'temporary_module', id: 'gary-cart-a', position: [-2.5, 0, 4], size: [1.4, 0.9, 1.1], color: '#a16207', fromPhase: 'pilot', trace: 'mobile hardware cart' },
         { kind: 'temporary_module', id: 'gary-cart-b', position: [2.5, 0, 4], size: [1.4, 0.9, 1.1], color: '#57534e', fromPhase: 'pilot', trace: 'mobile networking cart' },
+        { kind: 'temporary_module', id: 'gary-secure-store', position: [-4.2, 0, 3.6], size: [1.6, 1.2, 1.2], color: '#44403c', fromPhase: 'pilot', trace: 'secure storage' },
       ],
     },
     semi: { scale: [0.95, 0.95, 0.95] },
     full: { scale: [1.05, 1.1, 1.05] },
   },
+  truthNote: 'Authored Gary civic-industrial planning twin. Not evidence of a deployed physical campus.',
 };
 
 /** Ghana — low pavilion cluster + strong central courtyard + shade canopies. */
