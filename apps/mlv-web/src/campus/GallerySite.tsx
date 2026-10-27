@@ -3,7 +3,7 @@ import type { MlvNode } from '@3k-mlv/shared';
 import {
   createMyGalleryAsset,
   createPrivateWorkingCopy,
-  publicGalleryAssets,
+  galleryResumeWings,
 } from '@3k-mlv/campus';
 import sourcesDoc from '../../../../data/gallery/v1/institution_sources.json';
 import rotationDoc from '../../../../data/gallery/cultural_rotation_v4_2.json';
@@ -57,14 +57,11 @@ export default function GallerySite({
     [],
   );
   const localSources = SOURCES.filter((source) => campus === 'all' || source.campus === campus);
-  const published = publicGalleryAssets(nodes) as MlvNode[];
+  const wings = galleryResumeWings(nodes, actor.id);
+  const published = wings.published as MlvNode[];
   const exchange = published.filter((node) => node.metadata?.gallery_zone === 'exchange_7gc');
   const community = published.filter((node) => node.metadata?.gallery_zone === 'public_community');
-  const mine = nodes.filter((node) =>
-    node.owner_id === actor.id
-    && !node.deleted_at
-    && (node.metadata?.gallery_zone === 'my_gallery' || node.metadata?.gallery_file === true || node.metadata?.gallery_edit === true),
-  );
+  const mine = wings.mine as MlvNode[];
   const currentRotation = rotationAt(ROTATION, rotationIndex);
 
   useEffect(() => {

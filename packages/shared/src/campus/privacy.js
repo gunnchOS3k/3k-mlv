@@ -7,8 +7,19 @@ const SENSITIVE_KEYS = new Set([
   'learner_location', 'site_location', 'real_world_address',
 ]);
 
+function homeMarked(node) {
+  const meta = node?.metadata || {};
+  return meta.home_file === true || meta.location === 'home' || meta.zone === 'home';
+}
+
+export function isPrivateHomeFile(node) {
+  if (!node || node.deleted_at) return false;
+  if (node.visibility === VISIBILITY.PRIVATE && homeMarked(node)) return true;
+  return homeMarked(node) && node.metadata?.published !== true;
+}
+
 export function galleryPublicOnly(nodes) {
-  return publicDiscoveryFilter(nodes || []);
+  return publicDiscoveryFilter(nodes || []).filter((node) => !isPrivateHomeFile(node));
 }
 
 export function campusPresenceDoesNotExposeHomePrivate({ homeNodes, campusVisibleNodes, actor }) {
@@ -156,6 +167,7 @@ export function createMyGalleryAsset({ ownerId, name, mimeType, extra }) {
 
 export function publishGalleryAsset(node, { confirmed, wing } = {}) {
   if (!node) return { ok: false, reason: 'missing_node' };
+  if (homeMarked(node)) return { ok: false, reason: 'home_file_stays_private', node };
   const destination = PUBLIC_GALLERY_ZONES.includes(wing) ? wing : 'public_community';
   const result = confirmPublish(node, { confirmed: !!confirmed });
   if (!result.ok) return result;
@@ -186,6 +198,23 @@ export function friendHomeDoesNotRevealPrivateGallery({ homeNodes, friendId }) {
   return { pass: leaked.length === 0, leaked_ids: leaked.map((node) => node.id), visible_ids: visible.map((node) => node.id) };
 }
 
+/** Take a published Gallery file out of public wings. Home files stay private. */
+export function removeGalleryPublication(node) {
+  if (!node) return { ok: false, reason: 'missing_node' };
+  return {
+    ok: true,
+    node: {
+      ...node,
+      visibility: VISIBILITY.PRIVATE,
+      metadata: {
+        ...(node.metadata || {}),
+        published: false,
+        gallery_zone: homeMarked(node) ? node.metadata?.gallery_zone : 'my_gallery',
+      },
+    },
+  };
+}
+
 /** Public Gallery wings consume explicitly published assets only. */
 export function publicGalleryAssets(nodes) {
   return (nodes || []).filter((node) =>
@@ -194,4 +223,23 @@ export function publicGalleryAssets(nodes) {
     && node.visibility === VISIBILITY.PUBLIC
     && node.metadata?.published === true,
   );
+}
+
+/** Restored Home files stay out of Gallery wings until they are published. */
+export function galleryResumeWings(nodes, actorId) {
+  const hiddenHomeIds = (nodes || []).filter((node) => isPrivateHomeFile(node)).map((node) => node.id);
+  const visible = (nodes || []).filter((node) => !isPrivateHomeFile(node));
+  return {
+    published: publicGalleryAssets(visible),
+    mine: visible.filter((node) =>
+      node.owner_id === actorId
+      && !node.deleted_at
+      && (
+        node.metadata?.gallery_zone === 'my_gallery'
+        || node.metadata?.gallery_file === true
+        || node.metadata?.gallery_edit === true
+      )
+    ),
+    hiddenHomeIds,
+  };
 }

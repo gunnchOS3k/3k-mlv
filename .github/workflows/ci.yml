@@ -44,3 +44,45 @@ jobs:
         env:
           NODE_ENV: production
           VITE_BASE_PATH: /
+      - name: Checkout built WAIKE reader source
+        uses: actions/checkout@v4
+        with:
+          repository: gunnchOS3k/gunnchos-waike-learning-platform
+          ref: eng/cursor-v1-agent-c-learn
+          path: waike-reader
+      - name: Build WAIKE reader
+        working-directory: waike-reader/apps/client
+        run: |
+          pnpm install --frozen-lockfile
+          pnpm run build
+          node --input-type=module <<'NODE'
+          import { readFileSync } from 'node:fs';
+          const html = readFileSync('dist/index.html', 'utf8');
+          if (!html.includes('id="waike-public-tracks"')) {
+            console.error('WAIKE dist has no track list');
+            process.exit(1);
+          }
+          console.log('WAIKE dist lists tracks');
+          NODE
+      - name: Rebuild MLV for loopback Campus preview
+        run: pnpm build
+        env:
+          NODE_ENV: production
+          VITE_BASE_PATH: /
+          VITE_WAIKE_READER_DOCUMENT: tracks
+          VITE_WAIKE_READER_URL: http://127.0.0.1:4174/?return=https%3A%2F%2Fgunnchos.com
+      - name: Install Playwright Chromium
+        run: |
+          npm install --prefix /tmp/mlv-joined-playwright playwright@1.49.1
+          /tmp/mlv-joined-playwright/node_modules/.bin/playwright install --with-deps chromium
+      - name: Joined Campus to WAIKE browser
+        run: node scripts/play/joined_campus_waike.mjs
+      - name: Home+Gary spatial journey browser
+        run: node scripts/play/home_gary_spatial_journey.mjs
+      - name: Upload Home+Gary spatial evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: home-gary-spatial-journey
+          path: artifacts/play/spatial_home_gary/
+          if-no-files-found: warn

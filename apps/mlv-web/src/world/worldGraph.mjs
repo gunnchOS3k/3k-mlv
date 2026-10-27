@@ -197,6 +197,131 @@ function portalsFor(sceneId) {
 }
 
 function authoredProps(spec) {
+  if (spec.id === 'home-yard') {
+    return [
+      { id: 'home-yard-lawn', kind: 'ground', position: [0, -0.08, 0], size: [16, 0.16, 16], color: '#3f6212', roughness: 1 },
+      { id: 'home-yard-path', kind: 'ground', position: [0, -0.04, 2.2], size: [1.4, 0.08, 8], color: '#a8a29e', roughness: 0.95 },
+      { id: 'home-yard-porch', kind: 'furniture', position: [0, 0.2, -3.2], size: [5.2, 0.28, 2.4], color: '#b45309', roughness: 0.8 },
+      { id: 'home-yard-house', kind: 'landmark', position: [0, 1.5, -5.2], size: [7.2, 3.0, 3.6], color: '#f5e6d3', roughness: 0.78 },
+      { id: 'home-yard-roof', kind: 'canopy', position: [0, 3.3, -5.2], size: [7.8, 0.35, 4.2], color: '#7c2d12', roughness: 0.7 },
+      { id: 'home-yard-mailbox', kind: 'fixture', position: [3.2, 0.7, 4.5], size: [0.35, 1.2, 0.35], color: '#1e3a8a', emissive: '#93c5fd' },
+      { id: 'home-yard-tree', kind: 'planting', shape: 'cylinder', position: [-5.5, 1.1, -1.5], size: [1.6, 2.2, 1.6], color: '#166534' },
+      { id: 'home-yard-hedge', kind: 'planting', shape: 'cylinder', position: [5.2, 0.55, 1.5], size: [1.2, 1.1, 1.2], color: '#15803d' },
+    ];
+  }
+  if (spec.id === 'home-living') {
+    return [
+      { id: 'living-floor', kind: 'ground', position: [0, -0.08, 0], size: [12, 0.16, 12], color: '#b08968', roughness: 0.9 },
+      { id: 'living-rug', kind: 'furniture', position: [0, 0.02, 0.4], size: [4.2, 0.06, 3.2], color: '#92400e', roughness: 0.95 },
+      { id: 'living-back', kind: 'wall', position: [0, 1.6, -5.6], size: [12, 3.2, 0.24], color: '#efe2cf', roughness: 0.88 },
+      { id: 'living-left', kind: 'wall', position: [-5.9, 1.6, 0], size: [0.24, 3.2, 11.4], color: '#e7d7bf', roughness: 0.9 },
+      { id: 'living-right', kind: 'wall', position: [5.9, 1.6, 0], size: [0.24, 3.2, 11.4], color: '#e7d7bf', roughness: 0.9 },
+      { id: 'living-sofa', kind: 'furniture', position: [-1.6, 0.45, -2.8], size: [3.4, 0.9, 1.2], color: '#78350f', roughness: 0.75 },
+      { id: 'living-table', kind: 'furniture', position: [-1.4, 0.28, -1.2], size: [1.6, 0.4, 0.9], color: '#a16207', roughness: 0.55 },
+      { id: 'living-lamp', kind: 'fixture', position: [3.4, 0.9, -3.6], size: [0.35, 1.6, 0.35], color: '#f8fafc', emissive: '#fde68a' },
+      { id: 'living-window', kind: 'window', position: [0, 1.7, -5.45], size: [3.2, 1.4, 0.08], color: '#bfdbfe', opacity: 0.45 },
+      { id: 'living-shelf', kind: 'furniture', position: [4.6, 1.1, -1.5], size: [0.4, 2.0, 2.8], color: '#6b4226', roughness: 0.7 },
+    ];
+  }
+  if (spec.id === 'home-bedroom') {
+    return [
+      { id: 'bed-floor', kind: 'ground', position: [0, -0.08, 0], size: [12, 0.16, 12], color: '#78716c', roughness: 0.92 },
+      { id: 'bed-back', kind: 'wall', position: [0, 1.6, -5.6], size: [12, 3.2, 0.24], color: '#c7d2fe', roughness: 0.88 },
+      { id: 'bed-left', kind: 'wall', position: [-5.9, 1.6, 0], size: [0.24, 3.2, 11.4], color: '#e0e7ff', roughness: 0.9 },
+      { id: 'bed-right', kind: 'wall', position: [5.9, 1.6, 0], size: [0.24, 3.2, 11.4], color: '#e0e7ff', roughness: 0.9 },
+      { id: 'bed-mattress', kind: 'furniture', position: [-2.2, 0.4, -2.6], size: [2.8, 0.55, 2.0], color: '#4338ca', roughness: 0.8 },
+      { id: 'bed-pillow', kind: 'furniture', position: [-2.2, 0.75, -3.3], size: [1.2, 0.25, 0.55], color: '#eef2ff', roughness: 0.9 },
+      { id: 'bed-nightstand', kind: 'furniture', position: [-0.4, 0.35, -3.4], size: [0.7, 0.7, 0.55], color: '#57534e', roughness: 0.65 },
+      { id: 'bed-wardrobe', kind: 'furniture', position: [4.2, 1.2, -2.5], size: [1.4, 2.4, 0.7], color: '#312e81', roughness: 0.7 },
+      { id: 'bed-logoff-console', kind: 'fixture', position: [0, 0.85, -1.3], size: [1.6, 1.2, 0.55], color: '#0f172a', emissive: '#818cf8' },
+    ];
+  }
+  if (spec.id === 'home-media') {
+    return [
+      { id: 'media-floor', kind: 'ground', position: [0, -0.08, 0], size: [12, 0.16, 12], color: '#292524', roughness: 0.9 },
+      { id: 'media-back', kind: 'wall', position: [0, 1.6, -5.6], size: [12, 3.2, 0.24], color: '#1e1b4b', roughness: 0.85 },
+      { id: 'media-left', kind: 'wall', position: [-5.9, 1.6, 0], size: [0.24, 3.2, 11.4], color: '#312e81', roughness: 0.88 },
+      { id: 'media-right', kind: 'wall', position: [5.9, 1.6, 0], size: [0.24, 3.2, 11.4], color: '#312e81', roughness: 0.88 },
+      { id: 'media-screen', kind: 'fixture', position: [0, 1.5, -5.2], size: [4.6, 2.4, 0.12], color: '#0f172a', emissive: '#7c3aed' },
+      { id: 'media-couch', kind: 'furniture', position: [0, 0.45, 0.8], size: [3.8, 0.85, 1.4], color: '#4c1d95', roughness: 0.75 },
+      { id: 'media-dock', kind: 'fixture', position: [0, 0.7, -1.3], size: [1.8, 1.0, 0.7], color: '#111827', emissive: '#a78bfa' },
+      { id: 'media-shelf', kind: 'furniture', position: [-4.5, 1.0, -2.0], size: [0.45, 2.0, 3.0], color: '#1e293b', roughness: 0.6 },
+    ];
+  }
+  if (spec.id === 'home-office') {
+    return [
+      { id: 'office-floor', kind: 'ground', position: [0, -0.08, 0], size: [12, 0.16, 12], color: '#57534e', roughness: 0.92 },
+      { id: 'office-back', kind: 'wall', position: [0, 1.6, -5.6], size: [12, 3.2, 0.24], color: '#ccfbf1', roughness: 0.88 },
+      { id: 'office-left', kind: 'wall', position: [-5.9, 1.6, 0], size: [0.24, 3.2, 11.4], color: '#99f6e4', roughness: 0.9 },
+      { id: 'office-right', kind: 'wall', position: [5.9, 1.6, 0], size: [0.24, 3.2, 11.4], color: '#99f6e4', roughness: 0.9 },
+      { id: 'office-desk', kind: 'furniture', position: [0, 0.72, -2.6], size: [2.8, 0.12, 1.3], color: '#0f766e', roughness: 0.45 },
+      { id: 'office-desk-leg-l', kind: 'furniture', position: [-1.2, 0.35, -2.6], size: [0.12, 0.7, 1.1], color: '#115e59', roughness: 0.5 },
+      { id: 'office-desk-leg-r', kind: 'furniture', position: [1.2, 0.35, -2.6], size: [0.12, 0.7, 1.1], color: '#115e59', roughness: 0.5 },
+      { id: 'office-monitor', kind: 'fixture', position: [0, 1.25, -3.1], size: [1.4, 0.85, 0.12], color: '#020617', emissive: '#2dd4bf' },
+      { id: 'office-chair', kind: 'furniture', position: [0, 0.45, -1.3], size: [0.8, 0.9, 0.8], color: '#134e4a', roughness: 0.7 },
+      { id: 'office-workbench', kind: 'fixture', position: [3.6, 0.8, -3.4], size: [2.2, 1.5, 0.9], color: '#042f2e', emissive: '#5eead4' },
+      { id: 'office-files', kind: 'furniture', position: [-4.2, 0.9, -2.8], size: [1.1, 1.8, 0.55], color: '#115e59', roughness: 0.65 },
+      { id: 'office-window', kind: 'window', position: [0, 1.8, -5.45], size: [2.8, 1.2, 0.08], color: '#a5f3fc', opacity: 0.4 },
+    ];
+  }
+  if (spec.id === 'commons') {
+    return [
+      { id: 'commons-ground', kind: 'ground', position: [0, -0.08, 0], size: [20, 0.16, 20], color: '#4d7c0f', roughness: 1 },
+      { id: 'commons-plaza', kind: 'ground', position: [0, -0.02, 0], size: [8, 0.08, 8], color: '#a8a29e', roughness: 0.95 },
+      { id: 'commons-home-sign', kind: 'wayfinding', position: [-4.5, 1.2, -3.5], size: [2.4, 1.2, 0.16], color: '#f8fafc', emissive: '#4d7c0f' },
+      { id: 'commons-gallery-sign', kind: 'wayfinding', position: [4.5, 1.2, -3.5], size: [2.4, 1.2, 0.16], color: '#f8fafc', emissive: '#7c2d12' },
+      { id: 'commons-transit-sign', kind: 'wayfinding', position: [0, 1.3, -4.2], size: [2.8, 1.4, 0.16], color: '#f8fafc', emissive: '#0369a1' },
+      { id: 'commons-bench', kind: 'furniture', position: [0, 0.35, 2.5], size: [2.4, 0.45, 0.7], color: '#78350f', roughness: 0.8 },
+      { id: 'commons-tree-a', kind: 'planting', shape: 'cylinder', position: [-6.5, 1.0, 1], size: [1.5, 2.0, 1.5], color: '#166534' },
+      { id: 'commons-tree-b', kind: 'planting', shape: 'cylinder', position: [6.5, 1.0, 1], size: [1.5, 2.0, 1.5], color: '#166534' },
+    ];
+  }
+  if (spec.campusSlug === 'gary' && spec.kind === 'campus-arrival') {
+    return [
+      { id: 'gary-arrival-ground', kind: 'ground', position: [0, -0.08, 0], size: [22, 0.16, 18], color: '#3d4a3a', roughness: 1 },
+      { id: 'gary-arrival-plaza', kind: 'ground', position: [0, -0.02, 4.5], size: [8, 0.08, 5], color: '#78716c', roughness: 0.95 },
+      { id: 'gary-arrival-hall', kind: 'landmark', position: [0, 1.6, -2.5], size: [12, 3.2, 4.2], color: '#8b5a2b', roughness: 0.72 },
+      { id: 'gary-arrival-gallery-volume', kind: 'landmark', position: [5.5, 2.0, -3.5], size: [3.2, 4.0, 3.2], color: '#6b7280', roughness: 0.55 },
+      { id: 'gary-arrival-canopy', kind: 'canopy', position: [0, 2.2, 1.8], size: [5.5, 0.25, 2.4], color: '#a8a29e', roughness: 0.65 },
+      { id: 'gary-arrival-lab-bay', kind: 'landmark', position: [-5.2, 1.2, -1.5], size: [3.2, 2.2, 3], color: '#57534e', roughness: 0.7 },
+      { id: 'gary-arrival-wayfind', kind: 'wayfinding', position: [-3.2, 1.3, 5.5], size: [2.6, 1.4, 0.18], color: '#f8fafc', emissive: '#f59e0b' },
+      { id: 'gary-arrival-plant', kind: 'planting', shape: 'cylinder', position: [6.5, 0.8, 3], size: [1.4, 1.6, 1.4], color: '#166534' },
+    ];
+  }
+  if (spec.campusSlug === 'gary' && spec.kind === 'campus-lobby') {
+    return [
+      { id: 'gary-lobby-floor', kind: 'ground', position: [0, -0.08, 0], size: [14, 0.16, 12], color: '#57534e', roughness: 0.9 },
+      { id: 'gary-lobby-back', kind: 'wall', position: [0, 1.8, -5.6], size: [14, 3.6, 0.28], color: '#8b5a2b', roughness: 0.75 },
+      { id: 'gary-lobby-left', kind: 'wall', position: [-6.9, 1.8, 0], size: [0.28, 3.6, 11.4], color: '#78716c', roughness: 0.85 },
+      { id: 'gary-lobby-right', kind: 'wall', position: [6.9, 1.8, 0], size: [0.28, 3.6, 11.4], color: '#78716c', roughness: 0.85 },
+      { id: 'gary-lobby-steel-beam', kind: 'landmark', position: [0, 3.2, -1], size: [12, 0.35, 0.45], color: '#334155', metalness: 0.55, roughness: 0.35 },
+      { id: 'gary-lobby-desk', kind: 'furniture', position: [0, 0.7, -2.8], size: [3.2, 0.15, 1.2], color: '#b45309', roughness: 0.5 },
+      { id: 'gary-lobby-wayfind', kind: 'wayfinding', position: [-4.2, 1.5, -5.3], size: [2.8, 1.1, 0.1], color: '#f8fafc', emissive: '#f59e0b' },
+      { id: 'gary-lobby-project-wall', kind: 'art', position: [4.5, 1.6, -5.35], size: [3.4, 2.2, 0.12], color: '#1c1917', emissive: '#38bdf8' },
+      { id: 'gary-lobby-bench', kind: 'furniture', position: [-3.5, 0.4, 1.5], size: [2.2, 0.5, 0.7], color: '#44403c', roughness: 0.7 },
+      { id: 'gary-lobby-window', kind: 'window', position: [0, 2.0, -5.45], size: [4.0, 1.6, 0.08], color: '#bae6fd', opacity: 0.4 },
+    ];
+  }
+  if (spec.campusSlug === 'gary' && spec.kind === 'campus-learning') {
+    return [
+      { id: 'gary-class-floor', kind: 'ground', position: [0, -0.08, 0], size: [14, 0.16, 12], color: '#44403c', roughness: 0.9 },
+      { id: 'gary-class-back', kind: 'wall', position: [0, 1.8, -5.6], size: [14, 3.6, 0.28], color: '#a16207', roughness: 0.8 },
+      { id: 'gary-class-left', kind: 'wall', position: [-6.9, 1.8, 0], size: [0.28, 3.6, 11.4], color: '#78716c', roughness: 0.85 },
+      { id: 'gary-class-right', kind: 'wall', position: [6.9, 1.8, 0], size: [0.28, 3.6, 11.4], color: '#78716c', roughness: 0.85 },
+      { id: 'gary-class-screen', kind: 'fixture', position: [0, 1.8, -5.2], size: [5.2, 2.4, 0.14], color: '#0f172a', emissive: '#38bdf8' },
+      { id: 'gary-class-teacher-desk', kind: 'furniture', position: [0, 0.7, -3.4], size: [2.4, 0.14, 1.0], color: '#92400e', roughness: 0.5 },
+      { id: 'gary-class-desk-a', kind: 'furniture', position: [-2.4, 0.55, -0.6], size: [1.6, 0.12, 0.9], color: '#b45309', roughness: 0.55 },
+      { id: 'gary-class-desk-b', kind: 'furniture', position: [0, 0.55, -0.6], size: [1.6, 0.12, 0.9], color: '#b45309', roughness: 0.55 },
+      { id: 'gary-class-desk-c', kind: 'furniture', position: [2.4, 0.55, -0.6], size: [1.6, 0.12, 0.9], color: '#b45309', roughness: 0.55 },
+      { id: 'gary-class-chair-a', kind: 'furniture', position: [-2.4, 0.4, 0.5], size: [0.55, 0.7, 0.55], color: '#57534e', roughness: 0.7 },
+      { id: 'gary-class-chair-b', kind: 'furniture', position: [0, 0.4, 0.5], size: [0.55, 0.7, 0.55], color: '#57534e', roughness: 0.7 },
+      { id: 'gary-class-chair-c', kind: 'furniture', position: [2.4, 0.4, 0.5], size: [0.55, 0.7, 0.55], color: '#57534e', roughness: 0.7 },
+      { id: 'gary-class-device-cart', kind: 'fixture', position: [-5.2, 0.7, -2.5], size: [1.3, 1.3, 0.9], color: '#a16207', emissive: '#fbbf24' },
+      { id: 'gary-class-network-cart', kind: 'fixture', position: [5.2, 0.7, -2.5], size: [1.3, 1.3, 0.9], color: '#57534e', emissive: '#38bdf8' },
+      { id: 'gary-class-console', kind: 'fixture', position: [0, 0.85, -1.3], size: [2.0, 1.2, 0.7], color: '#111827', emissive: '#f59e0b' },
+      { id: 'gary-class-quiet', kind: 'furniture', position: [4.8, 0.9, 2.8], size: [2.0, 1.6, 1.6], color: '#44403c', roughness: 0.8 },
+    ];
+  }
   const outdoor = ['commons', 'transit', 'home-yard', 'campus-arrival'].includes(spec.kind);
   const slugSeed = [...spec.id].reduce((total, char) => total + char.charCodeAt(0), 0);
   const offset = ((slugSeed % 5) - 2) * 0.35;
@@ -292,9 +417,9 @@ function sceneActions(spec) {
     actions.push({
       id: `${spec.campusSlug}-waike`, verb: 'CONTINUE LEARNING', capability: 'WAIKE_LEARNER',
       destination: `waike://courses?campus=${encodeURIComponent(spec.campusSlug)}`, accessPolicy: 'AUTHENTICATED',
-      worldReturnAnchor: `${spec.campusSlug.toUpperCase()}_LEARNING`, loadingPolicy: 'EXTERNAL_APP',
-      accessibilityAlternative: `Open the WAIKE source-of-record course surface for ${spec.title.split(' — ')[0]}`,
-      position: [0, 0, -1.3], label: 'WAIKE learning console',
+      worldReturnAnchor: `${spec.campusSlug.toUpperCase()}_LEARNING`, loadingPolicy: 'PANEL',
+      accessibilityAlternative: `Open the in-app classroom workstation for ${spec.title.split(' — ')[0]}`,
+      position: [0, 0, -1.3], label: 'WAIKE classroom workstation',
     });
   }
   if (spec.kind === 'campus-research') {

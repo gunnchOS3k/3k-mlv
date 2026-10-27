@@ -80,17 +80,46 @@ export function consumeWaikeContract(adapter: { readSurfaces: () => Record<strin
   surfaces: Record<string, { id: string; items: unknown[]; available: boolean }>;
 };
 export function specialistWaikeDeepLink(trackId: string): string | null;
+export const WAIKE_PUBLIC_READER_URL: 'https://learn.gunnchos.com';
+export const CAMPUS_PORTAL_RETURN_URL: 'https://gunnchos.com';
+export function campusWaikeReaderHref(value?: string | null): string | null;
+export const WAIKE_PUBLIC_READER_DOCUMENT: 'shell';
+export function campusWaikeReaderControl(
+  value?: string | null,
+  documentKind?: string,
+): { state: 'unavailable' | 'link'; href: string | null; reason: string | null };
+export function previewBuiltReaderHandoff(input: {
+  readerHtml?: string | null;
+  homeFileId?: string | null;
+  joinedBrowserExecuted?: boolean;
+}): {
+  joinedBrowserExecuted: boolean;
+  publicCampusActivated: boolean;
+  publicCampusHref: string | null;
+  pointsAtLearnHost: boolean;
+  documentKind: string;
+  lessonHref: string | null;
+  returnTo: string | null;
+};
+export function isPrivateHomeFile(node: { deleted_at?: string | null; visibility?: string; metadata?: Record<string, unknown> } | null | undefined): boolean;
 export function galleryPublicOnly<T extends { visibility: string; deleted_at?: string | null }>(nodes: T[]): T[];
 export const GALLERY_PRODUCT_ZONES: readonly string[];
 export const PUBLIC_GALLERY_ZONES: readonly string[];
 export function isPrivateGalleryFile(node: { deleted_at?: string | null; visibility: string; owner_id?: string; metadata?: Record<string, unknown> } | null | undefined): boolean;
 export function createMyGalleryAsset(input: { ownerId: string; name?: string; mimeType?: string; extra?: Record<string, unknown> }): { ok: true; node: { id?: string; owner_id: string; visibility: 'private'; metadata: Record<string, unknown>; name: string } } | { ok: false; reason: string };
+export function removeGalleryPublication<T extends { metadata?: Record<string, unknown>; visibility: string }>(
+  node: T,
+): { ok: true; node: T & { visibility: 'private'; metadata: Record<string, unknown> } } | { ok: false; reason: string; node?: T };
 export function publishGalleryAsset<T extends { metadata?: Record<string, unknown>; visibility: string }>(
   node: T,
   options?: { confirmed?: boolean; wing?: string },
 ): { ok: true; node: T & { visibility: 'public'; metadata: Record<string, unknown> } } | { ok: false; reason: string; node?: T };
 export function friendHomeDoesNotRevealPrivateGallery(input: { homeNodes: Array<{ id: string; owner_id?: string; visibility: string; deleted_at?: string | null; metadata?: Record<string, unknown> }>; friendId?: string | null }): { pass: boolean; leaked_ids: string[]; visible_ids: string[] };
 export function publicGalleryAssets<T extends { visibility: string; deleted_at?: string | null; metadata?: Record<string, unknown> }>(nodes: T[]): T[];
+export function galleryResumeWings<T extends { id: string; owner_id?: string; visibility: string; deleted_at?: string | null; metadata?: Record<string, unknown> }>(
+  nodes: T[],
+  actorId: string,
+): { published: T[]; mine: T[]; hiddenHomeIds: string[] };
 export function createStudyRoom(input: { ownerId: string; name?: string; acl?: string[] }): {
   id: string; owner_id: string; name: string; acl: string[]; kind: string; unlimited: boolean;
 };

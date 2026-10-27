@@ -1,0 +1,51 @@
+{
+  "ok": true,
+  "journey": "home_bedroom_office_commons_gary_classroom_return",
+  "joinedBrowserExecuted": true,
+  "publicCampusActivated": false,
+  "pointsAtLearnHost": false,
+  "humanGatesRemainFalse": true,
+  "mlvUrl": "http://127.0.0.1:4173/",
+  "screenshots": [
+    "artifacts/play/spatial_home_gary/screenshots/01_home_yard.png",
+    "artifacts/play/spatial_home_gary/screenshots/02_home_living.png",
+    "artifacts/play/spatial_home_gary/screenshots/03_home_bedroom.png",
+    "artifacts/play/spatial_home_gary/screenshots/04_home_media.png",
+    "artifacts/play/spatial_home_gary/screenshots/05_home_office.png",
+    "artifacts/play/spatial_home_gary/screenshots/06_home_office_workbench.png",
+    "artifacts/play/spatial_home_gary/screenshots/07_commons.png",
+    "artifacts/play/spatial_home_gary/screenshots/08_transit.png",
+    "artifacts/play/spatial_home_gary/screenshots/09_gary_exterior.png",
+    "artifacts/play/spatial_home_gary/screenshots/10_gary_lobby.png",
+    "artifacts/play/spatial_home_gary/screenshots/11_gary_classroom.png",
+    "artifacts/play/spatial_home_gary/screenshots/12_classroom_workstation.png",
+    "artifacts/play/spatial_home_gary/screenshots/13_return_gary_learning.png",
+    "artifacts/play/spatial_home_gary/screenshots/14_return_commons.png",
+    "artifacts/play/spatial_home_gary/screenshots/15_home_office_state_preserved.png",
+    "artifacts/play/spatial_home_gary/screenshots/16_classroom_state_preserved.png"
+  ],
+  "actions": [
+    "authenticated_local_test_identity",
+    "entered_home_yard",
+    "walked_home_rooms",
+    "saved_private_home_office_notes",
+    "returned_commons",
+    "reached_gary_classroom",
+    "authenticated_classroom_learning_action",
+    "returned_gary_learning_with_context",
+    "home_office_state_preserved",
+    "classroom_state_preserved"
+  ],
+  "homeDraftRestored": true,
+  "classroomDraftRestored": true,
+  "returnScene": "gary-learning",
+  "gates": {
+    "HUMAN_7GC_SPATIAL_FIDELITY_PASS": false,
+    "HUMAN_LOCAL_IDENTITY_PASS": false,
+    "HUMAN_CAMPUS_USABILITY_PASS": false,
+    "RC2_READY": false,
+    "V1_0_0_RELEASE_AUTHORIZED": false
+  },
+  "nextCampus": "ghana",
+  "note": "Home+Gary spatial milestone evidence only. Not V1 complete. Authored planning twin; not a physical facility claim."
+}
