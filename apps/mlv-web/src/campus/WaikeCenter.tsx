@@ -15,7 +15,10 @@ const LABELS: Record<string, string> = {
 
 export default function WaikeCenter() {
   const contract = consumeWaikeContract(null);
-  const reader = campusWaikeReaderControl(import.meta.env.VITE_WAIKE_READER_URL, WAIKE_PUBLIC_READER_DOCUMENT);
+  // Production stays on the shell constant. Only an explicit build-time tracks value opens Campus.
+  const documentKind =
+    import.meta.env.VITE_WAIKE_READER_DOCUMENT === 'tracks' ? 'tracks' : WAIKE_PUBLIC_READER_DOCUMENT;
+  const reader = campusWaikeReaderControl(import.meta.env.VITE_WAIKE_READER_URL, documentKind);
   const returnHref = returnSceneHash(readReturnContext());
   return (
     <section aria-label="WAIKE Academic Center">
@@ -39,9 +42,9 @@ export default function WaikeCenter() {
         ))}
       </div>
       {reader.state === 'link' && reader.href ? (
-        <p><a href={reader.href}>Open the WAIKE reader</a></p>
+        <p><a data-testid="campus-waike-reader" href={reader.href}>Open the WAIKE reader</a></p>
       ) : (
-        <p>WAIKE reader unavailable. The public page is a shell and does not include the track list.</p>
+        <p data-testid="campus-waike-unavailable">WAIKE reader unavailable. The public page is a shell and does not include the track list.</p>
       )}
       <p><a href={returnHref}>Return to the saved world location</a></p>
     </section>

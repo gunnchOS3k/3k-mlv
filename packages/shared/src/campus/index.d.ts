@@ -91,8 +91,9 @@ export function campusWaikeReaderControl(
 export function previewBuiltReaderHandoff(input: {
   readerHtml?: string | null;
   homeFileId?: string | null;
+  joinedBrowserExecuted?: boolean;
 }): {
-  joinedBrowserExecuted: false;
+  joinedBrowserExecuted: boolean;
   publicCampusActivated: boolean;
   publicCampusHref: string | null;
   pointsAtLearnHost: boolean;
