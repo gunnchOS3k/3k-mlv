@@ -35,26 +35,27 @@ export default function CampusSpecialtyPanels({ slug, learnerId = 'local-learner
     setStatus(out.ok ? `Specialty task complete (${slug}). nav_only=${String(out.nav_only)}` : `Failed: ${String(out.reason || 'unknown')}`);
   }
 
+  // Germany/Guyana/Graham/Geelong have dedicated room-bound journey UIs; keep one-click acceptance harness here.
   if (!['germany', 'guyana', 'graham-land', 'geelong', 'ghana', 'gaza', 'gary'].includes(slug)) return null;
 
   return (
     <section className="mlv-specialty" aria-label={`${slug} specialty learning`} data-playable="true">
-      <h2>{slug} specialty learning</h2>
+      <h2>{slug} specialty acceptance harness</h2>
       <p className="mlv-kicker">{PLAYABLE_ACCEPTANCE_NOTE}</p>
       {label && (
         <p className="mlv-kicker" data-testid="scene-state-label">{label.label} · {label.capture}</p>
       )}
       <ul className="mlv-kicker">
-        {slug === 'germany' && <li>Build → document → test → improve → present (Industry 4.0 / SOP)</li>}
-        {slug === 'guyana' && <li>Flood/drainage uncertainty → map/report → private offline portfolio</li>}
-        {slug === 'graham-land' && <li>Low-bandwidth climate/NTN exercise · no fictional WAIKE station</li>}
+        {slug === 'germany' && <li>Room-bound apprenticeship (mechatronics cart → I4.0 twin → portfolio)</li>}
+        {slug === 'guyana' && <li>Room-bound climate/GIS (workstation → data studio → private portfolio)</li>}
+        {slug === 'graham-land' && <li>Room-bound polar twin (assumptions → data lab → satcom → Home)</li>}
         {slug === 'geelong' && <li>Design critique with shell / 2021 / proposal / campus labels preserved</li>}
         {slug === 'ghana' && <li>Offline cache → resume → portfolio → regional exchange (planning routes)</li>}
         {slug === 'gaza' && <li>Shared-device offline → portfolio recover → withdraw sharing · no coordinates</li>}
         {slug === 'gary' && <li>Offline save conflict helper (local retained with notice)</li>}
       </ul>
       <button type="button" onClick={run} data-testid={`specialty-run-${slug}`}>
-        Run specialty task
+        Run specialty acceptance
       </button>
       {status && <p role="status">{status}</p>}
     </section>

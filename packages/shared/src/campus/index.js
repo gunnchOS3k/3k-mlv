@@ -9,3 +9,6 @@ export * from './garyPilotJourney.js';
 export * from './specialtyJourneys.js';
 export * from './playableExperience.js';
 export * from './geelongDesignBuildJourney.js';
+export * from './germanyApprenticeshipJourney.js';
+export * from './guyanaClimateGisJourney.js';
+export * from './grahamPolarTwinJourney.js';

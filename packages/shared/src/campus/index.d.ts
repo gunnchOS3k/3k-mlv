@@ -194,3 +194,25 @@ export function createGeelongDesignBuildJourney(opts: { learnerId: string; now?:
 export function advanceGeelongDesignBuildJourney(journey: Record<string, unknown>, stepId: string, opts?: { learnerInput?: string; now?: string; actorId?: string }): Record<string, unknown>;
 export function geelongDesignBuildProgress(journey: Record<string, unknown>): { done: number; total: number; next_step: unknown; complete: boolean; active_room_key: string | null; representation_state: string };
 export function runGeelongDesignBuildPlayable(opts?: { learnerId?: string; now?: string }): Record<string, unknown>;
+
+export const GERMANY_APPRENTICE_JOURNEY_ID: string;
+export const GERMANY_APPRENTICE_STEPS: ReadonlyArray<{ id: string; room_key: string; phase_hint: string; title: string; produces: string; min_chars: number }>;
+export function createGermanyApprenticeshipJourney(opts: { learnerId: string; now?: string }): { ok: boolean; journey?: Record<string, unknown>; reason?: string };
+export function advanceGermanyApprenticeshipJourney(journey: Record<string, unknown>, stepId: string, opts?: { learnerInput?: string; now?: string; actorId?: string }): Record<string, unknown>;
+export function germanyApprenticeshipProgress(journey: Record<string, unknown>): { done: number; total: number; next_step: unknown; complete: boolean; active_room_key: string | null; representation_state: string };
+export function runGermanyApprenticeshipPlayable(opts?: { learnerId?: string; now?: string }): Record<string, unknown>;
+
+export const GUYANA_CLIMATE_JOURNEY_ID: string;
+export const GUYANA_CLIMATE_STEPS: ReadonlyArray<{ id: string; room_key: string; phase_hint: string; title: string; produces: string; min_chars: number }>;
+export function createGuyanaClimateGisJourney(opts: { learnerId: string; now?: string }): { ok: boolean; journey?: Record<string, unknown>; reason?: string };
+export function advanceGuyanaClimateGisJourney(journey: Record<string, unknown>, stepId: string, opts?: { learnerInput?: string; now?: string; actorId?: string }): Record<string, unknown>;
+export function guyanaClimateGisProgress(journey: Record<string, unknown>): { done: number; total: number; next_step: unknown; complete: boolean; active_room_key: string | null; representation_state: string };
+export function runGuyanaClimateGisPlayable(opts?: { learnerId?: string; now?: string }): Record<string, unknown>;
+
+export const GRAHAM_POLAR_JOURNEY_ID: string;
+export const GRAHAM_ASSUMPTIONS: ReadonlyArray<string>;
+export const GRAHAM_POLAR_STEPS: ReadonlyArray<{ id: string; room_key: string; phase_hint: string; title: string; produces: string; min_chars: number }>;
+export function createGrahamPolarTwinJourney(opts: { learnerId: string; now?: string }): { ok: boolean; journey?: Record<string, unknown>; reason?: string };
+export function advanceGrahamPolarTwinJourney(journey: Record<string, unknown>, stepId: string, opts?: { learnerInput?: string; now?: string; actorId?: string }): Record<string, unknown>;
+export function grahamPolarTwinProgress(journey: Record<string, unknown>): { done: number; total: number; next_step: unknown; complete: boolean; active_room_key: string | null; representation_state: string; no_fake_station: boolean };
+export function runGrahamPolarTwinPlayable(opts?: { learnerId?: string; now?: string }): Record<string, unknown>;

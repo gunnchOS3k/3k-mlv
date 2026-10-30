@@ -14,6 +14,7 @@ import GaryPilotJourney from './GaryPilotJourney';
 import NubukeHeritageExperience from './NubukeHeritageExperience';
 import GeelongTemporalCompare from './GeelongTemporalCompare';
 import GeelongDesignBuildJourney from './GeelongDesignBuildJourney';
+import RoomBoundSpecialtyJourney from './RoomBoundSpecialtyJourney';
 import CampusSpecialtyPanels from './CampusSpecialtyPanels';
 import { loadLocationRecord, sceneStateLabel } from '@3k-mlv/campus';
 
@@ -22,9 +23,22 @@ const WorldRuntime = lazy(() => import('../world/WorldRuntime'));
 
 function phaseIdFromHint(campus: { phases: Array<{ id: string; token: string }> } | null | undefined, hint: string | null | undefined) {
   if (!campus || !hint) return null;
-  const token = hint.toUpperCase() === 'PILOT' ? 'PILOT' : hint.toUpperCase() === 'FULL' ? 'FULL' : 'SEMI';
-  const match = campus.phases.find((p) => p.token === token || p.id.toUpperCase().includes(token));
-  return match?.id || null;
+  const h = hint.toUpperCase();
+  const aliases: Record<string, string[]> = {
+    PILOT: ['PILOT', 'REMOTE', 'RECOVERY'],
+    SEMI: ['SEMI', 'TWIN'],
+    FULL: ['FULL', 'RECOVERY'],
+    REMOTE: ['REMOTE', 'PILOT'],
+    TWIN: ['TWIN', 'SEMI'],
+  };
+  const candidates = aliases[h] || [h];
+  for (const token of candidates) {
+    const match = campus.phases.find(
+      (p) => p.token === token || p.id.toUpperCase().includes(token) || p.token.toUpperCase().includes(token),
+    );
+    if (match) return match.id;
+  }
+  return null;
 }
 
 export default function DigitalCampus({ slug }: { slug: string }) {
@@ -184,6 +198,17 @@ export default function DigitalCampus({ slug }: { slug: string }) {
       {slug === 'geelong' && <GeelongTemporalCompare />}
       {slug === 'geelong' && (
         <GeelongDesignBuildJourney
+          learnerId="local-learner"
+          onRoomFocus={(key) => { if (key) setRoomKey(key); }}
+          onPhaseHint={(hint) => {
+            const id = phaseIdFromHint(campus, hint);
+            if (id) setPhaseId(id);
+          }}
+        />
+      )}
+      {(slug === 'germany' || slug === 'guyana' || slug === 'graham-land') && (
+        <RoomBoundSpecialtyJourney
+          slug={slug}
           learnerId="local-learner"
           onRoomFocus={(key) => { if (key) setRoomKey(key); }}
           onPhaseHint={(hint) => {

@@ -27,6 +27,9 @@ import {
 import { loadLocationRecord, sceneStateLabel } from './locationRecords.js';
 import { specialistWaikeDeepLink, SPECIALIST_WAIKE_TRACKS } from './waikeContract.js';
 import { runGeelongDesignBuildPlayable } from './geelongDesignBuildJourney.js';
+import { runGermanyApprenticeshipPlayable } from './germanyApprenticeshipJourney.js';
+import { runGuyanaClimateGisPlayable } from './guyanaClimateGisJourney.js';
+import { runGrahamPolarTwinPlayable } from './grahamPolarTwinJourney.js';
 
 export const PLAYABLE_ACCEPTANCE_NOTE =
   'Learner acceptance requires completed specialty tasks, private artifacts, and Home return — not navigation alone.';
@@ -253,73 +256,33 @@ export function runGazaPlayable({ learnerId = 'learner-gz' } = {}) {
   };
 }
 
-/** Germany: build → document → test → improve → present */
+/** Germany: build → document → test → improve → present (room-bound apprenticeship). */
 export function runGermanySpecialtyPlayable({ learnerId = 'learner-de' } = {}) {
-  const steps = ['build', 'document', 'test', 'improve', 'present'];
-  const artifact = { id: `de-${learnerId}`, steps_completed: [], sop: null, visibility: VISIBILITY.PRIVATE };
-  for (const s of steps) artifact.steps_completed.push(s);
-  artifact.sop = {
-    title: 'Mechatronics quality checklist (planning concept)',
-    industrial_cyber_note: 'Industrial cybersecurity treated as learning activity, not certification.',
-    waike_deep_link: specialistWaikeDeepLink(SPECIALIST_WAIKE_TRACKS.INDUSTRY40_TWIN_LAB || 'HARDWARE_ENGINEERING'),
-  };
+  const full = runGermanyApprenticeshipPlayable({ learnerId });
+  if (!full.ok) return full;
   return {
-    ok: artifact.steps_completed.length === 5,
-    location_id: 'loc.campus.germany',
-    representation_state: 'planning_concept',
-    artifact,
-    nav_only: false,
+    ...full,
+    artifact: {
+      id: `de-${learnerId}`,
+      steps_completed: full.steps_completed || [],
+      sop: {
+        title: 'Mechatronics quality checklist (planning concept)',
+        industrial_cyber_note: full.journey?.industrial_cyber_note,
+        waike_deep_link: full.journey?.waike_deep_link,
+      },
+      visibility: VISIBILITY.PRIVATE,
+    },
   };
 }
 
-/** Guyana: flood/drainage uncertainty → map/report → offline portfolio */
+/** Guyana: flood/drainage uncertainty → map/report → offline portfolio (room-bound). */
 export function runGuyanaSpecialtyPlayable({ learnerId = 'learner-gy' } = {}) {
-  const scenario = {
-    id: `gy-flood-${learnerId}`,
-    topic: 'drainage_flood_literacy',
-    uncertainty: 'Public planning scenario only; not field-validated impact.',
-    data_status: 'synthetic',
-    map_export: { format: 'offline_portfolio_json', includes_sensitive_community_data: false },
-  };
-  const privateNode = createPrivateNode({
-    ownerId: learnerId,
-    name: 'Guyana climate/GIS portfolio',
-    mimeType: 'application/json',
-    extra: { id: scenario.id, scenario, gallery_file: true, published: false },
-  });
-  return {
-    ok: true,
-    location_id: 'loc.campus.guyana',
-    representation_state: 'planning_concept',
-    scenario,
-    private_node: privateNode,
-    private_visibility: privateNode.visibility === VISIBILITY.PRIVATE,
-    nav_only: false,
-  };
+  return runGuyanaClimateGisPlayable({ learnerId });
 }
 
-/** Graham Land: low-bandwidth climate/network exercise with explicit assumptions */
+/** Graham Land: low-bandwidth climate/network exercise with explicit assumptions (room-bound). */
 export function runGrahamSpecialtyPlayable({ learnerId = 'learner-gl' } = {}) {
-  const exercise = {
-    id: `gl-ntn-${learnerId}`,
-    kind: 'low_bandwidth_climate_network',
-    assumptions: [
-      'Remote-first polar education twin',
-      'Physical host outside Antarctica if needed',
-      'No fictional WAIKE Antarctic station',
-      'Simulation ≠ field validation',
-    ],
-    waike_deep_link: specialistWaikeDeepLink(SPECIALIST_WAIKE_TRACKS.NTN_LAB),
-    heritage_ref: 'loc.heritage.port_lockroy',
-  };
-  return {
-    ok: true,
-    location_id: 'loc.campus.graham-land',
-    representation_state: 'planning_concept',
-    exercise,
-    no_fake_station: true,
-    nav_only: false,
-  };
+  return runGrahamPolarTwinPlayable({ learnerId });
 }
 
 /** Geelong: design critique → revise prototype → portfolio (room-bound DESIGN_BUILD_STUDIO). */

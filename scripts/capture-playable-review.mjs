@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Local review-build capture for Gary + Nubuke (+ Geelong design/build).
+ * Local review-build capture for Gary + Nubuke + Geelong + DE/GY/GL room-bound specialties.
  * Generates static HTML evidence from playable acceptance runners and existing
  * schematic owner-review SVGs. Does NOT set HUMAN_* or PIXEL_* gates true.
  * Optional Playwright screenshots when browsers are available.
@@ -92,7 +92,16 @@ const manifest = {
       returned_home: geelong.returned_home,
     },
     parallel: Object.fromEntries(
-      Object.entries(parallel).map(([k, v]) => [k, { ok: v.ok, nav_only: v.nav_only ?? null }]),
+      Object.entries(parallel).map(([k, v]) => [k, {
+        ok: v.ok,
+        nav_only: v.nav_only ?? null,
+        returned_home: v.returned_home ?? null,
+        rooms_include_industry40_studio: v.rooms_include_industry40_studio ?? null,
+        rooms_include_climate_gis: v.rooms_include_climate_gis ?? null,
+        rooms_include_satcom_cart: v.rooms_include_satcom_cart ?? null,
+        no_fake_station: v.no_fake_station ?? null,
+        transcript: v.transcript ?? null,
+      }]),
     ),
   },
 };
@@ -117,7 +126,7 @@ const html = `<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>3k MLV playable review-build — Gary + Nubuke + Geelong</title>
+  <title>3k MLV playable review-build — Gary + Nubuke + Geelong + DE/GY/GL</title>
   <style>
     body { font-family: ui-sans-serif, system-ui, sans-serif; margin: 1.5rem; background: #f4f1ea; color: #1c1917; }
     h1,h2,h3 { font-family: Georgia, serif; }

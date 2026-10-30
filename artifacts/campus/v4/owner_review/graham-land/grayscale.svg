@@ -8,6 +8,7 @@
 <rect x="200.0" y="359.8" width="92.0" height="4.0" fill="rgb(189,189,189)" stroke="#111" stroke-width="1"><title>truth_label gl-truth-2</title></rect>
 <rect x="188.5" y="33.3" width="115.0" height="4.0" fill="rgb(189,189,189)" stroke="#111" stroke-width="1"><title>truth_label gl-truth</title></rect>
 <rect x="287.4" y="164.3" width="32.2" height="25.3" fill="rgb(182,182,182)" stroke="#111" stroke-width="1"><title>temporary_module gl-cart</title></rect>
+<rect x="304.7" y="221.8" width="29.9" height="25.3" fill="rgb(182,182,182)" stroke="#111" stroke-width="1"><title>temporary_module gl-satcom</title></rect>
 <rect x="289.7" y="163.2" width="4.6" height="4.6" fill="rgb(176,176,176)" stroke="#111" stroke-width="1"><title>wayfinding gl-way</title></rect>
 <rect x="119.5" y="113.8" width="69.0" height="57.5" fill="rgb(168,168,168)" stroke="#111" stroke-width="1"><title>lab_block gl-gis</title></rect>
 <rect x="303.5" y="125.3" width="69.0" height="57.5" fill="rgb(168,168,168)" stroke="#111" stroke-width="1"><title>lab_block gl-sensor</title></rect>
