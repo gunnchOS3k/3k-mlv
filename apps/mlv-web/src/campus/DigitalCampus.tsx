@@ -206,7 +206,7 @@ export default function DigitalCampus({ slug }: { slug: string }) {
           }}
         />
       )}
-      {(slug === 'germany' || slug === 'guyana' || slug === 'graham-land') && (
+      {(slug === 'germany' || slug === 'guyana' || slug === 'graham-land' || slug === 'ghana' || slug === 'gaza') && (
         <RoomBoundSpecialtyJourney
           slug={slug}
           learnerId="local-learner"

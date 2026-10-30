@@ -12,24 +12,14 @@ import {
   garyPilotJourneyProgress,
   resumeGaryPilotJourney,
 } from './garyPilotJourney.js';
-import {
-  createGhanaOfflineJourney,
-  ghanaCacheLesson,
-  ghanaResumeCachedLesson,
-  ghanaPreparePortfolio,
-  ghanaRegionalExchange,
-  createGazaRecoveryJourney,
-  gazaContinueOfflineOnSharedDevice,
-  gazaRecoverPortfolio,
-  gazaWithdrawSharing,
-  gazaPublicExportSafe,
-} from './specialtyJourneys.js';
 import { loadLocationRecord, sceneStateLabel } from './locationRecords.js';
-import { specialistWaikeDeepLink, SPECIALIST_WAIKE_TRACKS } from './waikeContract.js';
+import { specialistWaikeDeepLink } from './waikeContract.js';
 import { runGeelongDesignBuildPlayable } from './geelongDesignBuildJourney.js';
 import { runGermanyApprenticeshipPlayable } from './germanyApprenticeshipJourney.js';
 import { runGuyanaClimateGisPlayable } from './guyanaClimateGisJourney.js';
 import { runGrahamPolarTwinPlayable } from './grahamPolarTwinJourney.js';
+import { runGhanaOfflineRoomPlayable } from './ghanaOfflineRoomJourney.js';
+import { runGazaRecoveryRoomPlayable } from './gazaRecoveryRoomJourney.js';
 
 export const PLAYABLE_ACCEPTANCE_NOTE =
   'Learner acceptance requires completed specialty tasks, private artifacts, and Home return — not navigation alone.';
@@ -228,32 +218,11 @@ export function runNubukePlayableAcceptance({ learnerId = 'learner-a', observati
 }
 
 export function runGhanaOfflinePlayable({ learnerId = 'learner-gh' } = {}) {
-  let { journey } = createGhanaOfflineJourney({ learnerId });
-  journey = ghanaCacheLesson(journey, { id: 'gh-offline-1', title: 'Mobile-first civic lesson' }).journey;
-  journey = ghanaResumeCachedLesson(journey).journey;
-  journey = ghanaPreparePortfolio(journey, { id: 'gh-art-1', title: 'Regional pop-up kit plan' }).journey;
-  const done = ghanaRegionalExchange(journey, { region: 'Tamale planning route' });
-  return {
-    ok: done.ok,
-    journey: done.journey,
-    offline_resumed: Boolean(done.journey.cached_lesson?.resumed_at),
-    regional_exchange: done.journey.regional_exchange,
-    nav_only: false,
-  };
+  return runGhanaOfflineRoomPlayable({ learnerId });
 }
 
 export function runGazaPlayable({ learnerId = 'learner-gz' } = {}) {
-  let { journey } = createGazaRecoveryJourney({ learnerId });
-  journey = gazaContinueOfflineOnSharedDevice(journey).journey;
-  journey = gazaRecoverPortfolio(journey, { id: 'gz-p1', title: 'Private draft' }).journey;
-  journey = gazaWithdrawSharing(journey).journey;
-  const safety = gazaPublicExportSafe(journey);
-  return {
-    ok: safety.pass && journey.sharing_withdrawn,
-    journey,
-    safety,
-    nav_only: false,
-  };
+  return runGazaRecoveryRoomPlayable({ learnerId });
 }
 
 /** Germany: build → document → test → improve → present (room-bound apprenticeship). */
@@ -283,6 +252,16 @@ export function runGuyanaSpecialtyPlayable({ learnerId = 'learner-gy' } = {}) {
 /** Graham Land: low-bandwidth climate/network exercise with explicit assumptions (room-bound). */
 export function runGrahamSpecialtyPlayable({ learnerId = 'learner-gl' } = {}) {
   return runGrahamPolarTwinPlayable({ learnerId });
+}
+
+/** Ghana: offline cache → resume → portfolio → regional exchange (room-bound). */
+export function runGhanaSpecialtyPlayable({ learnerId = 'learner-gh' } = {}) {
+  return runGhanaOfflineRoomPlayable({ learnerId });
+}
+
+/** Gaza: shared-device → offline kit → recover → withdraw → Home (no coordinates). */
+export function runGazaSpecialtyPlayable({ learnerId = 'learner-gz' } = {}) {
+  return runGazaRecoveryRoomPlayable({ learnerId });
 }
 
 /** Geelong: design critique → revise prototype → portfolio (room-bound DESIGN_BUILD_STUDIO). */

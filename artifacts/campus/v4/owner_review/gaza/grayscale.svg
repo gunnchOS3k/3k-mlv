@@ -7,6 +7,7 @@
 <rect x="165.5" y="142.5" width="115.0" height="115.0" fill="rgb(189,189,189)" stroke="#111" stroke-width="1"><title>courtyard gz-circle</title></rect>
 <rect x="177.0" y="371.3" width="92.0" height="4.0" fill="rgb(189,189,189)" stroke="#111" stroke-width="1"><title>truth_label gz-truth-2</title></rect>
 <rect x="165.5" y="26.4" width="115.0" height="4.0" fill="rgb(189,189,189)" stroke="#111" stroke-width="1"><title>truth_label gz-truth</title></rect>
+<rect x="209.2" y="262.1" width="27.6" height="23.0" fill="rgb(185,185,185)" stroke="#111" stroke-width="1"><title>temporary_module gz-offline-kit</title></rect>
 <rect x="282.8" y="200.0" width="55.2" height="46.0" fill="rgb(176,176,176)" stroke="#111" stroke-width="1"><title>temporary_module gz-repair</title></rect>
 <rect x="114.9" y="117.2" width="55.2" height="50.6" fill="rgb(176,176,176)" stroke="#111" stroke-width="1"><title>temporary_module gz-quiet</title></rect>
 <rect x="262.1" y="170.1" width="4.6" height="4.6" fill="rgb(176,176,176)" stroke="#111" stroke-width="1"><title>wayfinding gz-way</title></rect>

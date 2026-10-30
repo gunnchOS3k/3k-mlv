@@ -216,3 +216,17 @@ export function createGrahamPolarTwinJourney(opts: { learnerId: string; now?: st
 export function advanceGrahamPolarTwinJourney(journey: Record<string, unknown>, stepId: string, opts?: { learnerInput?: string; now?: string; actorId?: string }): Record<string, unknown>;
 export function grahamPolarTwinProgress(journey: Record<string, unknown>): { done: number; total: number; next_step: unknown; complete: boolean; active_room_key: string | null; representation_state: string; no_fake_station: boolean };
 export function runGrahamPolarTwinPlayable(opts?: { learnerId?: string; now?: string }): Record<string, unknown>;
+
+export const GHANA_OFFLINE_ROOM_JOURNEY_ID: string;
+export const GHANA_OFFLINE_ROOM_STEPS: ReadonlyArray<{ id: string; room_key: string; phase_hint: string; title: string; produces: string; min_chars: number }>;
+export function createGhanaOfflineRoomJourney(opts: { learnerId: string; now?: string }): { ok: boolean; journey?: Record<string, unknown>; reason?: string };
+export function advanceGhanaOfflineRoomJourney(journey: Record<string, unknown>, stepId: string, opts?: { learnerInput?: string; now?: string; actorId?: string }): Record<string, unknown>;
+export function ghanaOfflineRoomProgress(journey: Record<string, unknown>): { done: number; total: number; next_step: unknown; complete: boolean; active_room_key: string | null; representation_state: string };
+export function runGhanaOfflineRoomPlayable(opts?: { learnerId?: string; now?: string }): Record<string, unknown>;
+
+export const GAZA_RECOVERY_ROOM_JOURNEY_ID: string;
+export const GAZA_RECOVERY_ROOM_STEPS: ReadonlyArray<{ id: string; room_key: string; phase_hint: string; title: string; produces: string; min_chars: number }>;
+export function createGazaRecoveryRoomJourney(opts: { learnerId: string; now?: string }): { ok: boolean; journey?: Record<string, unknown>; reason?: string };
+export function advanceGazaRecoveryRoomJourney(journey: Record<string, unknown>, stepId: string, opts?: { learnerInput?: string; now?: string; actorId?: string }): Record<string, unknown>;
+export function gazaRecoveryRoomProgress(journey: Record<string, unknown>): { done: number; total: number; next_step: unknown; complete: boolean; active_room_key: string | null; representation_state: string };
+export function runGazaRecoveryRoomPlayable(opts?: { learnerId?: string; now?: string }): Record<string, unknown>;

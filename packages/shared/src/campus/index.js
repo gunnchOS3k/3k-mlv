@@ -12,3 +12,5 @@ export * from './geelongDesignBuildJourney.js';
 export * from './germanyApprenticeshipJourney.js';
 export * from './guyanaClimateGisJourney.js';
 export * from './grahamPolarTwinJourney.js';
+export * from './ghanaOfflineRoomJourney.js';
+export * from './gazaRecoveryRoomJourney.js';

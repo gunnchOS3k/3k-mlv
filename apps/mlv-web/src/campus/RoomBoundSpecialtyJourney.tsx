@@ -14,12 +14,21 @@ import {
   createGrahamPolarTwinJourney,
   advanceGrahamPolarTwinJourney,
   grahamPolarTwinProgress,
+  GHANA_OFFLINE_ROOM_STEPS,
+  createGhanaOfflineRoomJourney,
+  advanceGhanaOfflineRoomJourney,
+  ghanaOfflineRoomProgress,
+  GAZA_RECOVERY_ROOM_STEPS,
+  createGazaRecoveryRoomJourney,
+  advanceGazaRecoveryRoomJourney,
+  gazaRecoveryRoomProgress,
 } from '@3k-mlv/campus';
 
 type PhaseHint = 'pilot' | 'semi' | 'full' | 'remote' | 'twin';
+type SpecialtySlug = 'germany' | 'guyana' | 'graham-land' | 'ghana' | 'gaza';
 
 type JourneyCfg = {
-  slug: 'germany' | 'guyana' | 'graham-land';
+  slug: SpecialtySlug;
   title: string;
   blurb: string;
   storageKey: string;
@@ -84,6 +93,28 @@ const CFGS: Record<string, JourneyCfg> = {
       </details>
     ),
   },
+  ghana: {
+    slug: 'ghana',
+    title: 'Ghana offline resume / exchange journey',
+    blurb:
+      'Cache → resume offline → private portfolio → regional exchange (planning routes only) → Home. Mobile-first; not a field deployment claim.',
+    storageKey: 'mlv.ghana.offline_room.journey.v1',
+    steps: GHANA_OFFLINE_ROOM_STEPS as JourneyCfg['steps'],
+    create: createGhanaOfflineRoomJourney,
+    advance: advanceGhanaOfflineRoomJourney,
+    progress: ghanaOfflineRoomProgress,
+  },
+  gaza: {
+    slug: 'gaza',
+    title: 'Gaza recovery offline / withdraw journey',
+    blurb:
+      'Shared-device orient → offline kit → private reconstruction portfolio → withdraw sharing → Home. No site coordinates; not a permanent campus claim.',
+    storageKey: 'mlv.gaza.recovery_room.journey.v1',
+    steps: GAZA_RECOVERY_ROOM_STEPS as JourneyCfg['steps'],
+    create: createGazaRecoveryRoomJourney,
+    advance: advanceGazaRecoveryRoomJourney,
+    progress: gazaRecoveryRoomProgress,
+  },
 };
 
 export default function RoomBoundSpecialtyJourney({
@@ -92,7 +123,7 @@ export default function RoomBoundSpecialtyJourney({
   onRoomFocus,
   onPhaseHint,
 }: {
-  slug: 'germany' | 'guyana' | 'graham-land';
+  slug: SpecialtySlug;
   learnerId: string;
   onRoomFocus?: (roomKey: string | null) => void;
   onPhaseHint?: (phaseToken: PhaseHint | null) => void;

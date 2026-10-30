@@ -72,11 +72,20 @@ export const GHANA_SCENE: CampusSceneDefinition = {
   ),
   programZones: zones(
     { id: 'gh1', buildingId: 'gh-pav-n', wingId: 'north', programKey: 'FLEXIBLE_CLASSROOM', name: 'Classroom', position: [0, 0.05, -5.5], fromPhase: 'pilot' },
+    { id: 'gh1b', buildingId: 'gh-pav-e', wingId: 'hybrid', programKey: 'HYBRID_LEARNING_RECORDING', name: 'Hybrid / offline resume', position: [5.5, 0.05, 0], fromPhase: 'pilot' },
+    { id: 'gh1c', buildingId: 'gh-pav-n', wingId: 'present', programKey: 'PRESENTATION_WALL', name: 'Presentation / save', position: [1.5, 0.05, -4.5], fromPhase: 'pilot' },
     { id: 'gh2', buildingId: 'gh-device', wingId: 'court', programKey: 'DEVICE_BAR', name: 'Device bar', position: [0, 0.05, 5.2], fromPhase: 'semi' },
+    { id: 'gh2b', buildingId: 'gh-community', wingId: 'community', programKey: 'COMMUNITY_ROOM', name: 'Community / exchange', position: [4.5, 0.05, 5], fromPhase: 'semi' },
+    { id: 'gh2c', buildingId: 'gh-media', wingId: 'portfolio', programKey: 'CAREER_PORTFOLIO_STUDIO', name: 'Portfolio studio', position: [-4.5, 0.05, 5], fromPhase: 'semi' },
     { id: 'gh3', buildingId: 'gh-mentor', wingId: 'east', programKey: 'MENTOR_WORKSPACE', name: 'Mentor', position: [7.5, 0.05, -4], fromPhase: 'full' },
   ),
   phaseMassing: {
-    pilot: { scale: [0.8, 0.7, 0.8] },
+    pilot: {
+      scale: [0.8, 0.7, 0.8],
+      extraModules: [
+        { kind: 'temporary_module', id: 'gh-offline-cart', position: [2.2, 0, -3.5], size: [1.3, 1, 1.1], color: '#fde68a', fromPhase: 'pilot', label: 'Offline pack', trace: 'pilot offline lesson cache cart for resume' },
+      ],
+    },
     semi: { scale: [0.95, 0.9, 0.95] },
     full: { scale: [1.08, 1, 1.08] },
   },
@@ -232,11 +241,19 @@ export const GAZA_SCENE: CampusSceneDefinition = {
   ),
   programZones: zones(
     { id: 'gza1', buildingId: 'gz-circle', wingId: 'circle', programKey: 'SAFE_TEMPORARY_LEARNING_CIRCLE', name: 'Learning circle', position: [0, 0.05, 0], fromPhase: 'pilot' },
+    { id: 'gza1b', buildingId: 'gz-learn', wingId: 'offline', programKey: 'OFFLINE_LEARNING_KIT', name: 'Offline learning kit', position: [0, 0.05, -3.2], fromPhase: 'pilot' },
     { id: 'gza2', buildingId: 'gz-repair', wingId: 'repair', programKey: 'MOBILE_DEVICE_REPAIR_KIT', name: 'Repair', position: [3.8, 0.05, -1], fromPhase: 'pilot' },
     { id: 'gza3', buildingId: 'gz-recon', wingId: 'docs', programKey: 'RECONSTRUCTION_DOCUMENTATION_STUDIO', name: 'Docs studio', position: [0, 0.05, 3.8], fromPhase: 'semi' },
+    { id: 'gza3b', buildingId: 'gz-quiet', wingId: 'quiet', programKey: 'PSYCHOSOCIAL_DECOMPRESSION_SPACE', name: 'Decompression / withdraw', position: [-3.5, 0.05, 2.5], fromPhase: 'semi' },
+    { id: 'gza3c', buildingId: 'gz-teacher', wingId: 'teacher', programKey: 'TEACHER_SUPPORT_STATION', name: 'Teacher support / Home', position: [-5.5, 0.05, 0], fromPhase: 'semi' },
   ),
   phaseMassing: {
-    pilot: { scale: [0.85, 0.8, 0.85] },
+    pilot: {
+      scale: [0.85, 0.8, 0.85],
+      extraModules: [
+        { kind: 'temporary_module', id: 'gz-offline-kit', position: [0, 0, -3.2], size: [1.2, 0.9, 1], color: '#e7d7b1', fromPhase: 'pilot', label: 'Offline kit', trace: 'pilot offline learning kit for shared-device resume' },
+      ],
+    },
     semi: { scale: [1, 0.95, 1] },
     full: {
       scale: [1.12, 1.05, 1.12],
