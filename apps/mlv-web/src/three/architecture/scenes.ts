@@ -137,14 +137,17 @@ export const GEELONG_SCENE: CampusSceneDefinition = {
   ),
   programZones: zones(
     { id: 'ge1', buildingId: 'ge-shed-a', wingId: 'workshop', programKey: 'FLEXIBLE_CLASSROOM', name: 'Workshop class', position: [-6, 0.05, -2], fromPhase: 'pilot' },
-    { id: 'ge2', buildingId: 'ge-design', wingId: 'studio', programKey: 'DESIGN_BUILD_STUDIO', name: 'Design/build', position: [-2, 0.05, -6.5], fromPhase: 'semi' },
+    { id: 'ge1b', buildingId: 'ge-shed-a', wingId: 'prototype', programKey: 'MOBILE_HARDWARE_CART', name: 'Prototype cart (pilot design/build)', position: [1.5, 0.05, 1], fromPhase: 'pilot' },
+    { id: 'ge1c', buildingId: 'ge-shed-a', wingId: 'critique', programKey: 'PRESENTATION_WALL', name: 'Critique / presentation', position: [2.5, 0.05, 1.5], fromPhase: 'pilot' },
+    { id: 'ge2', buildingId: 'ge-design', wingId: 'studio', programKey: 'DESIGN_BUILD_STUDIO', name: 'Design/build studio', position: [-2, 0.05, -6.5], fromPhase: 'semi' },
+    { id: 'ge2b', buildingId: 'ge-design', wingId: 'studio', programKey: 'CAREER_PORTFOLIO_STUDIO', name: 'Portfolio desk', position: [-0.5, 0.05, -6.5], fromPhase: 'semi' },
     { id: 'ge3', buildingId: 'ge-showcase', wingId: 'civic', programKey: 'INDUSTRY_PROJECT_BRIEFING_ROOM', name: 'Briefing', position: [0, 0.05, 7], fromPhase: 'full' },
   ),
   phaseMassing: {
     pilot: {
       scale: [0.7, 0.65, 0.7],
       extraModules: [
-        { kind: 'temporary_module', id: 'ge-cart', position: [1.5, 0, 1], size: [1.5, 1, 1.2], color: '#a8a29e', fromPhase: 'pilot' },
+        { kind: 'temporary_module', id: 'ge-cart', position: [1.5, 0, 1], size: [1.5, 1, 1.2], color: '#a8a29e', fromPhase: 'pilot', label: 'Design/build cart', trace: 'pilot prototype cart for critique' },
       ],
     },
     semi: { scale: [0.92, 0.9, 0.92] },

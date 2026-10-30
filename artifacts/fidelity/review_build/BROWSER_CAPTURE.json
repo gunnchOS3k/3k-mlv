@@ -1,0 +1,11 @@
+{
+  "attempted": true,
+  "ok": true,
+  "method": "chromium-1193-headless-screenshot",
+  "executable": "/Users/gunnchos/Library/Caches/ms-playwright/chromium-1193/chrome-mac/Chromium.app/Contents/MacOS/Chromium",
+  "shots": [
+    "shot-full.png"
+  ],
+  "reason": null,
+  "note": "Static review-build HTML capture; not a live Vite app Pixel capture. HUMAN/PIXEL gates remain false."
+}

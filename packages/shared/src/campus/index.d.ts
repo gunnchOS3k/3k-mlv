@@ -186,3 +186,11 @@ export function runGuyanaSpecialtyPlayable(opts?: { learnerId?: string }): Recor
 export function runGrahamSpecialtyPlayable(opts?: { learnerId?: string }): Record<string, unknown>;
 export function runGeelongSpecialtyPlayable(opts?: { learnerId?: string }): Record<string, unknown>;
 export function offlineSaveConflict(opts?: { localRevision?: string; remoteRevision?: string; prefer?: string }): Record<string, unknown>;
+
+export const GEELONG_DB_JOURNEY_ID: string;
+export const GEELONG_DB_STEPS: ReadonlyArray<{ id: string; room_key: string; phase_hint: string; title: string; produces: string; min_chars: number }>;
+export const GEELONG_LAYER_REFS: ReadonlyArray<{ location_id: string; role: string }>;
+export function createGeelongDesignBuildJourney(opts: { learnerId: string; now?: string }): { ok: boolean; journey?: Record<string, unknown>; reason?: string };
+export function advanceGeelongDesignBuildJourney(journey: Record<string, unknown>, stepId: string, opts?: { learnerInput?: string; now?: string; actorId?: string }): Record<string, unknown>;
+export function geelongDesignBuildProgress(journey: Record<string, unknown>): { done: number; total: number; next_step: unknown; complete: boolean; active_room_key: string | null; representation_state: string };
+export function runGeelongDesignBuildPlayable(opts?: { learnerId?: string; now?: string }): Record<string, unknown>;

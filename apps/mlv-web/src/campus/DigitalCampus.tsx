@@ -13,11 +13,19 @@ import WaikeCenter from './WaikeCenter';
 import GaryPilotJourney from './GaryPilotJourney';
 import NubukeHeritageExperience from './NubukeHeritageExperience';
 import GeelongTemporalCompare from './GeelongTemporalCompare';
+import GeelongDesignBuildJourney from './GeelongDesignBuildJourney';
 import CampusSpecialtyPanels from './CampusSpecialtyPanels';
 import { loadLocationRecord, sceneStateLabel } from '@3k-mlv/campus';
 
 const CampusWorld = lazy(() => import('../three/CampusWorld'));
 const WorldRuntime = lazy(() => import('../world/WorldRuntime'));
+
+function phaseIdFromHint(campus: { phases: Array<{ id: string; token: string }> } | null | undefined, hint: string | null | undefined) {
+  if (!campus || !hint) return null;
+  const token = hint.toUpperCase() === 'PILOT' ? 'PILOT' : hint.toUpperCase() === 'FULL' ? 'FULL' : 'SEMI';
+  const match = campus.phases.find((p) => p.token === token || p.id.toUpperCase().includes(token));
+  return match?.id || null;
+}
 
 export default function DigitalCampus({ slug }: { slug: string }) {
   const campus = campusBySlug(slug);
@@ -174,6 +182,16 @@ export default function DigitalCampus({ slug }: { slug: string }) {
       )}
       {slug === 'ghana' && <NubukeHeritageExperience learnerId="local-learner" embed="campus" />}
       {slug === 'geelong' && <GeelongTemporalCompare />}
+      {slug === 'geelong' && (
+        <GeelongDesignBuildJourney
+          learnerId="local-learner"
+          onRoomFocus={(key) => { if (key) setRoomKey(key); }}
+          onPhaseHint={(hint) => {
+            const id = phaseIdFromHint(campus, hint);
+            if (id) setPhaseId(id);
+          }}
+        />
+      )}
       <CampusSpecialtyPanels slug={slug} learnerId="local-learner" />
       <EvidencePanel
         source={selectedReq?.id || `${campus.id} ${phase?.id || ''}`}

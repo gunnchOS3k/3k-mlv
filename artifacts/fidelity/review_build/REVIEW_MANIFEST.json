@@ -1,0 +1,126 @@
+{
+  "schema": "mlv_playable_review_build_v1",
+  "generated_at": "2026-10-30T20:25:03.865Z",
+  "note": "Local review-build capture. Schematic SVGs are not Pixel framebuffers. HUMAN/PIXEL gates remain false.",
+  "acceptance_note": "Learner acceptance requires completed specialty tasks, private artifacts, and Home return \u2014 not navigation alone.",
+  "gates": {
+    "HUMAN_7GC_SPATIAL_FIDELITY_PASS": false,
+    "HUMAN_LOCAL_IDENTITY_PASS": false,
+    "HUMAN_CAMPUS_USABILITY_PASS": false,
+    "PIXEL_7GC_CAMPUS_PASS": false,
+    "BROWSER_LIVE_CAPTURE": false,
+    "BROWSER_REVIEW_HTML_CAPTURE": true
+  },
+  "results": {
+    "gary": {
+      "ok": true,
+      "nav_only": false,
+      "rooms": [
+        "DEVICE_HELP_DESK_TABLE",
+        "MOBILE_HARDWARE_CART",
+        "QUIET_SUPPORT_AREA",
+        "PRESENTATION_WALL",
+        "STAFF_PLANNING_TABLE",
+        "FLEXIBLE_CLASSROOM"
+      ],
+      "waike_linked": true,
+      "private_visibility": true,
+      "returned_home": true,
+      "scene": {
+        "representation_state": "planning_concept",
+        "label": "WAIKE campus planning concept",
+        "scene_version": "gary@v4+loc.v1",
+        "model_version": "v4.architecture.fidelity.1+location_records.v1",
+        "capture": "not_applicable_planning_concept",
+        "metric_accuracy_status": "unverified"
+      }
+    },
+    "nubuke": {
+      "ok": true,
+      "nav_only": false,
+      "not_waike_campus": true,
+      "matched_views": [
+        "approach",
+        "garden_gallery",
+        "bungalow"
+      ],
+      "unknowns": [
+        "nubuke.area",
+        "nubuke.drawings"
+      ],
+      "private_visibility": true,
+      "scene": {
+        "representation_state": "documented_snapshot",
+        "label": "Documented building snapshot",
+        "scene_version": "nubuke@heritage.v1",
+        "model_version": "v4.architecture.fidelity.1+location_records.v1",
+        "capture": "capture date unknown",
+        "metric_accuracy_status": "unverified"
+      }
+    },
+    "geelong": {
+      "ok": true,
+      "nav_only": false,
+      "rooms_include_design_build_studio": true,
+      "transcript": [
+        {
+          "step_id": "orient_temporal_layers",
+          "room_key": "FLEXIBLE_CLASSROOM",
+          "phase_hint": "pilot"
+        },
+        {
+          "step_id": "design_critique",
+          "room_key": "DESIGN_BUILD_STUDIO",
+          "phase_hint": "semi"
+        },
+        {
+          "step_id": "revise_prototype",
+          "room_key": "DESIGN_BUILD_STUDIO",
+          "phase_hint": "semi"
+        },
+        {
+          "step_id": "portfolio_artifact",
+          "room_key": "CAREER_PORTFOLIO_STUDIO",
+          "phase_hint": "semi"
+        },
+        {
+          "step_id": "save_and_return",
+          "room_key": "PRESENTATION_WALL",
+          "phase_hint": "pilot"
+        }
+      ],
+      "layer_states": [
+        "documented_snapshot",
+        "documented_historical_reconstruction",
+        "published_architectural_proposal",
+        "mlv_interpretation",
+        "planning_concept"
+      ],
+      "private_visibility": true,
+      "returned_home": true
+    },
+    "parallel": {
+      "ghana": {
+        "ok": true,
+        "nav_only": false
+      },
+      "gaza": {
+        "ok": true,
+        "nav_only": false
+      },
+      "germany": {
+        "ok": true,
+        "nav_only": false
+      },
+      "guyana": {
+        "ok": true,
+        "nav_only": false
+      },
+      "graham": {
+        "ok": true,
+        "nav_only": false
+      }
+    }
+  },
+  "content_sha256": "d578ee0852e52155bf85656bc69d08a7145e6de9b09a6be57cfe168f550772cc"
+}

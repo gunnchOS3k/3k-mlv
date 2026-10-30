@@ -26,6 +26,7 @@ import {
 } from './specialtyJourneys.js';
 import { loadLocationRecord, sceneStateLabel } from './locationRecords.js';
 import { specialistWaikeDeepLink, SPECIALIST_WAIKE_TRACKS } from './waikeContract.js';
+import { runGeelongDesignBuildPlayable } from './geelongDesignBuildJourney.js';
 
 export const PLAYABLE_ACCEPTANCE_NOTE =
   'Learner acceptance requires completed specialty tasks, private artifacts, and Home return — not navigation alone.';
@@ -321,33 +322,13 @@ export function runGrahamSpecialtyPlayable({ learnerId = 'learner-gl' } = {}) {
   };
 }
 
-/** Geelong: design critique → revise prototype → portfolio */
+/** Geelong: design critique → revise prototype → portfolio (room-bound DESIGN_BUILD_STUDIO). */
 export function runGeelongSpecialtyPlayable({ learnerId = 'learner-au' } = {}) {
-  const critique = {
-    id: `geelong-db-${learnerId}`,
-    shell_layer: 'loc.heritage.geelong_gallery_shell',
-    exhibition_layer: 'loc.heritage.geelong_rone_2021',
-    proposal_layer: 'loc.heritage.geelong_jwa_proposal',
-    student_layer: 'loc.heritage.geelong_student_resonance',
-    campus_layer: 'loc.campus.geelong',
-    revision: 'Prototype revised after critique; still planning/proposal labels preserved.',
-  };
-  const privateNode = createPrivateNode({
-    ownerId: learnerId,
-    name: 'Geelong design/build portfolio',
-    mimeType: 'text/plain',
-    extra: { id: critique.id, critique, gallery_file: true, published: false },
-  });
+  const full = runGeelongDesignBuildPlayable({ learnerId });
+  if (!full.ok) return full;
   return {
-    ok: true,
-    representation_states: [
-      sceneStateLabel(loadLocationRecord(critique.shell_layer))?.representation_state,
-      sceneStateLabel(loadLocationRecord(critique.exhibition_layer))?.representation_state,
-      sceneStateLabel(loadLocationRecord(critique.proposal_layer))?.representation_state,
-      sceneStateLabel(loadLocationRecord(critique.campus_layer))?.representation_state,
-    ],
-    private_node: privateNode,
-    nav_only: false,
+    ...full,
+    representation_states: full.layer_states,
   };
 }
 
