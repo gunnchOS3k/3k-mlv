@@ -13,6 +13,7 @@ import WaikeCenter from './WaikeCenter';
 import GaryPilotJourney from './GaryPilotJourney';
 import NubukeHeritageExperience from './NubukeHeritageExperience';
 import GeelongTemporalCompare from './GeelongTemporalCompare';
+import CampusSpecialtyPanels from './CampusSpecialtyPanels';
 import { loadLocationRecord, sceneStateLabel } from '@3k-mlv/campus';
 
 const CampusWorld = lazy(() => import('../three/CampusWorld'));
@@ -131,9 +132,16 @@ export default function DigitalCampus({ slug }: { slug: string }) {
               <h2>{room.name}</h2>
               <p className="mlv-kicker">{room.function}</p>
               {room.specialist && <p>Specialist room</p>}
-              <button type="button" onClick={() => setRoomKey(room.key)}>
+              <button
+                type="button"
+                aria-pressed={selected?.key === room.key}
+                onClick={() => setRoomKey(room.key)}
+              >
                 Open {mode === 'map' ? 'on map' : 'in list'}
               </button>
+              {selected?.key === room.key && (
+                <p className="mlv-kicker" data-testid="active-room">Active room for learning task</p>
+              )}
               {room.specialist && SPECIALIST_WAIKE_TRACKS[room.key as keyof typeof SPECIALIST_WAIKE_TRACKS] && (
                 <p className="mlv-kicker">
                   WAIKE deep link: {specialistWaikeDeepLink(SPECIALIST_WAIKE_TRACKS[room.key as keyof typeof SPECIALIST_WAIKE_TRACKS])}
@@ -158,9 +166,15 @@ export default function DigitalCampus({ slug }: { slug: string }) {
           </ul>
         </section>
       )}
-      {slug === 'gary' && <GaryPilotJourney learnerId="local-learner" />}
-      {slug === 'ghana' && <NubukeHeritageExperience />}
+      {slug === 'gary' && (
+        <GaryPilotJourney
+          learnerId="local-learner"
+          onRoomFocus={(key) => { if (key) setRoomKey(key); }}
+        />
+      )}
+      {slug === 'ghana' && <NubukeHeritageExperience learnerId="local-learner" embed="campus" />}
       {slug === 'geelong' && <GeelongTemporalCompare />}
+      <CampusSpecialtyPanels slug={slug} learnerId="local-learner" />
       <EvidencePanel
         source={selectedReq?.id || `${campus.id} ${phase?.id || ''}`}
         implementation={selected?.name || campus.layout}

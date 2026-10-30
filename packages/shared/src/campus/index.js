@@ -7,3 +7,4 @@ export * from '../networkTwin/web.js';
 export * from './locationRecords.js';
 export * from './garyPilotJourney.js';
 export * from './specialtyJourneys.js';
+export * from './playableExperience.js';

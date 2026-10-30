@@ -7,6 +7,7 @@ import {
 } from '@3k-mlv/campus';
 import sourcesDoc from '../../../../data/gallery/v1/institution_sources.json';
 import { loadLocationRecord, sceneStateLabel } from '@3k-mlv/campus';
+import NubukeHeritageExperience from './NubukeHeritageExperience';
 
 type InstitutionSource = {
   campus: string;
@@ -80,6 +81,13 @@ export default function GallerySite({
           ))}
         </ul>
       </section>
+
+      {(campus === 'all' || campus === 'Ghana') && (
+        <section aria-labelledby="wing-nubuke">
+          <h2 id="wing-nubuke">Nubuke heritage (Gallery)</h2>
+          <NubukeHeritageExperience learnerId={actor.id} embed="gallery" />
+        </section>
+      )}
 
       <section aria-labelledby="wing-rotating">
         <h2 id="wing-rotating">Rotating Institution Wing</h2>

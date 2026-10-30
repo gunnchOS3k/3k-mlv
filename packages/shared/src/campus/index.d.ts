@@ -173,3 +173,16 @@ export function createGaryPilotJourney(input: { learnerId: string; now?: string 
 export function advanceGaryPilotJourney(journey: Record<string, unknown>, stepId: string, opts?: { payload?: Record<string, unknown>; now?: string }): { ok: boolean; journey?: Record<string, unknown>; complete?: boolean; reason?: string };
 export function resumeGaryPilotJourney(savedJourney: Record<string, unknown>, opts?: { now?: string }): { ok: boolean; journey?: Record<string, unknown>; reason?: string };
 export function garyPilotJourneyProgress(journey: Record<string, unknown>): { done: number; total: number; next_step: unknown; complete: boolean; representation_state: string };
+
+export const PLAYABLE_ACCEPTANCE_NOTE: string;
+export function garyTaskPrompt(stepId: string): { prompt: string; field: string; waike_surface: string; min_chars: number } | null;
+export function playGaryPilotStep(journey: Record<string, unknown>, stepId: string, opts?: { learnerInput?: string; now?: string; actorId?: string }): Record<string, unknown>;
+export function runGaryPlayableAcceptance(opts?: { learnerId?: string; nowBase?: string }): Record<string, unknown>;
+export function runNubukePlayableAcceptance(opts?: { learnerId?: string; observation?: string; now?: string }): Record<string, unknown>;
+export function runGhanaOfflinePlayable(opts?: { learnerId?: string }): Record<string, unknown>;
+export function runGazaPlayable(opts?: { learnerId?: string }): Record<string, unknown>;
+export function runGermanySpecialtyPlayable(opts?: { learnerId?: string }): Record<string, unknown>;
+export function runGuyanaSpecialtyPlayable(opts?: { learnerId?: string }): Record<string, unknown>;
+export function runGrahamSpecialtyPlayable(opts?: { learnerId?: string }): Record<string, unknown>;
+export function runGeelongSpecialtyPlayable(opts?: { learnerId?: string }): Record<string, unknown>;
+export function offlineSaveConflict(opts?: { localRevision?: string; remoteRevision?: string; prefer?: string }): Record<string, unknown>;
