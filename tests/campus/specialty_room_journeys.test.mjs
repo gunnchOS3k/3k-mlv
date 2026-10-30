@@ -52,6 +52,9 @@ describe('Germany apprenticeship room journey', () => {
     assert.equal(result.rooms_include_mechatronics_cart, true);
     assert.equal(result.returned_home, true);
     assert.equal(result.industrial_cyber_not_cert, true);
+    assert.equal(result.schematic_planning_twin_only, true);
+    assert.equal(result.PIXEL_7GC_CAMPUS_PASS, false);
+    assert.equal(result.HUMAN_7GC_SPATIAL_FIDELITY_PASS, false);
     assert.equal(result.private_node.visibility, VISIBILITY.PRIVATE);
     assert.equal(canReadNode({ actor: { id: 'bob' }, node: result.private_node }), false);
     assert.equal(result.steps_completed.length, 5);
@@ -96,6 +99,9 @@ describe('Guyana climate/GIS room journey', () => {
     assert.equal(result.nav_only, false);
     assert.equal(result.rooms_include_climate_gis, true);
     assert.equal(result.returned_home, true);
+    assert.equal(result.schematic_planning_twin_only, true);
+    assert.equal(result.PIXEL_7GC_CAMPUS_PASS, false);
+    assert.equal(result.HUMAN_7GC_SPATIAL_FIDELITY_PASS, false);
     assert.equal(result.scenario.map_export.includes_sensitive_community_data, false);
     assert.equal(result.scenario.data_status, 'synthetic');
     assert.equal(result.private_visibility, true);
@@ -143,6 +149,9 @@ describe('Graham Land polar twin room journey', () => {
     assert.equal(result.rooms_include_data_lab, true);
     assert.equal(result.rooms_include_satcom_cart, true);
     assert.equal(result.returned_home, true);
+    assert.equal(result.schematic_planning_twin_only, true);
+    assert.equal(result.PIXEL_7GC_CAMPUS_PASS, false);
+    assert.equal(result.HUMAN_7GC_SPATIAL_FIDELITY_PASS, false);
     assert.equal(result.private_visibility, true);
   });
 

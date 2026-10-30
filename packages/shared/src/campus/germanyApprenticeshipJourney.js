@@ -199,6 +199,9 @@ export function runGermanyApprenticeshipPlayable({ learnerId = 'learner-de', now
     industrial_cyber_not_cert: true,
     location_id: 'loc.campus.germany',
     representation_state: 'planning_concept',
+    schematic_planning_twin_only: true,
+    PIXEL_7GC_CAMPUS_PASS: false,
+    HUMAN_7GC_SPATIAL_FIDELITY_PASS: false,
     nav_only: false,
   };
 }

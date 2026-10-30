@@ -225,6 +225,9 @@ export function runGrahamPolarTwinPlayable({ learnerId = 'learner-gl', now = '20
     returned_home: journey.returned_home === true,
     location_id: 'loc.campus.graham-land',
     representation_state: 'planning_concept',
+    schematic_planning_twin_only: true,
+    PIXEL_7GC_CAMPUS_PASS: false,
+    HUMAN_7GC_SPATIAL_FIDELITY_PASS: false,
     nav_only: false,
   };
 }

@@ -214,6 +214,9 @@ export function runGuyanaClimateGisPlayable({ learnerId = 'learner-gy', now = '2
     returned_home: journey.returned_home === true,
     location_id: 'loc.campus.guyana',
     representation_state: 'planning_concept',
+    schematic_planning_twin_only: true,
+    PIXEL_7GC_CAMPUS_PASS: false,
+    HUMAN_7GC_SPATIAL_FIDELITY_PASS: false,
     nav_only: false,
   };
 }

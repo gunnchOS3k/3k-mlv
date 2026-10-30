@@ -59,8 +59,11 @@ export default function CampusArchitecture({
       <Text position={[0, 3.28, 0]} fontSize={0.09} color="#cbd5e1" anchorX="center" maxWidth={12}>
         Site plan (authored): {scene.sitePlan}
       </Text>
+      <Text position={[0, 3.08, 0]} fontSize={0.085} color="#fca5a5" anchorX="center" maxWidth={12}>
+        PIXEL_7GC_CAMPUS_PASS=false · HUMAN_7GC_SPATIAL_FIDELITY_PASS=false · not surveyed
+      </Text>
       {focusLabel && (
-        <Text position={[0, 3.05, 0]} fontSize={0.12} color="#a7f3d0" anchorX="center" maxWidth={10}>
+        <Text position={[0, 2.86, 0]} fontSize={0.12} color="#a7f3d0" anchorX="center" maxWidth={10}>
           Focused program: {focusLabel} (specialty room bind · schematic)
         </Text>
       )}
