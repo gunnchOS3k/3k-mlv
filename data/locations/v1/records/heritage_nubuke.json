@@ -1,0 +1,238 @@
+{
+  "schema": "mlv_location_record_v1",
+  "companion_to": [
+    "data/campus/v4/*.architecture.json",
+    "data/gallery/v1/institution_sources.json",
+    "artifacts/campus/7GC_CAMPUS_REQUIREMENT_TRACEABILITY.json"
+  ],
+  "location_id": "loc.heritage.nubuke",
+  "campus_id": "ghana",
+  "scene_version": "nubuke@heritage.v1",
+  "representation_state": "documented_snapshot",
+  "allowed_representation_states": [
+    "documented_snapshot",
+    "documented_historical_reconstruction",
+    "published_architectural_proposal",
+    "mlv_interpretation",
+    "planning_concept"
+  ],
+  "represented_period": {
+    "start": null,
+    "end": null,
+    "capture_date": null,
+    "capture_date_status": "unknown"
+  },
+  "coordinate_frame": {
+    "units": "metres",
+    "origin": "scene_local_unsurveyed",
+    "orientation": "authored_planning_twin",
+    "scale_method": null,
+    "metric_accuracy_status": "unverified"
+  },
+  "model_version": "v4.architecture.fidelity.1+location_records.v1",
+  "source_ids": [
+    "S-NUBUKE-ARCHITECT",
+    "S-NUBUKE-FOUNDATION",
+    "S-NUBUKE-STRUCTURE",
+    "S-NUBUKE-ARCHDAILY",
+    "S-NUBUKE-TOUR"
+  ],
+  "claims": [
+    {
+      "claim_id": "nubuke.topology",
+      "element_id": "gallery_garden_bungalow",
+      "claim_text": "Raised gallery, central garden/almond tree, reused bungalow, and shaded outdoor programming relationships are source-supported as qualitative topology.",
+      "source_ids": [
+        "S-NUBUKE-ARCHITECT",
+        "S-NUBUKE-FOUNDATION"
+      ],
+      "evidence_class": "observed",
+      "confidence_class": "categorical",
+      "confidence_rationale": "Primary architect and Foundation descriptions; geometry unmeasured in this shift.",
+      "dimensions": [
+        {
+          "value": null,
+          "units": "metres",
+          "measurement_method": null,
+          "source_locator": null,
+          "uncertainty": "unknown"
+        }
+      ],
+      "decision_history": [
+        {
+          "decision_id": "dec-2126caa8e020",
+          "date": "2026-10-30",
+          "actor": "cursor_mlv_fidelity_continue",
+          "summary": "Accepted qualitative topology; rejected metric assertion",
+          "previous_state": null,
+          "resulting_state": "observed"
+        }
+      ],
+      "known_conflicts": []
+    },
+    {
+      "claim_id": "nubuke.area",
+      "element_id": "floor_area",
+      "claim_text": "Area figures conflict across sources; no averaged footprint used for calibration.",
+      "source_ids": [
+        "S-NUBUKE-ARCHITECT",
+        "S-NUBUKE-ARCHDAILY",
+        "S-NUBUKE-STRUCTURE"
+      ],
+      "evidence_class": "unknown",
+      "confidence_class": "categorical",
+      "confidence_rationale": "Definitions differ (interior vs usable exterior vs GFA). Unknown retained.",
+      "dimensions": [
+        {
+          "value": null,
+          "units": "metres_squared",
+          "measurement_method": null,
+          "source_locator": null,
+          "uncertainty": "conflicting_definitions"
+        }
+      ],
+      "decision_history": [
+        {
+          "decision_id": "dec-3ca0cc185402",
+          "date": "2026-10-30",
+          "actor": "cursor_mlv_fidelity_continue",
+          "summary": "Preserved conflicting area definitions; no average",
+          "previous_state": "inferred",
+          "resulting_state": "unknown"
+        }
+      ],
+      "known_conflicts": [
+        {
+          "topic": "area_definition",
+          "sources": {
+            "S-NUBUKE-ARCHITECT": "271 m\u00b2 interior; 238 m\u00b2 usable exterior (architect page)",
+            "S-NUBUKE-ARCHDAILY": "290 m\u00b2 (article listing)",
+            "S-NUBUKE-STRUCTURE": "550 m\u00b2 GFA (structural engineer page)"
+          },
+          "resolution": "Do not average. Preserve definitions and source dates separately. Metric footprint calibration blocked."
+        }
+      ]
+    },
+    {
+      "claim_id": "nubuke.drawings",
+      "element_id": "plan_drawings",
+      "claim_text": "ArchDaily links site/ground/first drawings; titles/scale/coverage not yet inspected for tracing.",
+      "source_ids": [
+        "S-NUBUKE-ARCHDAILY"
+      ],
+      "evidence_class": "unknown",
+      "confidence_class": "categorical",
+      "confidence_rationale": "Drawing assets need inspection before dimensional assertions.",
+      "dimensions": [
+        {
+          "value": null,
+          "units": "metres",
+          "measurement_method": null,
+          "source_locator": null,
+          "uncertainty": "unknown"
+        }
+      ],
+      "decision_history": [
+        {
+          "decision_id": "dec-fc6c424932e6",
+          "date": "2026-10-30",
+          "actor": "cursor_mlv_fidelity_continue",
+          "summary": "Blocked tracing until drawing inventory",
+          "previous_state": null,
+          "resulting_state": "unknown"
+        }
+      ],
+      "known_conflicts": []
+    }
+  ],
+  "rights_records": [
+    {
+      "asset_id": "nubuke.architect_photos",
+      "asset_kind": "photograph",
+      "creator": null,
+      "rights_holder": null,
+      "license_or_permission_evidence": null,
+      "permitted_uses": [],
+      "approval_status": "unassessed"
+    },
+    {
+      "asset_id": "nubuke.drawings",
+      "asset_kind": "drawing",
+      "creator": null,
+      "rights_holder": null,
+      "license_or_permission_evidence": null,
+      "permitted_uses": [],
+      "approval_status": "unassessed"
+    },
+    {
+      "asset_id": "nubuke.tour_imagery",
+      "asset_kind": "scan_or_tour",
+      "creator": null,
+      "rights_holder": null,
+      "license_or_permission_evidence": null,
+      "permitted_uses": [],
+      "approval_status": "unassessed"
+    }
+  ],
+  "review_records": [
+    {
+      "review_type": "local_cultural",
+      "reviewer_or_body": null,
+      "date": null,
+      "decision": "not_obtained",
+      "evidence_locator": null,
+      "remaining_objections": []
+    }
+  ],
+  "accessibility": {
+    "non_3d_equivalent": "#/mlv/campus/ghana/list",
+    "navigation_adaptations": [
+      "list_mode",
+      "keyboard_room_grid"
+    ],
+    "verification_status": "not_assessed",
+    "physical_ramp_invented": false
+  },
+  "privacy": {
+    "public_location_precision": "none_until_reviewed",
+    "private_records_in_public_export": false,
+    "verification_status": "not_assessed"
+  },
+  "known_omissions": [
+    "Dimensioned drawing inspection incomplete",
+    "Capture date of Google Arts tour unknown",
+    "Reuse approval not obtained"
+  ],
+  "notes": "Nubuke teaches climate-responsive spatial thinking; it is not the WAIKE Ghana campus.",
+  "gates": {
+    "engineering": "in_progress",
+    "independent_verification": "not_assessed",
+    "cultural_review": "not_obtained",
+    "rights": "not_assessed",
+    "physical_validation": "not_assessed",
+    "research_ethics": "not_assessed",
+    "owner_release": "not_granted"
+  },
+  "source_records": [
+    {
+      "source_id": "S-NUBUKE-ARCHITECT",
+      "observation_ref": "data/locations/v1/source_observations.json#S-NUBUKE-ARCHITECT"
+    },
+    {
+      "source_id": "S-NUBUKE-FOUNDATION",
+      "observation_ref": "data/locations/v1/source_observations.json#S-NUBUKE-FOUNDATION"
+    },
+    {
+      "source_id": "S-NUBUKE-STRUCTURE",
+      "observation_ref": "data/locations/v1/source_observations.json#S-NUBUKE-STRUCTURE"
+    },
+    {
+      "source_id": "S-NUBUKE-ARCHDAILY",
+      "observation_ref": "data/locations/v1/source_observations.json#S-NUBUKE-ARCHDAILY"
+    },
+    {
+      "source_id": "S-NUBUKE-TOUR",
+      "observation_ref": "data/locations/v1/source_observations.json#S-NUBUKE-TOUR"
+    }
+  ]
+}

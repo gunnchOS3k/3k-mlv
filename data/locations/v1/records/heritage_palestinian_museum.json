@@ -1,0 +1,130 @@
+{
+  "schema": "mlv_location_record_v1",
+  "companion_to": [
+    "data/campus/v4/*.architecture.json",
+    "data/gallery/v1/institution_sources.json",
+    "artifacts/campus/7GC_CAMPUS_REQUIREMENT_TRACEABILITY.json"
+  ],
+  "location_id": "loc.heritage.palestinian_museum",
+  "campus_id": "gaza",
+  "scene_version": "palestinian_museum@heritage.v1",
+  "representation_state": "documented_snapshot",
+  "allowed_representation_states": [
+    "documented_snapshot",
+    "documented_historical_reconstruction",
+    "published_architectural_proposal",
+    "mlv_interpretation",
+    "planning_concept"
+  ],
+  "represented_period": {
+    "start": null,
+    "end": null,
+    "capture_date": null,
+    "capture_date_status": "unknown"
+  },
+  "coordinate_frame": {
+    "units": "metres",
+    "origin": "scene_local_unsurveyed",
+    "orientation": "authored_planning_twin",
+    "scale_method": null,
+    "metric_accuracy_status": "unverified"
+  },
+  "model_version": "v4.architecture.fidelity.1+location_records.v1",
+  "source_ids": [
+    "S-PALESTINE-MUSEUM",
+    "S-PALESTINE-ARCHIVE"
+  ],
+  "claims": [
+    {
+      "claim_id": "palmuseum.scope",
+      "element_id": "institution_scope",
+      "claim_text": "Palestinian Museum (Birzeit) is an external cultural reference; archive is not a Gaza museum floor plan; item-level provenance required.",
+      "source_ids": [
+        "S-PALESTINE-MUSEUM",
+        "S-PALESTINE-ARCHIVE"
+      ],
+      "evidence_class": "observed",
+      "confidence_class": "categorical",
+      "confidence_rationale": "Institution about page; archive rate-limited (429).",
+      "dimensions": [
+        {
+          "value": null,
+          "units": "metres",
+          "measurement_method": null,
+          "source_locator": null,
+          "uncertainty": "unknown"
+        }
+      ],
+      "decision_history": [
+        {
+          "decision_id": "dec-bacf9eb0adfd",
+          "date": "2026-10-30",
+          "actor": "cursor_mlv_fidelity_continue",
+          "summary": "No Gaza=Palestine archive conflation",
+          "previous_state": null,
+          "resulting_state": "observed"
+        }
+      ],
+      "known_conflicts": []
+    }
+  ],
+  "rights_records": [
+    {
+      "asset_id": "palarchive.items",
+      "asset_kind": "archive_record",
+      "creator": null,
+      "rights_holder": null,
+      "license_or_permission_evidence": null,
+      "permitted_uses": [],
+      "approval_status": "unassessed"
+    }
+  ],
+  "review_records": [
+    {
+      "review_type": "local_cultural",
+      "reviewer_or_body": null,
+      "date": null,
+      "decision": "not_obtained",
+      "evidence_locator": null,
+      "remaining_objections": []
+    }
+  ],
+  "accessibility": {
+    "non_3d_equivalent": "#/mlv/campus/gaza/list",
+    "navigation_adaptations": [
+      "list_mode",
+      "keyboard_room_grid"
+    ],
+    "verification_status": "not_assessed",
+    "physical_ramp_invented": false
+  },
+  "privacy": {
+    "public_location_precision": "institution_city_only_birzeit",
+    "private_records_in_public_export": false,
+    "verification_status": "engineering_redaction_in_place"
+  },
+  "known_omissions": [
+    "Archive 429 \u2014 no item-level inspection this shift",
+    "No sensitive Gaza coordinates stored"
+  ],
+  "notes": null,
+  "gates": {
+    "engineering": "in_progress",
+    "independent_verification": "not_assessed",
+    "cultural_review": "not_obtained",
+    "rights": "not_assessed",
+    "physical_validation": "not_assessed",
+    "research_ethics": "not_assessed",
+    "owner_release": "not_granted"
+  },
+  "source_records": [
+    {
+      "source_id": "S-PALESTINE-MUSEUM",
+      "observation_ref": "data/locations/v1/source_observations.json#S-PALESTINE-MUSEUM"
+    },
+    {
+      "source_id": "S-PALESTINE-ARCHIVE",
+      "observation_ref": "data/locations/v1/source_observations.json#S-PALESTINE-ARCHIVE"
+    }
+  ]
+}

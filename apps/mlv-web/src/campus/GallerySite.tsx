@@ -6,6 +6,7 @@ import {
   publicGalleryAssets,
 } from '@3k-mlv/campus';
 import sourcesDoc from '../../../../data/gallery/v1/institution_sources.json';
+import { loadLocationRecord, sceneStateLabel } from '@3k-mlv/campus';
 
 type InstitutionSource = {
   campus: string;
@@ -159,10 +160,17 @@ export default function GallerySite({
 }
 
 function InstitutionCard({ source }: { source: InstitutionSource }) {
+  const campusLoc = loadLocationRecord(`loc.campus.${source.campus_slug}`);
+  const label = sceneStateLabel(campusLoc as never);
   return (
     <article>
       <h3>{source.institution}</h3>
       <p>{source.campus} · {source.city_region}</p>
+      {label && (
+        <p className="mlv-kicker" data-testid="scene-state-label" data-representation-state={label.representation_state}>
+          Linked campus scene: {label.label} ({label.capture})
+        </p>
+      )}
       <p>{source.why_relevant}</p>
       <p className="mlv-kicker">{source.digital_treatment}</p>
       <p className="mlv-kicker">affiliation_claim={String(source.affiliation_claim)}</p>

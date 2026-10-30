@@ -1,0 +1,195 @@
+{
+  "schema": "mlv_location_record_v1",
+  "companion_to": [
+    "data/campus/v4/*.architecture.json",
+    "data/gallery/v1/institution_sources.json",
+    "artifacts/campus/7GC_CAMPUS_REQUIREMENT_TRACEABILITY.json"
+  ],
+  "location_id": "loc.heritage.iunw_arts_sciences",
+  "campus_id": "gary",
+  "scene_version": "iunw_asb@heritage.v1",
+  "representation_state": "documented_snapshot",
+  "allowed_representation_states": [
+    "documented_snapshot",
+    "documented_historical_reconstruction",
+    "published_architectural_proposal",
+    "mlv_interpretation",
+    "planning_concept"
+  ],
+  "represented_period": {
+    "start": null,
+    "end": null,
+    "capture_date": null,
+    "capture_date_status": "unknown"
+  },
+  "coordinate_frame": {
+    "units": "metres",
+    "origin": "scene_local_unsurveyed",
+    "orientation": "authored_planning_twin",
+    "scale_method": null,
+    "metric_accuracy_status": "unverified"
+  },
+  "model_version": "v4.architecture.fidelity.1+location_records.v1",
+  "source_ids": [
+    "S-IU-TOUR",
+    "S-IU-PRIMARY"
+  ],
+  "claims": [
+    {
+      "claim_id": "iunw.identity",
+      "element_id": "building_identity",
+      "claim_text": "Supplied Matterport identifies IUNW Arts and Sciences Building.",
+      "source_ids": [
+        "S-IU-TOUR",
+        "S-IU-PRIMARY"
+      ],
+      "evidence_class": "observed",
+      "confidence_class": "categorical",
+      "confidence_rationale": "Tour title and IU article corroborate identity; not a WAIKE facility.",
+      "dimensions": [
+        {
+          "value": null,
+          "units": "metres",
+          "measurement_method": null,
+          "source_locator": null,
+          "uncertainty": "unknown"
+        }
+      ],
+      "decision_history": [
+        {
+          "decision_id": "dec-cbea4075ce56",
+          "date": "2026-10-30",
+          "actor": "cursor_mlv_fidelity_continue",
+          "summary": "Confirmed identity; affiliation_claim remains false",
+          "previous_state": null,
+          "resulting_state": "observed"
+        }
+      ],
+      "known_conflicts": []
+    },
+    {
+      "claim_id": "iunw.metric",
+      "element_id": "dimensions",
+      "claim_text": "Metric reconstruction unsupported until capture date, room graph, and anchors recovered.",
+      "source_ids": [
+        "S-IU-TOUR"
+      ],
+      "evidence_class": "unknown",
+      "confidence_class": "categorical",
+      "confidence_rationale": "Interactive walkthrough and measurements not inspected in fidelity review.",
+      "dimensions": [
+        {
+          "value": null,
+          "units": "metres",
+          "measurement_method": null,
+          "source_locator": null,
+          "uncertainty": "unknown"
+        }
+      ],
+      "decision_history": [
+        {
+          "decision_id": "dec-1adafab1a9da",
+          "date": "2026-10-30",
+          "actor": "cursor_mlv_fidelity_continue",
+          "summary": "Metric status unknown",
+          "previous_state": null,
+          "resulting_state": "unknown"
+        }
+      ],
+      "known_conflicts": []
+    },
+    {
+      "claim_id": "iunw.affiliation",
+      "element_id": "waike_occupancy",
+      "claim_text": "No evidence that WAIKE occupies IU Northwest.",
+      "source_ids": [
+        "S-IU-TOUR",
+        "S-IU-PRIMARY",
+        "B-GARY"
+      ],
+      "evidence_class": "project_authored",
+      "confidence_class": "categorical",
+      "confidence_rationale": "Explicit non-claim required by fidelity packet HER-01.",
+      "dimensions": [
+        {
+          "value": null,
+          "units": "metres",
+          "measurement_method": null,
+          "source_locator": null,
+          "uncertainty": "unknown"
+        }
+      ],
+      "decision_history": [
+        {
+          "decision_id": "dec-4ff0b2f93e7d",
+          "date": "2026-10-30",
+          "actor": "cursor_mlv_fidelity_continue",
+          "summary": "Recorded non-affiliation",
+          "previous_state": null,
+          "resulting_state": "project_authored"
+        }
+      ],
+      "known_conflicts": []
+    }
+  ],
+  "rights_records": [
+    {
+      "asset_id": "iunw.matterport",
+      "asset_kind": "scan_or_tour",
+      "creator": null,
+      "rights_holder": null,
+      "license_or_permission_evidence": null,
+      "permitted_uses": [],
+      "approval_status": "unassessed"
+    }
+  ],
+  "review_records": [
+    {
+      "review_type": "local_cultural",
+      "reviewer_or_body": null,
+      "date": null,
+      "decision": "not_obtained",
+      "evidence_locator": null,
+      "remaining_objections": []
+    }
+  ],
+  "accessibility": {
+    "non_3d_equivalent": "#/mlv/campus/gary/list",
+    "navigation_adaptations": [
+      "list_mode",
+      "keyboard_room_grid"
+    ],
+    "verification_status": "not_assessed",
+    "physical_ramp_invented": false
+  },
+  "privacy": {
+    "public_location_precision": "none_until_reviewed",
+    "private_records_in_public_export": false,
+    "verification_status": "not_assessed"
+  },
+  "known_omissions": [
+    "Capture date unknown",
+    "Room graph not recovered",
+    "Export/reuse permission not obtained"
+  ],
+  "notes": null,
+  "gates": {
+    "engineering": "in_progress",
+    "independent_verification": "not_assessed",
+    "cultural_review": "not_obtained",
+    "rights": "not_assessed",
+    "physical_validation": "not_assessed",
+    "research_ethics": "not_assessed",
+    "owner_release": "not_granted"
+  },
+  "source_records": [
+    {
+      "source_id": "S-IU-TOUR",
+      "observation_ref": "data/locations/v1/source_observations.json#S-IU-TOUR"
+    },
+    {
+      "source_id": "S-IU-PRIMARY",
+      "observation_ref": "data/locations/v1/source_observations.json#S-IU-PRIMARY"
+    }
+  ]
+}

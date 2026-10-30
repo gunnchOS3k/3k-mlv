@@ -4,3 +4,6 @@ export * from './privacy.js';
 export * from './waikeContract.js';
 export * from './gates.js';
 export * from '../networkTwin/web.js';
+export * from './locationRecords.js';
+export * from './garyPilotJourney.js';
+export * from './specialtyJourneys.js';

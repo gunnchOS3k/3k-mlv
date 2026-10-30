@@ -1,0 +1,974 @@
+{
+  "schema": "mlv_packet_requirement_crosswalk_v1",
+  "prepared_on": "2026-10-30",
+  "packet_root": "/Users/gunnchos/Downloads/3k_MLV_Fidelity_Plan 2/",
+  "existing_ledgers_preserved": [
+    "artifacts/campus/7GC_CAMPUS_REQUIREMENT_TRACEABILITY.json",
+    "artifacts/campus/v4/ARCHITECTURE_REQUIREMENT_TRACEABILITY.json",
+    "artifacts/campus/7GC_CAMPUS_FIDELITY_GATES.json",
+    "artifacts/campus/v4/ARCHITECTURE_FIDELITY_GATES.json",
+    "data/gallery/v1/institution_sources.json"
+  ],
+  "pvs_pin": "GUNNCHOS3K_PVS@1.0.0",
+  "pvs_source_sha": "935eb3a20548b1a4b726f2ba305df94ff496be16",
+  "note": "Maps fidelity-packet IDs INTO existing ledgers. Does not replace, erase, or loosen PVS schema.",
+  "rows": [
+    {
+      "packet_requirement_id": "GOV-01",
+      "workstream": "Preservation",
+      "existing_ledger_targets": [
+        "run-state/REQUIREMENT_INDEX.md",
+        "artifacts/campus/7GC_CAMPUS_REQUIREMENT_TRACEABILITY.json"
+      ],
+      "alias_note": "Packet CSV is companion planning crosswalk; not pasted into PVS canonical rows.",
+      "mapping_status": "companion_open",
+      "pvs_compatible": false,
+      "packet_implementation_status_preserved": "proposed_unverified"
+    },
+    {
+      "packet_requirement_id": "GOV-02",
+      "workstream": "Preservation",
+      "existing_ledger_targets": [
+        "run-state/REQUIREMENT_INDEX.md",
+        "artifacts/campus/7GC_CAMPUS_REQUIREMENT_TRACEABILITY.json"
+      ],
+      "alias_note": "Packet CSV is companion planning crosswalk; not pasted into PVS canonical rows.",
+      "mapping_status": "companion_open",
+      "pvs_compatible": false,
+      "packet_implementation_status_preserved": "proposed_unverified"
+    },
+    {
+      "packet_requirement_id": "GOV-03",
+      "workstream": "Authorization",
+      "existing_ledger_targets": [
+        "run-state/REQUIREMENT_INDEX.md",
+        "artifacts/campus/7GC_CAMPUS_REQUIREMENT_TRACEABILITY.json"
+      ],
+      "alias_note": "Packet CSV is companion planning crosswalk; not pasted into PVS canonical rows.",
+      "mapping_status": "companion_open",
+      "pvs_compatible": false,
+      "packet_implementation_status_preserved": "proposed_unverified"
+    },
+    {
+      "packet_requirement_id": "DATA-01",
+      "workstream": "Provenance",
+      "existing_ledger_targets": [
+        "data/locations/v1/",
+        "data/gallery/v1/institution_sources.json",
+        "data/campus/v4/"
+      ],
+      "alias_note": "Packet CSV is companion planning crosswalk; not pasted into PVS canonical rows.",
+      "mapping_status": "companion_engineering_in_progress",
+      "pvs_compatible": false,
+      "packet_implementation_status_preserved": "proposed_unverified"
+    },
+    {
+      "packet_requirement_id": "DATA-02",
+      "workstream": "Provenance",
+      "existing_ledger_targets": [
+        "data/locations/v1/",
+        "data/gallery/v1/institution_sources.json",
+        "data/campus/v4/"
+      ],
+      "alias_note": "Packet CSV is companion planning crosswalk; not pasted into PVS canonical rows.",
+      "mapping_status": "companion_engineering_in_progress",
+      "pvs_compatible": false,
+      "packet_implementation_status_preserved": "proposed_unverified"
+    },
+    {
+      "packet_requirement_id": "DATA-03",
+      "workstream": "Provenance",
+      "existing_ledger_targets": [
+        "data/locations/v1/",
+        "data/gallery/v1/institution_sources.json",
+        "data/campus/v4/"
+      ],
+      "alias_note": "Packet CSV is companion planning crosswalk; not pasted into PVS canonical rows.",
+      "mapping_status": "companion_engineering_in_progress",
+      "pvs_compatible": false,
+      "packet_implementation_status_preserved": "proposed_unverified"
+    },
+    {
+      "packet_requirement_id": "DATA-04",
+      "workstream": "Temporal state",
+      "existing_ledger_targets": [
+        "data/locations/v1/",
+        "data/gallery/v1/institution_sources.json",
+        "data/campus/v4/"
+      ],
+      "alias_note": "Packet CSV is companion planning crosswalk; not pasted into PVS canonical rows.",
+      "mapping_status": "companion_engineering_in_progress",
+      "pvs_compatible": false,
+      "packet_implementation_status_preserved": "proposed_unverified"
+    },
+    {
+      "packet_requirement_id": "DATA-05",
+      "workstream": "Rights",
+      "existing_ledger_targets": [
+        "data/locations/v1/",
+        "data/gallery/v1/institution_sources.json",
+        "data/campus/v4/"
+      ],
+      "alias_note": "Packet CSV is companion planning crosswalk; not pasted into PVS canonical rows.",
+      "mapping_status": "companion_engineering_in_progress",
+      "pvs_compatible": false,
+      "packet_implementation_status_preserved": "proposed_unverified"
+    },
+    {
+      "packet_requirement_id": "DATA-06",
+      "workstream": "Geometry",
+      "existing_ledger_targets": [
+        "data/locations/v1/",
+        "data/gallery/v1/institution_sources.json",
+        "data/campus/v4/"
+      ],
+      "alias_note": "Packet CSV is companion planning crosswalk; not pasted into PVS canonical rows.",
+      "mapping_status": "companion_open",
+      "pvs_compatible": false,
+      "packet_implementation_status_preserved": "proposed_unverified"
+    },
+    {
+      "packet_requirement_id": "DATA-07",
+      "workstream": "Geometry",
+      "existing_ledger_targets": [
+        "data/locations/v1/",
+        "data/gallery/v1/institution_sources.json",
+        "data/campus/v4/"
+      ],
+      "alias_note": "Packet CSV is companion planning crosswalk; not pasted into PVS canonical rows.",
+      "mapping_status": "companion_engineering_in_progress",
+      "pvs_compatible": false,
+      "packet_implementation_status_preserved": "proposed_unverified"
+    },
+    {
+      "packet_requirement_id": "STATE-01",
+      "workstream": "Scene state",
+      "existing_ledger_targets": [
+        "data/locations/v1/",
+        "data/gallery/v1/institution_sources.json",
+        "data/campus/v4/"
+      ],
+      "alias_note": "Packet CSV is companion planning crosswalk; not pasted into PVS canonical rows.",
+      "mapping_status": "companion_engineering_in_progress",
+      "pvs_compatible": false,
+      "packet_implementation_status_preserved": "proposed_unverified"
+    },
+    {
+      "packet_requirement_id": "STATE-02",
+      "workstream": "Scene state",
+      "existing_ledger_targets": [
+        "data/locations/v1/",
+        "data/gallery/v1/institution_sources.json",
+        "data/campus/v4/"
+      ],
+      "alias_note": "Packet CSV is companion planning crosswalk; not pasted into PVS canonical rows.",
+      "mapping_status": "companion_engineering_in_progress",
+      "pvs_compatible": false,
+      "packet_implementation_status_preserved": "proposed_unverified"
+    },
+    {
+      "packet_requirement_id": "HER-01",
+      "workstream": "Gary reference",
+      "existing_ledger_targets": [
+        "data/locations/v1/",
+        "data/gallery/v1/institution_sources.json",
+        "data/campus/v4/"
+      ],
+      "alias_note": "Packet CSV is companion planning crosswalk; not pasted into PVS canonical rows.",
+      "mapping_status": "companion_engineering_in_progress",
+      "pvs_compatible": false,
+      "packet_implementation_status_preserved": "proposed_unverified"
+    },
+    {
+      "packet_requirement_id": "HER-02",
+      "workstream": "Nubuke",
+      "existing_ledger_targets": [
+        "data/locations/v1/",
+        "data/gallery/v1/institution_sources.json",
+        "data/campus/v4/"
+      ],
+      "alias_note": "Packet CSV is companion planning crosswalk; not pasted into PVS canonical rows.",
+      "mapping_status": "companion_engineering_in_progress",
+      "pvs_compatible": false,
+      "packet_implementation_status_preserved": "proposed_unverified"
+    },
+    {
+      "packet_requirement_id": "HER-03",
+      "workstream": "Nubuke",
+      "existing_ledger_targets": [
+        "data/locations/v1/",
+        "data/gallery/v1/institution_sources.json",
+        "data/campus/v4/"
+      ],
+      "alias_note": "Packet CSV is companion planning crosswalk; not pasted into PVS canonical rows.",
+      "mapping_status": "companion_open",
+      "pvs_compatible": false,
+      "packet_implementation_status_preserved": "proposed_unverified"
+    },
+    {
+      "packet_requirement_id": "HER-04",
+      "workstream": "Geelong",
+      "existing_ledger_targets": [
+        "data/locations/v1/",
+        "data/gallery/v1/institution_sources.json",
+        "data/campus/v4/"
+      ],
+      "alias_note": "Packet CSV is companion planning crosswalk; not pasted into PVS canonical rows.",
+      "mapping_status": "companion_engineering_in_progress",
+      "pvs_compatible": false,
+      "packet_implementation_status_preserved": "proposed_unverified"
+    },
+    {
+      "packet_requirement_id": "HER-05",
+      "workstream": "Geelong",
+      "existing_ledger_targets": [
+        "data/locations/v1/",
+        "data/gallery/v1/institution_sources.json",
+        "data/campus/v4/"
+      ],
+      "alias_note": "Packet CSV is companion planning crosswalk; not pasted into PVS canonical rows.",
+      "mapping_status": "companion_engineering_in_progress",
+      "pvs_compatible": false,
+      "packet_implementation_status_preserved": "proposed_unverified"
+    },
+    {
+      "packet_requirement_id": "HER-06",
+      "workstream": "Geelong",
+      "existing_ledger_targets": [
+        "data/locations/v1/",
+        "data/gallery/v1/institution_sources.json",
+        "data/campus/v4/"
+      ],
+      "alias_note": "Packet CSV is companion planning crosswalk; not pasted into PVS canonical rows.",
+      "mapping_status": "companion_engineering_in_progress",
+      "pvs_compatible": false,
+      "packet_implementation_status_preserved": "proposed_unverified"
+    },
+    {
+      "packet_requirement_id": "HER-07",
+      "workstream": "Germany heritage",
+      "existing_ledger_targets": [
+        "data/locations/v1/",
+        "data/gallery/v1/institution_sources.json",
+        "data/campus/v4/"
+      ],
+      "alias_note": "Packet CSV is companion planning crosswalk; not pasted into PVS canonical rows.",
+      "mapping_status": "companion_engineering_in_progress",
+      "pvs_compatible": false,
+      "packet_implementation_status_preserved": "proposed_unverified"
+    },
+    {
+      "packet_requirement_id": "HER-08",
+      "workstream": "Germany heritage",
+      "existing_ledger_targets": [
+        "data/locations/v1/",
+        "data/gallery/v1/institution_sources.json",
+        "data/campus/v4/"
+      ],
+      "alias_note": "Packet CSV is companion planning crosswalk; not pasted into PVS canonical rows.",
+      "mapping_status": "companion_open",
+      "pvs_compatible": false,
+      "packet_implementation_status_preserved": "proposed_unverified"
+    },
+    {
+      "packet_requirement_id": "HER-09",
+      "workstream": "Folkwang",
+      "existing_ledger_targets": [
+        "data/locations/v1/",
+        "data/gallery/v1/institution_sources.json",
+        "data/campus/v4/"
+      ],
+      "alias_note": "Packet CSV is companion planning crosswalk; not pasted into PVS canonical rows.",
+      "mapping_status": "companion_open",
+      "pvs_compatible": false,
+      "packet_implementation_status_preserved": "proposed_unverified"
+    },
+    {
+      "packet_requirement_id": "HER-10",
+      "workstream": "Palestinian heritage",
+      "existing_ledger_targets": [
+        "data/locations/v1/",
+        "data/gallery/v1/institution_sources.json",
+        "data/campus/v4/"
+      ],
+      "alias_note": "Packet CSV is companion planning crosswalk; not pasted into PVS canonical rows.",
+      "mapping_status": "companion_engineering_in_progress",
+      "pvs_compatible": false,
+      "packet_implementation_status_preserved": "proposed_unverified"
+    },
+    {
+      "packet_requirement_id": "HER-11",
+      "workstream": "Polar heritage",
+      "existing_ledger_targets": [
+        "data/locations/v1/",
+        "data/gallery/v1/institution_sources.json",
+        "data/campus/v4/"
+      ],
+      "alias_note": "Packet CSV is companion planning crosswalk; not pasted into PVS canonical rows.",
+      "mapping_status": "companion_engineering_in_progress",
+      "pvs_compatible": false,
+      "packet_implementation_status_preserved": "proposed_unverified"
+    },
+    {
+      "packet_requirement_id": "HER-12",
+      "workstream": "Source gaps",
+      "existing_ledger_targets": [
+        "data/locations/v1/",
+        "data/gallery/v1/institution_sources.json",
+        "data/campus/v4/"
+      ],
+      "alias_note": "Packet CSV is companion planning crosswalk; not pasted into PVS canonical rows.",
+      "mapping_status": "companion_engineering_in_progress",
+      "pvs_compatible": false,
+      "packet_implementation_status_preserved": "proposed_unverified"
+    },
+    {
+      "packet_requirement_id": "HER-13",
+      "workstream": "Interpretation",
+      "existing_ledger_targets": [
+        "data/locations/v1/",
+        "data/gallery/v1/institution_sources.json",
+        "data/campus/v4/"
+      ],
+      "alias_note": "Packet CSV is companion planning crosswalk; not pasted into PVS canonical rows.",
+      "mapping_status": "companion_open",
+      "pvs_compatible": false,
+      "packet_implementation_status_preserved": "proposed_unverified"
+    },
+    {
+      "packet_requirement_id": "CAMP-01",
+      "workstream": "Shared campus",
+      "existing_ledger_targets": [
+        "packages/shared/src/campus/catalog.js",
+        "artifacts/campus/7GC_CAMPUS_REQUIREMENT_TRACEABILITY.json",
+        "data/fidelity/ROOM_PROGRAM_BRIEF_DIFF.json"
+      ],
+      "alias_note": "Packet CSV is companion planning crosswalk; not pasted into PVS canonical rows.",
+      "mapping_status": "companion_open",
+      "pvs_compatible": false,
+      "packet_implementation_status_preserved": "proposed_unverified"
+    },
+    {
+      "packet_requirement_id": "CAMP-02",
+      "workstream": "Shared campus",
+      "existing_ledger_targets": [
+        "packages/shared/src/campus/catalog.js",
+        "artifacts/campus/7GC_CAMPUS_REQUIREMENT_TRACEABILITY.json",
+        "data/fidelity/ROOM_PROGRAM_BRIEF_DIFF.json"
+      ],
+      "alias_note": "Packet CSV is companion planning crosswalk; not pasted into PVS canonical rows.",
+      "mapping_status": "companion_open",
+      "pvs_compatible": false,
+      "packet_implementation_status_preserved": "proposed_unverified"
+    },
+    {
+      "packet_requirement_id": "CAMP-03",
+      "workstream": "Shared campus",
+      "existing_ledger_targets": [
+        "packages/shared/src/campus/catalog.js",
+        "artifacts/campus/7GC_CAMPUS_REQUIREMENT_TRACEABILITY.json",
+        "data/fidelity/ROOM_PROGRAM_BRIEF_DIFF.json"
+      ],
+      "alias_note": "Packet CSV is companion planning crosswalk; not pasted into PVS canonical rows.",
+      "mapping_status": "companion_open",
+      "pvs_compatible": false,
+      "packet_implementation_status_preserved": "proposed_unverified"
+    },
+    {
+      "packet_requirement_id": "CAMP-04",
+      "workstream": "Shared campus",
+      "existing_ledger_targets": [
+        "packages/shared/src/campus/catalog.js",
+        "artifacts/campus/7GC_CAMPUS_REQUIREMENT_TRACEABILITY.json",
+        "data/fidelity/ROOM_PROGRAM_BRIEF_DIFF.json"
+      ],
+      "alias_note": "Packet CSV is companion planning crosswalk; not pasted into PVS canonical rows.",
+      "mapping_status": "companion_open",
+      "pvs_compatible": false,
+      "packet_implementation_status_preserved": "proposed_unverified"
+    },
+    {
+      "packet_requirement_id": "PRESERVE-01",
+      "workstream": "PVS compatibility",
+      "existing_ledger_targets": [
+        "run-state/REQUIREMENT_INDEX.md",
+        "artifacts/campus/7GC_CAMPUS_REQUIREMENT_TRACEABILITY.json"
+      ],
+      "alias_note": "Packet CSV is companion planning crosswalk; not pasted into PVS canonical rows.",
+      "mapping_status": "companion_open",
+      "pvs_compatible": false,
+      "packet_implementation_status_preserved": "proposed_unverified"
+    },
+    {
+      "packet_requirement_id": "PRESERVE-02",
+      "workstream": "WAIKE scope",
+      "existing_ledger_targets": [
+        "run-state/REQUIREMENT_INDEX.md",
+        "artifacts/campus/7GC_CAMPUS_REQUIREMENT_TRACEABILITY.json"
+      ],
+      "alias_note": "Packet CSV is companion planning crosswalk; not pasted into PVS canonical rows.",
+      "mapping_status": "companion_open",
+      "pvs_compatible": false,
+      "packet_implementation_status_preserved": "proposed_unverified"
+    },
+    {
+      "packet_requirement_id": "PRESERVE-03",
+      "workstream": "MLV behavior",
+      "existing_ledger_targets": [
+        "run-state/REQUIREMENT_INDEX.md",
+        "artifacts/campus/7GC_CAMPUS_REQUIREMENT_TRACEABILITY.json"
+      ],
+      "alias_note": "Packet CSV is companion planning crosswalk; not pasted into PVS canonical rows.",
+      "mapping_status": "companion_open",
+      "pvs_compatible": false,
+      "packet_implementation_status_preserved": "proposed_unverified"
+    },
+    {
+      "packet_requirement_id": "PRESERVE-04",
+      "workstream": "Research sources",
+      "existing_ledger_targets": [
+        "run-state/REQUIREMENT_INDEX.md",
+        "artifacts/campus/7GC_CAMPUS_REQUIREMENT_TRACEABILITY.json"
+      ],
+      "alias_note": "Packet CSV is companion planning crosswalk; not pasted into PVS canonical rows.",
+      "mapping_status": "companion_open",
+      "pvs_compatible": false,
+      "packet_implementation_status_preserved": "proposed_unverified"
+    },
+    {
+      "packet_requirement_id": "CAMP-GARY-01",
+      "workstream": "Gary Anchor",
+      "existing_ledger_targets": [
+        "packages/shared/src/campus/catalog.js",
+        "artifacts/campus/7GC_CAMPUS_REQUIREMENT_TRACEABILITY.json",
+        "data/fidelity/ROOM_PROGRAM_BRIEF_DIFF.json"
+      ],
+      "alias_note": "Packet CSV is companion planning crosswalk; not pasted into PVS canonical rows.",
+      "mapping_status": "companion_open",
+      "pvs_compatible": false,
+      "packet_implementation_status_preserved": "proposed_unverified"
+    },
+    {
+      "packet_requirement_id": "CAMP-GARY-02",
+      "workstream": "Gary Program",
+      "existing_ledger_targets": [
+        "packages/shared/src/campus/catalog.js",
+        "artifacts/campus/7GC_CAMPUS_REQUIREMENT_TRACEABILITY.json",
+        "data/fidelity/ROOM_PROGRAM_BRIEF_DIFF.json"
+      ],
+      "alias_note": "Packet CSV is companion planning crosswalk; not pasted into PVS canonical rows.",
+      "mapping_status": "companion_open",
+      "pvs_compatible": false,
+      "packet_implementation_status_preserved": "proposed_unverified"
+    },
+    {
+      "packet_requirement_id": "CAMP-GARY-03",
+      "workstream": "Gary Character",
+      "existing_ledger_targets": [
+        "packages/shared/src/campus/catalog.js",
+        "artifacts/campus/7GC_CAMPUS_REQUIREMENT_TRACEABILITY.json",
+        "data/fidelity/ROOM_PROGRAM_BRIEF_DIFF.json"
+      ],
+      "alias_note": "Packet CSV is companion planning crosswalk; not pasted into PVS canonical rows.",
+      "mapping_status": "companion_open",
+      "pvs_compatible": false,
+      "packet_implementation_status_preserved": "proposed_unverified"
+    },
+    {
+      "packet_requirement_id": "CAMP-GHANA-01",
+      "workstream": "Ghana Anchor",
+      "existing_ledger_targets": [
+        "packages/shared/src/campus/catalog.js",
+        "artifacts/campus/7GC_CAMPUS_REQUIREMENT_TRACEABILITY.json",
+        "data/fidelity/ROOM_PROGRAM_BRIEF_DIFF.json"
+      ],
+      "alias_note": "Packet CSV is companion planning crosswalk; not pasted into PVS canonical rows.",
+      "mapping_status": "companion_open",
+      "pvs_compatible": false,
+      "packet_implementation_status_preserved": "proposed_unverified"
+    },
+    {
+      "packet_requirement_id": "CAMP-GHANA-02",
+      "workstream": "Ghana Program",
+      "existing_ledger_targets": [
+        "packages/shared/src/campus/catalog.js",
+        "artifacts/campus/7GC_CAMPUS_REQUIREMENT_TRACEABILITY.json",
+        "data/fidelity/ROOM_PROGRAM_BRIEF_DIFF.json"
+      ],
+      "alias_note": "Packet CSV is companion planning crosswalk; not pasted into PVS canonical rows.",
+      "mapping_status": "companion_open",
+      "pvs_compatible": false,
+      "packet_implementation_status_preserved": "proposed_unverified"
+    },
+    {
+      "packet_requirement_id": "CAMP-GHANA-03",
+      "workstream": "Ghana Access",
+      "existing_ledger_targets": [
+        "packages/shared/src/campus/catalog.js",
+        "artifacts/campus/7GC_CAMPUS_REQUIREMENT_TRACEABILITY.json",
+        "data/fidelity/ROOM_PROGRAM_BRIEF_DIFF.json"
+      ],
+      "alias_note": "Packet CSV is companion planning crosswalk; not pasted into PVS canonical rows.",
+      "mapping_status": "companion_open",
+      "pvs_compatible": false,
+      "packet_implementation_status_preserved": "proposed_unverified"
+    },
+    {
+      "packet_requirement_id": "CAMP-GUYANA-01",
+      "workstream": "Guyana Anchor",
+      "existing_ledger_targets": [
+        "packages/shared/src/campus/catalog.js",
+        "artifacts/campus/7GC_CAMPUS_REQUIREMENT_TRACEABILITY.json",
+        "data/fidelity/ROOM_PROGRAM_BRIEF_DIFF.json"
+      ],
+      "alias_note": "Packet CSV is companion planning crosswalk; not pasted into PVS canonical rows.",
+      "mapping_status": "companion_open",
+      "pvs_compatible": false,
+      "packet_implementation_status_preserved": "proposed_unverified"
+    },
+    {
+      "packet_requirement_id": "CAMP-GUYANA-02",
+      "workstream": "Guyana Program",
+      "existing_ledger_targets": [
+        "packages/shared/src/campus/catalog.js",
+        "artifacts/campus/7GC_CAMPUS_REQUIREMENT_TRACEABILITY.json",
+        "data/fidelity/ROOM_PROGRAM_BRIEF_DIFF.json"
+      ],
+      "alias_note": "Packet CSV is companion planning crosswalk; not pasted into PVS canonical rows.",
+      "mapping_status": "companion_open",
+      "pvs_compatible": false,
+      "packet_implementation_status_preserved": "proposed_unverified"
+    },
+    {
+      "packet_requirement_id": "CAMP-GUYANA-03",
+      "workstream": "Guyana Governance",
+      "existing_ledger_targets": [
+        "packages/shared/src/campus/catalog.js",
+        "artifacts/campus/7GC_CAMPUS_REQUIREMENT_TRACEABILITY.json",
+        "data/fidelity/ROOM_PROGRAM_BRIEF_DIFF.json"
+      ],
+      "alias_note": "Packet CSV is companion planning crosswalk; not pasted into PVS canonical rows.",
+      "mapping_status": "companion_open",
+      "pvs_compatible": false,
+      "packet_implementation_status_preserved": "proposed_unverified"
+    },
+    {
+      "packet_requirement_id": "CAMP-GERMANY-01",
+      "workstream": "Germany Anchor",
+      "existing_ledger_targets": [
+        "packages/shared/src/campus/catalog.js",
+        "artifacts/campus/7GC_CAMPUS_REQUIREMENT_TRACEABILITY.json",
+        "data/fidelity/ROOM_PROGRAM_BRIEF_DIFF.json"
+      ],
+      "alias_note": "Packet CSV is companion planning crosswalk; not pasted into PVS canonical rows.",
+      "mapping_status": "companion_open",
+      "pvs_compatible": false,
+      "packet_implementation_status_preserved": "proposed_unverified"
+    },
+    {
+      "packet_requirement_id": "CAMP-GERMANY-02",
+      "workstream": "Germany Program",
+      "existing_ledger_targets": [
+        "packages/shared/src/campus/catalog.js",
+        "artifacts/campus/7GC_CAMPUS_REQUIREMENT_TRACEABILITY.json",
+        "data/fidelity/ROOM_PROGRAM_BRIEF_DIFF.json"
+      ],
+      "alias_note": "Packet CSV is companion planning crosswalk; not pasted into PVS canonical rows.",
+      "mapping_status": "companion_open",
+      "pvs_compatible": false,
+      "packet_implementation_status_preserved": "proposed_unverified"
+    },
+    {
+      "packet_requirement_id": "CAMP-GERMANY-03",
+      "workstream": "Germany Governance",
+      "existing_ledger_targets": [
+        "packages/shared/src/campus/catalog.js",
+        "artifacts/campus/7GC_CAMPUS_REQUIREMENT_TRACEABILITY.json",
+        "data/fidelity/ROOM_PROGRAM_BRIEF_DIFF.json"
+      ],
+      "alias_note": "Packet CSV is companion planning crosswalk; not pasted into PVS canonical rows.",
+      "mapping_status": "companion_open",
+      "pvs_compatible": false,
+      "packet_implementation_status_preserved": "proposed_unverified"
+    },
+    {
+      "packet_requirement_id": "CAMP-GEELONG-01",
+      "workstream": "Geelong Anchor",
+      "existing_ledger_targets": [
+        "packages/shared/src/campus/catalog.js",
+        "artifacts/campus/7GC_CAMPUS_REQUIREMENT_TRACEABILITY.json",
+        "data/fidelity/ROOM_PROGRAM_BRIEF_DIFF.json"
+      ],
+      "alias_note": "Packet CSV is companion planning crosswalk; not pasted into PVS canonical rows.",
+      "mapping_status": "companion_open",
+      "pvs_compatible": false,
+      "packet_implementation_status_preserved": "proposed_unverified"
+    },
+    {
+      "packet_requirement_id": "CAMP-GEELONG-02",
+      "workstream": "Geelong Program",
+      "existing_ledger_targets": [
+        "packages/shared/src/campus/catalog.js",
+        "artifacts/campus/7GC_CAMPUS_REQUIREMENT_TRACEABILITY.json",
+        "data/fidelity/ROOM_PROGRAM_BRIEF_DIFF.json"
+      ],
+      "alias_note": "Packet CSV is companion planning crosswalk; not pasted into PVS canonical rows.",
+      "mapping_status": "companion_open",
+      "pvs_compatible": false,
+      "packet_implementation_status_preserved": "proposed_unverified"
+    },
+    {
+      "packet_requirement_id": "CAMP-GEELONG-03",
+      "workstream": "Geelong Governance",
+      "existing_ledger_targets": [
+        "packages/shared/src/campus/catalog.js",
+        "artifacts/campus/7GC_CAMPUS_REQUIREMENT_TRACEABILITY.json",
+        "data/fidelity/ROOM_PROGRAM_BRIEF_DIFF.json"
+      ],
+      "alias_note": "Packet CSV is companion planning crosswalk; not pasted into PVS canonical rows.",
+      "mapping_status": "companion_open",
+      "pvs_compatible": false,
+      "packet_implementation_status_preserved": "proposed_unverified"
+    },
+    {
+      "packet_requirement_id": "CAMP-GRAHAM-LAND-01",
+      "workstream": "Graham Land Anchor",
+      "existing_ledger_targets": [
+        "packages/shared/src/campus/catalog.js",
+        "artifacts/campus/7GC_CAMPUS_REQUIREMENT_TRACEABILITY.json",
+        "data/fidelity/ROOM_PROGRAM_BRIEF_DIFF.json"
+      ],
+      "alias_note": "Packet CSV is companion planning crosswalk; not pasted into PVS canonical rows.",
+      "mapping_status": "companion_open",
+      "pvs_compatible": false,
+      "packet_implementation_status_preserved": "proposed_unverified"
+    },
+    {
+      "packet_requirement_id": "CAMP-GRAHAM-LAND-02",
+      "workstream": "Graham Land Program",
+      "existing_ledger_targets": [
+        "packages/shared/src/campus/catalog.js",
+        "artifacts/campus/7GC_CAMPUS_REQUIREMENT_TRACEABILITY.json",
+        "data/fidelity/ROOM_PROGRAM_BRIEF_DIFF.json"
+      ],
+      "alias_note": "Packet CSV is companion planning crosswalk; not pasted into PVS canonical rows.",
+      "mapping_status": "companion_open",
+      "pvs_compatible": false,
+      "packet_implementation_status_preserved": "proposed_unverified"
+    },
+    {
+      "packet_requirement_id": "CAMP-GRAHAM-LAND-03",
+      "workstream": "Graham Land Evidence",
+      "existing_ledger_targets": [
+        "packages/shared/src/campus/catalog.js",
+        "artifacts/campus/7GC_CAMPUS_REQUIREMENT_TRACEABILITY.json",
+        "data/fidelity/ROOM_PROGRAM_BRIEF_DIFF.json"
+      ],
+      "alias_note": "Packet CSV is companion planning crosswalk; not pasted into PVS canonical rows.",
+      "mapping_status": "companion_open",
+      "pvs_compatible": false,
+      "packet_implementation_status_preserved": "proposed_unverified"
+    },
+    {
+      "packet_requirement_id": "CAMP-GAZA-01",
+      "workstream": "Gaza Anchor",
+      "existing_ledger_targets": [
+        "packages/shared/src/campus/catalog.js",
+        "artifacts/campus/7GC_CAMPUS_REQUIREMENT_TRACEABILITY.json",
+        "data/fidelity/ROOM_PROGRAM_BRIEF_DIFF.json"
+      ],
+      "alias_note": "Packet CSV is companion planning crosswalk; not pasted into PVS canonical rows.",
+      "mapping_status": "companion_open",
+      "pvs_compatible": false,
+      "packet_implementation_status_preserved": "proposed_unverified"
+    },
+    {
+      "packet_requirement_id": "CAMP-GAZA-02",
+      "workstream": "Gaza Program",
+      "existing_ledger_targets": [
+        "packages/shared/src/campus/catalog.js",
+        "artifacts/campus/7GC_CAMPUS_REQUIREMENT_TRACEABILITY.json",
+        "data/fidelity/ROOM_PROGRAM_BRIEF_DIFF.json"
+      ],
+      "alias_note": "Packet CSV is companion planning crosswalk; not pasted into PVS canonical rows.",
+      "mapping_status": "companion_open",
+      "pvs_compatible": false,
+      "packet_implementation_status_preserved": "proposed_unverified"
+    },
+    {
+      "packet_requirement_id": "CAMP-GAZA-03",
+      "workstream": "Gaza Safety",
+      "existing_ledger_targets": [
+        "packages/shared/src/campus/catalog.js",
+        "artifacts/campus/7GC_CAMPUS_REQUIREMENT_TRACEABILITY.json",
+        "data/fidelity/ROOM_PROGRAM_BRIEF_DIFF.json"
+      ],
+      "alias_note": "Packet CSV is companion planning crosswalk; not pasted into PVS canonical rows.",
+      "mapping_status": "companion_open",
+      "pvs_compatible": false,
+      "packet_implementation_status_preserved": "proposed_unverified"
+    },
+    {
+      "packet_requirement_id": "UX-01",
+      "workstream": "Home",
+      "existing_ledger_targets": [
+        "apps/mlv-web/src/",
+        "tests/privacy/",
+        "tests/campus/"
+      ],
+      "alias_note": "Packet CSV is companion planning crosswalk; not pasted into PVS canonical rows.",
+      "mapping_status": "companion_open",
+      "pvs_compatible": false,
+      "packet_implementation_status_preserved": "proposed_unverified"
+    },
+    {
+      "packet_requirement_id": "UX-02",
+      "workstream": "Campus",
+      "existing_ledger_targets": [
+        "apps/mlv-web/src/",
+        "tests/privacy/",
+        "tests/campus/"
+      ],
+      "alias_note": "Packet CSV is companion planning crosswalk; not pasted into PVS canonical rows.",
+      "mapping_status": "companion_open",
+      "pvs_compatible": false,
+      "packet_implementation_status_preserved": "proposed_unverified"
+    },
+    {
+      "packet_requirement_id": "UX-03",
+      "workstream": "Offline",
+      "existing_ledger_targets": [
+        "apps/mlv-web/src/",
+        "tests/privacy/",
+        "tests/campus/"
+      ],
+      "alias_note": "Packet CSV is companion planning crosswalk; not pasted into PVS canonical rows.",
+      "mapping_status": "companion_open",
+      "pvs_compatible": false,
+      "packet_implementation_status_preserved": "proposed_unverified"
+    },
+    {
+      "packet_requirement_id": "UX-04",
+      "workstream": "Gallery",
+      "existing_ledger_targets": [
+        "apps/mlv-web/src/",
+        "tests/privacy/",
+        "tests/campus/"
+      ],
+      "alias_note": "Packet CSV is companion planning crosswalk; not pasted into PVS canonical rows.",
+      "mapping_status": "companion_open",
+      "pvs_compatible": false,
+      "packet_implementation_status_preserved": "proposed_unverified"
+    },
+    {
+      "packet_requirement_id": "UX-05",
+      "workstream": "Integration",
+      "existing_ledger_targets": [
+        "apps/mlv-web/src/",
+        "tests/privacy/",
+        "tests/campus/"
+      ],
+      "alias_note": "Packet CSV is companion planning crosswalk; not pasted into PVS canonical rows.",
+      "mapping_status": "companion_open",
+      "pvs_compatible": false,
+      "packet_implementation_status_preserved": "proposed_unverified"
+    },
+    {
+      "packet_requirement_id": "UX-06",
+      "workstream": "Accessibility",
+      "existing_ledger_targets": [
+        "apps/mlv-web/src/",
+        "tests/privacy/",
+        "tests/campus/"
+      ],
+      "alias_note": "Packet CSV is companion planning crosswalk; not pasted into PVS canonical rows.",
+      "mapping_status": "companion_open",
+      "pvs_compatible": false,
+      "packet_implementation_status_preserved": "proposed_unverified"
+    },
+    {
+      "packet_requirement_id": "UX-07",
+      "workstream": "Architecture/access",
+      "existing_ledger_targets": [
+        "apps/mlv-web/src/",
+        "tests/privacy/",
+        "tests/campus/"
+      ],
+      "alias_note": "Packet CSV is companion planning crosswalk; not pasted into PVS canonical rows.",
+      "mapping_status": "companion_open",
+      "pvs_compatible": false,
+      "packet_implementation_status_preserved": "proposed_unverified"
+    },
+    {
+      "packet_requirement_id": "UX-08",
+      "workstream": "Performance",
+      "existing_ledger_targets": [
+        "apps/mlv-web/src/",
+        "tests/privacy/",
+        "tests/campus/"
+      ],
+      "alias_note": "Packet CSV is companion planning crosswalk; not pasted into PVS canonical rows.",
+      "mapping_status": "companion_open",
+      "pvs_compatible": false,
+      "packet_implementation_status_preserved": "proposed_unverified"
+    },
+    {
+      "packet_requirement_id": "EVAL-01",
+      "workstream": "Research",
+      "existing_ledger_targets": [
+        "docs/"
+      ],
+      "alias_note": "Packet CSV is companion planning crosswalk; not pasted into PVS canonical rows.",
+      "mapping_status": "blocked_external_or_research_authorization",
+      "pvs_compatible": false,
+      "packet_implementation_status_preserved": "proposed_unverified"
+    },
+    {
+      "packet_requirement_id": "EVAL-02",
+      "workstream": "Research",
+      "existing_ledger_targets": [
+        "docs/"
+      ],
+      "alias_note": "Packet CSV is companion planning crosswalk; not pasted into PVS canonical rows.",
+      "mapping_status": "blocked_external_or_research_authorization",
+      "pvs_compatible": false,
+      "packet_implementation_status_preserved": "proposed_unverified"
+    },
+    {
+      "packet_requirement_id": "EVAL-03",
+      "workstream": "Research",
+      "existing_ledger_targets": [
+        "docs/"
+      ],
+      "alias_note": "Packet CSV is companion planning crosswalk; not pasted into PVS canonical rows.",
+      "mapping_status": "blocked_external_or_research_authorization",
+      "pvs_compatible": false,
+      "packet_implementation_status_preserved": "proposed_unverified"
+    },
+    {
+      "packet_requirement_id": "EVAL-04",
+      "workstream": "Research",
+      "existing_ledger_targets": [
+        "docs/"
+      ],
+      "alias_note": "Packet CSV is companion planning crosswalk; not pasted into PVS canonical rows.",
+      "mapping_status": "blocked_external_or_research_authorization",
+      "pvs_compatible": false,
+      "packet_implementation_status_preserved": "proposed_unverified"
+    },
+    {
+      "packet_requirement_id": "EVAL-05",
+      "workstream": "Research",
+      "existing_ledger_targets": [
+        "docs/"
+      ],
+      "alias_note": "Packet CSV is companion planning crosswalk; not pasted into PVS canonical rows.",
+      "mapping_status": "blocked_external_or_research_authorization",
+      "pvs_compatible": false,
+      "packet_implementation_status_preserved": "proposed_unverified"
+    },
+    {
+      "packet_requirement_id": "EVAL-06",
+      "workstream": "Research",
+      "existing_ledger_targets": [
+        "docs/"
+      ],
+      "alias_note": "Packet CSV is companion planning crosswalk; not pasted into PVS canonical rows.",
+      "mapping_status": "blocked_external_or_research_authorization",
+      "pvs_compatible": false,
+      "packet_implementation_status_preserved": "proposed_unverified"
+    },
+    {
+      "packet_requirement_id": "EVAL-07",
+      "workstream": "Research",
+      "existing_ledger_targets": [
+        "docs/"
+      ],
+      "alias_note": "Packet CSV is companion planning crosswalk; not pasted into PVS canonical rows.",
+      "mapping_status": "blocked_external_or_research_authorization",
+      "pvs_compatible": false,
+      "packet_implementation_status_preserved": "proposed_unverified"
+    },
+    {
+      "packet_requirement_id": "PUB-01",
+      "workstream": "Publication",
+      "existing_ledger_targets": [
+        "docs/"
+      ],
+      "alias_note": "Packet CSV is companion planning crosswalk; not pasted into PVS canonical rows.",
+      "mapping_status": "blocked_external_or_research_authorization",
+      "pvs_compatible": false,
+      "packet_implementation_status_preserved": "proposed_unverified"
+    },
+    {
+      "packet_requirement_id": "PUB-02",
+      "workstream": "Publication",
+      "existing_ledger_targets": [
+        "docs/"
+      ],
+      "alias_note": "Packet CSV is companion planning crosswalk; not pasted into PVS canonical rows.",
+      "mapping_status": "blocked_external_or_research_authorization",
+      "pvs_compatible": false,
+      "packet_implementation_status_preserved": "proposed_unverified"
+    },
+    {
+      "packet_requirement_id": "PUB-03",
+      "workstream": "Publication",
+      "existing_ledger_targets": [
+        "docs/"
+      ],
+      "alias_note": "Packet CSV is companion planning crosswalk; not pasted into PVS canonical rows.",
+      "mapping_status": "blocked_external_or_research_authorization",
+      "pvs_compatible": false,
+      "packet_implementation_status_preserved": "proposed_unverified"
+    },
+    {
+      "packet_requirement_id": "PUB-04",
+      "workstream": "Publication",
+      "existing_ledger_targets": [
+        "docs/"
+      ],
+      "alias_note": "Packet CSV is companion planning crosswalk; not pasted into PVS canonical rows.",
+      "mapping_status": "blocked_external_or_research_authorization",
+      "pvs_compatible": false,
+      "packet_implementation_status_preserved": "proposed_unverified"
+    },
+    {
+      "packet_requirement_id": "PUB-05",
+      "workstream": "Indexing",
+      "existing_ledger_targets": [
+        "docs/"
+      ],
+      "alias_note": "Packet CSV is companion planning crosswalk; not pasted into PVS canonical rows.",
+      "mapping_status": "blocked_external_or_research_authorization",
+      "pvs_compatible": false,
+      "packet_implementation_status_preserved": "proposed_unverified"
+    },
+    {
+      "packet_requirement_id": "GATE-01",
+      "workstream": "Handoff",
+      "existing_ledger_targets": [
+        "apps/mlv-web/src/",
+        "tests/privacy/",
+        "tests/campus/"
+      ],
+      "alias_note": "Packet CSV is companion planning crosswalk; not pasted into PVS canonical rows.",
+      "mapping_status": "companion_open",
+      "pvs_compatible": false,
+      "packet_implementation_status_preserved": "proposed_unverified"
+    },
+    {
+      "packet_requirement_id": "GATE-02",
+      "workstream": "Release",
+      "existing_ledger_targets": [
+        "apps/mlv-web/src/",
+        "tests/privacy/",
+        "tests/campus/"
+      ],
+      "alias_note": "Packet CSV is companion planning crosswalk; not pasted into PVS canonical rows.",
+      "mapping_status": "companion_open",
+      "pvs_compatible": false,
+      "packet_implementation_status_preserved": "proposed_unverified"
+    }
+  ]
+}

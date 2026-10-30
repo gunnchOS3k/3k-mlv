@@ -1,0 +1,123 @@
+{
+  "schema": "mlv_location_record_v1",
+  "companion_to": [
+    "data/campus/v4/*.architecture.json",
+    "data/gallery/v1/institution_sources.json",
+    "artifacts/campus/7GC_CAMPUS_REQUIREMENT_TRACEABILITY.json"
+  ],
+  "location_id": "loc.heritage.geelong_student_resonance",
+  "campus_id": "geelong",
+  "scene_version": "geelong_student@v1",
+  "representation_state": "mlv_interpretation",
+  "allowed_representation_states": [
+    "documented_snapshot",
+    "documented_historical_reconstruction",
+    "published_architectural_proposal",
+    "mlv_interpretation",
+    "planning_concept"
+  ],
+  "represented_period": {
+    "start": null,
+    "end": null,
+    "capture_date": null,
+    "capture_date_status": "not_applicable"
+  },
+  "coordinate_frame": {
+    "units": "metres",
+    "origin": "scene_local_unsurveyed",
+    "orientation": "authored_planning_twin",
+    "scale_method": null,
+    "metric_accuracy_status": "unverified"
+  },
+  "model_version": "v4.architecture.fidelity.1+location_records.v1",
+  "source_ids": [
+    "S-GEELONG-STUDENT"
+  ],
+  "claims": [
+    {
+      "claim_id": "geelong.student",
+      "element_id": "student_exploration",
+      "claim_text": "Resonance+Reflection is a student design exploration, distinct from the institutional JWA proposal.",
+      "source_ids": [
+        "S-GEELONG-STUDENT"
+      ],
+      "evidence_class": "observed",
+      "confidence_class": "categorical",
+      "confidence_rationale": "Official portrait/project page; not adopted design.",
+      "dimensions": [
+        {
+          "value": null,
+          "units": "metres",
+          "measurement_method": null,
+          "source_locator": null,
+          "uncertainty": "unknown"
+        }
+      ],
+      "decision_history": [
+        {
+          "decision_id": "dec-dfda84cf30d4",
+          "date": "2026-10-30",
+          "actor": "cursor_mlv_fidelity_continue",
+          "summary": "Kept student scheme independent of JWA",
+          "previous_state": null,
+          "resulting_state": "mlv_interpretation"
+        }
+      ],
+      "known_conflicts": []
+    }
+  ],
+  "rights_records": [
+    {
+      "asset_id": "geelong.student.imagery",
+      "asset_kind": "drawing",
+      "creator": null,
+      "rights_holder": null,
+      "license_or_permission_evidence": null,
+      "permitted_uses": [],
+      "approval_status": "unassessed"
+    }
+  ],
+  "review_records": [
+    {
+      "review_type": "local_cultural",
+      "reviewer_or_body": null,
+      "date": null,
+      "decision": "not_obtained",
+      "evidence_locator": null,
+      "remaining_objections": []
+    }
+  ],
+  "accessibility": {
+    "non_3d_equivalent": "#/mlv/campus/geelong/list",
+    "navigation_adaptations": [
+      "list_mode",
+      "keyboard_room_grid"
+    ],
+    "verification_status": "not_assessed",
+    "physical_ramp_invented": false
+  },
+  "privacy": {
+    "public_location_precision": "none_until_reviewed",
+    "private_records_in_public_export": false,
+    "verification_status": "not_assessed"
+  },
+  "known_omissions": [
+    "Direct page cache miss noted in register; keep as exploration only"
+  ],
+  "notes": "Representation state uses mlv_interpretation for project framing of an external student exploration when shown inside MLV; the exploration itself is not a 3k MLV invention of building geometry.",
+  "gates": {
+    "engineering": "in_progress",
+    "independent_verification": "not_assessed",
+    "cultural_review": "not_obtained",
+    "rights": "not_assessed",
+    "physical_validation": "not_assessed",
+    "research_ethics": "not_assessed",
+    "owner_release": "not_granted"
+  },
+  "source_records": [
+    {
+      "source_id": "S-GEELONG-STUDENT",
+      "observation_ref": "data/locations/v1/source_observations.json#S-GEELONG-STUDENT"
+    }
+  ]
+}

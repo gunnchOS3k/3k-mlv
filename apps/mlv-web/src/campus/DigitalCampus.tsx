@@ -10,6 +10,10 @@ import {
 } from '@3k-mlv/campus';
 import EvidencePanel from './EvidencePanel';
 import WaikeCenter from './WaikeCenter';
+import GaryPilotJourney from './GaryPilotJourney';
+import NubukeHeritageExperience from './NubukeHeritageExperience';
+import GeelongTemporalCompare from './GeelongTemporalCompare';
+import { loadLocationRecord, sceneStateLabel } from '@3k-mlv/campus';
 
 const CampusWorld = lazy(() => import('../three/CampusWorld'));
 const WorldRuntime = lazy(() => import('../world/WorldRuntime'));
@@ -33,6 +37,8 @@ export default function DigitalCampus({ slug }: { slug: string }) {
   const selectedReq = requirements.find(
     (req) => req.key === selected?.key && req.phase_token === phase?.token,
   );
+  const campusLocation = useMemo(() => loadLocationRecord(`loc.campus.${slug}`), [slug]);
+  const sceneLabel = sceneStateLabel(campusLocation as never);
 
   if (!campus) {
     return (
@@ -51,6 +57,11 @@ export default function DigitalCampus({ slug }: { slug: string }) {
         <span className={`mlv-truth mlv-truth--${campus.truth_state}`}>{campus.truth_state}</span>
         {' '}{campus.planning_model} · layout {campus.layout}
       </p>
+      {sceneLabel && (
+        <p className="mlv-kicker" data-testid="scene-state-label" data-representation-state={sceneLabel.representation_state}>
+          {sceneLabel.label} · {sceneLabel.capture} · {sceneLabel.scene_version} · metric {sceneLabel.metric_accuracy_status}
+        </p>
+      )}
       {campus.suppress_sensitive_locations && (
         <p className="mlv-kicker">Sensitive real-world learner and site locations are not exposed.</p>
       )}
@@ -147,12 +158,21 @@ export default function DigitalCampus({ slug }: { slug: string }) {
           </ul>
         </section>
       )}
+      {slug === 'gary' && <GaryPilotJourney learnerId="local-learner" />}
+      {slug === 'ghana' && <NubukeHeritageExperience />}
+      {slug === 'geelong' && <GeelongTemporalCompare />}
       <EvidencePanel
         source={selectedReq?.id || `${campus.id} ${phase?.id || ''}`}
         implementation={selected?.name || campus.layout}
         phase={phase?.id || ''}
         status={selectedReq?.evidence_status || campus.truth_state}
         limitations="Authored navigable planning twin. Not surveyed architecture. Not a physical-campus claim."
+        representationState={sceneLabel?.representation_state}
+        representationLabel={sceneLabel?.label}
+        sceneVersion={sceneLabel ? `${sceneLabel.scene_version} / ${(campusLocation as { model_version?: string } | null)?.model_version || ''}` : undefined}
+        captureNote={sceneLabel?.capture}
+        metricAccuracy={sceneLabel?.metric_accuracy_status}
+        sourceIds={(campusLocation as { source_ids?: string[] } | null)?.source_ids}
       />
     </section>
   );

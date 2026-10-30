@@ -1,0 +1,129 @@
+{
+  "schema": "mlv_location_record_v1",
+  "companion_to": [
+    "data/campus/v4/*.architecture.json",
+    "data/gallery/v1/institution_sources.json",
+    "artifacts/campus/7GC_CAMPUS_REQUIREMENT_TRACEABILITY.json"
+  ],
+  "location_id": "loc.heritage.zollverein_ruhr",
+  "campus_id": "germany",
+  "scene_version": "zollverein_ruhr@heritage.v1",
+  "representation_state": "documented_snapshot",
+  "allowed_representation_states": [
+    "documented_snapshot",
+    "documented_historical_reconstruction",
+    "published_architectural_proposal",
+    "mlv_interpretation",
+    "planning_concept"
+  ],
+  "represented_period": {
+    "start": null,
+    "end": null,
+    "capture_date": null,
+    "capture_date_status": "unknown"
+  },
+  "coordinate_frame": {
+    "units": "metres",
+    "origin": "scene_local_unsurveyed",
+    "orientation": "authored_planning_twin",
+    "scale_method": null,
+    "metric_accuracy_status": "unverified"
+  },
+  "model_version": "v4.architecture.fidelity.1+location_records.v1",
+  "source_ids": [
+    "S-ZOLLVEREIN",
+    "S-RUHR-KMS"
+  ],
+  "claims": [
+    {
+      "claim_id": "zollverein.identity",
+      "element_id": "site_identity",
+      "claim_text": "Zollverein / Ruhr Museum industrial landscape is distinct from Museum Folkwang.",
+      "source_ids": [
+        "S-ZOLLVEREIN"
+      ],
+      "evidence_class": "observed",
+      "confidence_class": "categorical",
+      "confidence_rationale": "Operator digital heritage page; KMS interactive still unresolved.",
+      "dimensions": [
+        {
+          "value": null,
+          "units": "metres",
+          "measurement_method": null,
+          "source_locator": null,
+          "uncertainty": "unknown"
+        }
+      ],
+      "decision_history": [
+        {
+          "decision_id": "dec-8fc26495b10c",
+          "date": "2026-10-30",
+          "actor": "cursor_mlv_fidelity_continue",
+          "summary": "Kept Zollverein separate from Folkwang; KMS gap retained",
+          "previous_state": null,
+          "resulting_state": "observed"
+        }
+      ],
+      "known_conflicts": []
+    }
+  ],
+  "rights_records": [
+    {
+      "asset_id": "zollverein.digital",
+      "asset_kind": "scan_or_tour",
+      "creator": null,
+      "rights_holder": null,
+      "license_or_permission_evidence": null,
+      "permitted_uses": [],
+      "approval_status": "unassessed"
+    }
+  ],
+  "review_records": [
+    {
+      "review_type": "local_cultural",
+      "reviewer_or_body": null,
+      "date": null,
+      "decision": "not_obtained",
+      "evidence_locator": null,
+      "remaining_objections": []
+    }
+  ],
+  "accessibility": {
+    "non_3d_equivalent": "#/mlv/campus/germany/list",
+    "navigation_adaptations": [
+      "list_mode",
+      "keyboard_room_grid"
+    ],
+    "verification_status": "not_assessed",
+    "physical_ramp_invented": false
+  },
+  "privacy": {
+    "public_location_precision": "none_until_reviewed",
+    "private_records_in_public_export": false,
+    "verification_status": "not_assessed"
+  },
+  "known_omissions": [
+    "kms.ruhrmuseum.de inaccessible \u2014 gap retained",
+    "No composite museum scene"
+  ],
+  "notes": null,
+  "gates": {
+    "engineering": "in_progress",
+    "independent_verification": "not_assessed",
+    "cultural_review": "not_obtained",
+    "rights": "not_assessed",
+    "physical_validation": "not_assessed",
+    "research_ethics": "not_assessed",
+    "owner_release": "not_granted"
+  },
+  "source_records": [
+    {
+      "source_id": "S-ZOLLVEREIN",
+      "observation_ref": "data/locations/v1/source_observations.json#S-ZOLLVEREIN"
+    },
+    {
+      "source_id": "S-RUHR-KMS",
+      "observation_ref": "data/locations/v1/source_observations.json#S-RUHR-KMS"
+    }
+  ]
+}

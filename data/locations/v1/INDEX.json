@@ -1,0 +1,87 @@
+{
+  "schema": "mlv_location_record_index_v1",
+  "model_version": "v4.architecture.fidelity.1+location_records.v1",
+  "prepared_on": "2026-10-30",
+  "note": "Companion location records mapped onto existing campus/gallery IDs. Does not replace 7GC_CAMPUS_REQUIREMENT_TRACEABILITY or architecture.json.",
+  "location_ids": [
+    "loc.campus.gary",
+    "loc.campus.gaza",
+    "loc.campus.geelong",
+    "loc.campus.germany",
+    "loc.campus.ghana",
+    "loc.campus.graham-land",
+    "loc.campus.guyana",
+    "loc.heritage.folkwang",
+    "loc.heritage.geelong_gallery_shell",
+    "loc.heritage.geelong_jwa_proposal",
+    "loc.heritage.geelong_rone_2021",
+    "loc.heritage.geelong_student_resonance",
+    "loc.heritage.iunw_arts_sciences",
+    "loc.heritage.nubuke",
+    "loc.heritage.palestinian_museum",
+    "loc.heritage.port_lockroy",
+    "loc.heritage.zollverein_ruhr"
+  ],
+  "by_campus": {
+    "gary": [
+      "loc.campus.gary",
+      "loc.heritage.iunw_arts_sciences"
+    ],
+    "ghana": [
+      "loc.campus.ghana",
+      "loc.heritage.nubuke"
+    ],
+    "guyana": [
+      "loc.campus.guyana"
+    ],
+    "germany": [
+      "loc.campus.germany",
+      "loc.heritage.zollverein_ruhr",
+      "loc.heritage.folkwang"
+    ],
+    "geelong": [
+      "loc.campus.geelong",
+      "loc.heritage.geelong_gallery_shell",
+      "loc.heritage.geelong_rone_2021",
+      "loc.heritage.geelong_jwa_proposal",
+      "loc.heritage.geelong_student_resonance"
+    ],
+    "graham-land": [
+      "loc.campus.graham-land",
+      "loc.heritage.port_lockroy"
+    ],
+    "gaza": [
+      "loc.campus.gaza",
+      "loc.heritage.palestinian_museum"
+    ]
+  },
+  "by_representation_state": {
+    "planning_concept": [
+      "loc.campus.gary",
+      "loc.campus.ghana",
+      "loc.campus.guyana",
+      "loc.campus.germany",
+      "loc.campus.geelong",
+      "loc.campus.graham-land",
+      "loc.campus.gaza"
+    ],
+    "documented_snapshot": [
+      "loc.heritage.nubuke",
+      "loc.heritage.iunw_arts_sciences",
+      "loc.heritage.geelong_gallery_shell",
+      "loc.heritage.zollverein_ruhr",
+      "loc.heritage.folkwang",
+      "loc.heritage.port_lockroy",
+      "loc.heritage.palestinian_museum"
+    ],
+    "documented_historical_reconstruction": [
+      "loc.heritage.geelong_rone_2021"
+    ],
+    "published_architectural_proposal": [
+      "loc.heritage.geelong_jwa_proposal"
+    ],
+    "mlv_interpretation": [
+      "loc.heritage.geelong_student_resonance"
+    ]
+  }
+}

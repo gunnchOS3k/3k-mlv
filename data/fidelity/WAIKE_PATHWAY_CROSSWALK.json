@@ -1,0 +1,214 @@
+{
+  "schema": "mlv_waike_pathway_crosswalk_v1",
+  "prepared_on": "2026-10-30",
+  "note": "Preserves 18 catalog IDs vs digital-RC package count with shared GENERAL_IT. Neither count equals instructional completeness. Companion only \u2014 does not delete pathways.",
+  "sources": {
+    "eighteen_tracks": "waike-research-ops/curriculum/taxonomy/eighteen_tracks.json",
+    "digital_rc_artifact": "waike-research-ops/artifacts/COURSE_DIGITAL_RC.json",
+    "digital_rc_dirs": "waike-research-ops/curriculum/digital_rc"
+  },
+  "counts": {
+    "catalog_track_ids": 18,
+    "digital_rc_course_keys": 14,
+    "digital_rc_dirs_on_disk": 16,
+    "course_digital_rc_true": 14,
+    "full_18_course_digital_rc_flag": false
+  },
+  "eight_track_families": {
+    "IT": [
+      "DIGITAL_CONFIDENCE",
+      "GENERAL_IT",
+      "IT_SUPPORT_HARDWARE"
+    ],
+    "hardware": [
+      "IT_SUPPORT_HARDWARE",
+      "HARDWARE_ENGINEERING",
+      "EMBEDDED_PROTOTYPING",
+      "ROBOTICS_CONTROL"
+    ],
+    "software": [
+      "SOFTWARE_BUILDER",
+      "GAME_DEV_INTERACTIVE",
+      "GUNNCHOS_PRODUCT_LAB"
+    ],
+    "cybersecurity": [
+      "CYBER_SOC",
+      "CYBERSECURITY"
+    ],
+    "networking": [
+      "NETWORKING_INFRA",
+      "COMPUTER_NETWORKING",
+      "WIRELESS_6G"
+    ],
+    "cloud": [
+      "CLOUD_DEVOPS"
+    ],
+    "AI/ML": [
+      "DATA_DASHBOARDS",
+      "DATA_VIZ_BI",
+      "AI_ML_EDGE"
+    ],
+    "professional_development": [
+      "COMM_PD_ETHICS",
+      "PM_AGILE_LSS"
+    ]
+  },
+  "rows": [
+    {
+      "catalog_track_id": "DIGITAL_CONFIDENCE",
+      "digital_rc_course_id": "GENERAL_IT",
+      "shares_general_it_content": true,
+      "eight_track_family": "IT",
+      "digital_rc_present": true,
+      "instructional_completeness_claimed": false
+    },
+    {
+      "catalog_track_id": "IT_SUPPORT_HARDWARE",
+      "digital_rc_course_id": "HARDWARE_ENGINEERING",
+      "shares_general_it_content": false,
+      "eight_track_family": "IT",
+      "digital_rc_present": true,
+      "instructional_completeness_claimed": false
+    },
+    {
+      "catalog_track_id": "SOFTWARE_BUILDER",
+      "digital_rc_course_id": "SOFTWARE_BUILDER",
+      "shares_general_it_content": false,
+      "eight_track_family": "software",
+      "digital_rc_present": true,
+      "instructional_completeness_claimed": false
+    },
+    {
+      "catalog_track_id": "NETWORKING_INFRA",
+      "digital_rc_course_id": "COMPUTER_NETWORKING",
+      "shares_general_it_content": false,
+      "eight_track_family": "networking",
+      "digital_rc_present": true,
+      "instructional_completeness_claimed": false
+    },
+    {
+      "catalog_track_id": "CYBER_SOC",
+      "digital_rc_course_id": "CYBERSECURITY",
+      "shares_general_it_content": false,
+      "eight_track_family": "cybersecurity",
+      "digital_rc_present": true,
+      "instructional_completeness_claimed": false
+    },
+    {
+      "catalog_track_id": "DATA_DASHBOARDS",
+      "digital_rc_course_id": "DATA_DASHBOARDS",
+      "shares_general_it_content": false,
+      "eight_track_family": "AI/ML",
+      "digital_rc_present": true,
+      "instructional_completeness_claimed": false
+    },
+    {
+      "catalog_track_id": "AI_ML_EDGE",
+      "digital_rc_course_id": "AI_ML_EDGE",
+      "shares_general_it_content": false,
+      "eight_track_family": "AI/ML",
+      "digital_rc_present": true,
+      "instructional_completeness_claimed": false
+    },
+    {
+      "catalog_track_id": "EMBEDDED_PROTOTYPING",
+      "digital_rc_course_id": null,
+      "shares_general_it_content": false,
+      "eight_track_family": "hardware",
+      "digital_rc_present": false,
+      "instructional_completeness_claimed": false
+    },
+    {
+      "catalog_track_id": "WIRELESS_6G",
+      "digital_rc_course_id": "WIRELESS_6G",
+      "shares_general_it_content": false,
+      "eight_track_family": "networking",
+      "digital_rc_present": true,
+      "instructional_completeness_claimed": false
+    },
+    {
+      "catalog_track_id": "PM_AGILE_LSS",
+      "digital_rc_course_id": "PM_AGILE_LSS",
+      "shares_general_it_content": false,
+      "eight_track_family": "professional_development",
+      "digital_rc_present": true,
+      "instructional_completeness_claimed": false
+    },
+    {
+      "catalog_track_id": "GAME_DEV_INTERACTIVE",
+      "digital_rc_course_id": "GAME_DEV_INTERACTIVE",
+      "shares_general_it_content": false,
+      "eight_track_family": "software",
+      "digital_rc_present": true,
+      "instructional_completeness_claimed": false
+    },
+    {
+      "catalog_track_id": "SEVEN_GC_APPRENTICESHIP",
+      "digital_rc_course_id": null,
+      "shares_general_it_content": false,
+      "eight_track_family": null,
+      "digital_rc_present": false,
+      "instructional_completeness_claimed": false
+    },
+    {
+      "catalog_track_id": "CLOUD_DEVOPS",
+      "digital_rc_course_id": "CLOUD_DEVOPS",
+      "shares_general_it_content": false,
+      "eight_track_family": "cloud",
+      "digital_rc_present": true,
+      "instructional_completeness_claimed": false
+    },
+    {
+      "catalog_track_id": "COMM_PD_ETHICS",
+      "digital_rc_course_id": "COMM_PD_ETHICS",
+      "shares_general_it_content": false,
+      "eight_track_family": "professional_development",
+      "digital_rc_present": true,
+      "instructional_completeness_claimed": false
+    },
+    {
+      "catalog_track_id": "ROBOTICS_CONTROL",
+      "digital_rc_course_id": "ROBOTICS_CONTROL",
+      "shares_general_it_content": false,
+      "eight_track_family": "hardware",
+      "digital_rc_present": true,
+      "instructional_completeness_claimed": false
+    },
+    {
+      "catalog_track_id": "GUNNCHOS_PRODUCT_LAB",
+      "digital_rc_course_id": null,
+      "shares_general_it_content": false,
+      "eight_track_family": "software",
+      "digital_rc_present": false,
+      "instructional_completeness_claimed": false
+    },
+    {
+      "catalog_track_id": "HARDWARE_ENGINEERING",
+      "digital_rc_course_id": "HARDWARE_ENGINEERING",
+      "shares_general_it_content": false,
+      "eight_track_family": "hardware",
+      "digital_rc_present": true,
+      "instructional_completeness_claimed": false
+    },
+    {
+      "catalog_track_id": "DATA_VIZ_BI",
+      "digital_rc_course_id": "DATA_VIZ_BI",
+      "shares_general_it_content": false,
+      "eight_track_family": "AI/ML",
+      "digital_rc_present": true,
+      "instructional_completeness_claimed": false
+    }
+  ],
+  "unmapped_catalog_tracks": [
+    "EMBEDDED_PROTOTYPING",
+    "SEVEN_GC_APPRENTICESHIP",
+    "GUNNCHOS_PRODUCT_LAB"
+  ],
+  "orphan_digital_courses": [],
+  "gates": {
+    "PATHWAY_COUNT_HONESTY_PASS": true,
+    "NO_PATHWAY_DELETED_PASS": true,
+    "INSTRUCTIONAL_COMPLETENESS_CLAIMED": false,
+    "HUMAN_CURRICULUM_ACCEPTANCE": false
+  }
+}

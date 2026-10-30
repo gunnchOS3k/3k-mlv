@@ -156,3 +156,20 @@ export function unboundWaikeCampus(): {
   readiness: { ready: number; partial: number };
   consumer_summary: { mode: string };
 };
+
+export const REPRESENTATION_STATES: readonly string[];
+export const STATE_LABELS: Record<string, string>;
+export function loadLocationIndex(): { location_ids: string[]; by_campus: Record<string, string[]> };
+export function loadLocationRecord(locationId: string): Record<string, unknown> | null;
+export function listLocationRecords(): Array<Record<string, unknown>>;
+export function locationsForCampus(campusSlug: string): Array<Record<string, unknown>>;
+export function reconstructClaimHistory(locationId: string, claimId: string): { ok: boolean; decision_history?: unknown[]; reason?: string };
+export function validateLocationRecord(record: Record<string, unknown>): { ok: boolean; errors: string[] };
+export function sceneStateLabel(record: Record<string, unknown> | null): { label: string; representation_state: string; capture: string; scene_version: string } | null;
+export function assertSourceObservationsImmutableShape(doc?: Record<string, unknown>): { ok: boolean; errors: string[]; count: number };
+export const GARY_PILOT_JOURNEY_ID: string;
+export const GARY_PILOT_STEPS: ReadonlyArray<{ id: string; room_key: string; title: string; action: string; produces: string }>;
+export function createGaryPilotJourney(input: { learnerId: string; now?: string }): { ok: true; journey: Record<string, unknown> } | { ok: false; reason: string };
+export function advanceGaryPilotJourney(journey: Record<string, unknown>, stepId: string, opts?: { payload?: Record<string, unknown>; now?: string }): { ok: boolean; journey?: Record<string, unknown>; complete?: boolean; reason?: string };
+export function resumeGaryPilotJourney(savedJourney: Record<string, unknown>, opts?: { now?: string }): { ok: boolean; journey?: Record<string, unknown>; reason?: string };
+export function garyPilotJourneyProgress(journey: Record<string, unknown>): { done: number; total: number; next_step: unknown; complete: boolean; representation_state: string };
