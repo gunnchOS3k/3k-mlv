@@ -73,7 +73,12 @@ export default function DigitalCampus({ slug }: { slug: string }) {
   }
 
   return (
-    <section className="mlv-campus" aria-label={`${campus.atlas_name} digital campus`}>
+    <section
+      className="mlv-campus"
+      aria-label={`${campus.atlas_name} digital campus`}
+      data-campus-slug={campus.slug}
+      data-representation-state={sceneLabel?.representation_state || campus.truth_state}
+    >
       <h1>{campus.name}</h1>
       <p className="mlv-kicker">{campus.planning_identity}</p>
       <p>
@@ -128,7 +133,7 @@ export default function DigitalCampus({ slug }: { slug: string }) {
             initialWorld="CAMPUS"
             campusSlug={campus.slug}
             planningSlot={null}
-            massing={<CampusWorld slug={campus.slug} phaseId={phaseId} />}
+            massing={<CampusWorld slug={campus.slug} phaseId={phaseId} focusedProgramKey={roomKey} />}
           />
         </Suspense>
       ) : null}
@@ -139,7 +144,7 @@ export default function DigitalCampus({ slug }: { slug: string }) {
             <ambientLight intensity={0.5} />
             <directionalLight position={[10, 14, 6]} intensity={1.05} />
             <Suspense fallback={null}>
-              <CampusWorld slug={campus.slug} phaseId={phaseId} />
+              <CampusWorld slug={campus.slug} phaseId={phaseId} focusedProgramKey={roomKey} />
             </Suspense>
             <OrbitControls enablePan enableZoom enableRotate minDistance={5} maxDistance={28} />
           </Canvas>

@@ -1,0 +1,64 @@
+{
+  "schema": "mlv_vite_live_review_v1",
+  "generated_at": "2026-10-30T21:39:11.254Z",
+  "attempted": true,
+  "ok": true,
+  "method": "playwright-chromium",
+  "base": "http://127.0.0.1:3011/3k-mlv/",
+  "shots": [
+    {
+      "slug": "gary",
+      "path": "vite-gary.png",
+      "sha256": "26473614383bf0e301ca5e91dc79fac5a6753a23cb99f14b5ca698723078eed1",
+      "url": "http://127.0.0.1:3011/3k-mlv/#/mlv/campus/gary"
+    },
+    {
+      "slug": "ghana",
+      "path": "vite-ghana.png",
+      "sha256": "bd24e2770f72428924e3e154227ca46ca110d48a055f5098ac24c026f6f8e4c7",
+      "url": "http://127.0.0.1:3011/3k-mlv/#/mlv/campus/ghana"
+    },
+    {
+      "slug": "gaza",
+      "path": "vite-gaza.png",
+      "sha256": "af851bc376217990535ee9ae70794e966c5dd6b558d58bf493d877ecf0c50e3d",
+      "url": "http://127.0.0.1:3011/3k-mlv/#/mlv/campus/gaza"
+    },
+    {
+      "slug": "geelong",
+      "path": "vite-geelong.png",
+      "sha256": "27a373c608ee17ce039de42ec2aa82dcbe00a7bd6934386fe962e437d2ca6beb",
+      "url": "http://127.0.0.1:3011/3k-mlv/#/mlv/campus/geelong"
+    },
+    {
+      "slug": "germany",
+      "path": "vite-germany.png",
+      "sha256": "80c157dae1c959e5af16443a0d80da4e954d4cc494e45648d1ed88a346b11ed2",
+      "url": "http://127.0.0.1:3011/3k-mlv/#/mlv/campus/germany"
+    },
+    {
+      "slug": "guyana",
+      "path": "vite-guyana.png",
+      "sha256": "6b65b3a6c8ca1fa145b5fb44a43ce33c9f03a42083105e667eb824c37d68d0b1",
+      "url": "http://127.0.0.1:3011/3k-mlv/#/mlv/campus/guyana"
+    },
+    {
+      "slug": "graham-land",
+      "path": "vite-graham-land.png",
+      "sha256": "cc50f7dfa12c09c4d5c8d53ea807f81d356e5a2629814d96db2387e9e1088276",
+      "url": "http://127.0.0.1:3011/3k-mlv/#/mlv/campus/graham-land"
+    }
+  ],
+  "distinctShotShaCount": 7,
+  "captureError": null,
+  "note": "Live Vite screenshots of campus hash routes after local test identity (no Supabase). Schematic planning twins only — NOT Pixel framebuffers; HUMAN/PIXEL remain false. Identical SHA across shots means SPA/hash/auth capture was non-differentiated.",
+  "gates": {
+    "BROWSER_LIVE_VITE_CAPTURE": true,
+    "BROWSER_LIVE_VITE_DIFFERENTIATED": true,
+    "PIXEL_7GC_CAMPUS_PASS": false,
+    "HUMAN_7GC_SPATIAL_FIDELITY_PASS": false,
+    "HUMAN": false,
+    "RC2": false,
+    "V1": false
+  }
+}

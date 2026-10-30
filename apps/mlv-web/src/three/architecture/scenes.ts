@@ -13,6 +13,7 @@ export const GARY_SCENE: CampusSceneDefinition = {
   slug: 'gary',
   silhouette: 'long civic-industrial hall + taller project/gallery volume + visible lab bays',
   sitePlan: 'arrival plaza → project corridor spine → adaptive-reuse hall with lab wing',
+  truthNote: 'Gary civic planning twin · not a surveyed facility · not a physical-campus claim',
   background: '#87a0b8',
   groundColor: '#3d4a3a',
   modules: mods(
@@ -31,6 +32,10 @@ export const GARY_SCENE: CampusSceneDefinition = {
   programZones: zones(
     { id: 'gz1', buildingId: 'gary-hall', wingId: 'main', programKey: 'FLEXIBLE_CLASSROOM', name: 'Classroom', position: [-3, 0.05, 0.2], fromPhase: 'pilot' },
     { id: 'gz2', buildingId: 'gary-hall', wingId: 'main', programKey: 'DEVICE_HELP_DESK_TABLE', name: 'Device desk', position: [0, 0.05, 0.8], fromPhase: 'pilot' },
+    { id: 'gz2b', buildingId: 'gary-hall', wingId: 'cart', programKey: 'MOBILE_HARDWARE_CART', name: 'Hardware cart (schematic)', position: [-2.5, 0.05, 4], fromPhase: 'pilot' },
+    { id: 'gz2c', buildingId: 'gary-hall', wingId: 'quiet', programKey: 'QUIET_SUPPORT_AREA', name: 'Quiet support (schematic)', position: [2.2, 0.05, 0.2], fromPhase: 'pilot' },
+    { id: 'gz2d', buildingId: 'gary-hall', wingId: 'present', programKey: 'PRESENTATION_WALL', name: 'Presentation wall (schematic)', position: [3.2, 0.05, -1.2], fromPhase: 'pilot' },
+    { id: 'gz2e', buildingId: 'gary-hall', wingId: 'staff', programKey: 'STAFF_PLANNING_TABLE', name: 'Staff planning (schematic)', position: [-1.2, 0.05, -1.5], fromPhase: 'pilot' },
     { id: 'gz3', buildingId: 'gary-repair', wingId: 'labs', programKey: 'HARDWARE_REPAIR_LAB', name: 'Repair', position: [-5.2, 0.05, -0.5], fromPhase: 'semi' },
     { id: 'gz4', buildingId: 'gary-gallery', wingId: 'gallery', programKey: 'SHOWCASE_DEMO_GALLERY', name: 'Gallery', position: [5.5, 0.05, -1.5], fromPhase: 'semi' },
     { id: 'gz5', buildingId: 'gary-community', wingId: 'civic', programKey: 'COMMUNITY_EVENT_SPACE', name: 'Community', position: [4.8, 0.05, 3.5], fromPhase: 'full' },
@@ -53,6 +58,7 @@ export const GHANA_SCENE: CampusSceneDefinition = {
   slug: 'ghana',
   silhouette: 'low pavilion cluster + strong central courtyard + shade canopies',
   sitePlan: 'ring of learning pavilions around shaded civic courtyard with device bar',
+  truthNote: 'Ghana-led planning twin · Accra–Tema anchor concept · not Accra-only · not surveyed',
   background: '#c4b07a',
   groundColor: '#8a6a3a',
   modules: mods(
@@ -96,6 +102,7 @@ export const GUYANA_SCENE: CampusSceneDefinition = {
   slug: 'guyana',
   silhouette: 'long raised spine + bridge connectors + climate-data tower/studio + water edge',
   sitePlan: 'river edge → elevated linear learning spine with bridge connectors and flood landscape',
+  truthNote: 'Guyana climate-resilience planning twin · synthetic flood literacy · not field-validated',
   background: '#6b9bb8',
   groundColor: '#3f5e3a',
   modules: mods(
@@ -139,6 +146,7 @@ export const GEELONG_SCENE: CampusSceneDefinition = {
   slug: 'geelong',
   silhouette: 'large-span workshop sheds + maker yard + clean-energy canopy + one civic/showcase volume',
   sitePlan: 'workshop sheds flanking maker yard with gantry reference and solar canopy',
+  truthNote: 'Geelong design/build planning twin · temporal layers stay separately labeled · not built',
   background: '#9eb0c0',
   groundColor: '#5a5548',
   modules: mods(
@@ -178,6 +186,7 @@ export const GERMANY_SCENE: CampusSceneDefinition = {
   slug: 'germany',
   silhouette: 'ordered brick/steel hall grid + tall service/industrial bay + disciplined circulation',
   sitePlan: 'precise industrial grid with logistics lane and rail/transit urban edge',
+  truthNote: 'Germany apprenticeship planning twin · industrial cyber = coursework not certification',
   background: '#8a9aaa',
   groundColor: '#4a4a48',
   modules: mods(
