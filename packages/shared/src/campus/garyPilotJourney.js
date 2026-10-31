@@ -35,6 +35,20 @@ export const GARY_PILOT_STEPS = Object.freeze([
     produces: 'showcase_ready_item',
   },
   {
+    id: 'repair_lab_peek',
+    room_key: 'HARDWARE_REPAIR_LAB',
+    title: 'Visible repair lab',
+    action: 'document_repair_lab',
+    produces: 'repair_lab_note',
+  },
+  {
+    id: 'gallery_walk',
+    room_key: 'SHOWCASE_DEMO_GALLERY',
+    title: 'Showcase gallery walk',
+    action: 'walk_showcase_gallery',
+    produces: 'gallery_walk_note',
+  },
+  {
     id: 'save_progress',
     room_key: 'STAFF_PLANNING_TABLE',
     title: 'Save',

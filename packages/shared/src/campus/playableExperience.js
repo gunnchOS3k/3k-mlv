@@ -50,6 +50,19 @@ const GARY_TASK_PROMPTS = Object.freeze({
     waike_surface: 'calendar',
     min_chars: 8,
   },
+  repair_lab_peek: {
+    prompt: 'Note what you observed in the visible repair lab (schematic twin only).',
+    field: 'repair_notes',
+    waike_surface: 'courses',
+    min_chars: 8,
+    specialist_track: 'IT_SUPPORT_HARDWARE',
+  },
+  gallery_walk: {
+    prompt: 'Describe one demo gallery station you walked (planning twin — not Pixel).',
+    field: 'gallery_notes',
+    waike_surface: 'calendar',
+    min_chars: 8,
+  },
   save_progress: {
     prompt: 'Confirm save of offline-capable journey state.',
     field: 'save_confirm',
@@ -136,6 +149,8 @@ export function runGaryPlayableAcceptance({ learnerId = 'learner-a', nowBase = '
     classroom_lab: 'Assembled network drop cable on mobile hardware cart and verified link light.',
     portfolio_artifact: 'Portfolio: documented cable build steps and civic device-help checklist.',
     feedback_showcase: 'Showcase: three slides on device help + lab outcome for community night.',
+    repair_lab_peek: 'Repair lab: traced open bench workflow and labeled tool wall for civic device help.',
+    gallery_walk: 'Gallery: noted demo kiosk layout for community night without claiming Pixel fidelity.',
     save_progress: 'OK',
     resume_and_home: 'OK',
   };
