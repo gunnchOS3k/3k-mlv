@@ -136,6 +136,11 @@ export function playGaryPilotStep(journey, stepId, { learnerInput = '', now = ne
     private_node: privateNode,
     waike_surface: prompt.waike_surface,
     acceptance: PLAYABLE_ACCEPTANCE_NOTE,
+    PIXEL_7GC_CAMPUS_PASS: false,
+    HUMAN_7GC_SPATIAL_FIDELITY_PASS: false,
+    HUMAN: false,
+    RC2: false,
+    V1: false,
   };
 }
 

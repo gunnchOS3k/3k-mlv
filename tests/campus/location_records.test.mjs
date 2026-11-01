@@ -178,8 +178,14 @@ describe('WAIKE pathway crosswalk honesty', () => {
   it('preserves 18 catalog tracks and does not claim instructional completeness', () => {
     const doc = JSON.parse(readFileSync(join(root, 'data/fidelity/WAIKE_PATHWAY_CROSSWALK.json'), 'utf8'));
     assert.equal(doc.counts.catalog_track_ids, 18);
+    assert.equal(doc.counts.digital_rc_dirs_on_disk, 16);
+    assert.equal(doc.counts.digital_rc_course_keys, 14);
     assert.equal(doc.gates.INSTRUCTIONAL_COMPLETENESS_CLAIMED, false);
     assert.equal(doc.gates.NO_PATHWAY_DELETED_PASS, true);
+    assert.equal(doc.gates.DISK_VS_RC_KEYS_HONESTY_PASS, true);
+    assert.equal(doc.gates.HUMAN, false);
+    assert.deepEqual(doc.unmapped_catalog_tracks, ['SEVEN_GC_APPRENTICESHIP']);
+    assert.ok(doc.dirs_present_awaiting_course_digital_rc_key.includes('EMBEDDED_PROTOTYPING'));
     assert.ok(Object.keys(doc.eight_track_families).length === 8);
   });
 });

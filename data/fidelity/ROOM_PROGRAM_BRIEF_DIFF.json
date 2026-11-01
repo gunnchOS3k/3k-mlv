@@ -1,7 +1,7 @@
 {
   "schema": "mlv_room_program_brief_diff_v1",
-  "prepared_on": "2026-10-30",
-  "note": "Companion diff against packet 07_CAMPUS_ROOM_PROGRAMS.json. Existing 7GC RTM retained as canonical engineering ledger.",
+  "prepared_on": "2026-11-01",
+  "note": "Companion diff against packet 07_CAMPUS_ROOM_PROGRAMS.json. Specialty journeys wired for all 7 campuses; PIXEL/HUMAN remain false.",
   "campuses": [
     {
       "campus": "Gary",
@@ -27,7 +27,7 @@
       "preferred_function_count": 13,
       "full_function_count": 14,
       "geometry_dimensions": null,
-      "status": "brief_extracted_companion; specialty journey wiring in progress for Gary"
+      "status": "specialty_journey_wired_schematic; PIXEL/HUMAN false; climate/GIS + public dashboard honesty bind"
     },
     {
       "campus": "Graham Land",
@@ -40,7 +40,7 @@
       "preferred_function_count": 12,
       "full_function_count": 13,
       "geometry_dimensions": null,
-      "status": "brief_extracted_companion; specialty journey wiring in progress for Gary"
+      "status": "specialty_journey_wired_schematic; PIXEL/HUMAN false; polar twin assumptions enforced"
     },
     {
       "campus": "Ghana",
@@ -53,7 +53,7 @@
       "preferred_function_count": 11,
       "full_function_count": 11,
       "geometry_dimensions": null,
-      "status": "brief_extracted_companion; specialty journey wiring in progress for Gary"
+      "status": "specialty_journey_wired_schematic; PIXEL/HUMAN false; offline resume room-bound"
     },
     {
       "campus": "Germany",
@@ -66,7 +66,7 @@
       "preferred_function_count": 13,
       "full_function_count": 15,
       "geometry_dimensions": null,
-      "status": "brief_extracted_companion; specialty journey wiring in progress for Gary"
+      "status": "specialty_journey_wired_schematic; PIXEL/HUMAN false; apprenticeship room-bound"
     },
     {
       "campus": "Geelong",
@@ -79,7 +79,7 @@
       "preferred_function_count": 12,
       "full_function_count": 13,
       "geometry_dimensions": null,
-      "status": "brief_extracted_companion; specialty journey wiring in progress for Gary"
+      "status": "specialty_journey_wired_schematic; PIXEL/HUMAN false; design/build phase hints"
     },
     {
       "campus": "Gaza",
@@ -92,7 +92,7 @@
       "preferred_function_count": 12,
       "full_function_count": 15,
       "geometry_dimensions": null,
-      "status": "brief_extracted_companion; specialty journey wiring in progress for Gary"
+      "status": "specialty_journey_wired_schematic; PIXEL/HUMAN false; recovery no-coordinates"
     }
   ]
 }

@@ -1,18 +1,26 @@
 {
   "schema": "mlv_waike_pathway_crosswalk_v1",
-  "prepared_on": "2026-10-30",
-  "note": "Preserves 18 catalog IDs vs digital-RC package count with shared GENERAL_IT. Neither count equals instructional completeness. Companion only \u2014 does not delete pathways.",
+  "prepared_on": "2026-11-01",
+  "note": "Preserves 18 catalog IDs vs digital-RC package count with shared GENERAL_IT. Disk dirs (16) can exceed COURSE_DIGITAL_RC course keys (14). Neither count equals instructional completeness. Companion only — does not delete pathways.",
   "sources": {
     "eighteen_tracks": "waike-research-ops/curriculum/taxonomy/eighteen_tracks.json",
     "digital_rc_artifact": "waike-research-ops/artifacts/COURSE_DIGITAL_RC.json",
-    "digital_rc_dirs": "waike-research-ops/curriculum/digital_rc"
+    "digital_rc_dirs": "waike-research-ops/curriculum/digital_rc",
+    "disk_vs_catalog_ledger": "waike-research-ops/artifacts/PATHWAY_DISK_VS_CATALOG_LEDGER.json"
   },
   "counts": {
     "catalog_track_ids": 18,
     "digital_rc_course_keys": 14,
     "digital_rc_dirs_on_disk": 16,
     "course_digital_rc_true": 14,
-    "full_18_course_digital_rc_flag": false
+    "full_18_course_digital_rc_flag": false,
+    "dirs_present_not_in_course_digital_rc_keys": [
+      "EMBEDDED_PROTOTYPING",
+      "GUNNCHOS_PRODUCT_LAB"
+    ],
+    "catalog_missing_digital_rc_dir": [
+      "SEVEN_GC_APPRENTICESHIP"
+    ]
   },
   "eight_track_families": {
     "IT": [
@@ -112,11 +120,13 @@
     },
     {
       "catalog_track_id": "EMBEDDED_PROTOTYPING",
-      "digital_rc_course_id": null,
+      "digital_rc_course_id": "EMBEDDED_PROTOTYPING",
       "shares_general_it_content": false,
       "eight_track_family": "hardware",
-      "digital_rc_present": false,
-      "instructional_completeness_claimed": false
+      "digital_rc_present": true,
+      "course_digital_rc_keyed": false,
+      "instructional_completeness_claimed": false,
+      "note": "Dir on disk with distinct ForgeSense curriculum; not yet a COURSE_DIGITAL_RC.json courses[] key"
     },
     {
       "catalog_track_id": "WIRELESS_6G",
@@ -176,11 +186,13 @@
     },
     {
       "catalog_track_id": "GUNNCHOS_PRODUCT_LAB",
-      "digital_rc_course_id": null,
+      "digital_rc_course_id": "GUNNCHOS_PRODUCT_LAB",
       "shares_general_it_content": false,
       "eight_track_family": "software",
-      "digital_rc_present": false,
-      "instructional_completeness_claimed": false
+      "digital_rc_present": true,
+      "course_digital_rc_keyed": false,
+      "instructional_completeness_claimed": false,
+      "note": "Dir on disk with distinct Product Bench curriculum; not yet a COURSE_DIGITAL_RC.json courses[] key"
     },
     {
       "catalog_track_id": "HARDWARE_ENGINEERING",
@@ -200,15 +212,21 @@
     }
   ],
   "unmapped_catalog_tracks": [
+    "SEVEN_GC_APPRENTICESHIP"
+  ],
+  "dirs_present_awaiting_course_digital_rc_key": [
     "EMBEDDED_PROTOTYPING",
-    "SEVEN_GC_APPRENTICESHIP",
     "GUNNCHOS_PRODUCT_LAB"
   ],
   "orphan_digital_courses": [],
   "gates": {
     "PATHWAY_COUNT_HONESTY_PASS": true,
     "NO_PATHWAY_DELETED_PASS": true,
+    "DISK_VS_RC_KEYS_HONESTY_PASS": true,
     "INSTRUCTIONAL_COMPLETENESS_CLAIMED": false,
-    "HUMAN_CURRICULUM_ACCEPTANCE": false
+    "HUMAN_CURRICULUM_ACCEPTANCE": false,
+    "HUMAN": false,
+    "RC2": false,
+    "V1": false
   }
 }
