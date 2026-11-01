@@ -85,6 +85,14 @@ export function advanceGermanyApprenticeshipJourney(journey, stepId, { learnerIn
   const text = String(learnerInput || '').trim();
   if (text.length < step.min_chars) return { ok: false, reason: 'insufficient_learner_work', required_chars: step.min_chars };
 
+  // Industrial cyber is coursework / learning only — never a certification claim.
+  if (
+    stepId === 'test' &&
+    !/coursework|learning|not a cert|not cert|no cert|not certification|learning activity/i.test(text)
+  ) {
+    return { ok: false, reason: 'industrial_cyber_not_cert_honesty_required' };
+  }
+
   const next = {
     ...journey,
     updated_at: now,

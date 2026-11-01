@@ -47,7 +47,12 @@ export default function CampusSpecialtyPanels({ slug, learnerId = 'local-learner
       )}
       <ul className="mlv-kicker">
         {slug === 'germany' && <li>Room-bound apprenticeship (mechatronics cart → I4.0 twin → portfolio)</li>}
-        {slug === 'guyana' && <li>Room-bound climate/GIS (workstation → data studio → private portfolio)</li>}
+        {slug === 'guyana' && (
+          <li>
+            Room-bound climate/GIS (workstation → data studio → energy → public dashboard honesty → private
+            portfolio)
+          </li>
+        )}
         {slug === 'graham-land' && <li>Room-bound polar twin (assumptions → data lab → satcom → Home)</li>}
         {slug === 'geelong' && <li>Design critique with shell / 2021 / proposal / campus labels preserved</li>}
         {slug === 'ghana' && <li>Offline cache → resume → portfolio → regional exchange (planning routes)</li>}

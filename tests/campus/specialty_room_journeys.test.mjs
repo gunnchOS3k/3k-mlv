@@ -73,6 +73,25 @@ describe('Germany apprenticeship room journey', () => {
     assert.equal(result.artifact.steps_completed.length, 5);
     assert.equal(result.rooms_include_industry40_studio, true);
   });
+
+  it('requires industrial-cyber not-cert honesty on twin test step', () => {
+    const { journey } = createGermanyApprenticeshipJourney({ learnerId: 'alice' });
+    let j = journey;
+    for (const [id, input] of [
+      ['build', 'Assembled sensor/actuator station on mobile mechatronics cart; verified I/O lights.'],
+      ['document', 'SOP: lockout steps, torque table, and quality checklist for apprentice review.'],
+    ]) {
+      const advanced = advanceGermanyApprenticeshipJourney(j, id, { learnerInput: input, actorId: 'alice' });
+      assert.equal(advanced.ok, true, advanced.reason);
+      j = advanced.journey;
+    }
+    const denied = advanceGermanyApprenticeshipJourney(j, 'test', {
+      learnerInput: 'Twin bench test passed; awarded industrial cybersecurity certification.',
+      actorId: 'alice',
+    });
+    assert.equal(denied.ok, false);
+    assert.equal(denied.reason, 'industrial_cyber_not_cert_honesty_required');
+  });
 });
 
 describe('Guyana climate/GIS room journey', () => {
@@ -90,6 +109,7 @@ describe('Guyana climate/GIS room journey', () => {
     assert.match(scenesSrc, /programKey: 'CLIMATE_GIS_WORKSTATION'/);
     assert.match(scenesSrc, /programKey: 'CLIMATE_GIS_DATA_STUDIO'/);
     assert.match(scenesSrc, /programKey: 'ENERGY_LOGISTICS_STUDIO'/);
+    assert.match(scenesSrc, /programKey: 'PUBLIC_DASHBOARD_WALL'/);
     assert.match(scenesSrc, /pilot climate\/GIS workstation for flood literacy/);
   });
 
@@ -98,12 +118,14 @@ describe('Guyana climate/GIS room journey', () => {
     assert.equal(result.ok, true, result.reason);
     assert.equal(result.nav_only, false);
     assert.equal(result.rooms_include_climate_gis, true);
+    assert.equal(result.rooms_include_public_dashboard, true);
     assert.equal(result.returned_home, true);
     assert.equal(result.schematic_planning_twin_only, true);
     assert.equal(result.PIXEL_7GC_CAMPUS_PASS, false);
     assert.equal(result.HUMAN_7GC_SPATIAL_FIDELITY_PASS, false);
     assert.equal(result.scenario.map_export.includes_sensitive_community_data, false);
     assert.equal(result.scenario.data_status, 'synthetic');
+    assert.equal(result.scenario.dashboard_status, 'schematic_planning_twin_not_live');
     assert.equal(result.private_visibility, true);
   });
 
@@ -114,6 +136,26 @@ describe('Guyana climate/GIS room journey', () => {
     });
     assert.equal(denied.ok, false);
     assert.equal(denied.reason, 'uncertainty_honesty_required');
+  });
+
+  it('requires planning-twin honesty on public dashboard step', () => {
+    const created = createGuyanaClimateGisJourney({ learnerId: 'gy' });
+    let journey = created.journey;
+    for (const [id, input] of [
+      ['flood_scenario', 'Planning scenario with uncertainty: synthetic overlays; not field-validated.'],
+      ['drainage_map', 'Offline map package: river-spine flood literacy layers, no household identifiers.'],
+      ['energy_logistics', 'Energy/logistics note: raised spine access during flood drill (planning concept).'],
+    ]) {
+      const advanced = advanceGuyanaClimateGisJourney(journey, id, { learnerInput: input, actorId: 'gy' });
+      assert.equal(advanced.ok, true, advanced.reason);
+      journey = advanced.journey;
+    }
+    const denied = advanceGuyanaClimateGisJourney(journey, 'resilience_dashboard', {
+      learnerInput: 'Live city ops board with real-time household flood alerts.',
+      actorId: 'gy',
+    });
+    assert.equal(denied.ok, false);
+    assert.equal(denied.reason, 'dashboard_planning_twin_honesty_required');
   });
 
   it('specialty playable delegates to climate/GIS journey', () => {

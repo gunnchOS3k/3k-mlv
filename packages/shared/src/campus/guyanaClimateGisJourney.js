@@ -34,6 +34,14 @@ export const GUYANA_CLIMATE_STEPS = Object.freeze([
     min_chars: 12,
   },
   {
+    id: 'resilience_dashboard',
+    room_key: 'PUBLIC_DASHBOARD_WALL',
+    phase_hint: 'full',
+    title: 'Annotate public resilience dashboard as planning twin',
+    produces: 'dashboard_honesty_note',
+    min_chars: 16,
+  },
+  {
     id: 'portfolio_artifact',
     room_key: 'CAREER_PORTFOLIO_STUDIO',
     phase_hint: 'semi',
@@ -87,6 +95,13 @@ export function advanceGuyanaClimateGisJourney(journey, stepId, { learnerInput =
 
   if (stepId === 'flood_scenario' && !/uncertain|synthetic|planning|not field/i.test(text)) {
     return { ok: false, reason: 'uncertainty_honesty_required' };
+  }
+
+  if (
+    stepId === 'resilience_dashboard' &&
+    !/planning|synthetic|not live|schematic|twin only|not operational/i.test(text)
+  ) {
+    return { ok: false, reason: 'dashboard_planning_twin_honesty_required' };
   }
 
   const next = {
@@ -176,7 +191,10 @@ export function runGuyanaClimateGisPlayable({ learnerId = 'learner-gy', now = '2
     flood_scenario: 'Planning scenario with uncertainty: synthetic drainage overlays; not field-validated impact.',
     drainage_map: 'Offline map package: river-spine flood literacy layers, no household identifiers.',
     energy_logistics: 'Energy/logistics note: raised spine access during flood drill (planning concept).',
-    portfolio_artifact: 'Portfolio: scenario brief + drainage map + logistics note as offline JSON (private).',
+    resilience_dashboard:
+      'Public dashboard is a schematic planning twin only — not live civic operations or field telemetry.',
+    portfolio_artifact:
+      'Portfolio: scenario brief + drainage map + logistics note + dashboard honesty as offline JSON (private).',
     save_and_return: 'OK',
   };
   const transcript = [];
@@ -205,11 +223,13 @@ export function runGuyanaClimateGisPlayable({ learnerId = 'learner-gy', now = '2
     rooms_include_climate_gis: transcript.some(
       (t) => t.room_key === 'CLIMATE_GIS_WORKSTATION' || t.room_key === 'CLIMATE_GIS_DATA_STUDIO',
     ),
+    rooms_include_public_dashboard: transcript.some((t) => t.room_key === 'PUBLIC_DASHBOARD_WALL'),
     scenario: {
       topic: 'drainage_flood_literacy',
       uncertainty: journey.uncertainty,
       data_status: journey.data_status,
       map_export: { format: 'offline_portfolio_json', includes_sensitive_community_data: false },
+      dashboard_status: 'schematic_planning_twin_not_live',
     },
     returned_home: journey.returned_home === true,
     location_id: 'loc.campus.guyana',

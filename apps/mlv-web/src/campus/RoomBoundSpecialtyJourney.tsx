@@ -54,7 +54,7 @@ const CFGS: Record<string, JourneyCfg> = {
     slug: 'germany',
     title: 'Germany apprenticeship journey',
     blurb:
-      'Room-bound build → document → test → improve → present. Industry 4.0 twin studio on semi; industrial cyber is coursework, not certification.',
+      'Room-bound build → document → test → improve → present. Industry 4.0 twin studio on semi; twin-test step requires industrial-cyber coursework/not-cert honesty.',
     storageKey: 'mlv.germany.apprenticeship.journey.v1',
     steps: GERMANY_APPRENTICE_STEPS as JourneyCfg['steps'],
     create: createGermanyApprenticeshipJourney,
@@ -65,7 +65,7 @@ const CFGS: Record<string, JourneyCfg> = {
     slug: 'guyana',
     title: 'Guyana climate / GIS journey',
     blurb:
-      'Flood/drainage uncertainty → climate/GIS map → energy/logistics note → private offline portfolio. Synthetic planning data only; no sensitive community data.',
+      'Flood/drainage uncertainty → climate/GIS map → energy/logistics note → public dashboard planning-twin honesty → private offline portfolio. Synthetic planning data only; no sensitive community data; dashboard is not live civic ops.',
     storageKey: 'mlv.guyana.climate_gis.journey.v1',
     steps: GUYANA_CLIMATE_STEPS as JourneyCfg['steps'],
     create: createGuyanaClimateGisJourney,
