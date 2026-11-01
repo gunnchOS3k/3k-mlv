@@ -103,6 +103,14 @@ export function advanceGrahamPolarTwinJourney(journey, stepId, { learnerInput = 
     }
   }
 
+  // Twin ops notes must keep simulation ≠ field-validation honesty.
+  if (
+    stepId === 'twin_ops_note' &&
+    !/simulation|not field|≠\s*field|twin ops|twin-only|not field[- ]valid/i.test(text)
+  ) {
+    return { ok: false, reason: 'twin_ops_simulation_honesty_required' };
+  }
+
   const next = {
     ...journey,
     updated_at: now,
@@ -186,7 +194,8 @@ export function runGrahamPolarTwinPlayable({ learnerId = 'learner-gl', now = '20
     state_assumptions: 'Remote-first polar education twin; host outside Antarctica; no fictional WAIKE station; simulation ≠ field validation.',
     low_bw_climate: 'Compressed climate packet for intermittent downlink; assumptions retained.',
     ntn_exercise: 'Satcom demo cart: link budget worksheet for education twin (not field ops).',
-    twin_ops_note: 'GIS/RS studio note: partner references stay external; twin ops only.',
+    twin_ops_note:
+      'GIS/RS studio note: partner references stay external; twin ops only — simulation ≠ field validation.',
     portfolio_and_home: 'Portfolio: assumptions + climate packet + NTN log for public education studio (private).',
   };
   const transcript = [];

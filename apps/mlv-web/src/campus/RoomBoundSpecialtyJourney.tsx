@@ -76,7 +76,7 @@ const CFGS: Record<string, JourneyCfg> = {
     slug: 'graham-land',
     title: 'Graham Land polar twin journey',
     blurb:
-      'Assumptions → low-bandwidth climate → NTN/satcom cart → GIS twin ops → Home. Simulation twin only; no fictional WAIKE Antarctic station.',
+      'Assumptions → low-bandwidth climate → NTN/satcom cart → GIS twin ops (simulation≠field honesty) → Home. No fictional WAIKE Antarctic station.',
     storageKey: 'mlv.graham.polar_twin.journey.v1',
     steps: GRAHAM_POLAR_STEPS as JourneyCfg['steps'],
     create: createGrahamPolarTwinJourney,

@@ -206,6 +206,29 @@ describe('Graham Land polar twin room journey', () => {
     assert.equal(denied.reason, 'no_fake_station_required');
   });
 
+  it('requires simulation≠field honesty on twin ops note', () => {
+    const created = createGrahamPolarTwinJourney({ learnerId: 'gl' });
+    let journey = created.journey;
+    for (const [id, input] of [
+      [
+        'state_assumptions',
+        'Remote-first polar education twin; host outside Antarctica; no fictional WAIKE station; simulation ≠ field validation.',
+      ],
+      ['low_bw_climate', 'Compressed climate packet for intermittent downlink; assumptions retained.'],
+      ['ntn_exercise', 'Satcom demo cart: link budget worksheet for education twin (not field ops).'],
+    ]) {
+      const advanced = advanceGrahamPolarTwinJourney(journey, id, { learnerInput: input, actorId: 'gl' });
+      assert.equal(advanced.ok, true, advanced.reason);
+      journey = advanced.journey;
+    }
+    const denied = advanceGrahamPolarTwinJourney(journey, 'twin_ops_note', {
+      learnerInput: 'GIS ops confirmed with live Antarctic sensors and permanent station telemetry.',
+      actorId: 'gl',
+    });
+    assert.equal(denied.ok, false);
+    assert.equal(denied.reason, 'twin_ops_simulation_honesty_required');
+  });
+
   it('specialty playable delegates to polar twin journey', () => {
     const result = runGrahamSpecialtyPlayable({ learnerId: 'gl' });
     assert.equal(result.ok, true);
