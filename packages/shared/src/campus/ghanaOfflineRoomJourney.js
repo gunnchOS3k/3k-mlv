@@ -84,6 +84,14 @@ export function advanceGhanaOfflineRoomJourney(journey, stepId, { learnerInput =
   const text = String(learnerInput || '').trim();
   if (text.length < step.min_chars) return { ok: false, reason: 'insufficient_learner_work', required_chars: step.min_chars };
 
+  // Regional exchange is a planning-layer credit only — never a field deployment claim.
+  if (
+    stepId === 'regional_exchange' &&
+    !/planning|not field|not deployed|route only|planning layer|planning_layer/i.test(text)
+  ) {
+    return { ok: false, reason: 'regional_exchange_planning_honesty_required' };
+  }
+
   const next = {
     ...journey,
     updated_at: now,

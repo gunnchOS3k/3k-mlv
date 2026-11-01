@@ -97,7 +97,7 @@ const CFGS: Record<string, JourneyCfg> = {
     slug: 'ghana',
     title: 'Ghana offline resume / exchange journey',
     blurb:
-      'Cache → resume offline → private portfolio → regional exchange (planning routes only) → Home. Mobile-first; not a field deployment claim.',
+      'Cache → resume offline → private portfolio → regional exchange (planning-route honesty required) → Home. Mobile-first; not a field deployment claim.',
     storageKey: 'mlv.ghana.offline_room.journey.v1',
     steps: GHANA_OFFLINE_ROOM_STEPS as JourneyCfg['steps'],
     create: createGhanaOfflineRoomJourney,

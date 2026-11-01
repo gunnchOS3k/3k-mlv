@@ -55,6 +55,26 @@ describe('Ghana offline room journey', () => {
     assert.equal(denied.reason, 'insufficient_learner_work');
   });
 
+  it('requires planning-route honesty on regional exchange', () => {
+    const created = createGhanaOfflineRoomJourney({ learnerId: 'gh' });
+    let journey = created.journey;
+    for (const [id, input] of [
+      ['cache_lesson', 'Mobile-first civic lesson cached for Accra–Tema planning route (offline pack).'],
+      ['resume_cached', 'Resumed cached lesson on hybrid recording kit without network.'],
+      ['prepare_portfolio', 'Portfolio: regional pop-up kit plan for Tamale planning route (private until publish).'],
+    ]) {
+      const advanced = advanceGhanaOfflineRoomJourney(journey, id, { learnerInput: input, actorId: 'gh' });
+      assert.equal(advanced.ok, true, advanced.reason);
+      journey = advanced.journey;
+    }
+    const denied = advanceGhanaOfflineRoomJourney(journey, 'regional_exchange', {
+      learnerInput: 'Live Tamale field deployment exchange with real community drop points.',
+      actorId: 'gh',
+    });
+    assert.equal(denied.ok, false);
+    assert.equal(denied.reason, 'regional_exchange_planning_honesty_required');
+  });
+
   it('specialty playable delegates to offline room journey', () => {
     const result = runGhanaOfflinePlayable({ learnerId: 'gh' });
     assert.equal(result.ok, true);
