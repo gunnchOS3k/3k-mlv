@@ -112,6 +112,14 @@ export function advanceGeelongDesignBuildJourney(journey, stepId, { learnerInput
     }
   }
 
+  // Critique must keep proposal / planning labels — never claim as-built campus.
+  if (
+    stepId === 'design_critique' &&
+    !/proposal|unpublished|planning|not built|not as-built|as-built false|schematic/i.test(text)
+  ) {
+    return { ok: false, reason: 'design_critique_proposal_honesty_required' };
+  }
+
   const next = {
     ...journey,
     updated_at: now,

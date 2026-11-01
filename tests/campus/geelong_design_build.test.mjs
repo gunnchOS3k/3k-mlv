@@ -57,6 +57,22 @@ describe('Geelong design/build room wiring', () => {
     assert.equal(denied.reason, 'insufficient_learner_work');
   });
 
+  it('requires proposal/planning honesty on design critique', () => {
+    const { journey } = createGeelongDesignBuildJourney({ learnerId: 'alice' });
+    const oriented = advanceGeelongDesignBuildJourney(journey, 'orient_temporal_layers', {
+      learnerInput:
+        'Shell=documented snapshot; RONE=2021 reconstruction; JWA=proposal; campus=planning concept — not mixed.',
+      actorId: 'alice',
+    });
+    assert.equal(oriented.ok, true, oriented.reason);
+    const denied = advanceGeelongDesignBuildJourney(oriented.journey, 'design_critique', {
+      learnerInput: 'Built campus is complete and ready for permanent occupancy tomorrow.',
+      actorId: 'alice',
+    });
+    assert.equal(denied.ok, false);
+    assert.equal(denied.reason, 'design_critique_proposal_honesty_required');
+  });
+
   it('specialty playable delegates to design/build journey', () => {
     const result = runGeelongSpecialtyPlayable({ learnerId: 'alice' });
     assert.equal(result.ok, true);
