@@ -9,6 +9,11 @@ import {
   publicDiscoveryFilter,
 } from '@3k-mlv/shared';
 import { isPrivateGalleryFile, publishGalleryAsset } from '@3k-mlv/campus';
+import {
+  BROWSER_WORKSPACE_KEY,
+  createWorkspaceSnapshot,
+  parseWorkspaceSnapshot,
+} from './workspaceSnapshot.mjs';
 
 const MAX_UPLOAD_BYTES = 25 * 1024 * 1024;
 const ALLOWED_PREFIXES = [
@@ -41,12 +46,70 @@ function uuid(): string {
   return crypto.randomUUID();
 }
 
-export function createBrowserWorkspace() {
+type PersistedShare = {
+  node_id: string;
+  owner_id: string;
+  token_hash: string;
+  revoked_at: string | null;
+  expires_at: string | null;
+};
+
+type WorkspaceStorage = Pick<Storage, 'getItem' | 'setItem'>;
+
+function browserLocalStorage(): WorkspaceStorage | null {
+  if (typeof window === 'undefined') return null;
+  try {
+    return window.localStorage;
+  } catch {
+    return null;
+  }
+}
+
+export function createBrowserWorkspace(storage: WorkspaceStorage | null = browserLocalStorage()) {
   const nodes = new Map<string, MlvNode>();
   const placements = new Map<string, MlvWorldPlacement>();
   const instances = new Map<string, MlvPlayerInstance>();
-  const shares = new Map<string, { node_id: string; owner_id: string; token_hash: string; revoked_at: string | null; expires_at: string | null }>();
+  const shares = new Map<string, PersistedShare>();
   const blobs = new Map<string, Blob>();
+
+  if (storage) {
+    try {
+      const restored = parseWorkspaceSnapshot(storage.getItem(BROWSER_WORKSPACE_KEY));
+      if (restored.ok && restored.snapshot) {
+        const snapshot = restored.snapshot;
+        for (const node of snapshot.nodes as MlvNode[]) {
+          if (typeof node.id === 'string') nodes.set(node.id, node);
+        }
+        for (const placement of snapshot.placements as MlvWorldPlacement[]) {
+          if (typeof placement.id === 'string') placements.set(placement.id, placement);
+        }
+        for (const instance of snapshot.instances as MlvPlayerInstance[]) {
+          if (typeof instance.owner_id === 'string') instances.set(instance.owner_id, instance);
+        }
+        for (const share of snapshot.shares as PersistedShare[]) {
+          if (typeof share.token_hash === 'string') shares.set(share.token_hash, share);
+        }
+      }
+    } catch {
+      // Corrupt or denied browser storage degrades to an empty private workspace.
+    }
+  }
+
+  const persist = (): boolean => {
+    if (!storage) return false;
+    try {
+      const snapshot = createWorkspaceSnapshot({
+        nodes: [...nodes.values()],
+        placements: [...placements.values()],
+        instances: [...instances.values()],
+        shares: [...shares.values()],
+      });
+      storage.setItem(BROWSER_WORKSPACE_KEY, JSON.stringify(snapshot));
+      return true;
+    } catch {
+      return false;
+    }
+  };
 
   return {
     ensurePlayerInstance(ownerId: string): MlvPlayerInstance {
@@ -58,6 +121,7 @@ export function createBrowserWorkspace() {
           spawn: { x: 0, y: 1, z: 4 },
           updated_at: new Date().toISOString(),
         });
+        persist();
       }
       return instances.get(ownerId)!;
     },
@@ -93,6 +157,7 @@ export function createBrowserWorkspace() {
         updated_at: created.updated_at,
       };
       placements.set(placement.id, placement);
+      persist();
       return { ok: true as const, node: created, placement };
     },
 
@@ -121,6 +186,7 @@ export function createBrowserWorkspace() {
       if (!canMutateNode({ actor, node })) return { ok: false as const, reason: 'not_owner' };
       const next = { ...node!, ...patch, updated_at: new Date().toISOString() };
       nodes.set(nodeId, next);
+      persist();
       return { ok: true as const, node: next };
     },
 
@@ -141,6 +207,7 @@ export function createBrowserWorkspace() {
         revoked_at: null,
         expires_at: null,
       });
+      persist();
       return { ok: true as const, token: raw, node: next };
     },
 
@@ -159,7 +226,10 @@ export function createBrowserWorkspace() {
       const node = nodes.get(nodeId);
       if (!canMutateNode({ actor, node })) return { ok: false as const, reason: 'not_owner' };
       const result = confirmPublish(node!, { confirmed });
-      if (result.ok) nodes.set(nodeId, result.node as MlvNode);
+      if (result.ok) {
+        nodes.set(nodeId, result.node as MlvNode);
+        persist();
+      }
       return result;
     },
 
@@ -167,7 +237,10 @@ export function createBrowserWorkspace() {
       const node = nodes.get(nodeId);
       if (!canMutateNode({ actor, node })) return { ok: false as const, reason: 'not_owner' };
       const result = publishGalleryAsset(node!, { confirmed, wing });
-      if (result.ok) nodes.set(nodeId, result.node as MlvNode);
+      if (result.ok) {
+        nodes.set(nodeId, result.node as MlvNode);
+        persist();
+      }
       return result;
     },
 
@@ -186,6 +259,7 @@ export function createBrowserWorkspace() {
       for (const link of shares.values()) {
         if (link.node_id === nodeId) link.revoked_at = new Date().toISOString();
       }
+      persist();
       return { ok: true as const, node: next };
     },
 
@@ -194,6 +268,7 @@ export function createBrowserWorkspace() {
         return { ok: false as const, reason: 'not_owner' };
       }
       nodes.set(node.id, node);
+      persist();
       return { ok: true as const, node };
     },
 
@@ -201,6 +276,15 @@ export function createBrowserWorkspace() {
       const node = nodes.get(nodeId);
       if (!canReadNode({ actor, node, shareContext })) return null;
       return blobs.get(nodeId) ?? null;
+    },
+
+    persistenceStatus() {
+      return {
+        metadataPersisted: storage !== null,
+        bytesPersisted: false,
+        nodeCount: nodes.size,
+        placementCount: placements.size,
+      };
     },
   };
 }

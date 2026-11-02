@@ -1,6 +1,6 @@
-type Props = { verb: string; label: string; visible: boolean };
+type Props = { verb: string; label: string; visible: boolean; onActivate?: () => void };
 
-export default function InteractionPrompt({ verb, label, visible }: Props) {
+export default function InteractionPrompt({ verb, label, visible, onActivate }: Props) {
   if (!visible) return null;
   return (
     <div
@@ -11,7 +11,15 @@ export default function InteractionPrompt({ verb, label, visible }: Props) {
         zIndex: 6, fontSize: 14,
       }}
     >
-      <strong>{verb}</strong> — {label}
+      {onActivate ? (
+        <button
+          type="button"
+          onClick={onActivate}
+          style={{ background: 'transparent', border: 0, color: 'inherit', cursor: 'pointer', font: 'inherit' }}
+        >
+          <strong>{verb}</strong> — {label}
+        </button>
+      ) : <><strong>{verb}</strong> — {label}</>}
     </div>
   );
 }

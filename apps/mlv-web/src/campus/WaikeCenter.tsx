@@ -1,4 +1,6 @@
 import { consumeWaikeContract } from '@3k-mlv/campus';
+import { readReturnContext } from '../world/ReturnContext';
+import { returnSceneHash } from '../world/handoffRoutes.mjs';
 
 const LABELS: Record<string, string> = {
   today: 'Today',
@@ -13,6 +15,7 @@ const LABELS: Record<string, string> = {
 
 export default function WaikeCenter() {
   const contract = consumeWaikeContract(null);
+  const returnHref = returnSceneHash(readReturnContext());
   return (
     <section aria-label="WAIKE Academic Center">
       <h2>WAIKE Academic Center</h2>
@@ -34,6 +37,7 @@ export default function WaikeCenter() {
           </button>
         ))}
       </div>
+      <p><a href={returnHref}>Return to the saved world location</a></p>
     </section>
   );
 }

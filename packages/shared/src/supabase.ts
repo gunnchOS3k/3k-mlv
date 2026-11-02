@@ -1,5 +1,14 @@
 import { createClient } from '@supabase/supabase-js';
-import type { Profile, AvatarConfig, Project, HouseLayout, PresenceUser, ChatMessage } from './types';
+import type {
+  Profile,
+  AvatarConfig,
+  Project,
+  HouseLayout,
+  PresenceUser,
+  ChatMessage,
+  MlvNode,
+  MlvWorldPlacement,
+} from './types';
 
 const PLACEHOLDER_URL = 'https://your-project.supabase.co';
 const PLACEHOLDER_KEY = 'your-anon-key';
@@ -180,12 +189,107 @@ export const useMlvWorkspace = () => {
   };
 
   const listOwnNodes = async () => {
+    const { data: authData, error: authError } = await supabase.auth.getUser();
+    if (authError || !authData.user) return { data: [], error: authError || new Error('not authenticated') };
     const { data, error } = await supabase
       .from('mlv_nodes')
       .select('*')
+      .eq('owner_id', authData.user.id)
       .is('deleted_at', null)
       .order('updated_at', { ascending: false });
     return { data: data || [], error };
+  };
+
+  const listOwnPlacements = async () => {
+    const { data: authData, error: authError } = await supabase.auth.getUser();
+    if (authError || !authData.user) return { data: [], error: authError || new Error('not authenticated') };
+    const { data, error } = await supabase
+      .from('mlv_world_placements')
+      .select('*')
+      .eq('owner_id', authData.user.id)
+      .order('updated_at', { ascending: false });
+    return { data: data || [], error };
+  };
+
+  const mirrorPrivateUpload = async (node: MlvNode, placement: MlvWorldPlacement, file: File) => {
+    const { data: authData, error: authError } = await supabase.auth.getUser();
+    if (authError || !authData.user || authData.user.id !== node.owner_id) {
+      return { data: null, error: authError || new Error('authenticated owner mismatch') };
+    }
+    const safeName = file.name.replace(/[^a-z0-9._-]/gi, '_').slice(-120) || 'upload.bin';
+    const storageKey = `${node.owner_id}/${node.id}/${safeName}`;
+    const uploaded = await supabase.storage.from('mlv-private').upload(storageKey, file, {
+      cacheControl: '3600',
+      contentType: file.type || node.mime_type || 'application/octet-stream',
+      upsert: false,
+    });
+    if (uploaded.error) return { data: null, error: uploaded.error };
+    const remoteNode = { ...node, storage_key: storageKey, visibility: 'private' as const };
+    const insertedNode = await supabase.from('mlv_nodes').insert(remoteNode).select().single();
+    if (insertedNode.error) return { data: null, error: insertedNode.error };
+    const insertedPlacement = await supabase.from('mlv_world_placements').insert(placement).select().single();
+    if (insertedPlacement.error) return { data: null, error: insertedPlacement.error };
+    return { data: { node: insertedNode.data, placement: insertedPlacement.data }, error: null };
+  };
+
+  const mirrorNode = async (node: MlvNode) => {
+    const { data, error } = await supabase.from('mlv_nodes').upsert(node).select().single();
+    return { data, error };
+  };
+
+  const updateNode = async (nodeId: string, patch: Partial<MlvNode>) => {
+    const { data, error } = await supabase
+      .from('mlv_nodes')
+      .update({ ...patch, updated_at: new Date().toISOString() })
+      .eq('id', nodeId)
+      .select()
+      .single();
+    return { data, error };
+  };
+
+  const createShare = async (nodeId: string) => {
+    const { data: authData, error: authError } = await supabase.auth.getUser();
+    if (authError || !authData.user) return { data: null, error: authError || new Error('not authenticated') };
+    const raw = btoa(String.fromCharCode(...crypto.getRandomValues(new Uint8Array(24))))
+      .replace(/\+/g, '-')
+      .replace(/\//g, '_')
+      .replace(/=+$/g, '');
+    const digest = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(raw));
+    const tokenHash = [...new Uint8Array(digest)].map((byte) => byte.toString(16).padStart(2, '0')).join('');
+    const visibility = await updateNode(nodeId, { visibility: 'shared' });
+    if (visibility.error) return { data: null, error: visibility.error };
+    const { data, error } = await supabase.from('mlv_share_links').insert({
+      node_id: nodeId,
+      owner_id: authData.user.id,
+      token_hash: tokenHash,
+      permission: 'view',
+    }).select().single();
+    if (error) {
+      await updateNode(nodeId, { visibility: 'private' });
+      return { data: null, error };
+    }
+    return { data: { link: data, token: raw, node: visibility.data }, error: null };
+  };
+
+  const publishNode = async (nodeId: string, metadata?: Record<string, unknown>) => {
+    return updateNode(nodeId, { visibility: 'public', ...(metadata ? { metadata } : {}) });
+  };
+
+  const makeNodePrivate = async (nodeId: string, metadata?: Record<string, unknown>) => {
+    const node = await updateNode(nodeId, { visibility: 'private', ...(metadata ? { metadata } : {}) });
+    if (node.error) return node;
+    const { error } = await supabase
+      .from('mlv_share_links')
+      .update({ revoked_at: new Date().toISOString() })
+      .eq('node_id', nodeId)
+      .is('revoked_at', null);
+    return { data: node.data, error };
+  };
+
+  const downloadOwnNode = async (node: MlvNode) => {
+    if (!node.storage_key) return { data: null, error: new Error('node has no stored bytes') };
+    const bucket = node.metadata?.storage_bucket === 'mlv-public' ? 'mlv-public' : 'mlv-private';
+    return supabase.storage.from(bucket).download(node.storage_key);
   };
 
   const openShare = async (token: string) => {
@@ -202,7 +306,20 @@ export const useMlvWorkspace = () => {
     return { data: data || [], error };
   };
 
-  return { ensurePlayerInstance, listOwnNodes, openShare, listPublicNodes };
+  return {
+    ensurePlayerInstance,
+    listOwnNodes,
+    listOwnPlacements,
+    openShare,
+    listPublicNodes,
+    mirrorPrivateUpload,
+    mirrorNode,
+    updateNode,
+    createShare,
+    publishNode,
+    makeNodePrivate,
+    downloadOwnNode,
+  };
 };
 
 export type { Profile, AvatarConfig, Project, HouseLayout, PresenceUser, ChatMessage };

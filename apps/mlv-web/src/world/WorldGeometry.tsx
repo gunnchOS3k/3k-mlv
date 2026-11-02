@@ -90,23 +90,35 @@ export default function WorldGeometry({ props }: { props: AuthoredProp[] }) {
             </group>
           );
         }
+        if (p.shape === 'cylinder') {
+          return (
+            <mesh key={p.id} position={p.position} rotation={[0, p.rotationY || 0, 0]}>
+              <cylinderGeometry args={[p.size[0] / 2, p.size[2] / 2, p.size[1], 12]} />
+              <meshStandardMaterial
+                color={p.color}
+                roughness={p.roughness ?? 0.85}
+                metalness={p.metalness ?? 0.05}
+                emissive={p.emissive || '#000000'}
+                emissiveIntensity={p.emissive ? 0.15 : 0}
+              />
+            </mesh>
+          );
+        }
         return (
           <mesh key={p.id} position={p.position} rotation={[0, p.rotationY || 0, 0]}>
             <boxGeometry args={p.size} />
             <meshStandardMaterial
               color={p.color}
-              roughness={p.kind === 'window' ? 0.2 : 0.85}
-              metalness={p.kind === 'window' ? 0.3 : 0.05}
-              transparent={p.kind === 'window'}
-              opacity={p.kind === 'window' ? 0.55 : 1}
+              roughness={p.roughness ?? (p.kind === 'window' ? 0.2 : 0.85)}
+              metalness={p.metalness ?? (p.kind === 'window' ? 0.3 : 0.05)}
+              emissive={p.emissive || '#000000'}
+              emissiveIntensity={p.emissive ? 0.15 : 0}
+              transparent={p.kind === 'window' || typeof p.opacity === 'number'}
+              opacity={p.opacity ?? (p.kind === 'window' ? 0.55 : 1)}
             />
           </mesh>
         );
       })}
-      <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0, 0]} receiveShadow={false}>
-        <planeGeometry args={[40, 40]} />
-        <meshStandardMaterial color="#3f6212" />
-      </mesh>
     </group>
   );
 }

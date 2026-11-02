@@ -1,0 +1,45 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import path from 'node:path';
+import test from 'node:test';
+import { fileURLToPath } from 'node:url';
+import { GUEST_PORTAL_URL, portalReturnHref } from '../../apps/mlv-web/src/portalReturn.mjs';
+
+const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
+const preview = 'https://gunnchos-site.gunnchos-finds.workers.dev';
+const production = 'https://gunnchos.com';
+
+test('portal return defaults to gunnchos.com and rejects unsafe URLs', () => {
+  assert.equal(GUEST_PORTAL_URL, production);
+  assert.equal(portalReturnHref(undefined), production);
+  assert.equal(portalReturnHref(''), production);
+  assert.equal(portalReturnHref('   '), production);
+  assert.equal(portalReturnHref('not a url'), null);
+  assert.equal(portalReturnHref('javascript:alert(1)'), null);
+  assert.equal(portalReturnHref(`${preview}/`), production);
+  assert.equal(portalReturnHref('https://review-gunnchos-site.gunnchos-finds.workers.dev/labs'), production);
+  assert.equal(portalReturnHref(production), production);
+  assert.equal(portalReturnHref('https://example.com/path/'), 'https://example.com/path');
+});
+
+test('world shell uses the configured portal href and keeps hash routes', () => {
+  const app = fs.readFileSync(path.join(root, 'apps/mlv-web/src/App.tsx'), 'utf8');
+  const css = fs.readFileSync(path.join(root, 'apps/mlv-web/src/index.css'), 'utf8');
+  assert.match(app, /portalReturnHref\(import\.meta\.env\.VITE_GUNNCHOS_PORTAL_URL\)/);
+  assert.match(app, /aria-label="Return to gunnchOS"/);
+  assert.match(app, /← gunnchOS/);
+  assert.match(app, /<PortalReturn href=\{portalHref\} \/>/);
+  assert.match(app, /<a className="mlv-portal-return" href=\{href\}/);
+  assert.doesNotMatch(app, /workers\.dev/);
+  assert.doesNotMatch(app, /gunnchos\.com/);
+  assert.doesNotMatch(app, /iframe/i);
+  assert.doesNotMatch(app, /history\.(pushState|replaceState)/);
+  assert.doesNotMatch(app, /location\.replace/);
+  assert.match(app, /window\.location\.hash = `#\/mlv\/scene\/\$\{encodeURIComponent\(sceneId\)\}`/);
+  assert.match(app, /navigateToScene\('commons'\)/);
+  assert.match(app, /navigateToScene\('home-yard'\)/);
+  assert.match(app, /navigateToScene\('gallery-lobby'\)/);
+  assert.match(app, /navigateToScene\('transit'\)/);
+  assert.match(css, /\.mlv-portal-return:focus-visible/);
+  assert.match(css, /min-height:\s*44px/);
+});

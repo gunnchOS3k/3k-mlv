@@ -19,7 +19,6 @@ import CampusSpecialtyPanels from './CampusSpecialtyPanels';
 import { loadLocationRecord, sceneStateLabel } from '@3k-mlv/campus';
 
 const CampusWorld = lazy(() => import('../three/CampusWorld'));
-const WorldRuntime = lazy(() => import('../world/WorldRuntime'));
 
 function phaseIdFromHint(campus: { phases: Array<{ id: string; token: string }> } | null | undefined, hint: string | null | undefined) {
   if (!campus || !hint) return null;
@@ -44,7 +43,7 @@ function phaseIdFromHint(campus: { phases: Array<{ id: string; token: string }> 
 export default function DigitalCampus({ slug }: { slug: string }) {
   const campus = campusBySlug(slug);
   const [phaseId, setPhaseId] = useState(campus?.phases[0]?.id || '');
-  const [mode, setMode] = useState<'list' | 'map' | 'world'>('world');
+  const [mode, setMode] = useState<'list' | 'map'>('list');
   const [roomKey, setRoomKey] = useState<string | null>(null);
 
   const rooms = useMemo(
@@ -109,8 +108,12 @@ export default function DigitalCampus({ slug }: { slug: string }) {
             {item.label}
           </button>
         ))}
-        <button type="button" className="mlv-chip" aria-pressed={mode === 'world'} onClick={() => setMode('world')}>
-          WORLD
+        <button
+          type="button"
+          className="mlv-chip"
+          onClick={() => document.querySelector<HTMLElement>('.mlv-world-canvas')?.focus()}
+        >
+          Focus WORLD above
         </button>
         <button type="button" className="mlv-chip" aria-pressed={mode === 'list'} onClick={() => setMode('list')}>
           List

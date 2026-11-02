@@ -6,6 +6,7 @@ node_modules/
 dist/
 **/dist/
 .vite/
+.vite-spatial/
 coverage/
 
 # Environment and secrets — examples only
@@ -14,6 +15,11 @@ coverage/
 .env.*.local
 !.env.example
 !**/.env.example
+.dev.vars
+.dev.vars.*
+
+# Wrangler local state (may contain account/auth cache)
+.wrangler/
 
 # Logs and OS
 *.log

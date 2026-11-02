@@ -55,7 +55,8 @@ describe('V4 7GC architectural fidelity', () => {
     assert.equal(gates.gates.GERMANY_ARCHITECTURAL_IDENTITY_PASS, true);
     assert.equal(gates.gates.GAZA_NONCONVENTIONAL_NETWORK_TRUTH_PASS, true);
     assert.equal(gates.gates.GRAHAM_LAND_REMOTE_TWIN_TRUTH_PASS, true);
-    assert.equal(gates.gates.PIXEL_7GC_PERFORMANCE_BUDGET_PASS, true);
+    assert.equal(gates.gates.STATIC_7GC_MODULE_BUDGET_PASS, true);
+    assert.equal(gates.gates.PIXEL_7GC_PERFORMANCE_BUDGET_PASS, false);
     assert.equal(gates.gates.ACCESSIBLE_DIRECT_NAV_PARITY_PASS, true);
     assert.equal(gates.gates.PIXEL_7GC_CAMPUS_PASS, false);
     assert.equal(gates.gates.HUMAN_7GC_SPATIAL_FIDELITY_PASS, false);

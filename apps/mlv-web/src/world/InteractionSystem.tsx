@@ -1,16 +1,17 @@
 import type { WorldInteractable } from './types';
-import { launchAnimeAggressors } from './CapabilityHandoff';
+import { launchAnimeAggressors, launchResearch, launchWaike } from './CapabilityHandoff';
 import type { ReturnContext } from './types';
 
 export type InteractionHandlers = {
-  onWaike?: (dest: string) => void;
   onPublicFile?: (dest: string) => void;
   onPrivateFile?: (dest: string) => void;
   onGallery?: (dest: string) => void;
   onNetworkTwin?: (dest: string) => void;
   onRoom?: (dest: string) => void;
+  onNavigate?: (sceneId: string) => void;
   onSeat?: (id: string) => void;
   onDoor?: (id: string) => void;
+  onLogoff?: () => void | Promise<void>;
   onStatus?: (msg: string) => void;
 };
 
@@ -32,9 +33,20 @@ export function runInteraction(
       }
       break;
     }
-    case 'WAIKE_LEARNER':
-      handlers.onWaike?.(item.destination || item.id);
+    case 'WAIKE_LEARNER': {
+      const res = launchWaike(item.destination || '', returnCtx);
+      handlers.onStatus?.(res.ok
+        ? `WAIKE handoff opened ${res.target || 'the requested surface'} via ${res.method}; return context saved.`
+        : `WAIKE handoff failed: ${res.reason}`);
       break;
+    }
+    case 'RESEARCH_HANDOFF': {
+      const res = launchResearch(item.destination || '', returnCtx);
+      handlers.onStatus?.(res.ok
+        ? `Research handoff opened ${res.target || 'the requested project'} via ${res.method}; simulation labels and return context preserved.`
+        : `Research handoff failed: ${res.reason}`);
+      break;
+    }
     case 'PUBLIC_FILE':
       handlers.onPublicFile?.(item.destination || item.id);
       break;
@@ -48,13 +60,18 @@ export function runInteraction(
       handlers.onNetworkTwin?.(item.destination || item.id);
       break;
     case 'ROOM_TRANSITION':
-      handlers.onRoom?.(item.destination || item.id);
+      if (item.targetScene) handlers.onNavigate?.(item.targetScene);
+      else handlers.onRoom?.(item.destination || item.id);
       break;
     case 'SEAT':
       handlers.onSeat?.(item.id);
       break;
     case 'DOOR':
-      handlers.onDoor?.(item.id);
+      if (item.targetScene) handlers.onNavigate?.(item.targetScene);
+      else handlers.onDoor?.(item.id);
+      break;
+    case 'LOGOFF':
+      void handlers.onLogoff?.();
       break;
     default:
       break;
