@@ -51,7 +51,8 @@ const GARY_TASK_PROMPTS = Object.freeze({
     min_chars: 8,
   },
   repair_lab_peek: {
-    prompt: 'Note what you observed in the visible repair lab (schematic twin only).',
+    prompt:
+      'Note what you observed in the visible repair lab (schematic planning twin only — not an as-built physical lab claim).',
     field: 'repair_notes',
     waike_surface: 'courses',
     min_chars: 8,
@@ -89,6 +90,15 @@ export function playGaryPilotStep(journey, stepId, { learnerInput = '', now = ne
   if (text.length < prompt.min_chars) {
     return { ok: false, reason: 'insufficient_learner_work', required_chars: prompt.min_chars };
   }
+  // Repair lab is a schematic planning twin — refuse as-built / physical facility claims.
+  if (
+    stepId === 'repair_lab_peek' &&
+    !/planning(\s|-)?twin|schematic|not (an? )?(as-built|physical)|twin only|not a (real|physical) (lab|facility)/i.test(
+      text,
+    )
+  ) {
+    return { ok: false, reason: 'repair_lab_planning_twin_honesty_required' };
+  }
   const payload = {
     [prompt.field]: text,
     waike_surface: prompt.waike_surface,
@@ -98,6 +108,9 @@ export function playGaryPilotStep(journey, stepId, { learnerInput = '', now = ne
       : null,
     room_bound: true,
     playable: true,
+    ...(stepId === 'repair_lab_peek'
+      ? { repair_lab_planning_twin_only: true, as_built_facility_claim: false }
+      : {}),
   };
   const advanced = advanceGaryPilotJourney(journey, stepId, { payload, now });
   if (!advanced.ok) return advanced;
@@ -154,7 +167,8 @@ export function runGaryPlayableAcceptance({ learnerId = 'learner-a', nowBase = '
     classroom_lab: 'Assembled network drop cable on mobile hardware cart and verified link light.',
     portfolio_artifact: 'Portfolio: documented cable build steps and civic device-help checklist.',
     feedback_showcase: 'Showcase: three slides on device help + lab outcome for community night.',
-    repair_lab_peek: 'Repair lab: traced open bench workflow and labeled tool wall for civic device help.',
+    repair_lab_peek:
+      'Repair lab (schematic planning twin only): traced open bench workflow and labeled tool wall — not an as-built physical lab claim.',
     gallery_walk: 'Gallery: noted demo kiosk layout for community night without claiming Pixel fidelity.',
     save_progress: 'OK',
     resume_and_home: 'OK',
@@ -178,6 +192,7 @@ export function runGaryPlayableAcceptance({ learnerId = 'learner-a', nowBase = '
     });
   }
   const resumed = resumeGaryPilotJourney(journey, { now: nowBase });
+  const repairNote = resumed.journey.artifacts?.repair_lab_note;
   return {
     ok: true,
     journey: resumed.journey,
@@ -188,7 +203,14 @@ export function runGaryPlayableAcceptance({ learnerId = 'learner-a', nowBase = '
     nav_only: false,
     rooms_bound: transcript.every((t) => Boolean(t.room_key)),
     waike_linked: transcript.every((t) => Boolean(t.waike_surface)),
+    repair_lab_planning_twin_only: repairNote?.payload?.repair_lab_planning_twin_only === true,
+    as_built_facility_claim: repairNote?.payload?.as_built_facility_claim === true,
     acceptance: PLAYABLE_ACCEPTANCE_NOTE,
+    PIXEL_7GC_CAMPUS_PASS: false,
+    HUMAN_7GC_SPATIAL_FIDELITY_PASS: false,
+    HUMAN: false,
+    RC2: false,
+    V1: false,
   };
 }
 

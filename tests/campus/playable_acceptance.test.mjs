@@ -27,6 +27,13 @@ describe('playable acceptance — not navigation prototypes', () => {
     assert.equal(result.waike_linked, true);
     assert.equal(result.returned_home, true);
     assert.equal(result.private_visibility, true);
+    assert.equal(result.repair_lab_planning_twin_only, true);
+    assert.equal(result.as_built_facility_claim, false);
+    assert.equal(result.PIXEL_7GC_CAMPUS_PASS, false);
+    assert.equal(result.HUMAN_7GC_SPATIAL_FIDELITY_PASS, false);
+    assert.equal(result.HUMAN, false);
+    assert.equal(result.RC2, false);
+    assert.equal(result.V1, false);
     assert.equal(result.private_node.visibility, VISIBILITY.PRIVATE);
     assert.equal(result.transcript.length, GARY_PILOT_STEPS.length);
     assert.match(PLAYABLE_ACCEPTANCE_NOTE, /not navigation alone/i);
@@ -39,6 +46,27 @@ describe('playable acceptance — not navigation prototypes', () => {
     const denied = playGaryPilotStep(journey, 'welcome_device_help', { learnerInput: 'short' });
     assert.equal(denied.ok, false);
     assert.equal(denied.reason, 'insufficient_learner_work');
+  });
+
+  it('Gary requires repair-lab planning-twin honesty (not as-built facility)', () => {
+    const created = createGaryPilotJourney({ learnerId: 'alice' });
+    let journey = created.journey;
+    for (const [id, input] of [
+      ['welcome_device_help', 'Phone will not join civic Wi-Fi; need help updating settings.'],
+      ['classroom_lab', 'Assembled network drop cable on mobile hardware cart and verified link light.'],
+      ['portfolio_artifact', 'Portfolio: documented cable build steps and civic device-help checklist.'],
+      ['feedback_showcase', 'Showcase: three slides on device help + lab outcome for community night.'],
+    ]) {
+      const advanced = playGaryPilotStep(journey, id, { learnerInput: input, actorId: 'alice' });
+      assert.equal(advanced.ok, true, advanced.reason);
+      journey = advanced.journey;
+    }
+    const denied = playGaryPilotStep(journey, 'repair_lab_peek', {
+      learnerInput: 'Visited the finished physical repair facility and certified the as-built tool wall.',
+      actorId: 'alice',
+    });
+    assert.equal(denied.ok, false);
+    assert.equal(denied.reason, 'repair_lab_planning_twin_honesty_required');
   });
 
   it('Nubuke heritage produces private artifact, matched views, unknowns retained', () => {
