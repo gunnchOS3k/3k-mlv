@@ -277,7 +277,7 @@ export default function WorldRuntime({
                 onPitchChange={setPitch}
                 seated={seated}
               />
-              <ThirdPersonCamera target={pos} yaw={facing} pitch={pitch} reducedMotion={reducedMotion} />
+              <ThirdPersonCamera target={pos} yaw={facing} pitch={pitch} collisions={worldDef.collisions} reducedMotion={reducedMotion} />
             </Suspense>
           </Canvas>
           {!massing && <SceneMinimap def={worldDef} position={pos} facing={facing} variant="inset" />}
