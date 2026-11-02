@@ -1,10 +1,10 @@
 {
   "schema": "mlv_waike_pathway_crosswalk_v1",
   "prepared_on": "2026-11-01",
-  "prepared_at": "2026-11-02T18:25:00Z",
+  "prepared_at": "2026-11-02T20:18:00Z",
   "waike_published_tip": "91c03f5",
   "waike_floor_tip": "5a18707",
-  "note": "Preserves 18 catalog IDs vs digital-RC package count with shared GENERAL_IT. Disk dirs (16) can exceed COURSE_DIGITAL_RC course keys (14). Neither count equals instructional completeness. Companion only \u2014 does not delete pathways. Catalog aliasing \u2260 inventing COURSE_DIGITAL_RC=true; full_18 remains false. Tip bind \u22655a18707 / local 6e6fde0.",
+  "note": "Preserves 18 catalog IDs vs digital-RC package count with shared GENERAL_IT. Disk dirs (16) can exceed COURSE_DIGITAL_RC course keys (14). Eight-family taxonomy ≠ instructional completeness. Companion only — does not delete pathways. Catalog aliasing ≠ inventing COURSE_DIGITAL_RC=true; full_18 remains false. Tip bind ≥5a18707 / MLV 7a95d007.",
   "sources": {
     "eighteen_tracks": "waike-research-ops/curriculum/taxonomy/eighteen_tracks.json",
     "digital_rc_artifact": "waike-research-ops/artifacts/COURSE_DIGITAL_RC.json",
@@ -230,8 +230,12 @@
     "HUMAN_CURRICULUM_ACCEPTANCE": false,
     "FULL_18_COURSE_DIGITAL_RC": false,
     "CATALOG_ALIAS_NEQ_INVENTED_TRUE": true,
+    "EIGHT_FAMILY_NEQ_INSTRUCTIONAL_COMPLETE": true,
+    "ROW_INSTRUCTIONAL_COMPLETENESS_ALL_FALSE": true,
+    "PIXEL": false,
     "HUMAN": false,
     "RC2": false,
     "V1": false
-  }
+  },
+  "mlv_parent_tip": "7a95d007"
 }

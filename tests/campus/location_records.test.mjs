@@ -186,13 +186,21 @@ describe('WAIKE pathway crosswalk honesty', () => {
     assert.equal(doc.gates.DISK_VS_RC_KEYS_HONESTY_PASS, true);
     assert.equal(doc.gates.FULL_18_COURSE_DIGITAL_RC, false);
     assert.equal(doc.gates.CATALOG_ALIAS_NEQ_INVENTED_TRUE, true);
+    assert.equal(doc.gates.EIGHT_FAMILY_NEQ_INSTRUCTIONAL_COMPLETE, true);
+    assert.equal(doc.gates.ROW_INSTRUCTIONAL_COMPLETENESS_ALL_FALSE, true);
+    assert.equal(doc.gates.PIXEL, false);
     assert.equal(doc.gates.HUMAN, false);
     assert.equal(doc.gates.RC2, false);
     assert.equal(doc.gates.V1, false);
     assert.equal(doc.waike_published_tip, '91c03f5');
     assert.equal(doc.waike_floor_tip, '5a18707');
+    assert.equal(doc.mlv_parent_tip, '7a95d007');
     assert.deepEqual(doc.unmapped_catalog_tracks, ['SEVEN_GC_APPRENTICESHIP']);
     assert.ok(doc.dirs_present_awaiting_course_digital_rc_key.includes('EMBEDDED_PROTOTYPING'));
     assert.ok(Object.keys(doc.eight_track_families).length === 8);
+    assert.ok(Array.isArray(doc.rows) && doc.rows.length >= 14);
+    for (const row of doc.rows) {
+      assert.equal(row.instructional_completeness_claimed, false);
+    }
   });
 });
