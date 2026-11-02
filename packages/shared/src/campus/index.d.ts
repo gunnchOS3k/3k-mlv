@@ -158,6 +158,7 @@ export function unboundWaikeCampus(): {
 };
 
 export const REPRESENTATION_STATES: readonly string[];
+export const LOCATION_EVIDENCE_CLASSES: readonly string[];
 export const STATE_LABELS: Record<string, string>;
 export function loadLocationIndex(): { location_ids: string[]; by_campus: Record<string, string[]> };
 export function loadLocationRecord(locationId: string): Record<string, unknown> | null;

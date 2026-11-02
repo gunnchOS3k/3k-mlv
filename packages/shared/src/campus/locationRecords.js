@@ -12,7 +12,8 @@ export const REPRESENTATION_STATES = Object.freeze([
   'planning_concept',
 ]);
 
-export const EVIDENCE_CLASSES = Object.freeze([
+// Distinct from networkTwin EVIDENCE_CLASSES (SIMULATED/…); avoid barrel re-export clash.
+export const LOCATION_EVIDENCE_CLASSES = Object.freeze([
   'measured',
   'drawing_derived',
   'observed',
@@ -82,7 +83,7 @@ export function validateLocationRecord(record) {
   if (!Array.isArray(record?.source_ids) || record.source_ids.length === 0) errors.push('source_ids');
   if (!Array.isArray(record?.claims) || record.claims.length === 0) errors.push('claims');
   for (const claim of record?.claims || []) {
-    if (!EVIDENCE_CLASSES.includes(claim.evidence_class)) {
+    if (!LOCATION_EVIDENCE_CLASSES.includes(claim.evidence_class)) {
       errors.push(`claim.${claim.claim_id}.evidence_class`);
     }
     if (!claim.confidence_rationale) errors.push(`claim.${claim.claim_id}.confidence_rationale`);
