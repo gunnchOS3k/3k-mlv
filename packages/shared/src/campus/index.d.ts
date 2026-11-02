@@ -165,7 +165,7 @@ export function listLocationRecords(): Array<Record<string, unknown>>;
 export function locationsForCampus(campusSlug: string): Array<Record<string, unknown>>;
 export function reconstructClaimHistory(locationId: string, claimId: string): { ok: boolean; decision_history?: unknown[]; reason?: string };
 export function validateLocationRecord(record: Record<string, unknown>): { ok: boolean; errors: string[] };
-export function sceneStateLabel(record: Record<string, unknown> | null): { label: string; representation_state: string; capture: string; scene_version: string } | null;
+export function sceneStateLabel(record: Record<string, unknown> | null): { label: string; representation_state: string; capture: string; scene_version: string; metric_accuracy_status: string } | null;
 export function assertSourceObservationsImmutableShape(doc?: Record<string, unknown>): { ok: boolean; errors: string[]; count: number };
 export const GARY_PILOT_JOURNEY_ID: string;
 export const GARY_PILOT_STEPS: ReadonlyArray<{ id: string; room_key: string; title: string; action: string; produces: string }>;

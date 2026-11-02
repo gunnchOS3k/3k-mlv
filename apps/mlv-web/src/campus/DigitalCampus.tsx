@@ -130,17 +130,6 @@ export default function DigitalCampus({ slug }: { slug: string }) {
         </button>
       </div>
 
-      {mode === 'world' ? (
-        <Suspense fallback={<p className="mlv-kicker">Loading world…</p>}>
-          <WorldRuntime
-            initialWorld="CAMPUS"
-            campusSlug={campus.slug}
-            planningSlot={null}
-            massing={<CampusWorld slug={campus.slug} phaseId={phaseId} focusedProgramKey={roomKey} />}
-          />
-        </Suspense>
-      ) : null}
-
       {mode === 'map' ? (
         <div className="mlv-campus-map" style={{ height: 'min(62vh, 520px)', borderRadius: 12, overflow: 'hidden', marginBottom: '1rem' }}>
           <Canvas camera={{ position: [0, 12, 14], fov: 50 }} style={{ width: '100%', height: '100%' }}>

@@ -26,7 +26,8 @@ export default function GaryPilotJourney({
     } catch {
       /* ignore */
     }
-    return createGaryPilotJourney({ learnerId }).journey;
+    const created = createGaryPilotJourney({ learnerId });
+    return created.ok ? created.journey : { learnerId, steps_done: [] };
   });
   const [message, setMessage] = useState('');
   const [learnerInput, setLearnerInput] = useState('');

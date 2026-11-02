@@ -22,8 +22,10 @@ export default function NubukeHeritageExperience({
     return <p className="mlv-kicker">Nubuke location record unavailable.</p>;
   }
 
-  const areaClaim = (record.claims as Array<Record<string, unknown>>).find((c) => c.claim_id === 'nubuke.area');
-  const topo = (record.claims as Array<Record<string, unknown>>).find((c) => c.claim_id === 'nubuke.topology');
+  const loc = record;
+  const scene = label;
+  const areaClaim = (loc.claims as Array<Record<string, unknown>>).find((c) => c.claim_id === 'nubuke.area');
+  const topo = (loc.claims as Array<Record<string, unknown>>).find((c) => c.claim_id === 'nubuke.topology');
 
   function savePlayable() {
     const out = runNubukePlayableAcceptance({ learnerId, observation }) as Record<string, unknown>;
@@ -33,8 +35,8 @@ export default function NubukeHeritageExperience({
         localStorage.setItem(
           'mlv.nubuke.learning_artifact.v1',
           JSON.stringify({
-            location_id: record.location_id,
-            representation_state: label.representation_state,
+            location_id: loc.location_id,
+            representation_state: scene.representation_state,
             observation,
             private_node_id: (out.private_node as { id?: string } | undefined)?.id,
             saved_at: new Date().toISOString(),
@@ -51,14 +53,14 @@ export default function NubukeHeritageExperience({
     <section
       className="mlv-nubuke"
       aria-label="Nubuke heritage experience"
-      data-representation-state={label.representation_state}
+      data-representation-state={scene.representation_state}
       data-playable="true"
       data-embed={embed}
     >
       <h2>Nubuke Foundation heritage stop{embed === 'gallery' ? ' (Gallery)' : ''}</h2>
       <p className="mlv-kicker">{PLAYABLE_ACCEPTANCE_NOTE}</p>
-      <p className="mlv-kicker" data-testid="scene-state-label">{label.label} · {label.capture}</p>
-      <p>Not the WAIKE Ghana campus. Metric accuracy: {label.metric_accuracy_status}.</p>
+      <p className="mlv-kicker" data-testid="scene-state-label">{scene.label} · {scene.capture}</p>
+      <p>Not the WAIKE Ghana campus. Metric accuracy: {scene.metric_accuracy_status}.</p>
 
       <h3>Orientation map (non-3D equivalent)</h3>
       <ol className="mlv-kicker">
