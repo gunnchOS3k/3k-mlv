@@ -1,0 +1,27 @@
+{
+  "schema": "mlv_campus_coverage_neq_finished_environments_v1",
+  "prepared_at": "2026-11-02T01:10:00Z",
+  "floor_tip": "c912fd8c",
+  "note": "Specialty journeys wired for all 7 campuses is coverage of schematic planning twins, not finished physical environments. Catalog coverage flags (IMPLEMENTED_*) ≠ as-built facilities.",
+  "campus_coverage_neq_finished_environments": true,
+  "specialty_journeys_wired_count": 7,
+  "finished_physical_environments_claimed": false,
+  "as_built_facility_claim": false,
+  "campuses": [
+    "gary",
+    "guyana",
+    "graham-land",
+    "ghana",
+    "germany",
+    "geelong",
+    "gaza"
+  ],
+  "gates": {
+    "PIXEL_7GC_CAMPUS_PASS": false,
+    "HUMAN_7GC_SPATIAL_FIDELITY_PASS": false,
+    "HUMAN": false,
+    "RC2": false,
+    "V1": false,
+    "CAMPUS_COVERAGE_NEQ_FINISHED_PASS": true
+  }
+}

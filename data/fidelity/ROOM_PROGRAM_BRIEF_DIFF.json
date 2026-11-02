@@ -1,7 +1,7 @@
 {
   "schema": "mlv_room_program_brief_diff_v1",
   "prepared_on": "2026-11-01",
-  "note": "Companion diff against packet 07_CAMPUS_ROOM_PROGRAMS.json. Specialty journeys wired for all 7 campuses; PIXEL/HUMAN remain false.",
+  "note": "Companion diff against packet 07_CAMPUS_ROOM_PROGRAMS.json. Specialty journeys wired for all 7 campuses; campus coverage ≠ finished environments; PIXEL/HUMAN remain false.",
   "campuses": [
     {
       "campus": "Gary",
