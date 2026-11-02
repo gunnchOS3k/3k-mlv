@@ -189,7 +189,7 @@ describe('WAIKE pathway crosswalk honesty', () => {
     assert.equal(doc.gates.HUMAN, false);
     assert.equal(doc.gates.RC2, false);
     assert.equal(doc.gates.V1, false);
-    assert.equal(doc.waike_published_tip, '6e6fde0');
+    assert.equal(doc.waike_published_tip, '91c03f5');
     assert.equal(doc.waike_floor_tip, '5a18707');
     assert.deepEqual(doc.unmapped_catalog_tracks, ['SEVEN_GC_APPRENTICESHIP']);
     assert.ok(doc.dirs_present_awaiting_course_digital_rc_key.includes('EMBEDDED_PROTOTYPING'));
