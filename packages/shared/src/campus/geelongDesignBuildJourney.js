@@ -231,5 +231,15 @@ export function runGeelongDesignBuildPlayable({ learnerId = 'learner-au', now = 
     layer_states: (journey.layers || []).map((l) => l.representation_state),
     returned_home: journey.returned_home === true,
     nav_only: false,
+    // Schematic design/build studio only — coverage ≠ finished campus / as-built facility.
+    schematic_planning_twin_only: true,
+    as_built_facility_claim: false,
+    campus_coverage_neq_finished_environments: true,
+    finished_physical_environments_claimed: false,
+    PIXEL_7GC_CAMPUS_PASS: false,
+    HUMAN_7GC_SPATIAL_FIDELITY_PASS: false,
+    HUMAN: false,
+    RC2: false,
+    V1: false,
   };
 }

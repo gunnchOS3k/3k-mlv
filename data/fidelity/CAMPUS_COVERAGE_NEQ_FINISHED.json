@@ -1,8 +1,8 @@
 {
   "schema": "mlv_campus_coverage_neq_finished_environments_v1",
-  "prepared_at": "2026-11-02T01:10:00Z",
+  "prepared_at": "2026-11-02T18:25:00Z",
   "floor_tip": "c912fd8c",
-  "note": "Specialty journeys wired for all 7 campuses is coverage of schematic planning twins, not finished physical environments. Catalog coverage flags (IMPLEMENTED_*) ≠ as-built facilities.",
+  "note": "Specialty journeys wired for all 7 campuses is coverage of schematic planning twins, not finished physical environments. Catalog coverage flags (IMPLEMENTED_*) ≠ as-built facilities. Geelong design/build playable also stamps schematic_planning_twin_only / as_built_facility_claim=false.",
   "campus_coverage_neq_finished_environments": true,
   "specialty_journeys_wired_count": 7,
   "finished_physical_environments_claimed": false,

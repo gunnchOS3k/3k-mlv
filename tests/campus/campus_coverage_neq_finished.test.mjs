@@ -77,6 +77,14 @@ describe('campus coverage ≠ finished environments', () => {
     assert.equal(gaza.HUMAN, false);
     assert.equal(gaza.RC2, false);
     assert.equal(gaza.V1, false);
+    const geelong = runGeelongSpecialtyPlayable();
+    assert.equal(geelong.schematic_planning_twin_only, true);
+    assert.equal(geelong.as_built_facility_claim, false);
+    assert.equal(geelong.campus_coverage_neq_finished_environments, true);
+    assert.equal(geelong.finished_physical_environments_claimed, false);
+    assert.equal(geelong.HUMAN, false);
+    assert.equal(geelong.RC2, false);
+    assert.equal(geelong.V1, false);
   });
 
   it('catalog campuses remain planning twins (coverage ≠ finished)', () => {
