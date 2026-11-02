@@ -1,7 +1,9 @@
 {
   "schema": "mlv_waike_pathway_crosswalk_v1",
   "prepared_on": "2026-11-01",
-  "note": "Preserves 18 catalog IDs vs digital-RC package count with shared GENERAL_IT. Disk dirs (16) can exceed COURSE_DIGITAL_RC course keys (14). Neither count equals instructional completeness. Companion only — does not delete pathways.",
+  "prepared_at": "2026-11-02T02:05:00Z",
+  "waike_published_tip": "ef0b975",
+  "note": "Preserves 18 catalog IDs vs digital-RC package count with shared GENERAL_IT. Disk dirs (16) can exceed COURSE_DIGITAL_RC course keys (14). Neither count equals instructional completeness. Companion only — does not delete pathways. Catalog aliasing ≠ inventing COURSE_DIGITAL_RC=true; full_18 remains false.",
   "sources": {
     "eighteen_tracks": "waike-research-ops/curriculum/taxonomy/eighteen_tracks.json",
     "digital_rc_artifact": "waike-research-ops/artifacts/COURSE_DIGITAL_RC.json",
@@ -225,6 +227,8 @@
     "DISK_VS_RC_KEYS_HONESTY_PASS": true,
     "INSTRUCTIONAL_COMPLETENESS_CLAIMED": false,
     "HUMAN_CURRICULUM_ACCEPTANCE": false,
+    "FULL_18_COURSE_DIGITAL_RC": false,
+    "CATALOG_ALIAS_NEQ_INVENTED_TRUE": true,
     "HUMAN": false,
     "RC2": false,
     "V1": false

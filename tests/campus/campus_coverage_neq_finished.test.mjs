@@ -70,6 +70,13 @@ describe('campus coverage ≠ finished environments', () => {
         assert.equal(result.repair_lab_planning_twin_only, true);
       }
     }
+    const gaza = runGazaPlayable();
+    assert.equal(gaza.campus_coverage_neq_finished_environments, true);
+    assert.equal(gaza.finished_physical_environments_claimed, false);
+    assert.equal(gaza.no_coordinates, true);
+    assert.equal(gaza.HUMAN, false);
+    assert.equal(gaza.RC2, false);
+    assert.equal(gaza.V1, false);
   });
 
   it('catalog campuses remain planning twins (coverage ≠ finished)', () => {
