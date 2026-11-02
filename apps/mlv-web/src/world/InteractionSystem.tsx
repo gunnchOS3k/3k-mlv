@@ -63,6 +63,9 @@ export function runInteraction(
       if (item.targetScene) handlers.onNavigate?.(item.targetScene);
       else handlers.onRoom?.(item.destination || item.id);
       break;
+    case 'PROGRAM_BRIEF':
+      handlers.onStatus?.(item.accessibilityAlternative);
+      break;
     case 'SEAT':
       handlers.onSeat?.(item.id);
       break;

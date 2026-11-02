@@ -15,6 +15,7 @@ export type WorldCapability =
   | 'NETWORK_TWIN'
   | 'RESEARCH_HANDOFF'
   | 'ROOM_TRANSITION'
+  | 'PROGRAM_BRIEF'
   | 'LOGOFF'
   | 'SEAT'
   | 'DOOR';
@@ -155,6 +156,9 @@ export type AuthoredProp = {
   metalness?: number;
   opacity?: number;
   emissive?: string;
+  label?: string;
+  /** Verbatim source string from data/campus/v4/<slug>.architecture.json. */
+  trace?: string;
 };
 
 export type WorldCollision = {
