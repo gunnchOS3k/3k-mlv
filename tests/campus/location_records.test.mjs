@@ -187,7 +187,12 @@ describe('WAIKE pathway crosswalk honesty', () => {
     const doc = JSON.parse(readFileSync(join(root, 'data/fidelity/WAIKE_PATHWAY_CROSSWALK.json'), 'utf8'));
     assert.equal(doc.counts.catalog_track_ids, 18);
     assert.equal(doc.counts.digital_rc_dirs_on_disk, 16);
-    assert.equal(doc.counts.digital_rc_course_keys, 14);
+    assert.equal(doc.counts.digital_rc_course_keys, 16);
+    assert.equal(doc.counts.course_digital_rc_true, doc.course_digital_rc_true_ids.length);
+    assert.ok(doc.counts.course_digital_rc_true < doc.counts.catalog_track_ids);
+    for (const id of doc.counts.keyed_courses_failing_digital_rc_gate) {
+      assert.equal(doc.course_digital_rc_true_ids.includes(id), false, id);
+    }
     assert.equal(doc.counts.full_18_course_digital_rc_flag, false);
     assert.equal(doc.gates.INSTRUCTIONAL_COMPLETENESS_CLAIMED, false);
     assert.equal(doc.gates.NO_PATHWAY_DELETED_PASS, true);
@@ -200,11 +205,11 @@ describe('WAIKE pathway crosswalk honesty', () => {
     assert.equal(doc.gates.HUMAN, false);
     assert.equal(doc.gates.RC2, false);
     assert.equal(doc.gates.V1, false);
-    assert.equal(doc.waike_published_tip, '91c03f5');
+    assert.equal(doc.waike_published_tip, 'aeb9762');
     assert.equal(doc.waike_floor_tip, '5a18707');
-    assert.equal(doc.mlv_parent_tip, '7a95d007');
+    assert.equal(doc.mlv_parent_tip, '60a3d207');
     assert.deepEqual(doc.unmapped_catalog_tracks, ['SEVEN_GC_APPRENTICESHIP']);
-    assert.ok(doc.dirs_present_awaiting_course_digital_rc_key.includes('EMBEDDED_PROTOTYPING'));
+    assert.deepEqual(doc.dirs_present_awaiting_course_digital_rc_key, []);
     assert.ok(Object.keys(doc.eight_track_families).length === 8);
     assert.ok(Array.isArray(doc.rows) && doc.rows.length >= 14);
     for (const row of doc.rows) {

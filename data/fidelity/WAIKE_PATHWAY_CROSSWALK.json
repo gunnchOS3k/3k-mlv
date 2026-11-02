@@ -1,10 +1,10 @@
 {
   "schema": "mlv_waike_pathway_crosswalk_v1",
   "prepared_on": "2026-11-01",
-  "prepared_at": "2026-11-02T20:18:00Z",
-  "waike_published_tip": "91c03f5",
+  "prepared_at": "2026-11-02T23:59:00Z",
+  "waike_published_tip": "aeb9762",
   "waike_floor_tip": "5a18707",
-  "note": "Preserves 18 catalog IDs vs digital-RC package count with shared GENERAL_IT. Disk dirs (16) can exceed COURSE_DIGITAL_RC course keys (14). Eight-family taxonomy ≠ instructional completeness. Companion only — does not delete pathways. Catalog aliasing ≠ inventing COURSE_DIGITAL_RC=true; full_18 remains false. Tip bind ≥5a18707 / MLV 7a95d007.",
+  "note": "Preserves 18 catalog IDs vs digital-RC package count with shared GENERAL_IT. All 16 on-disk dirs are now COURSE_DIGITAL_RC keys; a key is evaluated, not passed — 11 pass the repeated-sentence-aware writer gate and 5 keyed courses fail on padding. Eight-family taxonomy ≠ instructional completeness. Catalog aliasing ≠ inventing COURSE_DIGITAL_RC=true; full_18 remains false. Tip bind WAIKE aeb9762 / MLV 60a3d207.",
   "sources": {
     "eighteen_tracks": "waike-research-ops/curriculum/taxonomy/eighteen_tracks.json",
     "digital_rc_artifact": "waike-research-ops/artifacts/COURSE_DIGITAL_RC.json",
@@ -13,16 +13,20 @@
   },
   "counts": {
     "catalog_track_ids": 18,
-    "digital_rc_course_keys": 14,
+    "digital_rc_course_keys": 16,
     "digital_rc_dirs_on_disk": 16,
-    "course_digital_rc_true": 14,
+    "course_digital_rc_true": 11,
     "full_18_course_digital_rc_flag": false,
-    "dirs_present_not_in_course_digital_rc_keys": [
-      "EMBEDDED_PROTOTYPING",
-      "GUNNCHOS_PRODUCT_LAB"
-    ],
+    "dirs_present_not_in_course_digital_rc_keys": [],
     "catalog_missing_digital_rc_dir": [
       "SEVEN_GC_APPRENTICESHIP"
+    ],
+    "keyed_courses_failing_digital_rc_gate": [
+      "DATA_DASHBOARDS",
+      "GAME_DEV_INTERACTIVE",
+      "HARDWARE_ENGINEERING",
+      "PM_AGILE_LSS",
+      "SOFTWARE_BUILDER"
     ]
   },
   "eight_track_families": {
@@ -127,9 +131,9 @@
       "shares_general_it_content": false,
       "eight_track_family": "hardware",
       "digital_rc_present": true,
-      "course_digital_rc_keyed": false,
+      "course_digital_rc_keyed": true,
       "instructional_completeness_claimed": false,
-      "note": "Dir on disk with distinct ForgeSense curriculum; not yet a COURSE_DIGITAL_RC.json courses[] key"
+      "note": "Dir on disk with distinct ForgeSense curriculum; COURSE_DIGITAL_RC key at WAIKE aeb9762 (writer gate pass ≠ instructional completeness)"
     },
     {
       "catalog_track_id": "WIRELESS_6G",
@@ -193,9 +197,9 @@
       "shares_general_it_content": false,
       "eight_track_family": "software",
       "digital_rc_present": true,
-      "course_digital_rc_keyed": false,
+      "course_digital_rc_keyed": true,
       "instructional_completeness_claimed": false,
-      "note": "Dir on disk with distinct Product Bench curriculum; not yet a COURSE_DIGITAL_RC.json courses[] key"
+      "note": "Dir on disk with distinct Product Bench curriculum; COURSE_DIGITAL_RC key at WAIKE aeb9762 (writer gate pass ≠ instructional completeness)"
     },
     {
       "catalog_track_id": "HARDWARE_ENGINEERING",
@@ -217,10 +221,7 @@
   "unmapped_catalog_tracks": [
     "SEVEN_GC_APPRENTICESHIP"
   ],
-  "dirs_present_awaiting_course_digital_rc_key": [
-    "EMBEDDED_PROTOTYPING",
-    "GUNNCHOS_PRODUCT_LAB"
-  ],
+  "dirs_present_awaiting_course_digital_rc_key": [],
   "orphan_digital_courses": [],
   "gates": {
     "PATHWAY_COUNT_HONESTY_PASS": true,
@@ -237,5 +238,18 @@
     "RC2": false,
     "V1": false
   },
-  "mlv_parent_tip": "7a95d007"
+  "mlv_parent_tip": "60a3d207",
+  "course_digital_rc_true_ids": [
+    "AI_ML_EDGE",
+    "CLOUD_DEVOPS",
+    "COMM_PD_ETHICS",
+    "COMPUTER_NETWORKING",
+    "CYBERSECURITY",
+    "DATA_VIZ_BI",
+    "EMBEDDED_PROTOTYPING",
+    "GENERAL_IT",
+    "GUNNCHOS_PRODUCT_LAB",
+    "ROBOTICS_CONTROL",
+    "WIRELESS_6G"
+  ]
 }
