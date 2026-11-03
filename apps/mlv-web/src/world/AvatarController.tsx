@@ -1,7 +1,7 @@
 import { useFrame } from '@react-three/fiber';
 import { useEffect, useRef } from 'react';
 import CharacterAvatar from './CharacterAvatar';
-import { resolveXZ, type AABB } from './CollisionWorld';
+import { resolveMovementXZ, type AABB } from './CollisionWorld';
 import { readGamepad } from './GamepadControls';
 import { locomotionDelta, turnYaw } from './cameraRig.mjs';
 
@@ -41,7 +41,7 @@ export default function AvatarController({ position, facing, onChange, collision
     if (pitchDelta !== 0) onPitchChange(Math.max(-0.35, Math.min(0.9, pitch + pitchDelta)));
     const speed = 3.2;
     const [dx, dz] = locomotionDelta(yaw, -my, mx, speed * dt);
-    const next = resolveXZ([position[0] + dx, position[1], position[2] + dz], collisions);
+    const next = resolveMovementXZ([position[0], position[1], position[2]], dx, dz, collisions);
     if (dx !== 0 || dz !== 0 || yaw !== facing) onChange(next, yaw);
   });
 
