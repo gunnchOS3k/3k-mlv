@@ -1,10 +1,10 @@
 {
   "schema": "mlv_waike_pathway_crosswalk_v1",
   "prepared_on": "2026-11-01",
-  "prepared_at": "2026-11-03T00:01:19Z",
-  "waike_published_tip": "6dc9eb0",
+  "prepared_at": "2026-11-03T03:08:26Z",
+  "waike_published_tip": "0c348cf",
   "waike_floor_tip": "5a18707",
-  "note": "Preserves 18 catalog IDs vs digital-RC package count with shared GENERAL_IT. All 17 on-disk dirs are COURSE_DIGITAL_RC keys and all 17 pass the repeated-sentence-aware writer gate; SEVEN_GC_APPRENTICESHIP now has its own Research Bench package. full_18 remains false: four catalog IDs (CYBER_SOC, DIGITAL_CONFIDENCE, IT_SUPPORT_HARDWARE, NETWORKING_INFRA) are served only by aliases and the WAIKE writer does not compute full_18. SEVEN_GC_APPRENTICESHIP has no MLV eight-family assignment (owner decision). Writer gate pass ≠ instructional completeness. Tip bind WAIKE 6dc9eb0 / MLV df7875f8.",
+  "note": "18 catalog IDs, each now served by its own WAIKE digital-RC package; 21 on-disk dirs are COURSE_DIGITAL_RC keys (the 18 catalog tracks plus GENERAL_IT, COMPUTER_NETWORKING, CYBERSECURITY) and all 21 pass the repeated-sentence-aware writer gate. batch009 replaced the four alias rows (CYBER_SOC, DIGITAL_CONFIDENCE, IT_SUPPORT_HARDWARE, NETWORKING_INFRA) with their own packages; no course lists another catalog track in track_ids. The WAIKE writer now computes full_18 from its gate and it is true. full_18 is a Cursor-implementation state, not independent verification or HUMAN curriculum acceptance. SEVEN_GC_APPRENTICESHIP has no MLV eight-family assignment (owner decision). Writer gate pass ≠ instructional completeness. Tip bind WAIKE 0c348cf / MLV 91966dfa.",
   "sources": {
     "eighteen_tracks": "waike-research-ops/curriculum/taxonomy/eighteen_tracks.json",
     "digital_rc_artifact": "waike-research-ops/artifacts/COURSE_DIGITAL_RC.json",
@@ -13,10 +13,10 @@
   },
   "counts": {
     "catalog_track_ids": 18,
-    "digital_rc_course_keys": 17,
-    "digital_rc_dirs_on_disk": 17,
-    "course_digital_rc_true": 17,
-    "full_18_course_digital_rc_flag": false,
+    "digital_rc_course_keys": 21,
+    "digital_rc_dirs_on_disk": 21,
+    "course_digital_rc_true": 21,
+    "full_18_course_digital_rc_flag": true,
     "dirs_present_not_in_course_digital_rc_keys": [],
     "catalog_missing_digital_rc_dir": [],
     "keyed_courses_failing_digital_rc_gate": []
@@ -63,19 +63,21 @@
   "rows": [
     {
       "catalog_track_id": "DIGITAL_CONFIDENCE",
-      "digital_rc_course_id": "GENERAL_IT",
-      "shares_general_it_content": true,
-      "eight_track_family": "IT",
-      "digital_rc_present": true,
-      "instructional_completeness_claimed": false
-    },
-    {
-      "catalog_track_id": "IT_SUPPORT_HARDWARE",
-      "digital_rc_course_id": "HARDWARE_ENGINEERING",
+      "digital_rc_course_id": "DIGITAL_CONFIDENCE",
       "shares_general_it_content": false,
       "eight_track_family": "IT",
       "digital_rc_present": true,
-      "instructional_completeness_claimed": false
+      "instructional_completeness_claimed": false,
+      "note": "Own batch009 package at WAIKE 0c348cf; alias row removed (writer gate pass ≠ instructional completeness)"
+    },
+    {
+      "catalog_track_id": "IT_SUPPORT_HARDWARE",
+      "digital_rc_course_id": "IT_SUPPORT_HARDWARE",
+      "shares_general_it_content": false,
+      "eight_track_family": "IT",
+      "digital_rc_present": true,
+      "instructional_completeness_claimed": false,
+      "note": "Own batch009 package at WAIKE 0c348cf; alias row removed (writer gate pass ≠ instructional completeness)"
     },
     {
       "catalog_track_id": "SOFTWARE_BUILDER",
@@ -87,19 +89,21 @@
     },
     {
       "catalog_track_id": "NETWORKING_INFRA",
-      "digital_rc_course_id": "COMPUTER_NETWORKING",
+      "digital_rc_course_id": "NETWORKING_INFRA",
       "shares_general_it_content": false,
       "eight_track_family": "networking",
       "digital_rc_present": true,
-      "instructional_completeness_claimed": false
+      "instructional_completeness_claimed": false,
+      "note": "Own batch009 package at WAIKE 0c348cf; alias row removed (writer gate pass ≠ instructional completeness)"
     },
     {
       "catalog_track_id": "CYBER_SOC",
-      "digital_rc_course_id": "CYBERSECURITY",
+      "digital_rc_course_id": "CYBER_SOC",
       "shares_general_it_content": false,
       "eight_track_family": "cybersecurity",
       "digital_rc_present": true,
-      "instructional_completeness_claimed": false
+      "instructional_completeness_claimed": false,
+      "note": "Own batch009 package at WAIKE 0c348cf; alias row removed (writer gate pass ≠ instructional completeness)"
     },
     {
       "catalog_track_id": "DATA_DASHBOARDS",
@@ -219,7 +223,7 @@
     "DISK_VS_RC_KEYS_HONESTY_PASS": true,
     "INSTRUCTIONAL_COMPLETENESS_CLAIMED": false,
     "HUMAN_CURRICULUM_ACCEPTANCE": false,
-    "FULL_18_COURSE_DIGITAL_RC": false,
+    "FULL_18_COURSE_DIGITAL_RC": true,
     "CATALOG_ALIAS_NEQ_INVENTED_TRUE": true,
     "EIGHT_FAMILY_NEQ_INSTRUCTIONAL_COMPLETE": true,
     "ROW_INSTRUCTIONAL_COMPLETENESS_ALL_FALSE": true,
@@ -228,20 +232,24 @@
     "RC2": false,
     "V1": false
   },
-  "mlv_parent_tip": "df7875f8",
+  "mlv_parent_tip": "91966dfa",
   "course_digital_rc_true_ids": [
     "AI_ML_EDGE",
     "CLOUD_DEVOPS",
     "COMM_PD_ETHICS",
     "COMPUTER_NETWORKING",
     "CYBERSECURITY",
+    "CYBER_SOC",
     "DATA_DASHBOARDS",
     "DATA_VIZ_BI",
+    "DIGITAL_CONFIDENCE",
     "EMBEDDED_PROTOTYPING",
     "GAME_DEV_INTERACTIVE",
     "GENERAL_IT",
     "GUNNCHOS_PRODUCT_LAB",
     "HARDWARE_ENGINEERING",
+    "IT_SUPPORT_HARDWARE",
+    "NETWORKING_INFRA",
     "PM_AGILE_LSS",
     "ROBOTICS_CONTROL",
     "SEVEN_GC_APPRENTICESHIP",
@@ -252,18 +260,18 @@
     "SEVEN_GC_APPRENTICESHIP"
   ],
   "full_18_missing": {
-    "catalog_ids_with_own_true_package": 14,
+    "catalog_ids_with_own_true_package": 18,
     "catalog_track_ids": 18,
-    "alias_only_catalog_ids": [
-      "CYBER_SOC",
-      "DIGITAL_CONFIDENCE",
-      "IT_SUPPORT_HARDWARE",
-      "NETWORKING_INFRA"
-    ],
-    "writer_computes_full_18": false,
-    "needed": [
-      "write_course_digital_rc.py has no full_18 computation; the flag is fixed False.",
-      "Alias-only catalog IDs need either their own distinct packages or an owner policy that accepts aliases."
-    ]
-  }
+    "alias_only_catalog_ids": [],
+    "writer_computes_full_18": true,
+    "full_18_course_digital_rc": true,
+    "needed": [],
+    "verification_boundary": "Cursor-implementation state from the writer gate; not independent verification or HUMAN acceptance."
+  },
+  "non_catalog_digital_rc_courses": [
+    "COMPUTER_NETWORKING",
+    "CYBERSECURITY",
+    "GENERAL_IT"
+  ],
+  "full_18_verification_boundary": "Computed by waike-research-ops scripts/write_course_digital_rc.py::compute_full_18; Cursor-implementation state, not independent verification or HUMAN acceptance."
 }

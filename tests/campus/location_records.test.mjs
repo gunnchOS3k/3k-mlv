@@ -186,18 +186,28 @@ describe('WAIKE pathway crosswalk honesty', () => {
   it('preserves 18 catalog tracks and does not claim instructional completeness', () => {
     const doc = JSON.parse(readFileSync(join(root, 'data/fidelity/WAIKE_PATHWAY_CROSSWALK.json'), 'utf8'));
     assert.equal(doc.counts.catalog_track_ids, 18);
-    assert.equal(doc.counts.digital_rc_dirs_on_disk, 17);
-    assert.equal(doc.counts.digital_rc_course_keys, 17);
+    assert.equal(doc.counts.digital_rc_dirs_on_disk, 21);
+    assert.equal(doc.counts.digital_rc_course_keys, 21);
     assert.equal(doc.counts.course_digital_rc_true, doc.course_digital_rc_true_ids.length);
-    assert.ok(doc.counts.course_digital_rc_true < doc.counts.catalog_track_ids);
     for (const id of doc.counts.keyed_courses_failing_digital_rc_gate) {
       assert.equal(doc.course_digital_rc_true_ids.includes(id), false, id);
     }
-    assert.equal(doc.counts.full_18_course_digital_rc_flag, false);
+    assert.equal(doc.rows.length, doc.counts.catalog_track_ids);
+    for (const row of doc.rows) {
+      assert.equal(row.digital_rc_course_id, row.catalog_track_id, row.catalog_track_id);
+      assert.equal(row.shares_general_it_content, false, row.catalog_track_id);
+      assert.ok(doc.course_digital_rc_true_ids.includes(row.catalog_track_id), row.catalog_track_id);
+    }
+    assert.deepEqual(doc.non_catalog_digital_rc_courses, ['COMPUTER_NETWORKING', 'CYBERSECURITY', 'GENERAL_IT']);
+    assert.equal(doc.counts.full_18_course_digital_rc_flag, true);
+    assert.equal(doc.full_18_missing.writer_computes_full_18, true);
+    assert.equal(doc.full_18_missing.full_18_course_digital_rc, doc.counts.full_18_course_digital_rc_flag);
+    assert.match(doc.full_18_verification_boundary, /not independent verification/);
     assert.equal(doc.gates.INSTRUCTIONAL_COMPLETENESS_CLAIMED, false);
+    assert.equal(doc.gates.HUMAN_CURRICULUM_ACCEPTANCE, false);
     assert.equal(doc.gates.NO_PATHWAY_DELETED_PASS, true);
     assert.equal(doc.gates.DISK_VS_RC_KEYS_HONESTY_PASS, true);
-    assert.equal(doc.gates.FULL_18_COURSE_DIGITAL_RC, false);
+    assert.equal(doc.gates.FULL_18_COURSE_DIGITAL_RC, doc.counts.full_18_course_digital_rc_flag);
     assert.equal(doc.gates.CATALOG_ALIAS_NEQ_INVENTED_TRUE, true);
     assert.equal(doc.gates.EIGHT_FAMILY_NEQ_INSTRUCTIONAL_COMPLETE, true);
     assert.equal(doc.gates.ROW_INSTRUCTIONAL_COMPLETENESS_ALL_FALSE, true);
@@ -205,16 +215,15 @@ describe('WAIKE pathway crosswalk honesty', () => {
     assert.equal(doc.gates.HUMAN, false);
     assert.equal(doc.gates.RC2, false);
     assert.equal(doc.gates.V1, false);
-    assert.equal(doc.waike_published_tip, '6dc9eb0');
-    assert.equal(doc.counts.course_digital_rc_true, 17);
+    assert.equal(doc.waike_published_tip, '0c348cf');
+    assert.equal(doc.counts.course_digital_rc_true, 21);
     assert.deepEqual(doc.counts.keyed_courses_failing_digital_rc_gate, []);
     assert.equal(doc.waike_floor_tip, '5a18707');
-    assert.equal(doc.mlv_parent_tip, 'df7875f8');
+    assert.equal(doc.mlv_parent_tip, '91966dfa');
     assert.deepEqual(doc.unmapped_catalog_tracks, []);
     assert.deepEqual(doc.counts.catalog_missing_digital_rc_dir, []);
     assert.deepEqual(doc.eight_family_unassigned, ['SEVEN_GC_APPRENTICESHIP']);
-    assert.deepEqual(doc.full_18_missing.alias_only_catalog_ids, ['CYBER_SOC', 'DIGITAL_CONFIDENCE', 'IT_SUPPORT_HARDWARE', 'NETWORKING_INFRA']);
-    assert.equal(doc.full_18_missing.writer_computes_full_18, false);
+    assert.deepEqual(doc.full_18_missing.alias_only_catalog_ids, []);
     assert.deepEqual(doc.dirs_present_awaiting_course_digital_rc_key, []);
     assert.ok(Object.keys(doc.eight_track_families).length === 8);
     assert.ok(Array.isArray(doc.rows) && doc.rows.length >= 14);
