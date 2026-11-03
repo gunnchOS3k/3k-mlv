@@ -131,10 +131,24 @@ describe('playable acceptance — not navigation prototypes', () => {
     assert.equal(result.nav_only, false);
     assert.equal(result.not_waike_campus, true);
     assert.equal(result.metric_accuracy_status, 'unverified');
+    assert.equal(result.plan_drawing_source_inspected, false);
+    assert.equal(result.metric_dimensions_known, false);
+    assert.equal(result.her_03_honesty?.packet_requirement_id, 'HER-03');
     assert.ok(result.matched_views.length >= 3);
     assert.ok(result.evidence_drawer.unknowns_retained.includes('nubuke.area'));
     assert.equal(result.private_node.visibility, VISIBILITY.PRIVATE);
     assert.equal(canReadNode({ actor: { id: 'bob' }, node: result.private_node }), false);
+  });
+
+  it('Nubuke HER-03 refuses measured area, construction, partnership, or cultural approval claims', () => {
+    const denied = runNubukePlayableAcceptance({
+      learnerId: 'alice',
+      observation:
+        'We verified the 271 m² floor area from traced plans after construction complete and obtained cultural approval from Nubuke partnership.',
+    });
+    assert.equal(denied.ok, false);
+    assert.equal(denied.reason, 'nubuke_heritage_honesty_required');
+    assert.ok(['measured_area', 'completed_construction', 'partnership', 'cultural_approval'].includes(denied.forbidden_kind));
   });
 
   it('Ghana/Gaza/Germany/Guyana/Graham/Geelong specialty paths are playable', () => {

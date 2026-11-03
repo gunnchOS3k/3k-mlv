@@ -14,6 +14,7 @@ import {
   resumeGaryPilotJourney,
 } from './garyPilotJourney.js';
 import { loadLocationRecord, sceneStateLabel } from './locationRecords.js';
+import { NUBUKE_HER_03_HONESTY, refuseNubukeFalseHeritageClaims } from './nubukeHeritageHonesty.js';
 import { specialistWaikeDeepLink } from './waikeContract.js';
 import { runGeelongDesignBuildPlayable } from './geelongDesignBuildJourney.js';
 import { runGermanyApprenticeshipPlayable } from './germanyApprenticeshipJourney.js';
@@ -224,6 +225,8 @@ export function runGaryPlayableAcceptance({ learnerId = 'learner-a', nowBase = '
 export function runNubukePlayableAcceptance({ learnerId = 'learner-a', observation, now = new Date().toISOString() } = {}) {
   const text = String(observation || '').trim();
   if (text.length < 20) return { ok: false, reason: 'insufficient_observation' };
+  const honesty = refuseNubukeFalseHeritageClaims(text);
+  if (!honesty.ok) return honesty;
   const record = loadLocationRecord('loc.heritage.nubuke');
   const label = sceneStateLabel(record);
   const matched_views = [
@@ -260,6 +263,9 @@ export function runNubukePlayableAcceptance({ learnerId = 'learner-a', observati
     private_visibility: privateNode.visibility === VISIBILITY.PRIVATE,
     not_waike_campus: true,
     metric_accuracy_status: label.metric_accuracy_status,
+    her_03_honesty: NUBUKE_HER_03_HONESTY,
+    plan_drawing_source_inspected: false,
+    metric_dimensions_known: false,
     nav_only: false,
     acceptance: PLAYABLE_ACCEPTANCE_NOTE,
   };

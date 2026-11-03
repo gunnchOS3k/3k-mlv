@@ -2981,7 +2981,14 @@ export const LOCATION_RECORDS = {
       "rights": "not_assessed",
       "physical_validation": "not_assessed",
       "research_ethics": "not_assessed",
-      "owner_release": "not_granted"
+      "owner_release": "not_granted",
+      "fidelity_packet_honesty": {
+        "HER-03": {
+          "plan_drawing_source_inspected": false,
+          "metric_dimensions_known": false,
+          "note": "ArchDaily-linked drawings and other sources are not yet inspected for scale or tracing; area figures stay unknown/conflicting in claims."
+        }
+      }
     },
     "source_records": [
       {
