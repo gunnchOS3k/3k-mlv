@@ -1,10 +1,10 @@
 {
   "schema": "mlv_waike_pathway_crosswalk_v1",
   "prepared_on": "2026-11-01",
-  "prepared_at": "2026-11-02T23:59:30Z",
-  "waike_published_tip": "e9210cb",
+  "prepared_at": "2026-11-03T00:01:19Z",
+  "waike_published_tip": "6dc9eb0",
   "waike_floor_tip": "5a18707",
-  "note": "Preserves 18 catalog IDs vs digital-RC package count with shared GENERAL_IT. All 16 on-disk dirs are COURSE_DIGITAL_RC keys and all 16 pass the repeated-sentence-aware writer gate after the padded weeks were rewritten with distinct content (gate not weakened). Writer gate pass ≠ instructional completeness. Eight-family taxonomy ≠ instructional completeness. Catalog aliasing ≠ inventing COURSE_DIGITAL_RC=true; SEVEN_GC_APPRENTICESHIP has no package and full_18 remains false. Tip bind WAIKE e9210cb / MLV e056e797.",
+  "note": "Preserves 18 catalog IDs vs digital-RC package count with shared GENERAL_IT. All 17 on-disk dirs are COURSE_DIGITAL_RC keys and all 17 pass the repeated-sentence-aware writer gate; SEVEN_GC_APPRENTICESHIP now has its own Research Bench package. full_18 remains false: four catalog IDs (CYBER_SOC, DIGITAL_CONFIDENCE, IT_SUPPORT_HARDWARE, NETWORKING_INFRA) are served only by aliases and the WAIKE writer does not compute full_18. SEVEN_GC_APPRENTICESHIP has no MLV eight-family assignment (owner decision). Writer gate pass ≠ instructional completeness. Tip bind WAIKE 6dc9eb0 / MLV df7875f8.",
   "sources": {
     "eighteen_tracks": "waike-research-ops/curriculum/taxonomy/eighteen_tracks.json",
     "digital_rc_artifact": "waike-research-ops/artifacts/COURSE_DIGITAL_RC.json",
@@ -13,14 +13,12 @@
   },
   "counts": {
     "catalog_track_ids": 18,
-    "digital_rc_course_keys": 16,
-    "digital_rc_dirs_on_disk": 16,
-    "course_digital_rc_true": 16,
+    "digital_rc_course_keys": 17,
+    "digital_rc_dirs_on_disk": 17,
+    "course_digital_rc_true": 17,
     "full_18_course_digital_rc_flag": false,
     "dirs_present_not_in_course_digital_rc_keys": [],
-    "catalog_missing_digital_rc_dir": [
-      "SEVEN_GC_APPRENTICESHIP"
-    ],
+    "catalog_missing_digital_rc_dir": [],
     "keyed_courses_failing_digital_rc_gate": []
   },
   "eight_track_families": {
@@ -155,10 +153,10 @@
     },
     {
       "catalog_track_id": "SEVEN_GC_APPRENTICESHIP",
-      "digital_rc_course_id": null,
+      "digital_rc_course_id": "SEVEN_GC_APPRENTICESHIP",
       "shares_general_it_content": false,
       "eight_track_family": null,
-      "digital_rc_present": false,
+      "digital_rc_present": true,
       "instructional_completeness_claimed": false
     },
     {
@@ -212,9 +210,7 @@
       "instructional_completeness_claimed": false
     }
   ],
-  "unmapped_catalog_tracks": [
-    "SEVEN_GC_APPRENTICESHIP"
-  ],
+  "unmapped_catalog_tracks": [],
   "dirs_present_awaiting_course_digital_rc_key": [],
   "orphan_digital_courses": [],
   "gates": {
@@ -232,7 +228,7 @@
     "RC2": false,
     "V1": false
   },
-  "mlv_parent_tip": "e056e797",
+  "mlv_parent_tip": "df7875f8",
   "course_digital_rc_true_ids": [
     "AI_ML_EDGE",
     "CLOUD_DEVOPS",
@@ -248,7 +244,26 @@
     "HARDWARE_ENGINEERING",
     "PM_AGILE_LSS",
     "ROBOTICS_CONTROL",
+    "SEVEN_GC_APPRENTICESHIP",
     "SOFTWARE_BUILDER",
     "WIRELESS_6G"
-  ]
+  ],
+  "eight_family_unassigned": [
+    "SEVEN_GC_APPRENTICESHIP"
+  ],
+  "full_18_missing": {
+    "catalog_ids_with_own_true_package": 14,
+    "catalog_track_ids": 18,
+    "alias_only_catalog_ids": [
+      "CYBER_SOC",
+      "DIGITAL_CONFIDENCE",
+      "IT_SUPPORT_HARDWARE",
+      "NETWORKING_INFRA"
+    ],
+    "writer_computes_full_18": false,
+    "needed": [
+      "write_course_digital_rc.py has no full_18 computation; the flag is fixed False.",
+      "Alias-only catalog IDs need either their own distinct packages or an owner policy that accepts aliases."
+    ]
+  }
 }

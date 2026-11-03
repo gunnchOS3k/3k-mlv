@@ -186,8 +186,8 @@ describe('WAIKE pathway crosswalk honesty', () => {
   it('preserves 18 catalog tracks and does not claim instructional completeness', () => {
     const doc = JSON.parse(readFileSync(join(root, 'data/fidelity/WAIKE_PATHWAY_CROSSWALK.json'), 'utf8'));
     assert.equal(doc.counts.catalog_track_ids, 18);
-    assert.equal(doc.counts.digital_rc_dirs_on_disk, 16);
-    assert.equal(doc.counts.digital_rc_course_keys, 16);
+    assert.equal(doc.counts.digital_rc_dirs_on_disk, 17);
+    assert.equal(doc.counts.digital_rc_course_keys, 17);
     assert.equal(doc.counts.course_digital_rc_true, doc.course_digital_rc_true_ids.length);
     assert.ok(doc.counts.course_digital_rc_true < doc.counts.catalog_track_ids);
     for (const id of doc.counts.keyed_courses_failing_digital_rc_gate) {
@@ -205,12 +205,16 @@ describe('WAIKE pathway crosswalk honesty', () => {
     assert.equal(doc.gates.HUMAN, false);
     assert.equal(doc.gates.RC2, false);
     assert.equal(doc.gates.V1, false);
-    assert.equal(doc.waike_published_tip, 'e9210cb');
-    assert.equal(doc.counts.course_digital_rc_true, 16);
+    assert.equal(doc.waike_published_tip, '6dc9eb0');
+    assert.equal(doc.counts.course_digital_rc_true, 17);
     assert.deepEqual(doc.counts.keyed_courses_failing_digital_rc_gate, []);
     assert.equal(doc.waike_floor_tip, '5a18707');
-    assert.equal(doc.mlv_parent_tip, 'e056e797');
-    assert.deepEqual(doc.unmapped_catalog_tracks, ['SEVEN_GC_APPRENTICESHIP']);
+    assert.equal(doc.mlv_parent_tip, 'df7875f8');
+    assert.deepEqual(doc.unmapped_catalog_tracks, []);
+    assert.deepEqual(doc.counts.catalog_missing_digital_rc_dir, []);
+    assert.deepEqual(doc.eight_family_unassigned, ['SEVEN_GC_APPRENTICESHIP']);
+    assert.deepEqual(doc.full_18_missing.alias_only_catalog_ids, ['CYBER_SOC', 'DIGITAL_CONFIDENCE', 'IT_SUPPORT_HARDWARE', 'NETWORKING_INFRA']);
+    assert.equal(doc.full_18_missing.writer_computes_full_18, false);
     assert.deepEqual(doc.dirs_present_awaiting_course_digital_rc_key, []);
     assert.ok(Object.keys(doc.eight_track_families).length === 8);
     assert.ok(Array.isArray(doc.rows) && doc.rows.length >= 14);
