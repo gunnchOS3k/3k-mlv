@@ -12,6 +12,7 @@ export const GARY_PILOT_STEPS = Object.freeze([
     title: 'Welcome / device help',
     action: 'complete_device_help',
     produces: 'device_help_ticket',
+    program_tier: 'minimum_pilot',
   },
   {
     id: 'classroom_lab',
@@ -19,6 +20,7 @@ export const GARY_PILOT_STEPS = Object.freeze([
     title: 'Classroom / lab',
     action: 'complete_lab_task',
     produces: 'lab_artifact_draft',
+    program_tier: 'minimum_pilot',
   },
   {
     id: 'portfolio_artifact',
@@ -26,6 +28,7 @@ export const GARY_PILOT_STEPS = Object.freeze([
     title: 'Portfolio artifact',
     action: 'document_portfolio_item',
     produces: 'portfolio_item',
+    program_tier: 'minimum_pilot',
   },
   {
     id: 'feedback_showcase',
@@ -33,6 +36,7 @@ export const GARY_PILOT_STEPS = Object.freeze([
     title: 'Feedback / showcase prep',
     action: 'prepare_community_showcase',
     produces: 'showcase_ready_item',
+    program_tier: 'minimum_pilot',
   },
   {
     id: 'repair_lab_peek',
@@ -40,6 +44,7 @@ export const GARY_PILOT_STEPS = Object.freeze([
     title: 'Visible repair lab',
     action: 'document_repair_lab',
     produces: 'repair_lab_note',
+    program_tier: 'preferred_semi_permanent',
   },
   {
     id: 'gallery_walk',
@@ -47,6 +52,7 @@ export const GARY_PILOT_STEPS = Object.freeze([
     title: 'Showcase gallery walk',
     action: 'walk_showcase_gallery',
     produces: 'gallery_walk_note',
+    program_tier: 'full_program',
   },
   {
     id: 'save_progress',
@@ -54,6 +60,7 @@ export const GARY_PILOT_STEPS = Object.freeze([
     title: 'Save',
     action: 'save_journey',
     produces: 'saved_journey_state',
+    program_tier: 'minimum_pilot',
   },
   {
     id: 'resume_and_home',
@@ -61,6 +68,7 @@ export const GARY_PILOT_STEPS = Object.freeze([
     title: 'Resume / return Home',
     action: 'resume_and_return_home',
     produces: 'home_return_receipt',
+    program_tier: 'minimum_pilot',
   },
 ]);
 
@@ -116,23 +124,31 @@ export function advanceGaryPilotJourney(journey, stepId, { payload = {}, now = n
   if (stepId === 'save_progress') next.saved = true;
   if (stepId === 'resume_and_home') {
     if (!journey.saved) return { ok: false, reason: 'must_save_before_resume_home' };
-    next.resumed = true;
+    if (!journey.resumed) return { ok: false, reason: 'must_resume_saved_snapshot_before_home' };
     next.returned_home = true;
   }
   const complete = next.completed_step_ids.length === GARY_PILOT_STEPS.length;
   return { ok: true, journey: next, step, complete };
 }
 
+export function loadGaryPilotSave(serialized, { now = new Date().toISOString() } = {}) {
+  let parsed;
+  try {
+    parsed = typeof serialized === 'string' ? JSON.parse(serialized) : serialized;
+  } catch {
+    return { ok: false, reason: 'unreadable_save' };
+  }
+  if (!parsed?.saved || parsed.journey_id !== GARY_PILOT_JOURNEY_ID) {
+    return { ok: false, reason: 'not_saved' };
+  }
+  const journey = JSON.parse(JSON.stringify(parsed));
+  journey.resumed = true;
+  journey.updated_at = now;
+  return { ok: true, journey };
+}
+
 export function resumeGaryPilotJourney(savedJourney, { now = new Date().toISOString() } = {}) {
-  if (!savedJourney?.saved) return { ok: false, reason: 'not_saved' };
-  return {
-    ok: true,
-    journey: {
-      ...savedJourney,
-      resumed: true,
-      updated_at: now,
-    },
-  };
+  return loadGaryPilotSave(savedJourney, { now });
 }
 
 export function garyPilotJourneyProgress(journey) {

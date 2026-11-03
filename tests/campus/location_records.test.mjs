@@ -11,6 +11,7 @@ import {
   createGaryPilotJourney,
   advanceGaryPilotJourney,
   GARY_PILOT_STEPS,
+  loadGaryPilotSave,
   listLocationRecords,
   loadLocationIndex,
   loadLocationRecord,
@@ -114,6 +115,13 @@ describe('Gary pilot journey', () => {
   it('completes device help → lab → portfolio → showcase → save → resume/home', () => {
     let { journey } = createGaryPilotJourney({ learnerId: 'a' });
     for (const step of GARY_PILOT_STEPS) {
+      if (step.id === 'resume_and_home') {
+        const loaded = loadGaryPilotSave(JSON.stringify(journey));
+        assert.equal(loaded.ok, true, loaded.reason);
+        assert.equal(loaded.journey.returned_home, false);
+        assert.equal(loaded.journey.resumed, true);
+        journey = loaded.journey;
+      }
       const result = advanceGaryPilotJourney(journey, step.id, { payload: { ok: true } });
       assert.equal(result.ok, true, result.reason);
       journey = result.journey;

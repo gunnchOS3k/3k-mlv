@@ -10,6 +10,7 @@ import {
   advanceGaryPilotJourney,
   createGaryPilotJourney,
   garyPilotJourneyProgress,
+  loadGaryPilotSave,
   resumeGaryPilotJourney,
 } from './garyPilotJourney.js';
 import { loadLocationRecord, sceneStateLabel } from './locationRecords.js';
@@ -176,6 +177,11 @@ export function runGaryPlayableAcceptance({ learnerId = 'learner-a', nowBase = '
   const transcript = [];
   let privateNode = null;
   for (const step of GARY_PILOT_STEPS) {
+    if (step.id === 'resume_and_home') {
+      const loaded = loadGaryPilotSave(JSON.stringify(journey), { now: nowBase });
+      if (!loaded.ok) return { ok: false, reason: loaded.reason, at: step.id, transcript };
+      journey = loaded.journey;
+    }
     const result = playGaryPilotStep(journey, step.id, {
       learnerInput: inputs[step.id],
       now: nowBase,

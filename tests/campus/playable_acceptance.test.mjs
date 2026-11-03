@@ -5,6 +5,7 @@ import {
   playGaryPilotStep,
   createGaryPilotJourney,
   runGaryPlayableAcceptance,
+  loadGaryPilotSave,
   runNubukePlayableAcceptance,
   runGhanaOfflinePlayable,
   runGazaPlayable,
@@ -16,6 +17,7 @@ import {
   PLAYABLE_ACCEPTANCE_NOTE,
   GARY_PILOT_STEPS,
 } from '../../packages/shared/src/campus/index.js';
+import { CAMPUS_CATALOG } from '../../packages/shared/src/campus/catalog.js';
 import { VISIBILITY, canReadNode } from '../../packages/shared/src/privacyPolicy.js';
 
 describe('playable acceptance — not navigation prototypes', () => {
@@ -39,6 +41,57 @@ describe('playable acceptance — not navigation prototypes', () => {
     assert.match(PLAYABLE_ACCEPTANCE_NOTE, /not navigation alone/i);
     assert.equal(canReadNode({ actor: { id: 'bob' }, node: result.private_node }), false);
     assert.equal(canReadNode({ actor: { id: 'alice' }, node: result.private_node }), true);
+  });
+
+  it('Gary resume is a detached save snapshot, and preferred/full rooms stay out of the minimum pilot', () => {
+    const created = createGaryPilotJourney({ learnerId: 'alice' });
+    let journey = created.journey;
+    const inputs = {
+      welcome_device_help: 'Phone will not join civic Wi-Fi; need help updating settings.',
+      classroom_lab: 'Assembled network drop cable on mobile hardware cart and verified link light.',
+      portfolio_artifact: 'Portfolio: documented cable build steps and civic device-help checklist.',
+      feedback_showcase: 'Showcase: three slides on device help + lab outcome for community night.',
+      repair_lab_peek:
+        'Repair lab (schematic planning twin only): traced open bench workflow — not an as-built physical lab claim.',
+      gallery_walk: 'Gallery: noted demo kiosk layout for community night without claiming Pixel fidelity.',
+      save_progress: 'OK',
+    };
+    for (const step of GARY_PILOT_STEPS) {
+      if (step.id === 'resume_and_home') break;
+      const advanced = playGaryPilotStep(journey, step.id, { learnerInput: inputs[step.id], actorId: 'alice' });
+      assert.equal(advanced.ok, true, advanced.reason);
+      journey = advanced.journey;
+    }
+    const raw = JSON.stringify(journey);
+    journey.artifacts.portfolio_item.payload.portfolio_body = 'mutated-after-save';
+    const loaded = loadGaryPilotSave(raw);
+    assert.equal(loaded.ok, true);
+    assert.equal(loaded.journey.resumed, true);
+    assert.equal(loaded.journey.returned_home, false);
+    assert.equal(loaded.journey.representation_state, 'planning_concept');
+    assert.equal(loaded.journey.artifacts.portfolio_item.payload.portfolio_body.includes('cable build'), true);
+    assert.equal('width_m' in loaded.journey, false);
+    const home = playGaryPilotStep(loaded.journey, 'resume_and_home', { learnerInput: 'OK', actorId: 'alice' });
+    assert.equal(home.ok, true, home.reason);
+    assert.equal(home.journey.returned_home, true);
+    const gary = CAMPUS_CATALOG.find((c) => c.id === 'GARY');
+    const pilot = new Set(gary.rooms.PILOT.map((r) => r.key));
+    const preferred = new Set(gary.rooms.SEMI.map((r) => r.key));
+    const full = new Set(gary.rooms.FULL.map((r) => r.key));
+    for (const step of GARY_PILOT_STEPS.filter((s) => s.program_tier === 'minimum_pilot')) {
+      assert.equal(pilot.has(step.room_key), true, step.id);
+      assert.equal(preferred.has(step.room_key), false, step.id);
+      assert.equal(full.has(step.room_key), false, step.id);
+    }
+    const repair = GARY_PILOT_STEPS.find((s) => s.id === 'repair_lab_peek');
+    const gallery = GARY_PILOT_STEPS.find((s) => s.id === 'gallery_walk');
+    assert.equal(repair.program_tier, 'preferred_semi_permanent');
+    assert.equal(pilot.has(repair.room_key), false);
+    assert.equal(preferred.has(repair.room_key), true);
+    assert.equal(gallery.program_tier, 'full_program');
+    assert.equal(pilot.has(gallery.room_key), false);
+    assert.equal(full.has(gallery.room_key), true);
+    assert.equal(gary.rooms.PILOT.length, 8);
   });
 
   it('Gary rejects empty learner work (cannot click-through)', () => {
