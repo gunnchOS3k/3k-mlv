@@ -14,6 +14,7 @@
 <rect x="424.7" y="315.7" width="96.7" height="48.3" fill="#a8a29e" stroke="#111"><title>gz-repair</title></rect>
 <rect x="108.6" y="275.4" width="141.0" height="88.6" fill="#fbbf24" stroke="#111"><title>gz-solar</title></rect>
 <rect x="255.6" y="307.6" width="128.9" height="56.4" fill="#a8a29e" stroke="#111"><title>gz-learn</title></rect>
+<rect x="295.8" y="327.8" width="48.3" height="36.2" fill="#a8a29e" stroke="#111"><title>gz-offline-kit</title></rect>
 <rect x="28.0" y="303.6" width="100.7" height="60.4" fill="#a8a29e" stroke="#111"><title>gz-hub-a</title></rect>
 <rect x="511.3" y="303.6" width="100.7" height="60.4" fill="#a8a29e" stroke="#111"><title>gz-hub-b</title></rect>
 <rect x="118.6" y="291.5" width="402.8" height="72.5" fill="#a8a29e" stroke="#111"><title>gz-link</title></rect>

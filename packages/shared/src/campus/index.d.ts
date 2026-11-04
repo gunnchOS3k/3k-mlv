@@ -156,3 +156,85 @@ export function unboundWaikeCampus(): {
   readiness: { ready: number; partial: number };
   consumer_summary: { mode: string };
 };
+
+export const REPRESENTATION_STATES: readonly string[];
+export const LOCATION_EVIDENCE_CLASSES: readonly string[];
+export const STATE_LABELS: Record<string, string>;
+export function loadLocationIndex(): { location_ids: string[]; by_campus: Record<string, string[]> };
+export function loadLocationRecord(locationId: string): Record<string, unknown> | null;
+export function listLocationRecords(): Array<Record<string, unknown>>;
+export function locationsForCampus(campusSlug: string): Array<Record<string, unknown>>;
+export function reconstructClaimHistory(locationId: string, claimId: string): { ok: boolean; decision_history?: unknown[]; reason?: string };
+export function validateLocationRecord(record: Record<string, unknown>): { ok: boolean; errors: string[] };
+export function sceneStateLabel(record: Record<string, unknown> | null): { label: string; representation_state: string; capture: string; scene_version: string; metric_accuracy_status: string } | null;
+export function assertSourceObservationsImmutableShape(doc?: Record<string, unknown>): { ok: boolean; errors: string[]; count: number };
+export const GARY_PILOT_JOURNEY_ID: string;
+export const GARY_PILOT_STEPS: ReadonlyArray<{ id: string; room_key: string; title: string; action: string; produces: string }>;
+export function createGaryPilotJourney(input: { learnerId: string; now?: string }): { ok: true; journey: Record<string, unknown> } | { ok: false; reason: string };
+export function advanceGaryPilotJourney(journey: Record<string, unknown>, stepId: string, opts?: { payload?: Record<string, unknown>; now?: string }): { ok: boolean; journey?: Record<string, unknown>; complete?: boolean; reason?: string };
+export function resumeGaryPilotJourney(savedJourney: Record<string, unknown>, opts?: { now?: string }): { ok: boolean; journey?: Record<string, unknown>; reason?: string };
+export function garyPilotJourneyProgress(journey: Record<string, unknown>): { done: number; total: number; next_step: unknown; complete: boolean; representation_state: string };
+
+export const PLAYABLE_ACCEPTANCE_NOTE: string;
+export function garyTaskPrompt(stepId: string): { prompt: string; field: string; waike_surface: string; min_chars: number } | null;
+export function playGaryPilotStep(journey: Record<string, unknown>, stepId: string, opts?: { learnerInput?: string; now?: string; actorId?: string }): Record<string, unknown>;
+export function runGaryPlayableAcceptance(opts?: { learnerId?: string; nowBase?: string }): Record<string, unknown>;
+export function runNubukePlayableAcceptance(opts?: { learnerId?: string; observation?: string; now?: string }): Record<string, unknown>;
+export function runZollvereinKmsPlayableAcceptance(opts?: { learnerId?: string; observation?: string; now?: string }): Record<string, unknown>;
+export function runFolkwangPlayableAcceptance(opts?: { learnerId?: string; observation?: string; now?: string }): Record<string, unknown>;
+export function runPalestinianMuseumPlayableAcceptance(opts?: { learnerId?: string; observation?: string; now?: string }): Record<string, unknown>;
+export function runPortLockroyPlayableAcceptance(opts?: { learnerId?: string; observation?: string; now?: string }): Record<string, unknown>;
+export function runIunwArtsSciencesPlayableAcceptance(opts?: { learnerId?: string; observation?: string; now?: string }): Record<string, unknown>;
+export function runGeelongGalleryShellPlayableAcceptance(opts?: { learnerId?: string; observation?: string; now?: string }): Record<string, unknown>;
+export function runGeelongRone2021PlayableAcceptance(opts?: { learnerId?: string; observation?: string; now?: string }): Record<string, unknown>;
+export function runGhanaOfflinePlayable(opts?: { learnerId?: string }): Record<string, unknown>;
+export function runGazaPlayable(opts?: { learnerId?: string }): Record<string, unknown>;
+export function runGermanySpecialtyPlayable(opts?: { learnerId?: string }): Record<string, unknown>;
+export function runGuyanaSpecialtyPlayable(opts?: { learnerId?: string }): Record<string, unknown>;
+export function runGrahamSpecialtyPlayable(opts?: { learnerId?: string }): Record<string, unknown>;
+export function runGeelongSpecialtyPlayable(opts?: { learnerId?: string }): Record<string, unknown>;
+export function offlineSaveConflict(opts?: { localRevision?: string; remoteRevision?: string; prefer?: string }): Record<string, unknown>;
+
+export const GEELONG_DB_JOURNEY_ID: string;
+export const GEELONG_DB_STEPS: ReadonlyArray<{ id: string; room_key: string; phase_hint: string; title: string; produces: string; min_chars: number }>;
+export const GEELONG_LAYER_REFS: ReadonlyArray<{ location_id: string; role: string }>;
+export function createGeelongDesignBuildJourney(opts: { learnerId: string; now?: string }): { ok: boolean; journey?: Record<string, unknown>; reason?: string };
+export function advanceGeelongDesignBuildJourney(journey: Record<string, unknown>, stepId: string, opts?: { learnerInput?: string; now?: string; actorId?: string }): Record<string, unknown>;
+export function geelongDesignBuildProgress(journey: Record<string, unknown>): { done: number; total: number; next_step: unknown; complete: boolean; active_room_key: string | null; representation_state: string };
+export function runGeelongDesignBuildPlayable(opts?: { learnerId?: string; now?: string }): Record<string, unknown>;
+
+export const GERMANY_APPRENTICE_JOURNEY_ID: string;
+export const GERMANY_APPRENTICE_STEPS: ReadonlyArray<{ id: string; room_key: string; phase_hint: string; title: string; produces: string; min_chars: number }>;
+export function createGermanyApprenticeshipJourney(opts: { learnerId: string; now?: string }): { ok: boolean; journey?: Record<string, unknown>; reason?: string };
+export function advanceGermanyApprenticeshipJourney(journey: Record<string, unknown>, stepId: string, opts?: { learnerInput?: string; now?: string; actorId?: string }): Record<string, unknown>;
+export function germanyApprenticeshipProgress(journey: Record<string, unknown>): { done: number; total: number; next_step: unknown; complete: boolean; active_room_key: string | null; representation_state: string };
+export function runGermanyApprenticeshipPlayable(opts?: { learnerId?: string; now?: string }): Record<string, unknown>;
+
+export const GUYANA_CLIMATE_JOURNEY_ID: string;
+export const GUYANA_CLIMATE_STEPS: ReadonlyArray<{ id: string; room_key: string; phase_hint: string; title: string; produces: string; min_chars: number }>;
+export function createGuyanaClimateGisJourney(opts: { learnerId: string; now?: string }): { ok: boolean; journey?: Record<string, unknown>; reason?: string };
+export function advanceGuyanaClimateGisJourney(journey: Record<string, unknown>, stepId: string, opts?: { learnerInput?: string; now?: string; actorId?: string }): Record<string, unknown>;
+export function guyanaClimateGisProgress(journey: Record<string, unknown>): { done: number; total: number; next_step: unknown; complete: boolean; active_room_key: string | null; representation_state: string };
+export function runGuyanaClimateGisPlayable(opts?: { learnerId?: string; now?: string }): Record<string, unknown>;
+
+export const GRAHAM_POLAR_JOURNEY_ID: string;
+export const GRAHAM_ASSUMPTIONS: ReadonlyArray<string>;
+export const GRAHAM_POLAR_STEPS: ReadonlyArray<{ id: string; room_key: string; phase_hint: string; title: string; produces: string; min_chars: number }>;
+export function createGrahamPolarTwinJourney(opts: { learnerId: string; now?: string }): { ok: boolean; journey?: Record<string, unknown>; reason?: string };
+export function advanceGrahamPolarTwinJourney(journey: Record<string, unknown>, stepId: string, opts?: { learnerInput?: string; now?: string; actorId?: string }): Record<string, unknown>;
+export function grahamPolarTwinProgress(journey: Record<string, unknown>): { done: number; total: number; next_step: unknown; complete: boolean; active_room_key: string | null; representation_state: string; no_fake_station: boolean };
+export function runGrahamPolarTwinPlayable(opts?: { learnerId?: string; now?: string }): Record<string, unknown>;
+
+export const GHANA_OFFLINE_ROOM_JOURNEY_ID: string;
+export const GHANA_OFFLINE_ROOM_STEPS: ReadonlyArray<{ id: string; room_key: string; phase_hint: string; title: string; produces: string; min_chars: number }>;
+export function createGhanaOfflineRoomJourney(opts: { learnerId: string; now?: string }): { ok: boolean; journey?: Record<string, unknown>; reason?: string };
+export function advanceGhanaOfflineRoomJourney(journey: Record<string, unknown>, stepId: string, opts?: { learnerInput?: string; now?: string; actorId?: string }): Record<string, unknown>;
+export function ghanaOfflineRoomProgress(journey: Record<string, unknown>): { done: number; total: number; next_step: unknown; complete: boolean; active_room_key: string | null; representation_state: string };
+export function runGhanaOfflineRoomPlayable(opts?: { learnerId?: string; now?: string }): Record<string, unknown>;
+
+export const GAZA_RECOVERY_ROOM_JOURNEY_ID: string;
+export const GAZA_RECOVERY_ROOM_STEPS: ReadonlyArray<{ id: string; room_key: string; phase_hint: string; title: string; produces: string; min_chars: number }>;
+export function createGazaRecoveryRoomJourney(opts: { learnerId: string; now?: string }): { ok: boolean; journey?: Record<string, unknown>; reason?: string };
+export function advanceGazaRecoveryRoomJourney(journey: Record<string, unknown>, stepId: string, opts?: { learnerInput?: string; now?: string; actorId?: string }): Record<string, unknown>;
+export function gazaRecoveryRoomProgress(journey: Record<string, unknown>): { done: number; total: number; next_step: unknown; complete: boolean; active_room_key: string | null; representation_state: string };
+export function runGazaRecoveryRoomPlayable(opts?: { learnerId?: string; now?: string }): Record<string, unknown>;

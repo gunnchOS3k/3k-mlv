@@ -6,6 +6,7 @@
   <rect x="16.0" y="16.0" width="506.0" height="368.0" fill="#4d7c0f" stroke="#111" stroke-width="1"><title>terrain de-terrain</title></rect>
 <rect x="62.0" y="80.4" width="414.0" height="32.2" fill="#a8a29e" stroke="#111" stroke-width="1"><title>street de-lane</title></rect>
 <rect x="39.0" y="18.3" width="460.0" height="41.4" fill="#a8a29e" stroke="#111" stroke-width="1"><title>transit de-rail</title></rect>
+<rect x="172.4" y="151.7" width="32.2" height="27.6" fill="#a8a29e" stroke="#111" stroke-width="1"><title>temporary_module de-cart</title></rect>
 <rect x="220.7" y="124.1" width="4.6" height="4.6" fill="#a8a29e" stroke="#111" stroke-width="1"><title>wayfinding de-way</title></rect>
 <rect x="432.3" y="131.0" width="64.4" height="69.0" fill="#a8a29e" stroke="#111" stroke-width="1"><title>lab_block de-cyber</title></rect>
 <rect x="41.3" y="131.0" width="64.4" height="69.0" fill="#a8a29e" stroke="#111" stroke-width="1"><title>community_hall de-commons</title></rect>

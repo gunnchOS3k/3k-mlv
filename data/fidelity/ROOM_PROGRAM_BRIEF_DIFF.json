@@ -1,0 +1,98 @@
+{
+  "schema": "mlv_room_program_brief_diff_v1",
+  "prepared_on": "2026-11-01",
+  "note": "Companion diff against packet 07_CAMPUS_ROOM_PROGRAMS.json. Specialty journeys wired for all 7 campuses; campus coverage ≠ finished environments; PIXEL/HUMAN remain false.",
+  "campuses": [
+    {
+      "campus": "Gary",
+      "slug": "gary",
+      "source_id": "B-GARY",
+      "source_sha256": "7d7a21e64360946e1404c2114982bf69e042e599670145f225e66882ffd5eac7",
+      "source_pages": "13-14",
+      "catalog_slug_present": true,
+      "pilot_function_count": 8,
+      "preferred_function_count": 10,
+      "full_function_count": 9,
+      "geometry_dimensions": null,
+      "status": "specialty_journey_wired_schematic; PIXEL/HUMAN false; pilot rooms + repair-lab planning-twin honesty"
+    },
+    {
+      "campus": "Guyana",
+      "slug": "guyana",
+      "source_id": "B-GUYANA",
+      "source_sha256": "f822d251514ddc1a8f59dbee98c3c3ba8e9bda966bb70949ed80ce5f61c29c65",
+      "source_pages": "21-22",
+      "catalog_slug_present": true,
+      "pilot_function_count": 10,
+      "preferred_function_count": 13,
+      "full_function_count": 14,
+      "geometry_dimensions": null,
+      "status": "specialty_journey_wired_schematic; PIXEL/HUMAN false; climate/GIS + public dashboard honesty bind"
+    },
+    {
+      "campus": "Graham Land",
+      "slug": "graham-land",
+      "source_id": "B-GRAHAM",
+      "source_sha256": "3191e791f4c7b15ca03ae3a4fb8eb1fc49525035aa92c7c2e44f6bd73e60cc41",
+      "source_pages": "20-21",
+      "catalog_slug_present": true,
+      "pilot_function_count": 11,
+      "preferred_function_count": 12,
+      "full_function_count": 13,
+      "geometry_dimensions": null,
+      "status": "specialty_journey_wired_schematic; PIXEL/HUMAN false; polar twin assumptions + twin-ops simulation honesty"
+    },
+    {
+      "campus": "Ghana",
+      "slug": "ghana",
+      "source_id": "B-GHANA",
+      "source_sha256": "1922546896f9e6eca7cacf9a3bd6124732c8a1ca66f67881ddf9eaf8f54a22bb",
+      "source_pages": "17-18",
+      "catalog_slug_present": true,
+      "pilot_function_count": 9,
+      "preferred_function_count": 11,
+      "full_function_count": 11,
+      "geometry_dimensions": null,
+      "status": "specialty_journey_wired_schematic; PIXEL/HUMAN false; offline resume + regional-exchange planning honesty"
+    },
+    {
+      "campus": "Germany",
+      "slug": "germany",
+      "source_id": "B-GERMANY",
+      "source_sha256": "f9c56755433c929cf26f741344b04d60c08c2603ef86965a711578144d6884ef",
+      "source_pages": "21-22",
+      "catalog_slug_present": true,
+      "pilot_function_count": 10,
+      "preferred_function_count": 13,
+      "full_function_count": 15,
+      "geometry_dimensions": null,
+      "status": "specialty_journey_wired_schematic; PIXEL/HUMAN false; apprenticeship room-bound; twin-test cyber not-cert honesty"
+    },
+    {
+      "campus": "Geelong",
+      "slug": "geelong",
+      "source_id": "B-GEELONG",
+      "source_sha256": "8afd6cf0059b3ffcb00d26bf097778381b841aa4e4fe85ff1ced8b9691f39dd2",
+      "source_pages": "19-20",
+      "catalog_slug_present": true,
+      "pilot_function_count": 9,
+      "preferred_function_count": 12,
+      "full_function_count": 13,
+      "geometry_dimensions": null,
+      "status": "specialty_journey_wired_schematic; PIXEL/HUMAN false; design/build critique proposal honesty"
+    },
+    {
+      "campus": "Gaza",
+      "slug": "gaza",
+      "source_id": "B-GAZA",
+      "source_sha256": "96d851d181a0bf00124d3fba0a352c03f18130798509296f7808dfbf3130b3af",
+      "source_pages": "22-23",
+      "catalog_slug_present": true,
+      "pilot_function_count": 12,
+      "preferred_function_count": 12,
+      "full_function_count": 15,
+      "geometry_dimensions": null,
+      "status": "specialty_journey_wired_schematic; PIXEL/HUMAN false; recovery no-coordinates"
+    }
+  ]
+}

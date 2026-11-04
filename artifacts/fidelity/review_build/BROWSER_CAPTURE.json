@@ -1,0 +1,9 @@
+{
+  "attempted": true,
+  "ok": true,
+  "reason": null,
+  "shots": [
+    "shot-full.png"
+  ],
+  "method": "cached-chromium-headless-screenshot"
+}

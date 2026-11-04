@@ -6,6 +6,8 @@
  * scene data only; React rendering and browser side effects live elsewhere.
  */
 
+import { campusInteriorFor } from './campusInteriors.mjs';
+
 export const CANONICAL_CAMPUS_SLUGS = Object.freeze([
   'gary',
   'ghana',
@@ -210,15 +212,39 @@ function authoredProps(spec) {
       { id: `${spec.id}-plant-b`, kind: 'planting', shape: 'cylinder', position: [6, 0.7, -4], size: [1.1, 1.4, 1.1], color: '#166534' },
     ];
   }
-  return [
-    { id: `${spec.id}-floor`, kind: 'ground', position: [0, -0.08, 0], size: [12, 0.16, 12], color: '#57534e', roughness: 0.92 },
+  const interior = interiorFor(spec);
+  const props = [
+    { id: `${spec.id}-floor`, kind: 'ground', position: [0, -0.08, 0], size: [12, 0.16, 12], color: interior?.floor || '#57534e', roughness: 0.92 },
     { id: `${spec.id}-back-wall`, kind: 'wall', position: [0, 1.6, -5.6], size: [12, 3.2, 0.24], color: spec.accent, roughness: 0.85 },
-    { id: `${spec.id}-left-wall`, kind: 'wall', position: [-5.9, 1.6, 0], size: [0.24, 3.2, 11.4], color: '#a8a29e', roughness: 0.9 },
-    { id: `${spec.id}-right-wall`, kind: 'wall', position: [5.9, 1.6, 0], size: [0.24, 3.2, 11.4], color: '#a8a29e', roughness: 0.9 },
+    { id: `${spec.id}-left-wall`, kind: 'wall', position: [-5.9, 1.6, 0], size: [0.24, 3.2, 11.4], color: interior?.wall || '#a8a29e', roughness: 0.9 },
+    { id: `${spec.id}-right-wall`, kind: 'wall', position: [5.9, 1.6, 0], size: [0.24, 3.2, 11.4], color: interior?.wall || '#a8a29e', roughness: 0.9 },
     { id: `${spec.id}-feature`, kind: spec.kind === 'gallery-wing' ? 'art' : 'furniture', position: [offset, 0.75, -1.3], size: [3.4, 1.5, 1], color: spec.accent, roughness: 0.55 },
     { id: `${spec.id}-console`, kind: 'fixture', position: [3.7, 0.8, -3.7], size: [1.4, 1.6, 0.7], color: '#0f172a', emissive: spec.accent },
     { id: `${spec.id}-sign`, kind: 'wayfinding', position: [-3.7, 1.35, -5.4], size: [2.4, 0.8, 0.08], color: '#f8fafc', emissive: spec.accent },
   ];
+  if (!interior) return props;
+  return [
+    ...props,
+    ...interior.shell.map((item) => ({
+      id: `${spec.id}-shell-${item.id}`, kind: item.kind, position: item.position, size: item.size,
+      color: item.color, trace: item.trace, ...(item.kind === 'window' ? { opacity: 0.5 } : {}),
+    })),
+    ...interior.fixtures.map((item, index) => ({
+      id: `${spec.id}-program-${index}`, kind: 'furniture', position: item.position, size: item.size,
+      color: item.color, roughness: 0.7, label: item.label, trace: item.trace,
+    })),
+  ];
+}
+
+function interiorFor(spec) {
+  if (!spec.campusSlug || spec.kind === 'campus-arrival') return null;
+  return campusInteriorFor(spec.campusSlug, spec.kind.replace(/^campus-/, ''));
+}
+
+function fixtureCollision(sceneId, item, index) {
+  const [x, , z] = item.position;
+  const [w, h, d] = item.size;
+  return { id: `${sceneId}-program-${index}-collision`, min: [x - w / 2, 0, z - d / 2], max: [x + w / 2, h, z + d / 2] };
 }
 
 function collisionsFor(spec) {
@@ -232,6 +258,7 @@ function collisionsFor(spec) {
     { id: `${spec.id}-back-collision`, min: [-6, 0, -5.8], max: [6, 3.2, -5.4] },
     { id: `${spec.id}-left-collision`, min: [-6.1, 0, -5.8], max: [-5.7, 3.2, 5.8] },
     { id: `${spec.id}-right-collision`, min: [5.7, 0, -5.8], max: [6.1, 3.2, 5.8] },
+    ...(interiorFor(spec)?.fixtures || []).map((item, index) => fixtureCollision(spec.id, item, index)),
   ];
 }
 
@@ -314,6 +341,18 @@ function sceneActions(spec) {
         position: [1.2, 0, -1.3], label: 'Network Twin simulation',
       },
     );
+  }
+  const interior = interiorFor(spec);
+  if (interior?.fixtures.length) {
+    const campusTitle = spec.title.split(' — ')[0];
+    const programList = interior.fixtures.map((item) => item.label).join('; ');
+    actions.push({
+      id: `${spec.id}-program-brief`, verb: 'INSPECT', capability: 'PROGRAM_BRIEF',
+      destination: `${spec.campusSlug}.architecture.json`, accessPolicy: 'PUBLIC',
+      worldReturnAnchor: `${spec.id.toUpperCase().replace(/-/g, '_')}_PROGRAM`, loadingPolicy: 'INLINE',
+      accessibilityAlternative: `${campusTitle} room program (authored planning twin, not a measured plan): ${programList}`,
+      position: [-3.2, 0, 0.4], label: 'Room program',
+    });
   }
   if (spec.kind === 'campus-gallery' || spec.kind === 'campus-community') {
     actions.push({

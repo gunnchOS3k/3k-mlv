@@ -7,6 +7,7 @@ import { gamepadButtonEdges, readGamepad } from './GamepadControls';
 import type { PadAxes } from './GamepadControls';
 import InteractionPrompt from './InteractionPrompt';
 import MobileControls from './MobileControls';
+import SceneMinimap from './SceneMinimap';
 import ThirdPersonCamera from './ThirdPersonCamera';
 import TransitionManager from './TransitionManager';
 import WorldGeometry from './WorldGeometry';
@@ -240,6 +241,7 @@ export default function WorldRuntime({
 
       {mode === 'MAP' && (
         <div className="mlv-campus-map mlv-world-map" aria-label={`${worldDef.title} route map`}>
+          {!massing && <SceneMinimap def={worldDef} position={pos} facing={facing} variant="plan" />}
           {planningSlot || (
             <>
               <h3>Routes from {worldDef.title}</h3>
@@ -275,9 +277,10 @@ export default function WorldRuntime({
                 onPitchChange={setPitch}
                 seated={seated}
               />
-              <ThirdPersonCamera target={pos} yaw={facing} pitch={pitch} reducedMotion={reducedMotion} />
+              <ThirdPersonCamera target={pos} yaw={facing} pitch={pitch} collisions={worldDef.collisions} reducedMotion={reducedMotion} />
             </Suspense>
           </Canvas>
+          {!massing && <SceneMinimap def={worldDef} position={pos} facing={facing} variant="inset" />}
           <MobileControls
             onMove={(x, y) => setMove({ x, y })}
             onLook={(x, y) => setLook({ x, y })}

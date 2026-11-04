@@ -6,6 +6,7 @@
   <rect x="16.0" y="22.3" width="608.0" height="354.7" fill="#4d7c0f" stroke="#111" stroke-width="1"><title>terrain gy-terrain</title></rect>
 <rect x="41.3" y="16.0" width="557.3" height="88.7" fill="#0e7490" stroke="#111" stroke-width="1"><title>water gy-water</title></rect>
 <rect x="92.0" y="99.6" width="456.0" height="38.0" fill="#4d7c0f" stroke="#111" stroke-width="1"><title>landscape gy-flood</title></rect>
+<rect x="214.9" y="165.5" width="32.9" height="27.9" fill="#a8a29e" stroke="#111" stroke-width="1"><title>temporary_module gy-gis-cart</title></rect>
 <rect x="117.3" y="171.8" width="405.3" height="55.7" fill="#a8a29e" stroke="#111" stroke-width="1"><title>raised_walk gy-spine</title></rect>
 <rect x="237.7" y="184.5" width="63.3" height="30.4" fill="#a8a29e" stroke="#111" stroke-width="1"><title>bridge gy-bridge-a</title></rect>
 <rect x="402.3" y="184.5" width="63.3" height="30.4" fill="#a8a29e" stroke="#111" stroke-width="1"><title>bridge gy-bridge-b</title></rect>

@@ -1,0 +1,286 @@
+{
+  "schema": "mlv_playable_review_build_v1",
+  "generated_at": "2026-10-30T21:16:22.114Z",
+  "note": "Local review-build capture. Schematic SVGs are not Pixel framebuffers. HUMAN/PIXEL gates remain false.",
+  "acceptance_note": "Learner acceptance requires completed specialty tasks, private artifacts, and Home return — not navigation alone.",
+  "gates": {
+    "HUMAN_7GC_SPATIAL_FIDELITY_PASS": false,
+    "HUMAN_LOCAL_IDENTITY_PASS": false,
+    "HUMAN_CAMPUS_USABILITY_PASS": false,
+    "PIXEL_7GC_CAMPUS_PASS": false,
+    "BROWSER_LIVE_CAPTURE": false,
+    "BROWSER_REVIEW_HTML_CAPTURE": true
+  },
+  "results": {
+    "gary": {
+      "ok": true,
+      "nav_only": false,
+      "rooms": [
+        "DEVICE_HELP_DESK_TABLE",
+        "MOBILE_HARDWARE_CART",
+        "QUIET_SUPPORT_AREA",
+        "PRESENTATION_WALL",
+        "STAFF_PLANNING_TABLE",
+        "FLEXIBLE_CLASSROOM"
+      ],
+      "waike_linked": true,
+      "private_visibility": true,
+      "returned_home": true,
+      "scene": {
+        "representation_state": "planning_concept",
+        "label": "WAIKE campus planning concept",
+        "scene_version": "gary@v4+loc.v1",
+        "model_version": "v4.architecture.fidelity.1+location_records.v1",
+        "capture": "not_applicable_planning_concept",
+        "metric_accuracy_status": "unverified"
+      }
+    },
+    "nubuke": {
+      "ok": true,
+      "nav_only": false,
+      "not_waike_campus": true,
+      "matched_views": [
+        "approach",
+        "garden_gallery",
+        "bungalow"
+      ],
+      "unknowns": [
+        "nubuke.area",
+        "nubuke.drawings"
+      ],
+      "private_visibility": true,
+      "scene": {
+        "representation_state": "documented_snapshot",
+        "label": "Documented building snapshot",
+        "scene_version": "nubuke@heritage.v1",
+        "model_version": "v4.architecture.fidelity.1+location_records.v1",
+        "capture": "capture date unknown",
+        "metric_accuracy_status": "unverified"
+      }
+    },
+    "geelong": {
+      "ok": true,
+      "nav_only": false,
+      "rooms_include_design_build_studio": true,
+      "transcript": [
+        {
+          "step_id": "orient_temporal_layers",
+          "room_key": "FLEXIBLE_CLASSROOM",
+          "phase_hint": "pilot"
+        },
+        {
+          "step_id": "design_critique",
+          "room_key": "DESIGN_BUILD_STUDIO",
+          "phase_hint": "semi"
+        },
+        {
+          "step_id": "revise_prototype",
+          "room_key": "DESIGN_BUILD_STUDIO",
+          "phase_hint": "semi"
+        },
+        {
+          "step_id": "portfolio_artifact",
+          "room_key": "CAREER_PORTFOLIO_STUDIO",
+          "phase_hint": "semi"
+        },
+        {
+          "step_id": "save_and_return",
+          "room_key": "PRESENTATION_WALL",
+          "phase_hint": "pilot"
+        }
+      ],
+      "layer_states": [
+        "documented_snapshot",
+        "documented_historical_reconstruction",
+        "published_architectural_proposal",
+        "mlv_interpretation",
+        "planning_concept"
+      ],
+      "private_visibility": true,
+      "returned_home": true
+    },
+    "parallel": {
+      "ghana": {
+        "ok": true,
+        "nav_only": false,
+        "returned_home": true,
+        "rooms_include_industry40_studio": null,
+        "rooms_include_climate_gis": null,
+        "rooms_include_satcom_cart": null,
+        "no_fake_station": null,
+        "transcript": [
+          {
+            "step_id": "cache_lesson",
+            "room_key": "FLEXIBLE_CLASSROOM",
+            "phase_hint": "pilot"
+          },
+          {
+            "step_id": "resume_cached",
+            "room_key": "HYBRID_LEARNING_RECORDING",
+            "phase_hint": "pilot"
+          },
+          {
+            "step_id": "prepare_portfolio",
+            "room_key": "CAREER_PORTFOLIO_STUDIO",
+            "phase_hint": "semi"
+          },
+          {
+            "step_id": "regional_exchange",
+            "room_key": "COMMUNITY_ROOM",
+            "phase_hint": "semi"
+          },
+          {
+            "step_id": "save_and_return",
+            "room_key": "PRESENTATION_WALL",
+            "phase_hint": "pilot"
+          }
+        ]
+      },
+      "gaza": {
+        "ok": true,
+        "nav_only": false,
+        "returned_home": true,
+        "rooms_include_industry40_studio": null,
+        "rooms_include_climate_gis": null,
+        "rooms_include_satcom_cart": null,
+        "no_fake_station": null,
+        "transcript": [
+          {
+            "step_id": "shared_device_orient",
+            "room_key": "SAFE_TEMPORARY_LEARNING_CIRCLE",
+            "phase_hint": "pilot"
+          },
+          {
+            "step_id": "offline_continue",
+            "room_key": "OFFLINE_LEARNING_KIT",
+            "phase_hint": "pilot"
+          },
+          {
+            "step_id": "recover_portfolio",
+            "room_key": "RECONSTRUCTION_DOCUMENTATION_STUDIO",
+            "phase_hint": "semi"
+          },
+          {
+            "step_id": "withdraw_sharing",
+            "room_key": "PSYCHOSOCIAL_DECOMPRESSION_SPACE",
+            "phase_hint": "semi"
+          },
+          {
+            "step_id": "save_and_return",
+            "room_key": "TEACHER_SUPPORT_STATION",
+            "phase_hint": "semi"
+          }
+        ]
+      },
+      "germany": {
+        "ok": true,
+        "nav_only": false,
+        "returned_home": true,
+        "rooms_include_industry40_studio": true,
+        "rooms_include_climate_gis": null,
+        "rooms_include_satcom_cart": null,
+        "no_fake_station": null,
+        "transcript": [
+          {
+            "step_id": "build",
+            "room_key": "MOBILE_HARDWARE_MECHATRONICS_CART",
+            "phase_hint": "pilot"
+          },
+          {
+            "step_id": "document",
+            "room_key": "TECHNICAL_DOCUMENTATION_WORKSTATION",
+            "phase_hint": "pilot"
+          },
+          {
+            "step_id": "test",
+            "room_key": "INDUSTRY40_DIGITAL_TWIN_STUDIO",
+            "phase_hint": "semi"
+          },
+          {
+            "step_id": "improve",
+            "room_key": "INDUSTRY40_DIGITAL_TWIN_STUDIO",
+            "phase_hint": "semi"
+          },
+          {
+            "step_id": "present",
+            "room_key": "CAREER_APPRENTICESHIP_STUDIO",
+            "phase_hint": "semi"
+          }
+        ]
+      },
+      "guyana": {
+        "ok": true,
+        "nav_only": false,
+        "returned_home": true,
+        "rooms_include_industry40_studio": null,
+        "rooms_include_climate_gis": true,
+        "rooms_include_satcom_cart": null,
+        "no_fake_station": null,
+        "transcript": [
+          {
+            "step_id": "flood_scenario",
+            "room_key": "CLIMATE_GIS_WORKSTATION",
+            "phase_hint": "pilot"
+          },
+          {
+            "step_id": "drainage_map",
+            "room_key": "CLIMATE_GIS_DATA_STUDIO",
+            "phase_hint": "semi"
+          },
+          {
+            "step_id": "energy_logistics",
+            "room_key": "ENERGY_LOGISTICS_STUDIO",
+            "phase_hint": "semi"
+          },
+          {
+            "step_id": "portfolio_artifact",
+            "room_key": "CAREER_PORTFOLIO_STUDIO",
+            "phase_hint": "semi"
+          },
+          {
+            "step_id": "save_and_return",
+            "room_key": "PRESENTATION_WALL",
+            "phase_hint": "pilot"
+          }
+        ]
+      },
+      "graham": {
+        "ok": true,
+        "nav_only": false,
+        "returned_home": true,
+        "rooms_include_industry40_studio": null,
+        "rooms_include_climate_gis": null,
+        "rooms_include_satcom_cart": true,
+        "no_fake_station": true,
+        "transcript": [
+          {
+            "step_id": "state_assumptions",
+            "room_key": "FLEXIBLE_VIRTUAL_CLASSROOM",
+            "phase_hint": "pilot"
+          },
+          {
+            "step_id": "low_bw_climate",
+            "room_key": "DATA_LAB",
+            "phase_hint": "pilot"
+          },
+          {
+            "step_id": "ntn_exercise",
+            "room_key": "NETWORKING_SATCOM_DEMO_CART",
+            "phase_hint": "pilot"
+          },
+          {
+            "step_id": "twin_ops_note",
+            "room_key": "GIS_REMOTE_SENSING_STUDIO",
+            "phase_hint": "semi"
+          },
+          {
+            "step_id": "portfolio_and_home",
+            "room_key": "PUBLIC_EDUCATION_STUDIO",
+            "phase_hint": "semi"
+          }
+        ]
+      }
+    }
+  },
+  "content_sha256": "f32da3c1ffa9c7e155cbf8fadac52e0ba7cf5b9e78f216d60a5c17d5474e9cdc"
+}

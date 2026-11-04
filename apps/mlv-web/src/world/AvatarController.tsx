@@ -1,8 +1,9 @@
 import { useFrame } from '@react-three/fiber';
 import { useEffect, useRef } from 'react';
 import CharacterAvatar from './CharacterAvatar';
-import { resolveXZ, type AABB } from './CollisionWorld';
+import { resolveMovementXZ, type AABB } from './CollisionWorld';
 import { readGamepad } from './GamepadControls';
+import { locomotionDelta, turnYaw } from './cameraRig.mjs';
 
 type Props = {
   position: [number, number, number];
@@ -35,15 +36,12 @@ export default function AvatarController({ position, facing, onChange, collision
     if (keys.current['s'] || keys.current['arrowdown']) my += 1;
     if (keys.current['a'] || keys.current['arrowleft']) mx -= 1;
     if (keys.current['d'] || keys.current['arrowright']) mx += 1;
-    let yaw = facing + (lookInput.x + (pad?.lookX || 0)) * dt * 1.8;
+    const yaw = turnYaw(facing, lookInput.x + (pad?.lookX || 0), dt);
     const pitchDelta = (lookInput.y + (pad?.lookY || 0)) * dt * 1.2;
     if (pitchDelta !== 0) onPitchChange(Math.max(-0.35, Math.min(0.9, pitch + pitchDelta)));
     const speed = 3.2;
-    const forward = -my;
-    const strafe = mx;
-    const dx = (Math.sin(yaw) * forward + Math.cos(yaw) * strafe) * speed * dt;
-    const dz = (Math.cos(yaw) * forward - Math.sin(yaw) * strafe) * speed * dt;
-    const next = resolveXZ([position[0] + dx, position[1], position[2] + dz], collisions);
+    const [dx, dz] = locomotionDelta(yaw, -my, mx, speed * dt);
+    const next = resolveMovementXZ([position[0], position[1], position[2]], dx, dz, collisions);
     if (dx !== 0 || dz !== 0 || yaw !== facing) onChange(next, yaw);
   });
 

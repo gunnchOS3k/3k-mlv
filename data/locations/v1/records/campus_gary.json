@@ -1,0 +1,201 @@
+{
+  "schema": "mlv_location_record_v1",
+  "companion_to": [
+    "data/campus/v4/*.architecture.json",
+    "data/gallery/v1/institution_sources.json",
+    "artifacts/campus/7GC_CAMPUS_REQUIREMENT_TRACEABILITY.json"
+  ],
+  "location_id": "loc.campus.gary",
+  "campus_id": "gary",
+  "scene_version": "gary@v4+loc.v1",
+  "representation_state": "planning_concept",
+  "allowed_representation_states": [
+    "documented_snapshot",
+    "documented_historical_reconstruction",
+    "published_architectural_proposal",
+    "mlv_interpretation",
+    "planning_concept"
+  ],
+  "represented_period": {
+    "start": null,
+    "end": null,
+    "capture_date": null,
+    "capture_date_status": "not_applicable_planning_concept"
+  },
+  "coordinate_frame": {
+    "units": "metres",
+    "origin": "scene_local_unsurveyed",
+    "orientation": "authored_planning_twin",
+    "scale_method": null,
+    "metric_accuracy_status": "unverified"
+  },
+  "model_version": "v4.architecture.fidelity.1+location_records.v1",
+  "source_ids": [
+    "B-GARY",
+    "R-LONDON"
+  ],
+  "claims": [
+    {
+      "claim_id": "gary.identity",
+      "element_id": "campus_identity",
+      "claim_text": "Gary civic workforce planning twin",
+      "source_ids": [
+        "B-GARY"
+      ],
+      "evidence_class": "project_authored",
+      "confidence_class": "categorical",
+      "confidence_rationale": "WAIKE UPNOW brief establishes program intent; site unselected / unbuilt.",
+      "dimensions": [
+        {
+          "value": null,
+          "units": "metres",
+          "measurement_method": null,
+          "source_locator": null,
+          "uncertainty": "unknown"
+        }
+      ],
+      "decision_history": [
+        {
+          "decision_id": "dec-cb3621dacfbd",
+          "date": "2026-10-30",
+          "actor": "cursor_mlv_fidelity_continue",
+          "summary": "Opened location record from existing campus catalog + fidelity packet mapping",
+          "previous_state": null,
+          "resulting_state": "planning_concept"
+        }
+      ],
+      "known_conflicts": []
+    },
+    {
+      "claim_id": "gary.metric_scale",
+      "element_id": "coordinate_frame",
+      "claim_text": "Metric scale unverified for campus massing.",
+      "source_ids": [
+        "B-GARY"
+      ],
+      "evidence_class": "unknown",
+      "confidence_class": "categorical",
+      "confidence_rationale": "No surveyed dimensions supplied for WAIKE campus parcels.",
+      "dimensions": [
+        {
+          "value": null,
+          "units": "metres",
+          "measurement_method": null,
+          "source_locator": null,
+          "uncertainty": "unknown"
+        }
+      ],
+      "decision_history": [
+        {
+          "decision_id": "dec-b54a662b2134",
+          "date": "2026-10-30",
+          "actor": "cursor_mlv_fidelity_continue",
+          "summary": "Retained metric accuracy as unknown",
+          "previous_state": null,
+          "resulting_state": "unknown"
+        }
+      ],
+      "known_conflicts": []
+    },
+    {
+      "claim_id": "gary.massing.0",
+      "element_id": "massing",
+      "claim_text": "Adaptive-reuse civic hall silhouette is project-authored massing, not a surveyed Gary building.",
+      "source_ids": [
+        "B-GARY",
+        "R-LONDON"
+      ],
+      "evidence_class": "project_authored",
+      "confidence_class": "categorical",
+      "confidence_rationale": "Authored planning twin; London Charter documentation approach.",
+      "dimensions": [
+        {
+          "value": null,
+          "units": "metres",
+          "measurement_method": null,
+          "source_locator": null,
+          "uncertainty": "unknown"
+        }
+      ],
+      "decision_history": [
+        {
+          "decision_id": "dec-cb3621dacfbd",
+          "date": "2026-10-30",
+          "actor": "cursor_mlv_fidelity_continue",
+          "summary": "Opened location record from existing campus catalog + fidelity packet mapping",
+          "previous_state": null,
+          "resulting_state": "planning_concept"
+        }
+      ],
+      "known_conflicts": []
+    }
+  ],
+  "rights_records": [
+    {
+      "asset_id": "gary.authored_mesh",
+      "asset_kind": "architecture_mesh",
+      "creator": null,
+      "rights_holder": null,
+      "license_or_permission_evidence": null,
+      "permitted_uses": [],
+      "approval_status": "project_authored_unlicensed_external"
+    },
+    {
+      "asset_id": "gary.narrative",
+      "asset_kind": "narrative",
+      "creator": null,
+      "rights_holder": null,
+      "license_or_permission_evidence": null,
+      "permitted_uses": [],
+      "approval_status": "unassessed"
+    }
+  ],
+  "review_records": [
+    {
+      "review_type": "local_cultural",
+      "reviewer_or_body": null,
+      "date": null,
+      "decision": "not_obtained",
+      "evidence_locator": null,
+      "remaining_objections": []
+    }
+  ],
+  "accessibility": {
+    "non_3d_equivalent": "#/mlv/campus/gary/list",
+    "navigation_adaptations": [
+      "list_mode",
+      "keyboard_room_grid"
+    ],
+    "verification_status": "not_assessed",
+    "physical_ramp_invented": false
+  },
+  "privacy": {
+    "public_location_precision": "none_until_reviewed",
+    "private_records_in_public_export": false,
+    "verification_status": "not_assessed"
+  },
+  "known_omissions": [
+    "IU Northwest Matterport is educational reference only \u2014 not WAIKE occupancy.",
+    "Gary heritage inventory beyond IU/library metadata remains incomplete."
+  ],
+  "notes": "Campus scenes remain planning_concept; never inherit heritage building factual status.",
+  "gates": {
+    "engineering": "in_progress",
+    "independent_verification": "not_assessed",
+    "cultural_review": "not_obtained",
+    "rights": "not_assessed",
+    "physical_validation": "not_assessed",
+    "research_ethics": "not_assessed",
+    "owner_release": "not_granted"
+  },
+  "source_records": [
+    {
+      "source_id": "B-GARY",
+      "observation_ref": "data/locations/v1/source_observations.json#B-GARY"
+    },
+    {
+      "source_id": "R-LONDON",
+      "observation_ref": "data/locations/v1/source_observations.json#R-LONDON"
+    }
+  ]
+}

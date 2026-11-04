@@ -384,16 +384,28 @@ export function TruthLabel({ position, label }: { position: Vec3; label: string 
  * Program zone marker — architectural zoning (building→wing→program), NOT a detached room cube.
  * Rendered as a low inset floor plate + tiny door marker inside a parent hall.
  */
-export function ProgramZoneMarker({ position, name }: { position: Vec3; name: string }) {
+export function ProgramZoneMarker({
+  position,
+  name,
+  focused = false,
+}: {
+  position: Vec3;
+  name: string;
+  focused?: boolean;
+}) {
   return (
     <group position={position}>
       <mesh position={[0, 0.03, 0]} rotation={[-Math.PI / 2, 0, 0]}>
-        <planeGeometry args={[1.1, 0.9]} />
-        <meshStandardMaterial color="#fef9c3" transparent opacity={0.55} />
+        <planeGeometry args={[focused ? 1.35 : 1.1, focused ? 1.1 : 0.9]} />
+        <meshStandardMaterial
+          color={focused ? '#86efac' : '#fef9c3'}
+          transparent
+          opacity={focused ? 0.8 : 0.55}
+        />
       </mesh>
-      <BoxMesh args={[0.25, 0.55, 0.08]} position={[0, 0.28, 0.4]} color="#78350f" />
-      <Text position={[0, 0.7, 0]} fontSize={0.1} color="white" anchorX="center" maxWidth={1.4}>
-        {name}
+      <BoxMesh args={[0.25, focused ? 0.7 : 0.55, 0.08]} position={[0, focused ? 0.35 : 0.28, 0.4]} color={focused ? '#166534' : '#78350f'} />
+      <Text position={[0, focused ? 0.85 : 0.7, 0]} fontSize={0.1} color="white" anchorX="center" maxWidth={1.5}>
+        {focused ? `▸ ${name}` : name}
       </Text>
     </group>
   );

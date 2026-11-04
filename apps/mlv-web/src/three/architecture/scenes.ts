@@ -13,6 +13,7 @@ export const GARY_SCENE: CampusSceneDefinition = {
   slug: 'gary',
   silhouette: 'long civic-industrial hall + taller project/gallery volume + visible lab bays',
   sitePlan: 'arrival plaza → project corridor spine → adaptive-reuse hall with lab wing',
+  truthNote: 'Gary civic planning twin · not a surveyed facility · not a physical-campus claim',
   background: '#87a0b8',
   groundColor: '#3d4a3a',
   modules: mods(
@@ -31,6 +32,10 @@ export const GARY_SCENE: CampusSceneDefinition = {
   programZones: zones(
     { id: 'gz1', buildingId: 'gary-hall', wingId: 'main', programKey: 'FLEXIBLE_CLASSROOM', name: 'Classroom', position: [-3, 0.05, 0.2], fromPhase: 'pilot' },
     { id: 'gz2', buildingId: 'gary-hall', wingId: 'main', programKey: 'DEVICE_HELP_DESK_TABLE', name: 'Device desk', position: [0, 0.05, 0.8], fromPhase: 'pilot' },
+    { id: 'gz2b', buildingId: 'gary-hall', wingId: 'cart', programKey: 'MOBILE_HARDWARE_CART', name: 'Hardware cart (schematic)', position: [-2.5, 0.05, 4], fromPhase: 'pilot' },
+    { id: 'gz2c', buildingId: 'gary-hall', wingId: 'quiet', programKey: 'QUIET_SUPPORT_AREA', name: 'Quiet support (schematic)', position: [2.2, 0.05, 0.2], fromPhase: 'pilot' },
+    { id: 'gz2d', buildingId: 'gary-hall', wingId: 'present', programKey: 'PRESENTATION_WALL', name: 'Presentation wall (schematic)', position: [3.2, 0.05, -1.2], fromPhase: 'pilot' },
+    { id: 'gz2e', buildingId: 'gary-hall', wingId: 'staff', programKey: 'STAFF_PLANNING_TABLE', name: 'Staff planning (schematic)', position: [-1.2, 0.05, -1.5], fromPhase: 'pilot' },
     { id: 'gz3', buildingId: 'gary-repair', wingId: 'labs', programKey: 'HARDWARE_REPAIR_LAB', name: 'Repair', position: [-5.2, 0.05, -0.5], fromPhase: 'semi' },
     { id: 'gz4', buildingId: 'gary-gallery', wingId: 'gallery', programKey: 'SHOWCASE_DEMO_GALLERY', name: 'Gallery', position: [5.5, 0.05, -1.5], fromPhase: 'semi' },
     { id: 'gz5', buildingId: 'gary-community', wingId: 'civic', programKey: 'COMMUNITY_EVENT_SPACE', name: 'Community', position: [4.8, 0.05, 3.5], fromPhase: 'full' },
@@ -53,6 +58,7 @@ export const GHANA_SCENE: CampusSceneDefinition = {
   slug: 'ghana',
   silhouette: 'low pavilion cluster + strong central courtyard + shade canopies',
   sitePlan: 'ring of learning pavilions around shaded civic courtyard with device bar',
+  truthNote: 'Ghana-led planning twin · Accra–Tema anchor concept · not Accra-only · not surveyed',
   background: '#c4b07a',
   groundColor: '#8a6a3a',
   modules: mods(
@@ -72,11 +78,20 @@ export const GHANA_SCENE: CampusSceneDefinition = {
   ),
   programZones: zones(
     { id: 'gh1', buildingId: 'gh-pav-n', wingId: 'north', programKey: 'FLEXIBLE_CLASSROOM', name: 'Classroom', position: [0, 0.05, -5.5], fromPhase: 'pilot' },
+    { id: 'gh1b', buildingId: 'gh-pav-e', wingId: 'hybrid', programKey: 'HYBRID_LEARNING_RECORDING', name: 'Hybrid / offline resume', position: [5.5, 0.05, 0], fromPhase: 'pilot' },
+    { id: 'gh1c', buildingId: 'gh-pav-n', wingId: 'present', programKey: 'PRESENTATION_WALL', name: 'Presentation / save', position: [1.5, 0.05, -4.5], fromPhase: 'pilot' },
     { id: 'gh2', buildingId: 'gh-device', wingId: 'court', programKey: 'DEVICE_BAR', name: 'Device bar', position: [0, 0.05, 5.2], fromPhase: 'semi' },
+    { id: 'gh2b', buildingId: 'gh-community', wingId: 'community', programKey: 'COMMUNITY_ROOM', name: 'Community / exchange', position: [4.5, 0.05, 5], fromPhase: 'semi' },
+    { id: 'gh2c', buildingId: 'gh-media', wingId: 'portfolio', programKey: 'CAREER_PORTFOLIO_STUDIO', name: 'Portfolio studio', position: [-4.5, 0.05, 5], fromPhase: 'semi' },
     { id: 'gh3', buildingId: 'gh-mentor', wingId: 'east', programKey: 'MENTOR_WORKSPACE', name: 'Mentor', position: [7.5, 0.05, -4], fromPhase: 'full' },
   ),
   phaseMassing: {
-    pilot: { scale: [0.8, 0.7, 0.8] },
+    pilot: {
+      scale: [0.8, 0.7, 0.8],
+      extraModules: [
+        { kind: 'temporary_module', id: 'gh-offline-cart', position: [2.2, 0, -3.5], size: [1.3, 1, 1.1], color: '#fde68a', fromPhase: 'pilot', label: 'Offline pack', trace: 'pilot offline lesson cache cart for resume' },
+      ],
+    },
     semi: { scale: [0.95, 0.9, 0.95] },
     full: { scale: [1.08, 1, 1.08] },
   },
@@ -87,6 +102,7 @@ export const GUYANA_SCENE: CampusSceneDefinition = {
   slug: 'guyana',
   silhouette: 'long raised spine + bridge connectors + climate-data tower/studio + water edge',
   sitePlan: 'river edge → elevated linear learning spine with bridge connectors and flood landscape',
+  truthNote: 'Guyana climate-resilience planning twin · synthetic flood literacy · not field-validated',
   background: '#6b9bb8',
   groundColor: '#3f5e3a',
   modules: mods(
@@ -106,11 +122,20 @@ export const GUYANA_SCENE: CampusSceneDefinition = {
   ),
   programZones: zones(
     { id: 'gy1', buildingId: 'gy-hall-a', wingId: 'spine', programKey: 'FLEXIBLE_CLASSROOM', name: 'Classroom', position: [-5, 1.25, 0], fromPhase: 'pilot' },
-    { id: 'gy2', buildingId: 'gy-climate', wingId: 'tower', programKey: 'CLIMATE_GIS_STUDIO', name: 'Climate/GIS', position: [1.5, 1.25, 0], fromPhase: 'semi' },
+    { id: 'gy1b', buildingId: 'gy-hall-a', wingId: 'gis', programKey: 'CLIMATE_GIS_WORKSTATION', name: 'Climate/GIS workstation (pilot)', position: [-3.5, 1.25, 0.8], fromPhase: 'pilot' },
+    { id: 'gy1c', buildingId: 'gy-hall-a', wingId: 'present', programKey: 'PRESENTATION_WALL', name: 'Presentation / save', position: [-4, 1.25, -1.2], fromPhase: 'pilot' },
+    { id: 'gy2', buildingId: 'gy-climate', wingId: 'tower', programKey: 'CLIMATE_GIS_DATA_STUDIO', name: 'Climate/GIS data studio', position: [1.5, 1.25, 0], fromPhase: 'semi' },
+    { id: 'gy2b', buildingId: 'gy-energy', wingId: 'energy', programKey: 'ENERGY_LOGISTICS_STUDIO', name: 'Energy/logistics studio', position: [7.5, 1.25, 0], fromPhase: 'semi' },
+    { id: 'gy2c', buildingId: 'gy-climate', wingId: 'portfolio', programKey: 'CAREER_PORTFOLIO_STUDIO', name: 'Portfolio desk', position: [2.5, 1.25, -1], fromPhase: 'semi' },
     { id: 'gy3', buildingId: 'gy-dash', wingId: 'civic', programKey: 'PUBLIC_DASHBOARD_WALL', name: 'Dashboard', position: [-7.5, 1.25, -2.5], fromPhase: 'full' },
   ),
   phaseMassing: {
-    pilot: { scale: [0.75, 0.85, 0.75] },
+    pilot: {
+      scale: [0.75, 0.85, 0.75],
+      extraModules: [
+        { kind: 'temporary_module', id: 'gy-gis-cart', position: [-3.5, 1.2, 0.8], size: [1.3, 1, 1.1], color: '#67e8f9', fromPhase: 'pilot', label: 'GIS cart', trace: 'pilot climate/GIS workstation for flood literacy' },
+      ],
+    },
     semi: { scale: [0.95, 1, 0.95] },
     full: { scale: [1.1, 1.15, 1.05] },
   },
@@ -121,6 +146,7 @@ export const GEELONG_SCENE: CampusSceneDefinition = {
   slug: 'geelong',
   silhouette: 'large-span workshop sheds + maker yard + clean-energy canopy + one civic/showcase volume',
   sitePlan: 'workshop sheds flanking maker yard with gantry reference and solar canopy',
+  truthNote: 'Geelong design/build planning twin · temporal layers stay separately labeled · not built',
   background: '#9eb0c0',
   groundColor: '#5a5548',
   modules: mods(
@@ -137,14 +163,17 @@ export const GEELONG_SCENE: CampusSceneDefinition = {
   ),
   programZones: zones(
     { id: 'ge1', buildingId: 'ge-shed-a', wingId: 'workshop', programKey: 'FLEXIBLE_CLASSROOM', name: 'Workshop class', position: [-6, 0.05, -2], fromPhase: 'pilot' },
-    { id: 'ge2', buildingId: 'ge-design', wingId: 'studio', programKey: 'DESIGN_BUILD_STUDIO', name: 'Design/build', position: [-2, 0.05, -6.5], fromPhase: 'semi' },
+    { id: 'ge1b', buildingId: 'ge-shed-a', wingId: 'prototype', programKey: 'MOBILE_HARDWARE_CART', name: 'Prototype cart (pilot design/build)', position: [1.5, 0.05, 1], fromPhase: 'pilot' },
+    { id: 'ge1c', buildingId: 'ge-shed-a', wingId: 'critique', programKey: 'PRESENTATION_WALL', name: 'Critique / presentation', position: [2.5, 0.05, 1.5], fromPhase: 'pilot' },
+    { id: 'ge2', buildingId: 'ge-design', wingId: 'studio', programKey: 'DESIGN_BUILD_STUDIO', name: 'Design/build studio', position: [-2, 0.05, -6.5], fromPhase: 'semi' },
+    { id: 'ge2b', buildingId: 'ge-design', wingId: 'studio', programKey: 'CAREER_PORTFOLIO_STUDIO', name: 'Portfolio desk', position: [-0.5, 0.05, -6.5], fromPhase: 'semi' },
     { id: 'ge3', buildingId: 'ge-showcase', wingId: 'civic', programKey: 'INDUSTRY_PROJECT_BRIEFING_ROOM', name: 'Briefing', position: [0, 0.05, 7], fromPhase: 'full' },
   ),
   phaseMassing: {
     pilot: {
       scale: [0.7, 0.65, 0.7],
       extraModules: [
-        { kind: 'temporary_module', id: 'ge-cart', position: [1.5, 0, 1], size: [1.5, 1, 1.2], color: '#a8a29e', fromPhase: 'pilot' },
+        { kind: 'temporary_module', id: 'ge-cart', position: [1.5, 0, 1], size: [1.5, 1, 1.2], color: '#a8a29e', fromPhase: 'pilot', label: 'Design/build cart', trace: 'pilot prototype cart for critique' },
       ],
     },
     semi: { scale: [0.92, 0.9, 0.92] },
@@ -157,6 +186,7 @@ export const GERMANY_SCENE: CampusSceneDefinition = {
   slug: 'germany',
   silhouette: 'ordered brick/steel hall grid + tall service/industrial bay + disciplined circulation',
   sitePlan: 'precise industrial grid with logistics lane and rail/transit urban edge',
+  truthNote: 'Germany apprenticeship planning twin · industrial cyber = coursework not certification',
   background: '#8a9aaa',
   groundColor: '#4a4a48',
   modules: mods(
@@ -175,11 +205,19 @@ export const GERMANY_SCENE: CampusSceneDefinition = {
   ),
   programZones: zones(
     { id: 'de1', buildingId: 'de-h1', wingId: 'grid-a', programKey: 'FLEXIBLE_CLASSROOM', name: 'Hall A', position: [-5, 0.05, 0], fromPhase: 'pilot' },
-    { id: 'de2', buildingId: 'de-i40', wingId: 'systems', programKey: 'INDUSTRY40_TWIN_LAB', name: 'I4.0 lab', position: [0, 0.05, -5.5], fromPhase: 'semi' },
+    { id: 'de1b', buildingId: 'de-h1', wingId: 'mechatronics', programKey: 'MOBILE_HARDWARE_MECHATRONICS_CART', name: 'Mechatronics cart', position: [-3.5, 0.05, 1.5], fromPhase: 'pilot' },
+    { id: 'de1c', buildingId: 'de-h1', wingId: 'docs', programKey: 'TECHNICAL_DOCUMENTATION_WORKSTATION', name: 'Tech docs workstation', position: [-6.5, 0.05, -1.5], fromPhase: 'pilot' },
+    { id: 'de2', buildingId: 'de-i40', wingId: 'systems', programKey: 'INDUSTRY40_DIGITAL_TWIN_STUDIO', name: 'I4.0 / twin studio', position: [0, 0.05, -5.5], fromPhase: 'semi' },
+    { id: 'de2b', buildingId: 'de-i40', wingId: 'career', programKey: 'CAREER_APPRENTICESHIP_STUDIO', name: 'Apprenticeship portfolio', position: [1.5, 0.05, -4], fromPhase: 'semi' },
     { id: 'de3', buildingId: 'de-docs', wingId: 'docs', programKey: 'TECHNICAL_DOCUMENTATION_QUALITY_REVIEW_ROOM', name: 'Docs gallery', position: [5, 0.05, -5.5], fromPhase: 'full' },
   ),
   phaseMassing: {
-    pilot: { scale: [0.78, 0.72, 0.78] },
+    pilot: {
+      scale: [0.78, 0.72, 0.78],
+      extraModules: [
+        { kind: 'temporary_module', id: 'de-cart', position: [-3.5, 0, 1.5], size: [1.4, 1, 1.2], color: '#a8a29e', fromPhase: 'pilot', label: 'Mechatronics cart', trace: 'pilot mechatronics cart for build/document' },
+      ],
+    },
     semi: { scale: [0.94, 0.95, 0.94] },
     full: { scale: [1.06, 1.08, 1.06] },
   },
@@ -212,11 +250,19 @@ export const GAZA_SCENE: CampusSceneDefinition = {
   ),
   programZones: zones(
     { id: 'gza1', buildingId: 'gz-circle', wingId: 'circle', programKey: 'SAFE_TEMPORARY_LEARNING_CIRCLE', name: 'Learning circle', position: [0, 0.05, 0], fromPhase: 'pilot' },
+    { id: 'gza1b', buildingId: 'gz-learn', wingId: 'offline', programKey: 'OFFLINE_LEARNING_KIT', name: 'Offline learning kit', position: [0, 0.05, -3.2], fromPhase: 'pilot' },
     { id: 'gza2', buildingId: 'gz-repair', wingId: 'repair', programKey: 'MOBILE_DEVICE_REPAIR_KIT', name: 'Repair', position: [3.8, 0.05, -1], fromPhase: 'pilot' },
     { id: 'gza3', buildingId: 'gz-recon', wingId: 'docs', programKey: 'RECONSTRUCTION_DOCUMENTATION_STUDIO', name: 'Docs studio', position: [0, 0.05, 3.8], fromPhase: 'semi' },
+    { id: 'gza3b', buildingId: 'gz-quiet', wingId: 'quiet', programKey: 'PSYCHOSOCIAL_DECOMPRESSION_SPACE', name: 'Decompression / withdraw', position: [-3.5, 0.05, 2.5], fromPhase: 'semi' },
+    { id: 'gza3c', buildingId: 'gz-teacher', wingId: 'teacher', programKey: 'TEACHER_SUPPORT_STATION', name: 'Teacher support / Home', position: [-5.5, 0.05, 0], fromPhase: 'semi' },
   ),
   phaseMassing: {
-    pilot: { scale: [0.85, 0.8, 0.85] },
+    pilot: {
+      scale: [0.85, 0.8, 0.85],
+      extraModules: [
+        { kind: 'temporary_module', id: 'gz-offline-kit', position: [0, 0, -3.2], size: [1.2, 0.9, 1], color: '#e7d7b1', fromPhase: 'pilot', label: 'Offline kit', trace: 'pilot offline learning kit for shared-device resume' },
+      ],
+    },
     semi: { scale: [1, 0.95, 1] },
     full: {
       scale: [1.12, 1.05, 1.12],
@@ -251,15 +297,19 @@ export const GRAHAM_SCENE: CampusSceneDefinition = {
     { kind: 'wayfinding', id: 'gl-way', position: [2, 0, 1.5], size: [0.2, 1.2, 0.2], label: 'Twin ops', fromPhase: 'pilot' },
   ),
   programZones: zones(
+    { id: 'gl0', buildingId: 'gl-ops', wingId: 'classroom', programKey: 'FLEXIBLE_VIRTUAL_CLASSROOM', name: 'Virtual classroom', position: [0, 0.05, 0], fromPhase: 'pilot' },
     { id: 'gl1', buildingId: 'gl-climate', wingId: 'science', programKey: 'DATA_LAB', name: 'Data lab', position: [-4.5, 0.05, -1], fromPhase: 'pilot' },
+    { id: 'gl1b', buildingId: 'gl-ant', wingId: 'satcom', programKey: 'NETWORKING_SATCOM_DEMO_CART', name: 'NTN/satcom cart', position: [3.2, 0.05, -1.5], fromPhase: 'pilot' },
     { id: 'gl2', buildingId: 'gl-gis', wingId: 'sensing', programKey: 'GIS_REMOTE_SENSING_STUDIO', name: 'GIS/RS', position: [-4, 0.05, 2.5], fromPhase: 'semi' },
+    { id: 'gl2b', buildingId: 'gl-cyber', wingId: 'edu', programKey: 'PUBLIC_EDUCATION_STUDIO', name: 'Public education studio', position: [0, 0.05, -4], fromPhase: 'semi' },
     { id: 'gl3', buildingId: 'gl-cross', wingId: 'ops', programKey: 'CROSS_CAMPUS_OPERATIONS_ROOM', name: 'Ops room', position: [5.5, 0.05, -4.5], fromPhase: 'full' },
   ),
   phaseMassing: {
     pilot: {
       scale: [0.8, 0.75, 0.8],
       extraModules: [
-        { kind: 'temporary_module', id: 'gl-cart', position: [2.5, 0, 1], size: [1.4, 1, 1.1], color: '#cbd5e1', fromPhase: 'pilot', trace: 'mobile sensor cart (remote footprint)' },
+        { kind: 'temporary_module', id: 'gl-cart', position: [2.5, 0, 1], size: [1.4, 1, 1.1], color: '#cbd5e1', fromPhase: 'pilot', label: 'Sensor cart', trace: 'mobile sensor cart (remote footprint)' },
+        { kind: 'temporary_module', id: 'gl-satcom', position: [3.2, 0, -1.5], size: [1.3, 1, 1.1], color: '#94a3b8', fromPhase: 'pilot', label: 'Satcom cart', trace: 'pilot NTN/satcom demo cart for low-bw exercise' },
       ],
     },
     semi: { scale: [0.95, 0.95, 0.95] },
