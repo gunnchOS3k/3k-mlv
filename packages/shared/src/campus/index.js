@@ -13,6 +13,7 @@ export * from './kmsHeritageHonesty.js';
 export * from './nubukeHeritageHonesty.js';
 export * from './palestinianHeritageHonesty.js';
 export * from './polarHeritageHonesty.js';
+export * from './garyReferenceHeritageHonesty.js';
 export * from './geelongDesignBuildJourney.js';
 export * from './germanyApprenticeshipJourney.js';
 export * from './guyanaClimateGisJourney.js';

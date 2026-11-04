@@ -21,6 +21,10 @@ import {
   refusePalestinianFalseHeritageClaims,
 } from './palestinianHeritageHonesty.js';
 import { POLAR_HER_11_HONESTY, refusePolarFalseHeritageClaims } from './polarHeritageHonesty.js';
+import {
+  GARY_REF_HER_01_HONESTY,
+  refuseGaryReferenceFalseHeritageClaims,
+} from './garyReferenceHeritageHonesty.js';
 import { NUBUKE_HER_03_HONESTY, refuseNubukeFalseHeritageClaims } from './nubukeHeritageHonesty.js';
 import { specialistWaikeDeepLink } from './waikeContract.js';
 import { runGeelongDesignBuildPlayable } from './geelongDesignBuildJourney.js';
@@ -483,6 +487,77 @@ export function runPalestinianMuseumPlayableAcceptance({
     palestinian_museum_source_inspected: false,
     archive_source_inspected: false,
     plan_drawing_source_inspected: false,
+    metric_dimensions_known: false,
+    nav_only: false,
+    acceptance: PLAYABLE_ACCEPTANCE_NOTE,
+  };
+}
+
+/** IUNW Arts and Sciences Gary reference heritage slice; IU sources remain uninspected (HER-01). */
+export function runIunwArtsSciencesPlayableAcceptance({
+  learnerId = 'learner-a',
+  observation,
+  now = new Date().toISOString(),
+} = {}) {
+  const text = String(observation || '').trim();
+  if (text.length < 20) return { ok: false, reason: 'insufficient_observation' };
+  const honesty = refuseGaryReferenceFalseHeritageClaims(text);
+  if (!honesty.ok) return honesty;
+  const record = loadLocationRecord('loc.heritage.iunw_arts_sciences');
+  const label = sceneStateLabel(record);
+  const matched_views = [
+    {
+      id: 'heritage_place',
+      title: 'IUNW Arts and Sciences reference (not a WAIKE facility)',
+      source_ids: ['S-IU-TOUR', 'S-IU-PRIMARY', 'B-GARY'],
+      model_status: 'qualitative_topology',
+    },
+    {
+      id: 'tour_uninspected',
+      title: 'Matterport walkthrough gap (uninspected measurements)',
+      source_ids: ['S-IU-TOUR'],
+      model_status: 'source_uninspected',
+    },
+    {
+      id: 'brief_reference',
+      title: 'Gary brief reference (no WAIKE occupancy claim)',
+      source_ids: ['B-GARY'],
+      model_status: 'source_uninspected',
+    },
+  ];
+  const privateNode = createPrivateNode({
+    ownerId: learnerId,
+    name: 'IUNW Gary reference heritage observation',
+    mimeType: 'text/plain',
+    extra: {
+      id: `iunw-heritage-obs-${now}`,
+      location_id: record.location_id,
+      representation_state: label.representation_state,
+      observation: text,
+      gallery_zone: 'my_gallery',
+      gallery_file: true,
+      published: false,
+      accessible_equivalent: true,
+    },
+  });
+  return {
+    ok: true,
+    location_id: record.location_id,
+    scene_label: label,
+    matched_views,
+    evidence_drawer: {
+      unknowns_retained: record.claims.filter((c) => c.evidence_class === 'unknown').map((c) => c.claim_id),
+      conflicts: record.claims.flatMap((c) => c.known_conflicts || []),
+      omissions: record.known_omissions,
+    },
+    private_node: privateNode,
+    private_visibility: privateNode.visibility === VISIBILITY.PRIVATE,
+    not_waike_campus: true,
+    metric_accuracy_status: label.metric_accuracy_status,
+    her_01_honesty: GARY_REF_HER_01_HONESTY,
+    iu_tour_source_inspected: false,
+    iu_primary_source_inspected: false,
+    matterport_measurements_inspected: false,
     metric_dimensions_known: false,
     nav_only: false,
     acceptance: PLAYABLE_ACCEPTANCE_NOTE,

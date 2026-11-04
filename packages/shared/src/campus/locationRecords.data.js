@@ -2763,7 +2763,16 @@ export const LOCATION_RECORDS = {
       "rights": "not_assessed",
       "physical_validation": "not_assessed",
       "research_ethics": "not_assessed",
-      "owner_release": "not_granted"
+      "owner_release": "not_granted",
+      "fidelity_packet_honesty": {
+        "HER-01": {
+          "iu_tour_source_inspected": false,
+          "iu_primary_source_inspected": false,
+          "matterport_measurements_inspected": false,
+          "metric_dimensions_known": false,
+          "note": "S-IU-TOUR and S-IU-PRIMARY remain uninspected for room graph, capture date, and metric anchors; walkthrough measurements not inspected in fidelity review."
+        }
+      }
     },
     "source_records": [
       {

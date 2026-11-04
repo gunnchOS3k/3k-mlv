@@ -11,6 +11,7 @@ import {
   runFolkwangPlayableAcceptance,
   runPalestinianMuseumPlayableAcceptance,
   runPortLockroyPlayableAcceptance,
+  runIunwArtsSciencesPlayableAcceptance,
   runGhanaOfflinePlayable,
   runGazaPlayable,
   runGermanySpecialtyPlayable,
@@ -209,6 +210,21 @@ describe('playable acceptance — not navigation prototypes', () => {
     assert.equal(denied.reason, 'palestinian_heritage_honesty_required');
     assert.ok(
       ['palestinian_drawing_inspected', 'metric_dimensions_known', 'completed_construction', 'partnership', 'cultural_approval'].includes(
+        denied.forbidden_kind,
+      ),
+    );
+  });
+
+  it('Gary reference HER-01 refuses inspected Matterport, dimensions, construction, partnership, WAIKE occupancy, or cultural approval claims', () => {
+    const denied = runIunwArtsSciencesPlayableAcceptance({
+      learnerId: 'alice',
+      observation:
+        'We inspected the IUNW Matterport walkthrough and verified 800 m² footprint after construction complete with IUNW partnership and WAIKE operates at IU Northwest.',
+    });
+    assert.equal(denied.ok, false);
+    assert.equal(denied.reason, 'gary_reference_heritage_honesty_required');
+    assert.ok(
+      ['iu_source_inspected', 'metric_dimensions_known', 'completed_construction', 'partnership', 'waike_occupancy', 'cultural_approval'].includes(
         denied.forbidden_kind,
       ),
     );
