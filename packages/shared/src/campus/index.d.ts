@@ -185,6 +185,7 @@ export function runFolkwangPlayableAcceptance(opts?: { learnerId?: string; obser
 export function runPalestinianMuseumPlayableAcceptance(opts?: { learnerId?: string; observation?: string; now?: string }): Record<string, unknown>;
 export function runPortLockroyPlayableAcceptance(opts?: { learnerId?: string; observation?: string; now?: string }): Record<string, unknown>;
 export function runIunwArtsSciencesPlayableAcceptance(opts?: { learnerId?: string; observation?: string; now?: string }): Record<string, unknown>;
+export function runGeelongGalleryShellPlayableAcceptance(opts?: { learnerId?: string; observation?: string; now?: string }): Record<string, unknown>;
 export function runGhanaOfflinePlayable(opts?: { learnerId?: string }): Record<string, unknown>;
 export function runGazaPlayable(opts?: { learnerId?: string }): Record<string, unknown>;
 export function runGermanySpecialtyPlayable(opts?: { learnerId?: string }): Record<string, unknown>;

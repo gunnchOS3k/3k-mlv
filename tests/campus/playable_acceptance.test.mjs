@@ -11,6 +11,7 @@ import {
   runFolkwangPlayableAcceptance,
   runPalestinianMuseumPlayableAcceptance,
   runPortLockroyPlayableAcceptance,
+  runGeelongGalleryShellPlayableAcceptance,
   runIunwArtsSciencesPlayableAcceptance,
   runGhanaOfflinePlayable,
   runGazaPlayable,
@@ -242,6 +243,26 @@ describe('playable acceptance — not navigation prototypes', () => {
       ['iu_source_inspected', 'metric_dimensions_known', 'completed_construction', 'partnership', 'waike_occupancy', 'cultural_approval'].includes(
         denied.forbidden_kind,
       ),
+    );
+  });
+
+  it('Geelong HER-04 refuses inspected drawing, dimensions, construction, partnership, or cultural approval claims', () => {
+    const denied = runGeelongGalleryShellPlayableAcceptance({
+      learnerId: 'alice',
+      observation:
+        'We fully inspected the Geelong Gallery 360 virtual tour walkthrough and verified 180 m² building shell dimensions after construction complete with reuse approval obtained and local cultural sign-off.',
+    });
+    assert.equal(denied.ok, false);
+    assert.equal(denied.reason, 'geelong_heritage_honesty_required');
+    assert.ok(
+      [
+        'geelong_drawing_inspected',
+        'metric_dimensions_known',
+        'completed_construction',
+        'present_installation',
+        'reuse_approval',
+        'cultural_approval',
+      ].includes(denied.forbidden_kind),
     );
   });
 

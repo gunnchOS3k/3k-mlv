@@ -113,7 +113,15 @@
     "rights": "not_assessed",
     "physical_validation": "not_assessed",
     "research_ethics": "not_assessed",
-    "owner_release": "not_granted"
+    "owner_release": "not_granted",
+    "fidelity_packet_honesty": {
+      "HER-04": {
+        "geelong_tour_source_inspected": false,
+        "plan_drawing_source_inspected": false,
+        "metric_dimensions_known": false,
+        "note": "S-GEELONG-TOUR embedded walkthrough not fully inspected; metric shell dimensions unverified; present 2026 installation not established in claims; reuse approval not obtained."
+      }
+    }
   },
   "source_records": [
     {
