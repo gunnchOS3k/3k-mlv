@@ -9,6 +9,7 @@ import {
   runNubukePlayableAcceptance,
   runZollvereinKmsPlayableAcceptance,
   runFolkwangPlayableAcceptance,
+  runPalestinianMuseumPlayableAcceptance,
   runGhanaOfflinePlayable,
   runGazaPlayable,
   runGermanySpecialtyPlayable,
@@ -192,6 +193,21 @@ describe('playable acceptance — not navigation prototypes', () => {
     assert.equal(denied.reason, 'folkwang_heritage_honesty_required');
     assert.ok(
       ['folkwang_drawing_inspected', 'metric_dimensions_known', 'completed_construction', 'partnership', 'cultural_approval'].includes(
+        denied.forbidden_kind,
+      ),
+    );
+  });
+
+  it('Palestinian heritage HER-10 refuses inspected drawing, dimensions, construction, partnership, or cultural approval claims', () => {
+    const denied = runPalestinianMuseumPlayableAcceptance({
+      learnerId: 'alice',
+      observation:
+        'We inspected the Palestinian Museum archive source and verified 900 m² footprint after construction complete with Palestinian Museum partnership and cultural approval obtained.',
+    });
+    assert.equal(denied.ok, false);
+    assert.equal(denied.reason, 'palestinian_heritage_honesty_required');
+    assert.ok(
+      ['palestinian_drawing_inspected', 'metric_dimensions_known', 'completed_construction', 'partnership', 'cultural_approval'].includes(
         denied.forbidden_kind,
       ),
     );

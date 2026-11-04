@@ -16,6 +16,10 @@ import {
 import { loadLocationRecord, sceneStateLabel } from './locationRecords.js';
 import { FOLKWANG_HER_09_HONESTY, refuseFolkwangFalseHeritageClaims } from './folkwangHeritageHonesty.js';
 import { KMS_HER_08_HONESTY, refuseKmsFalseHeritageClaims } from './kmsHeritageHonesty.js';
+import {
+  PALESTINIAN_HER_10_HONESTY,
+  refusePalestinianFalseHeritageClaims,
+} from './palestinianHeritageHonesty.js';
 import { NUBUKE_HER_03_HONESTY, refuseNubukeFalseHeritageClaims } from './nubukeHeritageHonesty.js';
 import { specialistWaikeDeepLink } from './waikeContract.js';
 import { runGeelongDesignBuildPlayable } from './geelongDesignBuildJourney.js';
@@ -406,6 +410,77 @@ export function runFolkwangPlayableAcceptance({
     metric_accuracy_status: label.metric_accuracy_status,
     her_09_honesty: FOLKWANG_HER_09_HONESTY,
     folkwang_drawing_source_inspected: false,
+    plan_drawing_source_inspected: false,
+    metric_dimensions_known: false,
+    nav_only: false,
+    acceptance: PLAYABLE_ACCEPTANCE_NOTE,
+  };
+}
+
+/** Palestinian Museum heritage playable slice; museum/archive sources remain uninspected (HER-10). */
+export function runPalestinianMuseumPlayableAcceptance({
+  learnerId = 'learner-a',
+  observation,
+  now = new Date().toISOString(),
+} = {}) {
+  const text = String(observation || '').trim();
+  if (text.length < 20) return { ok: false, reason: 'insufficient_observation' };
+  const honesty = refusePalestinianFalseHeritageClaims(text);
+  if (!honesty.ok) return honesty;
+  const record = loadLocationRecord('loc.heritage.palestinian_museum');
+  const label = sceneStateLabel(record);
+  const matched_views = [
+    {
+      id: 'institution_scope',
+      title: 'External Birzeit institution reference (not Gaza floor plan)',
+      source_ids: ['S-PALESTINE-MUSEUM', 'S-PALESTINE-ARCHIVE'],
+      model_status: 'qualitative_topology',
+    },
+    {
+      id: 'archive_uninspected',
+      title: 'Archive item-level gap (uninspected source)',
+      source_ids: ['S-PALESTINE-ARCHIVE'],
+      model_status: 'source_uninspected',
+    },
+    {
+      id: 'museum_source_uninspected',
+      title: 'Museum source gap (uninspected for scale/tracing)',
+      source_ids: ['S-PALESTINE-MUSEUM'],
+      model_status: 'source_uninspected',
+    },
+  ];
+  const privateNode = createPrivateNode({
+    ownerId: learnerId,
+    name: 'Palestinian Museum learning observation',
+    mimeType: 'text/plain',
+    extra: {
+      id: `palestinian-museum-obs-${now}`,
+      location_id: record.location_id,
+      representation_state: label.representation_state,
+      observation: text,
+      gallery_zone: 'my_gallery',
+      gallery_file: true,
+      published: false,
+      accessible_equivalent: true,
+    },
+  });
+  return {
+    ok: true,
+    location_id: record.location_id,
+    scene_label: label,
+    matched_views,
+    evidence_drawer: {
+      unknowns_retained: record.claims.filter((c) => c.evidence_class === 'unknown').map((c) => c.claim_id),
+      conflicts: record.claims.flatMap((c) => c.known_conflicts || []),
+      omissions: record.known_omissions,
+    },
+    private_node: privateNode,
+    private_visibility: privateNode.visibility === VISIBILITY.PRIVATE,
+    not_waike_campus: true,
+    metric_accuracy_status: label.metric_accuracy_status,
+    her_10_honesty: PALESTINIAN_HER_10_HONESTY,
+    palestinian_museum_source_inspected: false,
+    archive_source_inspected: false,
     plan_drawing_source_inspected: false,
     metric_dimensions_known: false,
     nav_only: false,

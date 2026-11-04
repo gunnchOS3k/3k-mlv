@@ -115,7 +115,16 @@
     "rights": "not_assessed",
     "physical_validation": "not_assessed",
     "research_ethics": "not_assessed",
-    "owner_release": "not_granted"
+    "owner_release": "not_granted",
+    "fidelity_packet_honesty": {
+      "HER-10": {
+        "palestinian_museum_source_inspected": false,
+        "archive_source_inspected": false,
+        "plan_drawing_source_inspected": false,
+        "metric_dimensions_known": false,
+        "note": "S-PALESTINE-MUSEUM and S-PALESTINE-ARCHIVE sources remain uninspected for scale or item-level tracing; archive 429; no measured dimensions in claims."
+      }
+    }
   },
   "source_records": [
     {
