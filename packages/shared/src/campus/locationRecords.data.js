@@ -3279,7 +3279,16 @@ export const LOCATION_RECORDS = {
       "rights": "not_assessed",
       "physical_validation": "not_assessed",
       "research_ethics": "not_assessed",
-      "owner_release": "not_granted"
+      "owner_release": "not_granted",
+      "fidelity_packet_honesty": {
+        "HER-11": {
+          "ukaht_source_inspected": false,
+          "port_lockroy_source_inspected": false,
+          "plan_drawing_source_inspected": false,
+          "metric_dimensions_known": false,
+          "note": "S-UKAHT, S-UKAHT-PORT, and B-GRAHAM sources remain uninspected for scale or tracing; full interactive model not inspected; no measured dimensions in claims."
+        }
+      }
     },
     "source_records": [
       {

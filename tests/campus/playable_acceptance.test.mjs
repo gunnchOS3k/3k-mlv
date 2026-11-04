@@ -10,6 +10,7 @@ import {
   runZollvereinKmsPlayableAcceptance,
   runFolkwangPlayableAcceptance,
   runPalestinianMuseumPlayableAcceptance,
+  runPortLockroyPlayableAcceptance,
   runGhanaOfflinePlayable,
   runGazaPlayable,
   runGermanySpecialtyPlayable,
@@ -208,6 +209,21 @@ describe('playable acceptance — not navigation prototypes', () => {
     assert.equal(denied.reason, 'palestinian_heritage_honesty_required');
     assert.ok(
       ['palestinian_drawing_inspected', 'metric_dimensions_known', 'completed_construction', 'partnership', 'cultural_approval'].includes(
+        denied.forbidden_kind,
+      ),
+    );
+  });
+
+  it('Polar heritage HER-11 refuses inspected drawing, dimensions, construction, partnership, or cultural approval claims', () => {
+    const denied = runPortLockroyPlayableAcceptance({
+      learnerId: 'alice',
+      observation:
+        'We inspected the Port Lockroy UKAHT virtual visit source and verified 120 m² footprint after construction complete with UKAHT partnership and field authorization obtained.',
+    });
+    assert.equal(denied.ok, false);
+    assert.equal(denied.reason, 'polar_heritage_honesty_required');
+    assert.ok(
+      ['polar_drawing_inspected', 'metric_dimensions_known', 'completed_construction', 'partnership', 'cultural_approval'].includes(
         denied.forbidden_kind,
       ),
     );

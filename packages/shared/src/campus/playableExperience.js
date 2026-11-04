@@ -20,6 +20,7 @@ import {
   PALESTINIAN_HER_10_HONESTY,
   refusePalestinianFalseHeritageClaims,
 } from './palestinianHeritageHonesty.js';
+import { POLAR_HER_11_HONESTY, refusePolarFalseHeritageClaims } from './polarHeritageHonesty.js';
 import { NUBUKE_HER_03_HONESTY, refuseNubukeFalseHeritageClaims } from './nubukeHeritageHonesty.js';
 import { specialistWaikeDeepLink } from './waikeContract.js';
 import { runGeelongDesignBuildPlayable } from './geelongDesignBuildJourney.js';
@@ -481,6 +482,77 @@ export function runPalestinianMuseumPlayableAcceptance({
     her_10_honesty: PALESTINIAN_HER_10_HONESTY,
     palestinian_museum_source_inspected: false,
     archive_source_inspected: false,
+    plan_drawing_source_inspected: false,
+    metric_dimensions_known: false,
+    nav_only: false,
+    acceptance: PLAYABLE_ACCEPTANCE_NOTE,
+  };
+}
+
+/** Port Lockroy polar heritage playable slice; UKAHT sources remain uninspected (HER-11). */
+export function runPortLockroyPlayableAcceptance({
+  learnerId = 'learner-a',
+  observation,
+  now = new Date().toISOString(),
+} = {}) {
+  const text = String(observation || '').trim();
+  if (text.length < 20) return { ok: false, reason: 'insufficient_observation' };
+  const honesty = refusePolarFalseHeritageClaims(text);
+  if (!honesty.ok) return honesty;
+  const record = loadLocationRecord('loc.heritage.port_lockroy');
+  const label = sceneStateLabel(record);
+  const matched_views = [
+    {
+      id: 'heritage_place',
+      title: 'External polar heritage reference (not a WAIKE station)',
+      source_ids: ['S-UKAHT', 'S-UKAHT-PORT', 'B-GRAHAM'],
+      model_status: 'qualitative_topology',
+    },
+    {
+      id: 'tour_uninspected',
+      title: 'Virtual visit / interactive model gap (uninspected source)',
+      source_ids: ['S-UKAHT', 'S-UKAHT-PORT'],
+      model_status: 'source_uninspected',
+    },
+    {
+      id: 'brief_reference',
+      title: 'Graham Land brief reference (no scale tracing)',
+      source_ids: ['B-GRAHAM'],
+      model_status: 'source_uninspected',
+    },
+  ];
+  const privateNode = createPrivateNode({
+    ownerId: learnerId,
+    name: 'Port Lockroy polar heritage observation',
+    mimeType: 'text/plain',
+    extra: {
+      id: `port-lockroy-obs-${now}`,
+      location_id: record.location_id,
+      representation_state: label.representation_state,
+      observation: text,
+      gallery_zone: 'my_gallery',
+      gallery_file: true,
+      published: false,
+      accessible_equivalent: true,
+    },
+  });
+  return {
+    ok: true,
+    location_id: record.location_id,
+    scene_label: label,
+    matched_views,
+    evidence_drawer: {
+      unknowns_retained: record.claims.filter((c) => c.evidence_class === 'unknown').map((c) => c.claim_id),
+      conflicts: record.claims.flatMap((c) => c.known_conflicts || []),
+      omissions: record.known_omissions,
+    },
+    private_node: privateNode,
+    private_visibility: privateNode.visibility === VISIBILITY.PRIVATE,
+    not_waike_campus: true,
+    metric_accuracy_status: label.metric_accuracy_status,
+    her_11_honesty: POLAR_HER_11_HONESTY,
+    ukaht_source_inspected: false,
+    port_lockroy_source_inspected: false,
     plan_drawing_source_inspected: false,
     metric_dimensions_known: false,
     nav_only: false,
