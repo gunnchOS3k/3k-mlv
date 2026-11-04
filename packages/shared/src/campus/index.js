@@ -8,6 +8,7 @@ export * from './locationRecords.js';
 export * from './garyPilotJourney.js';
 export * from './specialtyJourneys.js';
 export * from './playableExperience.js';
+export * from './kmsHeritageHonesty.js';
 export * from './nubukeHeritageHonesty.js';
 export * from './geelongDesignBuildJourney.js';
 export * from './germanyApprenticeshipJourney.js';

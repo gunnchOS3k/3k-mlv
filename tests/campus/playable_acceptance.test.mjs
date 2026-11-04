@@ -7,6 +7,7 @@ import {
   runGaryPlayableAcceptance,
   loadGaryPilotSave,
   runNubukePlayableAcceptance,
+  runZollvereinKmsPlayableAcceptance,
   runGhanaOfflinePlayable,
   runGazaPlayable,
   runGermanySpecialtyPlayable,
@@ -149,6 +150,35 @@ describe('playable acceptance — not navigation prototypes', () => {
     assert.equal(denied.ok, false);
     assert.equal(denied.reason, 'nubuke_heritage_honesty_required');
     assert.ok(['measured_area', 'completed_construction', 'partnership', 'cultural_approval'].includes(denied.forbidden_kind));
+  });
+
+  it('Zollverein KMS HER-08 keeps KMS uninspected and unknowns retained', () => {
+    const result = runZollvereinKmsPlayableAcceptance({
+      learnerId: 'alice',
+      observation:
+        'Zollverein industrial landscape stays distinct from Folkwang; KMS interactive gap retained without claiming inspected drawings.',
+    });
+    assert.equal(result.ok, true, result.reason);
+    assert.equal(result.kms_drawing_source_inspected, false);
+    assert.equal(result.plan_drawing_source_inspected, false);
+    assert.equal(result.metric_dimensions_known, false);
+    assert.equal(result.her_08_honesty?.packet_requirement_id, 'HER-08');
+    assert.ok(result.evidence_drawer.omissions.some((o) => /kms\.ruhrmuseum/i.test(o)));
+  });
+
+  it('Zollverein KMS HER-08 refuses inspected KMS drawing, dimensions, construction, partnership, or cultural approval claims', () => {
+    const denied = runZollvereinKmsPlayableAcceptance({
+      learnerId: 'alice',
+      observation:
+        'We inspected the KMS drawing and verified 1200 m² footprint after construction complete with Ruhr museum partnership and cultural approval obtained.',
+    });
+    assert.equal(denied.ok, false);
+    assert.equal(denied.reason, 'kms_heritage_honesty_required');
+    assert.ok(
+      ['kms_drawing_inspected', 'metric_dimensions_known', 'completed_construction', 'partnership', 'cultural_approval'].includes(
+        denied.forbidden_kind,
+      ),
+    );
   });
 
   it('Ghana/Gaza/Germany/Guyana/Graham/Geelong specialty paths are playable', () => {

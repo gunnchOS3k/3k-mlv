@@ -3395,7 +3395,15 @@ export const LOCATION_RECORDS = {
       "rights": "not_assessed",
       "physical_validation": "not_assessed",
       "research_ethics": "not_assessed",
-      "owner_release": "not_granted"
+      "owner_release": "not_granted",
+      "fidelity_packet_honesty": {
+        "HER-08": {
+          "kms_drawing_source_inspected": false,
+          "plan_drawing_source_inspected": false,
+          "metric_dimensions_known": false,
+          "note": "S-RUHR-KMS (kms.ruhrmuseum.de) remains uninspected; no measured dimensions or traced KMS drawings in claims."
+        }
+      }
     },
     "source_records": [
       {
