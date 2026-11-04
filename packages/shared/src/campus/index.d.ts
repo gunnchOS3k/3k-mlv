@@ -181,6 +181,7 @@ export function playGaryPilotStep(journey: Record<string, unknown>, stepId: stri
 export function runGaryPlayableAcceptance(opts?: { learnerId?: string; nowBase?: string }): Record<string, unknown>;
 export function runNubukePlayableAcceptance(opts?: { learnerId?: string; observation?: string; now?: string }): Record<string, unknown>;
 export function runZollvereinKmsPlayableAcceptance(opts?: { learnerId?: string; observation?: string; now?: string }): Record<string, unknown>;
+export function runFolkwangPlayableAcceptance(opts?: { learnerId?: string; observation?: string; now?: string }): Record<string, unknown>;
 export function runGhanaOfflinePlayable(opts?: { learnerId?: string }): Record<string, unknown>;
 export function runGazaPlayable(opts?: { learnerId?: string }): Record<string, unknown>;
 export function runGermanySpecialtyPlayable(opts?: { learnerId?: string }): Record<string, unknown>;

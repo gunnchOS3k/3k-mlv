@@ -14,6 +14,7 @@ import {
   resumeGaryPilotJourney,
 } from './garyPilotJourney.js';
 import { loadLocationRecord, sceneStateLabel } from './locationRecords.js';
+import { FOLKWANG_HER_09_HONESTY, refuseFolkwangFalseHeritageClaims } from './folkwangHeritageHonesty.js';
 import { KMS_HER_08_HONESTY, refuseKmsFalseHeritageClaims } from './kmsHeritageHonesty.js';
 import { NUBUKE_HER_03_HONESTY, refuseNubukeFalseHeritageClaims } from './nubukeHeritageHonesty.js';
 import { specialistWaikeDeepLink } from './waikeContract.js';
@@ -335,6 +336,76 @@ export function runZollvereinKmsPlayableAcceptance({
     metric_accuracy_status: label.metric_accuracy_status,
     her_08_honesty: KMS_HER_08_HONESTY,
     kms_drawing_source_inspected: false,
+    plan_drawing_source_inspected: false,
+    metric_dimensions_known: false,
+    nav_only: false,
+    acceptance: PLAYABLE_ACCEPTANCE_NOTE,
+  };
+}
+
+/** Museum Folkwang heritage playable slice; ground/first plans remain uninspected (HER-09). */
+export function runFolkwangPlayableAcceptance({
+  learnerId = 'learner-a',
+  observation,
+  now = new Date().toISOString(),
+} = {}) {
+  const text = String(observation || '').trim();
+  if (text.length < 20) return { ok: false, reason: 'insufficient_observation' };
+  const honesty = refuseFolkwangFalseHeritageClaims(text);
+  if (!honesty.ok) return honesty;
+  const record = loadLocationRecord('loc.heritage.folkwang');
+  const label = sceneStateLabel(record);
+  const matched_views = [
+    {
+      id: 'courtyard_topology',
+      title: 'Courtyard / old-new ensemble',
+      source_ids: ['S-FOLKWANG-MUSEUM', 'S-FOLKWANG-ARCHITECT'],
+      model_status: 'qualitative_topology',
+    },
+    {
+      id: 'drawings_uninspected',
+      title: 'Ground/first plan gap (uninspected source)',
+      source_ids: ['S-FOLKWANG-MUSEUM', 'S-FOLKWANG-ARCHITECT'],
+      model_status: 'source_uninspected',
+    },
+    {
+      id: 'zollverein_distinct',
+      title: 'Distinct from Zollverein industrial landscape',
+      source_ids: record.source_ids,
+      model_status: 'qualitative_topology',
+    },
+  ];
+  const privateNode = createPrivateNode({
+    ownerId: learnerId,
+    name: 'Folkwang learning observation',
+    mimeType: 'text/plain',
+    extra: {
+      id: `folkwang-obs-${now}`,
+      location_id: record.location_id,
+      representation_state: label.representation_state,
+      observation: text,
+      gallery_zone: 'my_gallery',
+      gallery_file: true,
+      published: false,
+      accessible_equivalent: true,
+    },
+  });
+  return {
+    ok: true,
+    location_id: record.location_id,
+    scene_label: label,
+    matched_views,
+    evidence_drawer: {
+      unknowns_retained: record.claims.filter((c) => c.evidence_class === 'unknown').map((c) => c.claim_id),
+      conflicts: record.claims.flatMap((c) => c.known_conflicts || []),
+      omissions: record.known_omissions,
+    },
+    private_node: privateNode,
+    private_visibility: privateNode.visibility === VISIBILITY.PRIVATE,
+    not_waike_campus: true,
+    metric_accuracy_status: label.metric_accuracy_status,
+    her_09_honesty: FOLKWANG_HER_09_HONESTY,
+    folkwang_drawing_source_inspected: false,
     plan_drawing_source_inspected: false,
     metric_dimensions_known: false,
     nav_only: false,

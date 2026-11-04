@@ -2052,7 +2052,15 @@ export const LOCATION_RECORDS = {
       "rights": "not_assessed",
       "physical_validation": "not_assessed",
       "research_ethics": "not_assessed",
-      "owner_release": "not_granted"
+      "owner_release": "not_granted",
+      "fidelity_packet_honesty": {
+        "HER-09": {
+          "folkwang_drawing_source_inspected": false,
+          "plan_drawing_source_inspected": false,
+          "metric_dimensions_known": false,
+          "note": "S-FOLKWANG-MUSEUM and S-FOLKWANG-ARCHITECT sources remain uninspected for scale or tracing; no measured dimensions in claims."
+        }
+      }
     },
     "source_records": [
       {

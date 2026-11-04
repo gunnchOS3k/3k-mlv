@@ -8,6 +8,7 @@ import {
   loadGaryPilotSave,
   runNubukePlayableAcceptance,
   runZollvereinKmsPlayableAcceptance,
+  runFolkwangPlayableAcceptance,
   runGhanaOfflinePlayable,
   runGazaPlayable,
   runGermanySpecialtyPlayable,
@@ -176,6 +177,21 @@ describe('playable acceptance — not navigation prototypes', () => {
     assert.equal(denied.reason, 'kms_heritage_honesty_required');
     assert.ok(
       ['kms_drawing_inspected', 'metric_dimensions_known', 'completed_construction', 'partnership', 'cultural_approval'].includes(
+        denied.forbidden_kind,
+      ),
+    );
+  });
+
+  it('Folkwang HER-09 refuses inspected drawing, dimensions, construction, partnership, or cultural approval claims', () => {
+    const denied = runFolkwangPlayableAcceptance({
+      learnerId: 'alice',
+      observation:
+        'We inspected the Folkwang ground plan and verified 850 m² courtyard area after construction complete with Museum Folkwang partnership and cultural approval obtained.',
+    });
+    assert.equal(denied.ok, false);
+    assert.equal(denied.reason, 'folkwang_heritage_honesty_required');
+    assert.ok(
+      ['folkwang_drawing_inspected', 'metric_dimensions_known', 'completed_construction', 'partnership', 'cultural_approval'].includes(
         denied.forbidden_kind,
       ),
     );
