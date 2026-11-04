@@ -145,6 +145,21 @@ describe('playable acceptance — not navigation prototypes', () => {
     assert.equal(canReadNode({ actor: { id: 'bob' }, node: result.private_node }), false);
   });
 
+  it('Nubuke HER-02 refuses inspected architect topology, decorative finish match, or metric layout claims', () => {
+    const denied = runNubukePlayableAcceptance({
+      learnerId: 'alice',
+      observation:
+        'We inspected the Nubuke architect page and verified the raised gallery garden bungalow spatial relationship; decorative finish matches the foundation source and gallery layout dimensions are measured.',
+    });
+    assert.equal(denied.ok, false);
+    assert.equal(denied.reason, 'nubuke_heritage_honesty_required');
+    assert.ok(
+      ['topology_source_inspected', 'decorative_finish_source_matched', 'metric_topology_known'].includes(
+        denied.forbidden_kind,
+      ),
+    );
+  });
+
   it('Nubuke HER-03 refuses measured area, construction, partnership, or cultural approval claims', () => {
     const denied = runNubukePlayableAcceptance({
       learnerId: 'alice',

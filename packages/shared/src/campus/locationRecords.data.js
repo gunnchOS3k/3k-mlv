@@ -3000,6 +3000,12 @@ export const LOCATION_RECORDS = {
       "research_ethics": "not_assessed",
       "owner_release": "not_granted",
       "fidelity_packet_honesty": {
+        "HER-02": {
+          "architect_foundation_topology_sources_inspected": false,
+          "decorative_finish_source_matched": false,
+          "metric_topology_known": false,
+          "note": "S-NUBUKE-ARCHITECT and S-NUBUKE-FOUNDATION support qualitative gallery/garden/bungalow topology only; decorative finish and metric layout are not source-matched in this shift."
+        },
         "HER-03": {
           "plan_drawing_source_inspected": false,
           "metric_dimensions_known": false,

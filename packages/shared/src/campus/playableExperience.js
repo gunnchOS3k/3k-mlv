@@ -25,7 +25,11 @@ import {
   GARY_REF_HER_01_HONESTY,
   refuseGaryReferenceFalseHeritageClaims,
 } from './garyReferenceHeritageHonesty.js';
-import { NUBUKE_HER_03_HONESTY, refuseNubukeFalseHeritageClaims } from './nubukeHeritageHonesty.js';
+import {
+  NUBUKE_HER_02_HONESTY,
+  NUBUKE_HER_03_HONESTY,
+  refuseNubukeFalseHeritageClaims,
+} from './nubukeHeritageHonesty.js';
 import { specialistWaikeDeepLink } from './waikeContract.js';
 import { runGeelongDesignBuildPlayable } from './geelongDesignBuildJourney.js';
 import { runGermanyApprenticeshipPlayable } from './germanyApprenticeshipJourney.js';
@@ -274,7 +278,11 @@ export function runNubukePlayableAcceptance({ learnerId = 'learner-a', observati
     private_visibility: privateNode.visibility === VISIBILITY.PRIVATE,
     not_waike_campus: true,
     metric_accuracy_status: label.metric_accuracy_status,
+    her_02_honesty: NUBUKE_HER_02_HONESTY,
     her_03_honesty: NUBUKE_HER_03_HONESTY,
+    architect_foundation_topology_sources_inspected: false,
+    decorative_finish_source_matched: false,
+    metric_topology_known: false,
     plan_drawing_source_inspected: false,
     metric_dimensions_known: false,
     nav_only: false,
