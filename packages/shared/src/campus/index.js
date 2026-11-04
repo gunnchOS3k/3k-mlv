@@ -14,6 +14,7 @@ export * from './nubukeHeritageHonesty.js';
 export * from './palestinianHeritageHonesty.js';
 export * from './polarHeritageHonesty.js';
 export * from './garyReferenceHeritageHonesty.js';
+export * from './geelongRoneHeritageHonesty.js';
 export * from './geelongDesignBuildJourney.js';
 export * from './germanyApprenticeshipJourney.js';
 export * from './guyanaClimateGisJourney.js';

@@ -31,6 +31,10 @@ import {
   refuseNubukeFalseHeritageClaims,
 } from './nubukeHeritageHonesty.js';
 import { GEELONG_HER_04_HONESTY, refuseGeelongFalseHeritageClaims } from './geelongHeritageHonesty.js';
+import {
+  GEELONG_HER_05_HONESTY,
+  refuseGeelongRoneFalseHeritageClaims,
+} from './geelongRoneHeritageHonesty.js';
 import { specialistWaikeDeepLink } from './waikeContract.js';
 import { runGeelongDesignBuildPlayable } from './geelongDesignBuildJourney.js';
 import { runGermanyApprenticeshipPlayable } from './germanyApprenticeshipJourney.js';
@@ -637,6 +641,76 @@ export function runGeelongGalleryShellPlayableAcceptance({
     her_04_honesty: GEELONG_HER_04_HONESTY,
     geelong_tour_source_inspected: false,
     plan_drawing_source_inspected: false,
+    metric_dimensions_known: false,
+    nav_only: false,
+    acceptance: PLAYABLE_ACCEPTANCE_NOTE,
+  };
+}
+
+/** Geelong RONE 2021 exhibition heritage playable slice; embedded tour not walked (HER-05). */
+export function runGeelongRone2021PlayableAcceptance({
+  learnerId = 'learner-a',
+  observation,
+  now = new Date().toISOString(),
+} = {}) {
+  const text = String(observation || '').trim();
+  if (text.length < 20) return { ok: false, reason: 'insufficient_observation' };
+  const honesty = refuseGeelongRoneFalseHeritageClaims(text);
+  if (!honesty.ok) return honesty;
+  const record = loadLocationRecord('loc.heritage.geelong_rone_2021');
+  const label = sceneStateLabel(record);
+  const matched_views = [
+    {
+      id: 'exhibition_2021',
+      title: '2021 RONE exhibition layer (documented historical reconstruction)',
+      source_ids: ['S-GEELONG-RONE'],
+      model_status: 'qualitative_topology',
+    },
+    {
+      id: 'tour_unwalked',
+      title: 'Embedded tour gap (not walked)',
+      source_ids: ['S-GEELONG-TOUR'],
+      model_status: 'source_uninspected',
+    },
+    {
+      id: 'rights_unresolved',
+      title: 'Art/dressing/soundtrack permissions unresolved',
+      source_ids: record.source_ids,
+      model_status: 'rights_unassessed',
+    },
+  ];
+  const privateNode = createPrivateNode({
+    ownerId: learnerId,
+    name: 'Geelong RONE 2021 heritage observation',
+    mimeType: 'text/plain',
+    extra: {
+      id: `geelong-rone-obs-${now}`,
+      location_id: record.location_id,
+      representation_state: label.representation_state,
+      observation: text,
+      gallery_zone: 'my_gallery',
+      gallery_file: true,
+      published: false,
+      accessible_equivalent: true,
+    },
+  });
+  return {
+    ok: true,
+    location_id: record.location_id,
+    scene_label: label,
+    matched_views,
+    evidence_drawer: {
+      unknowns_retained: record.claims.filter((c) => c.evidence_class === 'unknown').map((c) => c.claim_id),
+      conflicts: record.claims.flatMap((c) => c.known_conflicts || []),
+      omissions: record.known_omissions,
+    },
+    private_node: privateNode,
+    private_visibility: privateNode.visibility === VISIBILITY.PRIVATE,
+    not_waike_campus: true,
+    metric_accuracy_status: label.metric_accuracy_status,
+    her_05_honesty: GEELONG_HER_05_HONESTY,
+    geelong_rone_source_inspected: false,
+    embedded_tour_walked: false,
     metric_dimensions_known: false,
     nav_only: false,
     acceptance: PLAYABLE_ACCEPTANCE_NOTE,

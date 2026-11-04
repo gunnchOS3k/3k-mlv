@@ -12,6 +12,7 @@ import {
   runPalestinianMuseumPlayableAcceptance,
   runPortLockroyPlayableAcceptance,
   runGeelongGalleryShellPlayableAcceptance,
+  runGeelongRone2021PlayableAcceptance,
   runIunwArtsSciencesPlayableAcceptance,
   runGhanaOfflinePlayable,
   runGazaPlayable,
@@ -261,6 +262,26 @@ describe('playable acceptance — not navigation prototypes', () => {
         'completed_construction',
         'present_installation',
         'reuse_approval',
+        'cultural_approval',
+      ].includes(denied.forbidden_kind),
+    );
+  });
+
+  it('Geelong HER-05 refuses inspected RONE installation, walked embedded tour, measured dimensions, permanent 2026 installation, art/dressing/audio rights, or cultural approval claims', () => {
+    const denied = runGeelongRone2021PlayableAcceptance({
+      learnerId: 'alice',
+      observation:
+        'We inspected the Geelong RONE exhibition installation and fully walked the embedded tour, verifying 120 m² dimensions; RONE is a permanent 2026 installation with art and soundtrack rights obtained and local cultural sign-off.',
+    });
+    assert.equal(denied.ok, false);
+    assert.equal(denied.reason, 'geelong_rone_heritage_honesty_required');
+    assert.ok(
+      [
+        'rone_source_inspected',
+        'embedded_tour_walked',
+        'metric_dimensions_known',
+        'permanent_2026_installation',
+        'art_dressing_audio_rights',
         'cultural_approval',
       ].includes(denied.forbidden_kind),
     );

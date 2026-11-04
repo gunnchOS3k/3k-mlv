@@ -2453,7 +2453,15 @@ export const LOCATION_RECORDS = {
       "rights": "not_assessed",
       "physical_validation": "not_assessed",
       "research_ethics": "not_assessed",
-      "owner_release": "not_granted"
+      "owner_release": "not_granted",
+      "fidelity_packet_honesty": {
+        "HER-05": {
+          "geelong_rone_source_inspected": false,
+          "embedded_tour_walked": false,
+          "metric_dimensions_known": false,
+          "note": "2021 exhibition layer only; embedded tour not walked; metric accuracy unverified; art/dressing/soundtrack permissions unresolved; not a permanent 2026 installation."
+        }
+      }
     },
     "source_records": [
       {
